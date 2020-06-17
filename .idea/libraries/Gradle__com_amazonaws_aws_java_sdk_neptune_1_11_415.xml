@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.amazonaws:aws-java-sdk-neptune:1.11.415">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-neptune/1.11.415/5edbd4210b993e9db0707b5316150dcbc0c4d4e2/aws-java-sdk-neptune-1.11.415.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-neptune/1.11.415/82a27bfdc81fa2096716b6dae18ab0c60ccac7c9/aws-java-sdk-neptune-1.11.415-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

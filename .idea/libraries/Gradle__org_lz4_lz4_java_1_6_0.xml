@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lz4:lz4-java:1.6.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.6.0/b49e2b422a5b7145ba7aa0c3f60c13664a5c5acf/lz4-java-1.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.6.0/f70c1919da33149ca0dc1a3ab7bd99e332d7830d/lz4-java-1.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

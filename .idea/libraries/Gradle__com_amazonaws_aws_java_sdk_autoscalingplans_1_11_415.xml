@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.amazonaws:aws-java-sdk-autoscalingplans:1.11.415">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-autoscalingplans/1.11.415/8c5a89345a2e9abcf5bdb1eb6432487922aff1f7/aws-java-sdk-autoscalingplans-1.11.415.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-autoscalingplans/1.11.415/9a565e0dbfad55195919f4d54dbfddd70a4a3f75/aws-java-sdk-autoscalingplans-1.11.415-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

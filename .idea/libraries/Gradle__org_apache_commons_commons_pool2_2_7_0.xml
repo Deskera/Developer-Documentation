@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.commons:commons-pool2:2.7.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.7.0/7f9ccfaaf76b0ba8b4200480971a170364a9c361/commons-pool2-2.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.7.0/d4eabcd9a2ddb810f0417b0e3c67c3dbb5734ad0/commons-pool2-2.7.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

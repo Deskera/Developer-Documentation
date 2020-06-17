@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.amazonaws:aws-java-sdk-personalizeruntime:1.11.660">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-personalizeruntime/1.11.660/41e145453c12e7ac5f83b150d778e9d60eabcd5a/aws-java-sdk-personalizeruntime-1.11.660.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-personalizeruntime/1.11.660/a029696a1d3eb4b40189c7c8515cd1850894d163/aws-java-sdk-personalizeruntime-1.11.660-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
