@@ -20,7 +20,7 @@ npm run start
 ```
 yarn run start
 ```
-After successfully compliing, a browser window will open at http://localhost:3000. 
+After successfully compiling, a browser window will open at http://localhost:3000. 
 
 ### Problems or Queries
 Ask for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/deskera), on our [GitHub](https://github.com/deskera) repository or [Twitter](https://twitter.com/deskera).

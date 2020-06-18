@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: org.springframework.cloud:spring-cloud-starter-config:2.2.0.RELEASE">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-starter-config/2.2.0.RELEASE/8b02e67fcc379dd6a6d3892da4557a3a342982c0/spring-cloud-starter-config-2.2.0.RELEASE.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
