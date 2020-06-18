@@ -8,41 +8,33 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: <>Easy to Use</>,
+    title: <>Books Docs</>,
     imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        API documentation used in Deskera Books. <br/>
+        Deskera Books, formerly Deskera ERP, is a cloud-based enterprise resource planning (ERP) solution which covers purchasing, sales, stock & inventory, customer management, vendor management, billing, financial reporting, and more.
       </>
     ),
+    link: 'docs/',
   },
   {
-    title: <>Focus on What Matters</>,
+    title: <>CRM Docs</>,
     imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        API documentation for Customer Relationship Management (CRM).<br/>
+        CRM helps to manage and grow your customer base with ease.<br/>
       </>
     ),
-  },
-  {
-    title: <>Powered by React</>,
-    imageUrl: 'img/undraw_docusaurus_react.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    link: 'docs/crm/new',
   },
 ];
 
-function Feature({imageUrl, title, description}) {
+function Feature({imageUrl, title, description,link}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={classnames('col col--4', styles.feature)}>
+    <div className={classnames('col col--6', styles.feature)}>
       {imgUrl && (
         <div className="text--center">
           <img className={styles.featureImage} src={imgUrl} alt={title} />
@@ -50,6 +42,9 @@ function Feature({imageUrl, title, description}) {
       )}
       <h3>{title}</h3>
       <p>{description}</p>
+      <Link to={useBaseUrl(link)} className='doc_link'>
+        <u>Get started</u>
+      </Link>
     </div>
   );
 }
@@ -61,18 +56,26 @@ function Home() {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
-      <header className={classnames('hero hero--primary', styles.heroBanner)}>
+      <header className={classnames('hero hero--primary header_colour', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
             <Link
               className={classnames(
-                'button button--outline button--secondary button--lg',
+                'button button--outline button--secondary button--lg headerBtn',
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/')}>
               Get Started
+            </Link>
+            <Link
+              className={classnames(
+                'button button--outline button--secondary button--lg headerBtn',
+                styles.getStarted,
+              )}
+              to={'https://github.com/deskera'}>
+              View Code
             </Link>
           </div>
         </div>

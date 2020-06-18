@@ -21,8 +21,7 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs-crm/',
-          activeBasePath: 'docs-crm',
+          to: 'docs/crm/started',
           label: 'CRM Docs',
           position: 'left',
         },

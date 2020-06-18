@@ -381,7 +381,7 @@ https://bifrost.deskera.com/v1/quotations
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/quotations" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"attachments\": [ \"string\" ], \"backOrder\": true, \"billTo\": { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" }, \"contact\": { \"address\": \"string\", \"name\": \"string\" }, \"contactCode\": \"C-0001\", \"contactDto\": { \"attentionTo\": \"Peter Parker\", \"billingAddress\": [ { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" } ], \"businessUnit\": \"CAA01 - Cvl Avtn Authrty of Singapore\", \"currencyCode\": \"SGD\", \"customField\": { \"field1\": \"value1\", \"field2\": \"value2\" }, \"documentSequenceCode\": \"C-0000001\", \"emailId\": \"myinfo@domain.com\", \"invoices\": { \"additionalProp1\": [ { \"currency\": \"string\", \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"exchangeRate\": 0, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"purchaseOrderRefNo\": \"CPO001\", \"supplierInvoiceNo\": \"CSI001\", \"taxAmount\": 1, \"totalAmount\": 46, \"totalAmountInBaseCurrency\": 46, \"type\": \"sale_invoice\" } ], \"additionalProp2\": [ { \"currency\": \"string\", \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"exchangeRate\": 0, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"purchaseOrderRefNo\": \"CPO001\", \"supplierInvoiceNo\": \"CSI001\", \"taxAmount\": 1, \"totalAmount\": 46, \"totalAmountInBaseCurrency\": 46, \"type\": \"sale_invoice\" } ], \"additionalProp3\": [ { \"currency\": \"string\", \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"exchangeRate\": 0, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"purchaseOrderRefNo\": \"CPO001\", \"supplierInvoiceNo\": \"CSI001\", \"taxAmount\": 1, \"totalAmount\": 46, \"totalAmountInBaseCurrency\": 46, \"type\": \"sale_invoice\" } ] }, \"name\": \"Sam\", \"payableAccountCode\": \"AC002\", \"paymentTermCode\": \"Net 0\", \"peppolId\": \"u000:11::11293\", \"receivableAccountCode\": \"AC001\", \"sequenceFormat\": 1, \"shippingAddress\": [ { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" } ], \"singaporeGovt\": true, \"taxExempted\": true, \"taxExemptionNo\": \"234s-few3-2422\", \"taxExemptionReason\": \"Resale, Federal Agency\", \"taxNumber\": 123456, \"uen\": \"DHJEUK\" }, \"currency\": \"SGD\", \"customField\": [ { \"label\": \"Label\", \"module\": \"string\", \"value\": \"XYZ\" } ], \"deleted\": false, \"documentDate\": \"27-10-2019\", \"documentSequenceCode\": \"0000001\", \"draft\": false, \"exchangeRate\": 0.01891562, \"fulfillmentDate\": \"28-10-2019\", \"fulfillmentOn\": \"28-10-2019\", \"fulfillmentStatus\": \"UNFULFILLED\", \"fulfillmentType\": \"PICK_PACK_SHIP\", \"linkedDocuments\": [ { \"documentCode\": \"QO-0000001\", \"documentSequenceCode\": \"0000001\", \"documentType\": \"QUOTATION\" } ], \"memo\": \"Sales quotation\", \"quotationItemDtoList\": [ { \"availableQuantity\": 3, \"customField\": [ { \"label\": \"Label\", \"module\": \"string\", \"value\": \"XYZ\" } ], \"discount\": 2, \"discountInPercent\": true, \"documentSequenceCode\": \"P-0000001\", \"product\": { \"active\": true, \"barcode\": 2365234, \"bomAddCostConfiguration\": [ { \"label\": \"Labour charges\", \"price\": 10.5 } ], \"bomProductsConfiguration\": [ { \"itemId\": 1234, \"itemName\": \"Apple\", \"quantity\": 10.5 } ], \"categoryCode\": \"AB0001\", \"categoryDesc\": \"Medical Equipment\", \"customField\": { \"field1\": \"value1\", \"field2\": \"value2\" }, \"deleted\": true, \"description\": \"Description\", \"documentSequenceCode\": \"P-0000001\", \"id\": 1234, \"images\": [ \"string\" ], \"inventory\": { \"availableQuantity\": 100, \"costOfGoodsSoldAccountCode\": \"A-10231\", \"inventoryAccountCode\": \"A-10232\", \"inventoryAccountName\": \"Inventory Account\", \"openingQuantity\": 10, \"openingValuation\": 100.4, \"stockAdjustmentAccountCode\": \"A-10234\", \"warehouseCode\": \"WH-00001\" }, \"manufacturingCostAccountCode\": \"AC-0000012\", \"name\": \"Apple\", \"productId\": \"P000011\", \"purchaseAccountCode\": \"A-0012\", \"purchasePrice\": 123.33, \"purchasePriceTaxInclusive\": true, \"purchaseReturnAccountCode\": \"A-0014\", \"purchaseTaxCode\": \"T-001\", \"reorderEnabled\": true, \"reorderLevel\": 100, \"salesAccountCode\": \"A-0013\", \"salesPrice\": 120, \"salesPriceTaxInclusive\": false, \"salesReturnAccountCode\": \"A-0015\", \"salesTaxCode\": \"T-002\", \"sequenceFormat\": 1, \"stockUom\": 2, \"taxable\": true, \"type\": \"TRACKED\" }, \"productCode\": \"PC-001\", \"productDescription\": \"Red pen\", \"productName\": \"Ball pen\", \"productOrder\": 1, \"productQuantity\": 2.5, \"tax\": { \"accountCode\": \"AC-001\", \"code\": \"TC-001\", \"deleted\": false, \"description\": \"sales Tax for SG\", \"name\": \"SGST\", \"percent\": 7, \"status\": \"active\", \"taxCode\": \"TC-001\", \"type\": \"SALES\" }, \"taxAmount\": 0.3, \"taxCode\": \"TX-003\", \"taxName\": \"GST(7%)\", \"type\": \"TRACKED\", \"unitPrice\": 10 } ], \"sequenceFormat\": 1, \"shipByDate\": \"25-10-2019\", \"shipFrom\": { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" }, \"shipTo\": { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" }, \"status\": \"OPEN\", \"tenantId\": 123, \"unitPriceGstInclusive\": true, \"validTillDate\": \"29-10-2019\", \"warehouseCode\": \"WH-000001\"}"
+curl -X POST "https://bifrost.deskera.com/v1/quotations" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"contactCode\": \"C-0000001\", \"currency\": \"SGD\", \"currencyCode\": \"SGD\", \"memo\": \"Test Quotation memo.\", \"status\": \"OPEN\", \"unitPriceGstInclusive\": false, \"sequenceFormat\": \"5eeb4be995ec493bcc40040f\", \"documentType\": \"QUOTATION\", \"exchangeRate\": 1, \"previousExchangeRate\": 1, \"shipFrom\": { \"address1\": \"204 E Chestnut St\", \"city\": \"Independence\", \"state\": \"KS\", \"country\": null, \"postalCode\": \"67301\", \"preferred\": true }, \"shipTo\": { \"address1\": \"204 E Chestnut St\", \"city\": \"Louisville\", \"state\": \"KY\", \"country\": \"US\", \"postalCode\": \"40202\", \"preferred\": true }, \"billTo\": { \"address1\": \"204 E Chestnut St\", \"city\": \"Louisville\", \"state\": \"KY\", \"country\": \"US\", \"postalCode\": \"40202\", \"preferred\": true }, \"contact\": { \"id\": 120226, \"code\": \"C-0000001\", \"documentSequenceCode\": \"C-0000001\", \"sequenceFormat\": \"5eeb3ede95ec493bcc4003ff\", \"name\": \"James Smith\", \"receivableAccountCode\": \"AC-0000003\", \"payableAccountCode\": \"AC-0000011\", \"currencyCode\": \"SGD\", \"paymentTermCode\": \"4\", \"billingAddress\": [ { \"city\": \"Louisville\", \"state\": \"KY\", \"country\": \"US\", \"address1\": \"204 E Chestnut St\", \"address2\": null, \"preferred\": true, \"postalCode\": \"40202\" } ], \"shippingAddress\": [ { \"city\": \"Louisville\", \"state\": \"KY\", \"country\": \"US\", \"address1\": \"204 E Chestnut St\", \"address2\": null, \"preferred\": true, \"postalCode\": \"40202\" } ], \"status\": \"ACTIVE\", \"customer\": false, \"vendor\": true, \"deleted\": false, \"tenantId\": 38272, \"theyOweYou\": null, \"youOweThem\": null, \"totalNetAmount\": null, \"totalBillAmount\": null, \"invoices\": null, \"customField\": null, \"emailId\": \"james.smith@getnada.com\", \"errorMessage\": null, \"avalaraCustomerCode\": \"b123e677-d80a-484c-a700-b63e11e8f7dc\", \"uen\": \"79787978\", \"taxNumber\": \"123456780\", \"taxExempted\": null, \"taxExemptionNo\": null, \"taxExemptionReason\": null, \"peppolId\": null, \"singaporeGovt\": null, \"businessUnit\": \"\", \"attentionTo\": null, \"address\": \"204 E Chestnut St,Louisville,KY,US,40202\" }, \"documentDate\": \"18-06-2020\", \"validTillDate\": \"18-07-2020\", \"fulfillmentDate\": \"18-06-2020\", \"totalAmount\": 0, \"totalAmountInBaseCurrency\": 0, \"dueAmount\": 0, \"attachmentIds\": null, \"supportedFeatures\": [ ], \"items\": [ { \"igstAmount\": 0, \"cgstAmount\": 0, \"sgstAmount\": 0, \"cessAmount\": 0, \"gstType\": null, \"hsnOrSacCode\": null, \"taxPreference\": null, \"taxExemptionReason\": null, \"igstRate\": null, \"cgstRate\": null, \"sgstRate\": null, \"cessRule\": null, \"exciseApplicable\": false, \"exciseType\": null, \"exciseRate\": null, \"exciseAmount\": 0, \"id\": null, \"discount\": null, \"discountInPercent\": false, \"productCode\": \"P-0000001\", \"product\": { \"name\": \"Demo Product\", \"type\": \"TRACKED\", \"barcode\": \"123123132\", \"description\": \"Demo Product Description\", \"purchasePrice\": 100, \"salesPrice\": 120, \"purchaseAccountCode\": \"AC-0000032\", \"salesAccountCode\": \"AC-0000023\", \"purchaseReturnAccountCode\": null, \"salesReturnAccountCode\": null, \"manufacturingCostAccountCode\": \"AC-0000063\", \"purchaseTaxCode\": \"TX-0000011\", \"salesTaxCode\": \"TX-0000001\", \"purchasePriceTaxInclusive\": true, \"salesPriceTaxInclusive\": true, \"stockUom\": 2, \"images\": [ null ], \"inventory\": { \"openingQuantity\": 10, \"openingValuation\": 1000, \"availableQuantity\": 11, \"costOfGoodsSoldAccountCode\": \"AC-0000030\", \"inventoryAccountCode\": \"AC-0000004\", \"stockAdjustmentAccountCode\": \"AC-0000045\", \"inventoryAccountName\": \"Inventory\", \"warehouseCode\": \"WH-0000001\" }, \"categoryCode\": null, \"categoryDesc\": null, \"taxable\": true, \"customField\": null, \"reorderEnabled\": false, \"reorderLevel\": null, \"documentSequenceCode\": \"P-0000001\", \"sequenceFormat\": \"5eeb3cb495ec493bcc4003e5\", \"errorMessage\": null, \"id\": 58538, \"productId\": \"P-0000001\", \"active\": true, \"deleted\": false, \"bomProductsConfiguration\": [ ], \"bomAddCostConfiguration\": [ ], \"availableQuantity\": 11 }, \"productDescription\": \"Demo Product Description\", \"productName\": \"Demo Product\", \"productQuantity\": 1, \"availableQuantity\": 11, \"taxAmountBuffer\": 0, \"taxCode\": \"TX-0000001\", \"taxName\": \"SR (7%)\", \"tax\": { \"id\": 198094, \"name\": \"SR (7%)\", \"taxCode\": \"SR (7%)\", \"accountCode\": \"AC-0000021\", \"accountName\": \"GST\", \"type\": \"SALES\", \"description\": \"Local supply of goods and services.\", \"percent\": 7, \"code\": \"TX-0000001\", \"status\": \"active\", \"deleted\": false, \"tenantId\": 38272, \"category\": \"SYSTEM\" }, \"unitPrice\": 120, \"currency\": null, \"totalAmount\": 128.4, \"taxSystem\": \"SG\", \"type\": \"TRACKED\", \"unitPriceGstInclusive\": false } ], \"fulfillmentStatus\": \"UNFULFILLED\", \"backOrder\": false, \"quotationItemDtoList\": [ { \"igstAmount\": 0, \"cgstAmount\": 0, \"sgstAmount\": 0, \"cessAmount\": 0, \"gstType\": null, \"hsnOrSacCode\": null, \"taxPreference\": null, \"taxExemptionReason\": null, \"igstRate\": null, \"cgstRate\": null, \"sgstRate\": null, \"cessRule\": null, \"exciseApplicable\": false, \"exciseType\": null, \"exciseRate\": null, \"exciseAmount\": 0, \"id\": null, \"discount\": null, \"discountInPercent\": false, \"productCode\": \"P-0000001\", \"product\": { \"name\": \"Demo Product\", \"type\": \"TRACKED\", \"barcode\": \"123123132\", \"description\": \"Demo Product Description\", \"purchasePrice\": 100, \"salesPrice\": 120, \"purchaseAccountCode\": \"AC-0000032\", \"salesAccountCode\": \"AC-0000023\", \"purchaseReturnAccountCode\": null, \"salesReturnAccountCode\": null, \"manufacturingCostAccountCode\": \"AC-0000063\", \"purchaseTaxCode\": \"TX-0000011\", \"salesTaxCode\": \"TX-0000001\", \"purchasePriceTaxInclusive\": true, \"salesPriceTaxInclusive\": true, \"stockUom\": 2, \"images\": [ null ], \"inventory\": { \"openingQuantity\": 10, \"openingValuation\": 1000, \"availableQuantity\": 11, \"costOfGoodsSoldAccountCode\": \"AC-0000030\", \"inventoryAccountCode\": \"AC-0000004\", \"stockAdjustmentAccountCode\": \"AC-0000045\", \"inventoryAccountName\": \"Inventory\", \"warehouseCode\": \"WH-0000001\" }, \"categoryCode\": null, \"categoryDesc\": null, \"taxable\": true, \"customField\": null, \"reorderEnabled\": false, \"reorderLevel\": null, \"documentSequenceCode\": \"P-0000001\", \"sequenceFormat\": \"5eeb3cb495ec493bcc4003e5\", \"errorMessage\": null, \"id\": 58538, \"productId\": \"P-0000001\", \"active\": true, \"deleted\": false, \"bomProductsConfiguration\": [ ], \"bomAddCostConfiguration\": [ ], \"availableQuantity\": 11 }, \"productDescription\": \"Demo Product Description\", \"productName\": \"Demo Product\", \"productQuantity\": 1, \"availableQuantity\": 11, \"taxAmountBuffer\": 0, \"taxCode\": \"TX-0000001\", \"taxName\": \"SR (7%)\", \"tax\": { \"id\": 198094, \"name\": \"SR (7%)\", \"taxCode\": \"SR (7%)\", \"accountCode\": \"AC-0000021\", \"accountName\": \"GST\", \"type\": \"SALES\", \"description\": \"Local supply of goods and services.\", \"percent\": 7, \"code\": \"TX-0000001\", \"status\": \"active\", \"deleted\": false, \"tenantId\": 38272, \"category\": \"SYSTEM\" }, \"unitPrice\": 120, \"currency\": null, \"totalAmount\": 128.4, \"taxSystem\": \"SG\", \"type\": \"TRACKED\", \"unitPriceGstInclusive\": false, \"taxAmount\": 8.4 } ]}"
 ```
 
 ##### Parameters
@@ -393,546 +393,406 @@ curl -X POST "https://bifrost.deskera.com/v1/quotations" -H "accept: application
 ##### Sample Request
 ```java
 {
-  "attachments": [
-    "string"
-  ],
-  "backOrder": true,
-  "billTo": {
-    "address1": "218, Robinson Road",
-    "address2": "Downtown",
-    "city": "C001",
-    "country": "C001",
-    "postalCode": 123456,
-    "preferred": true,
-    "state": "CS001"
-  },
-  "contact": {
-    "address": "string",
-    "name": "Paul"
-  },
-  "contactCode": "C-0001",
-  "contactDto": {
-    "attentionTo": "Peter Parker",
-    "billingAddress": [
-      {
-        "address1": "218, Robinson Road",
-        "address2": "Downtown",
-        "city": "C001",
-        "country": "C001",
-        "postalCode": 123456,
-        "preferred": true,
-        "state": "CS001"
-      }
-    ],
-    "businessUnit": "CAA01 - Cvl Avtn Authrty of Singapore",
-    "currencyCode": "SGD",
-    "customField": {
-      "field1": "value1",
-      "field2": "value2"
-    },
-    "documentSequenceCode": "C-0000001",
-    "emailId": "myinfo@domain.com",
-    "invoices": {
-      "additionalProp1": [
-        {
-          "currency": "SGD",
-          "documentCode": "SI-0000041",
-          "documentSequenceCode": "00000001",
-          "dueAmount": 46,
-          "exchangeRate": 0,
-          "id": 43,
-          "invoiceDate": "2018-10-01",
-          "invoiceDueDate": "2018-10-01",
-          "memo": "test",
-          "purchaseOrderRefNo": "CPO001",
-          "supplierInvoiceNo": "CSI001",
-          "taxAmount": 1,
-          "totalAmount": 46,
-          "totalAmountInBaseCurrency": 46,
-          "type": "sale_invoice"
-        }
-      ],
-      "additionalProp2": [
-        {
-          "currency": "SGD",
-          "documentCode": "SI-0000041",
-          "documentSequenceCode": "00000001",
-          "dueAmount": 46,
-          "exchangeRate": 0,
-          "id": 43,
-          "invoiceDate": "2018-10-01",
-          "invoiceDueDate": "2018-10-01",
-          "memo": "test",
-          "purchaseOrderRefNo": "CPO001",
-          "supplierInvoiceNo": "CSI001",
-          "taxAmount": 1,
-          "totalAmount": 46,
-          "totalAmountInBaseCurrency": 46,
-          "type": "sale_invoice"
-        }
-      ],
-      "additionalProp3": [
-        {
-          "currency": "SGD",
-          "documentCode": "SI-0000041",
-          "documentSequenceCode": "00000001",
-          "dueAmount": 46,
-          "exchangeRate": 0,
-          "id": 43,
-          "invoiceDate": "2018-10-01",
-          "invoiceDueDate": "2018-10-01",
-          "memo": "test",
-          "purchaseOrderRefNo": "CPO001",
-          "supplierInvoiceNo": "CSI001",
-          "taxAmount": 1,
-          "totalAmount": 46,
-          "totalAmountInBaseCurrency": 46,
-          "type": "sale_invoice"
-        }
-      ]
-    },
-    "name": "Sam",
-    "payableAccountCode": "AC002",
-    "paymentTermCode": "Net 0",
-    "peppolId": "u000:11::11293",
-    "receivableAccountCode": "AC001",
-    "sequenceFormat": 1,
-    "shippingAddress": [
-      {
-        "address1": "218, Robinson Road",
-        "address2": "Downtown",
-        "city": "C001",
-        "country": "C001",
-        "postalCode": 123456,
-        "preferred": true,
-        "state": "CS001"
-      }
-    ],
-    "singaporeGovt": true,
-    "taxExempted": true,
-    "taxExemptionNo": "234s-few3-2422",
-    "taxExemptionReason": "Resale, Federal Agency",
-    "taxNumber": 123456,
-    "uen": "DHJEUK"
-  },
+  "contactCode": "C-0000001",
   "currency": "SGD",
-  "customField": [
-    {
-      "label": "Label",
-      "module": "Quotation",
-      "value": "Extra Information"
-    }
-  ],
-  "deleted": false,
-  "documentDate": "27-10-2019",
-  "documentSequenceCode": "0000001",
-  "draft": false,
-  "exchangeRate": 0.01891562,
-  "fulfillmentDate": "28-10-2019",
-  "fulfillmentOn": "28-10-2019",
-  "fulfillmentStatus": "UNFULFILLED",
-  "fulfillmentType": "PICK_PACK_SHIP",
-  "linkedDocuments": [
-    {
-      "documentCode": "QO-0000001",
-      "documentSequenceCode": "0000001",
-      "documentType": "QUOTATION"
-    }
-  ],
-  "memo": "Sales quotation",
-  "quotationItemDtoList": [
-    {
-      "availableQuantity": 3,
-      "customField": [
-        {
-          "label": "Label",
-          "module": "Quotation",
-          "value": "Extra Information"
-        }
-      ],
-      "discount": 2,
-      "discountInPercent": true,
-      "documentSequenceCode": "P-0000001",
-      "product": {
-        "active": true,
-        "barcode": 2365234,
-        "bomAddCostConfiguration": [
-          {
-            "label": "Labour charges",
-            "price": 10.5
-          }
-        ],
-        "bomProductsConfiguration": [
-          {
-            "itemId": 1234,
-            "itemName": "Apple",
-            "quantity": 10.5
-          }
-        ],
-        "categoryCode": "AB0001",
-        "categoryDesc": "Medical Equipment",
-        "customField": {
-          "field1": "value1",
-          "field2": "value2"
-        },
-        "deleted": true,
-        "description": "Description",
-        "documentSequenceCode": "P-0000001",
-        "id": 1234,
-        "images": [
-          "string"
-        ],
-        "inventory": {
-          "availableQuantity": 100,
-          "costOfGoodsSoldAccountCode": "A-10231",
-          "inventoryAccountCode": "A-10232",
-          "inventoryAccountName": "Inventory Account",
-          "openingQuantity": 10,
-          "openingValuation": 100.4,
-          "stockAdjustmentAccountCode": "A-10234",
-          "warehouseCode": "WH-00001"
-        },
-        "manufacturingCostAccountCode": "AC-0000012",
-        "name": "Apple",
-        "productId": "P000011",
-        "purchaseAccountCode": "A-0012",
-        "purchasePrice": 123.33,
-        "purchasePriceTaxInclusive": true,
-        "purchaseReturnAccountCode": "A-0014",
-        "purchaseTaxCode": "T-001",
-        "reorderEnabled": true,
-        "reorderLevel": 100,
-        "salesAccountCode": "A-0013",
-        "salesPrice": 120,
-        "salesPriceTaxInclusive": false,
-        "salesReturnAccountCode": "A-0015",
-        "salesTaxCode": "T-002",
-        "sequenceFormat": 1,
-        "stockUom": 2,
-        "taxable": true,
-        "type": "TRACKED"
-      },
-      "productCode": "PC-001",
-      "productDescription": "Red pen",
-      "productName": "Ball pen",
-      "productOrder": 1,
-      "productQuantity": 2.5,
-      "tax": {
-        "accountCode": "AC-001",
-        "code": "TC-001",
-        "deleted": false,
-        "description": "sales Tax for SG",
-        "name": "SGST",
-        "percent": 7,
-        "status": "active",
-        "taxCode": "TC-001",
-        "type": "SALES"
-      },
-      "taxAmount": 0.3,
-      "taxCode": "TX-003",
-      "taxName": "GST(7%)",
-      "type": "TRACKED",
-      "unitPrice": 10
-    }
-  ],
-  "sequenceFormat": 1,
-  "shipByDate": "25-10-2019",
+  "currencyCode": "SGD",
+  "memo": "Test Quotation memo.",
+  "status": "OPEN",
+  "unitPriceGstInclusive": false,
+  "sequenceFormat": "5eeb4be995ec493bcc40040f",
+  "documentType": "QUOTATION",
+  "exchangeRate": 1,
+  "previousExchangeRate": 1,
   "shipFrom": {
-    "address1": "218, Robinson Road",
-    "address2": "Downtown",
-    "city": "C001",
-    "country": "C001",
-    "postalCode": 123456,
-    "preferred": true,
-    "state": "CS001"
+    "address1": "204 E Chestnut St",
+    "city": "Independence",
+    "state": "KS",
+    "country": null,
+    "postalCode": "67301",
+    "preferred": true
   },
   "shipTo": {
-    "address1": "218, Robinson Road",
-    "address2": "Downtown",
-    "city": "C001",
-    "country": "C001",
-    "postalCode": 123456,
-    "preferred": true,
-    "state": "CS001"
+    "address1": "204 E Chestnut St",
+    "city": "Louisville",
+    "state": "KY",
+    "country": "US",
+    "postalCode": "40202",
+    "preferred": true
   },
-  "status": "OPEN",
-  "tenantId": 123,
-  "unitPriceGstInclusive": true,
-  "validTillDate": "29-10-2019",
-  "warehouseCode": "WH-000001"
+  "billTo": {
+    "address1": "204 E Chestnut St",
+    "city": "Louisville",
+    "state": "KY",
+    "country": "US",
+    "postalCode": "40202",
+    "preferred": true
+  },
+  "contact": {
+    "id": 120226,
+    "code": "C-0000001",
+    "documentSequenceCode": "C-0000001",
+    "sequenceFormat": "5eeb3ede95ec493bcc4003ff",
+    "name": "James Smith",
+    "receivableAccountCode": "AC-0000003",
+    "payableAccountCode": "AC-0000011",
+    "currencyCode": "SGD",
+    "paymentTermCode": "4",
+    "billingAddress": [
+      {
+        "city": "Louisville",
+        "state": "KY",
+        "country": "US",
+        "address1": "204 E Chestnut St",
+        "address2": null,
+        "preferred": true,
+        "postalCode": "40202"
+      }
+    ],
+    "shippingAddress": [
+      {
+        "city": "Louisville",
+        "state": "KY",
+        "country": "US",
+        "address1": "204 E Chestnut St",
+        "address2": null,
+        "preferred": true,
+        "postalCode": "40202"
+      }
+    ],
+    "status": "ACTIVE",
+    "customer": false,
+    "vendor": true,
+    "deleted": false,
+    "tenantId": 1,
+    "theyOweYou": null,
+    "youOweThem": null,
+    "totalNetAmount": null,
+    "totalBillAmount": null,
+    "invoices": null,
+    "customField": null,
+    "emailId": "james.smith@getnada.com",
+    "errorMessage": null,
+    "avalaraCustomerCode": "b123e677-d80a-484c-a700-b63e11e8f7dc",
+    "uen": "79787978",
+    "taxNumber": "123456780",
+    "taxExempted": null,
+    "taxExemptionNo": null,
+    "taxExemptionReason": null,
+    "peppolId": null,
+    "singaporeGovt": null,
+    "businessUnit": "",
+    "attentionTo": null,
+    "address": "204 E Chestnut St,Louisville,KY,US,40202"
+  },
+  "documentDate": "18-06-2020",
+  "validTillDate": "18-07-2020",
+  "fulfillmentDate": "18-06-2020",
+  "totalAmount": 0,
+  "totalAmountInBaseCurrency": 0,
+  "dueAmount": 0,
+  "attachmentIds": null,
+  "supportedFeatures": [
+
+  ],
+  "items": [
+    {
+      "igstAmount": 0,
+      "cgstAmount": 0,
+      "sgstAmount": 0,
+      "cessAmount": 0,
+      "gstType": null,
+      "hsnOrSacCode": null,
+      "taxPreference": null,
+      "taxExemptionReason": null,
+      "igstRate": null,
+      "cgstRate": null,
+      "sgstRate": null,
+      "cessRule": null,
+      "exciseApplicable": false,
+      "exciseType": null,
+      "exciseRate": null,
+      "exciseAmount": 0,
+      "id": null,
+      "discount": null,
+      "discountInPercent": false,
+      "productCode": "P-0000001",
+      "product": {
+        "name": "Demo Product",
+        "type": "TRACKED",
+        "barcode": "123123132",
+        "description": "Demo Product Description",
+        "purchasePrice": 100,
+        "salesPrice": 120,
+        "purchaseAccountCode": "AC-0000032",
+        "salesAccountCode": "AC-0000023",
+        "purchaseReturnAccountCode": null,
+        "salesReturnAccountCode": null,
+        "manufacturingCostAccountCode": "AC-0000063",
+        "purchaseTaxCode": "TX-0000011",
+        "salesTaxCode": "TX-0000001",
+        "purchasePriceTaxInclusive": true,
+        "salesPriceTaxInclusive": true,
+        "stockUom": 2,
+        "images": [
+          null
+        ],
+        "inventory": {
+          "openingQuantity": 10,
+          "openingValuation": 1000,
+          "availableQuantity": 11,
+          "costOfGoodsSoldAccountCode": "AC-0000030",
+          "inventoryAccountCode": "AC-0000004",
+          "stockAdjustmentAccountCode": "AC-0000045",
+          "inventoryAccountName": "Inventory",
+          "warehouseCode": "WH-0000001"
+        },
+        "categoryCode": null,
+        "categoryDesc": null,
+        "taxable": true,
+        "customField": null,
+        "reorderEnabled": false,
+        "reorderLevel": null,
+        "documentSequenceCode": "P-0000001",
+        "sequenceFormat": "5eeb3cb495ec493bcc4003e5",
+        "errorMessage": null,
+        "id": 58538,
+        "productId": "P-0000001",
+        "active": true,
+        "deleted": false,
+        "bomProductsConfiguration": [
+
+        ],
+        "bomAddCostConfiguration": [
+
+        ],
+        "availableQuantity": 11
+      },
+      "productDescription": "Demo Product Description",
+      "productName": "Demo Product",
+      "productQuantity": 1,
+      "availableQuantity": 11,
+      "taxAmountBuffer": 0,
+      "taxCode": "TX-0000001",
+      "taxName": "SR (7%)",
+      "tax": {
+        "id": 198094,
+        "name": "SR (7%)",
+        "taxCode": "SR (7%)",
+        "accountCode": "AC-0000021",
+        "accountName": "GST",
+        "type": "SALES",
+        "description": "Local supply of goods and services.",
+        "percent": 7,
+        "code": "TX-0000001",
+        "status": "active",
+        "deleted": false,
+        "tenantId": 1,
+        "category": "SYSTEM"
+      },
+      "unitPrice": 120,
+      "currency": null,
+      "totalAmount": 128.4,
+      "taxSystem": "SG",
+      "type": "TRACKED",
+      "unitPriceGstInclusive": false
+    }
+  ],
+  "fulfillmentStatus": "UNFULFILLED",
+  "backOrder": false,
+  "quotationItemDtoList": [
+    {
+      "igstAmount": 0,
+      "cgstAmount": 0,
+      "sgstAmount": 0,
+      "cessAmount": 0,
+      "gstType": null,
+      "hsnOrSacCode": null,
+      "taxPreference": null,
+      "taxExemptionReason": null,
+      "igstRate": null,
+      "cgstRate": null,
+      "sgstRate": null,
+      "cessRule": null,
+      "exciseApplicable": false,
+      "exciseType": null,
+      "exciseRate": null,
+      "exciseAmount": 0,
+      "id": null,
+      "discount": null,
+      "discountInPercent": false,
+      "productCode": "P-0000001",
+      "product": {
+        "name": "Demo Product",
+        "type": "TRACKED",
+        "barcode": "123123132",
+        "description": "Demo Product Description",
+        "purchasePrice": 100,
+        "salesPrice": 120,
+        "purchaseAccountCode": "AC-0000032",
+        "salesAccountCode": "AC-0000023",
+        "purchaseReturnAccountCode": null,
+        "salesReturnAccountCode": null,
+        "manufacturingCostAccountCode": "AC-0000063",
+        "purchaseTaxCode": "TX-0000011",
+        "salesTaxCode": "TX-0000001",
+        "purchasePriceTaxInclusive": true,
+        "salesPriceTaxInclusive": true,
+        "stockUom": 2,
+        "images": [
+          null
+        ],
+        "inventory": {
+          "openingQuantity": 10,
+          "openingValuation": 1000,
+          "availableQuantity": 11,
+          "costOfGoodsSoldAccountCode": "AC-0000030",
+          "inventoryAccountCode": "AC-0000004",
+          "stockAdjustmentAccountCode": "AC-0000045",
+          "inventoryAccountName": "Inventory",
+          "warehouseCode": "WH-0000001"
+        },
+        "categoryCode": null,
+        "categoryDesc": null,
+        "taxable": true,
+        "customField": null,
+        "reorderEnabled": false,
+        "reorderLevel": null,
+        "documentSequenceCode": "P-0000001",
+        "sequenceFormat": "5eeb3cb495ec493bcc4003e5",
+        "errorMessage": null,
+        "id": 58538,
+        "productId": "P-0000001",
+        "active": true,
+        "deleted": false,
+        "bomProductsConfiguration": [
+
+        ],
+        "bomAddCostConfiguration": [
+
+        ],
+        "availableQuantity": 11
+      },
+      "productDescription": "Demo Product Description",
+      "productName": "Demo Product",
+      "productQuantity": 1,
+      "availableQuantity": 11,
+      "taxAmountBuffer": 0,
+      "taxCode": "TX-0000001",
+      "taxName": "SR (7%)",
+      "tax": {
+        "id": 198094,
+        "name": "SR (7%)",
+        "taxCode": "SR (7%)",
+        "accountCode": "AC-0000021",
+        "accountName": "GST",
+        "type": "SALES",
+        "description": "Local supply of goods and services.",
+        "percent": 7,
+        "code": "TX-0000001",
+        "status": "active",
+        "deleted": false,
+        "tenantId": 1,
+        "category": "SYSTEM"
+      },
+      "unitPrice": 120,
+      "currency": null,
+      "totalAmount": 128.4,
+      "taxSystem": "SG",
+      "type": "TRACKED",
+      "unitPriceGstInclusive": false,
+      "taxAmount": 8.4
+    }
+  ]
 }
 ```
 
 ##### Sample Response
 ```java
 {
-  "attachments": [
-    "string"
-  ],
-  "backOrder": true,
-  "billTo": {
-    "address1": "218, Robinson Road",
-    "address2": "Downtown",
-    "city": "C001",
-    "country": "C001",
-    "postalCode": 123456,
-    "preferred": true,
-    "state": "CS001"
-  },
+  "id": 7997,
+  "contactCode": "C-0000001",
   "contact": {
-    "address": "string",
-    "name": "string"
-  },
-  "contactCode": "C-0001",
-  "contactDto": {
-    "attentionTo": "Peter Parker",
-    "billingAddress": [
-      {
-        "address1": "218, Robinson Road",
-        "address2": "Downtown",
-        "city": "C001",
-        "country": "C001",
-        "postalCode": 123456,
-        "preferred": true,
-        "state": "CS001"
-      }
-    ],
-    "businessUnit": "CAA01 - Cvl Avtn Authrty of Singapore",
-    "currencyCode": "SGD",
-    "customField": {
-      "field1": "value1",
-      "field2": "value2"
-    },
-    "documentSequenceCode": "C-0000001",
-    "emailId": "myinfo@domain.com",
-    "invoices": {
-      "additionalProp1": [
-        {
-          "currency": "SGD",
-          "documentCode": "SI-0000041",
-          "documentSequenceCode": "00000001",
-          "dueAmount": 46,
-          "exchangeRate": 0,
-          "id": 43,
-          "invoiceDate": "2018-10-01",
-          "invoiceDueDate": "2018-10-01",
-          "memo": "test",
-          "purchaseOrderRefNo": "CPO001",
-          "supplierInvoiceNo": "CSI001",
-          "taxAmount": 1,
-          "totalAmount": 46,
-          "totalAmountInBaseCurrency": 46,
-          "type": "sale_invoice"
-        }
-      ],
-      "additionalProp2": [
-        {
-          "currency": "SGD",
-          "documentCode": "SI-0000041",
-          "documentSequenceCode": "00000001",
-          "dueAmount": 46,
-          "exchangeRate": 0,
-          "id": 43,
-          "invoiceDate": "2018-10-01",
-          "invoiceDueDate": "2018-10-01",
-          "memo": "test",
-          "purchaseOrderRefNo": "CPO001",
-          "supplierInvoiceNo": "CSI001",
-          "taxAmount": 1,
-          "totalAmount": 46,
-          "totalAmountInBaseCurrency": 46,
-          "type": "sale_invoice"
-        }
-      ],
-      "additionalProp3": [
-        {
-          "currency": "SGD",
-          "documentCode": "SI-0000041",
-          "documentSequenceCode": "00000001",
-          "dueAmount": 46,
-          "exchangeRate": 0,
-          "id": 43,
-          "invoiceDate": "2018-10-01",
-          "invoiceDueDate": "2018-10-01",
-          "memo": "test",
-          "purchaseOrderRefNo": "CPO001",
-          "supplierInvoiceNo": "CSI001",
-          "taxAmount": 1,
-          "totalAmount": 46,
-          "totalAmountInBaseCurrency": 46,
-          "type": "sale_invoice"
-        }
-      ]
-    },
-    "name": "Sam",
-    "payableAccountCode": "AC002",
-    "paymentTermCode": "Net 0",
-    "peppolId": "u000:11::11293",
-    "receivableAccountCode": "AC001",
-    "sequenceFormat": 1,
-    "shippingAddress": [
-      {
-        "address1": "218, Robinson Road",
-        "address2": "Downtown",
-        "city": "C001",
-        "country": "C001",
-        "postalCode": 123456,
-        "preferred": true,
-        "state": "CS001"
-      }
-    ],
-    "singaporeGovt": true,
-    "taxExempted": true,
-    "taxExemptionNo": "234s-few3-2422",
-    "taxExemptionReason": "Resale, Federal Agency",
-    "taxNumber": 123456,
-    "uen": "DHJEUK"
+    "name": "James Smith",
+    "address": "204 E Chestnut St,Louisville,KY,US,40202"
   },
   "currency": "SGD",
-  "customField": [
-    {
-      "label": "Label",
-      "module": "Quotation",
-      "value": "Extra Information"
-    }
-  ],
-  "deleted": false,
-  "documentDate": "27-10-2019",
+  "exchangeRate": 1.0,
+  "quotationCode": "0000001",
   "documentSequenceCode": "0000001",
-  "draft": false,
-  "exchangeRate": 0.01891562,
-  "fulfillmentDate": "28-10-2019",
-  "fulfillmentOn": "28-10-2019",
+  "sequenceFormat": "5eeb4be995ec493bcc40040f",
+  "documentDate": "18-06-2020",
+  "fulfillmentDate": "18-06-2020",
+  "fulfillmentOn": null,
+  "validTillDate": "18-07-2020",
+  "closedDate": null,
+  "memo": "Test Quotation memo.",
+  "unitPriceGstInclusive": false,
+  "attachments": null,
+  "status": "OPEN",
   "fulfillmentStatus": "UNFULFILLED",
-  "fulfillmentType": "PICK_PACK_SHIP",
-  "linkedDocuments": [
-    {
-      "documentCode": "QO-0000001",
-      "documentSequenceCode": "0000001",
-      "documentType": "QUOTATION"
-    }
-  ],
-  "memo": "Sales quotation",
+  "deleted": false,
+  "tenantId": 1,
   "quotationItemDtoList": [
     {
-      "availableQuantity": 3,
-      "customField": [
-        {
-          "label": "Label",
-          "module": "Quotation",
-          "value": "Extra Information"
-        }
-      ],
-      "discount": 2,
-      "discountInPercent": true,
+      "id": 10224,
+      "productCode": "P-0000001",
       "documentSequenceCode": "P-0000001",
-      "product": {
-        "active": true,
-        "barcode": 2365234,
-        "bomAddCostConfiguration": [
-          {
-            "label": "Labour charges",
-            "price": 10.5
-          }
-        ],
-        "bomProductsConfiguration": [
-          {
-            "itemId": 1234,
-            "itemName": "Apple",
-            "quantity": 10.5
-          }
-        ],
-        "categoryCode": "AB0001",
-        "categoryDesc": "Medical Equipment",
-        "customField": {
-          "field1": "value1",
-          "field2": "value2"
-        },
-        "deleted": true,
-        "description": "Description",
-        "documentSequenceCode": "P-0000001",
-        "id": 1234,
-        "images": [
-          "string"
-        ],
-        "inventory": {
-          "availableQuantity": 100,
-          "costOfGoodsSoldAccountCode": "A-10231",
-          "inventoryAccountCode": "A-10232",
-          "inventoryAccountName": "Inventory Account",
-          "openingQuantity": 10,
-          "openingValuation": 100.4,
-          "stockAdjustmentAccountCode": "A-10234",
-          "warehouseCode": "WH-00001"
-        },
-        "manufacturingCostAccountCode": "AC-0000012",
-        "name": "Apple",
-        "productId": "P000011",
-        "purchaseAccountCode": "A-0012",
-        "purchasePrice": 123.33,
-        "purchasePriceTaxInclusive": true,
-        "purchaseReturnAccountCode": "A-0014",
-        "purchaseTaxCode": "T-001",
-        "reorderEnabled": true,
-        "reorderLevel": 100,
-        "salesAccountCode": "A-0013",
-        "salesPrice": 120,
-        "salesPriceTaxInclusive": false,
-        "salesReturnAccountCode": "A-0015",
-        "salesTaxCode": "T-002",
-        "sequenceFormat": 1,
-        "stockUom": 2,
-        "taxable": true,
-        "type": "TRACKED"
-      },
-      "productCode": "PC-001",
-      "productDescription": "Red pen",
-      "productName": "Ball pen",
-      "productOrder": 1,
-      "productQuantity": 2.5,
-      "tax": {
-        "accountCode": "AC-001",
-        "code": "TC-001",
-        "deleted": false,
-        "description": "sales Tax for SG",
-        "name": "SGST",
-        "percent": 7,
-        "status": "active",
-        "taxCode": "TC-001",
-        "type": "SALES"
-      },
-      "taxAmount": 0.3,
-      "taxCode": "TX-003",
-      "taxName": "GST(7%)",
-      "type": "TRACKED",
-      "unitPrice": 10
+      "productName": "Demo Product",
+      "productDescription": "Demo Product Description",
+      "productQuantity": 1,
+      "unitPrice": 120,
+      "discount": null,
+      "discountInPercent": false,
+      "taxCode": "TX-0000001",
+      "taxName": "SR (7%)",
+      "taxAmount": 8.4000000000,
+      "amount": 128.4000000000,
+      "productOrder": null,
+      "quotationItemCode": "QLI-0000001",
+      "type": null,
+      "availableQuantity": null,
+      "product": null,
+      "tax": null,
+      "customField": null
     }
   ],
-  "sequenceFormat": 1,
-  "shipByDate": "25-10-2019",
+  "totalAmount": 128.4000000000,
+  "totalAmountInBaseCurrency": 128.40,
+  "draft": null,
   "shipFrom": {
-    "address1": "218, Robinson Road",
-    "address2": "Downtown",
-    "city": "C001",
-    "country": "C001",
-    "postalCode": 123456,
-    "preferred": true,
-    "state": "CS001"
+    "address1": "204 E Chestnut St",
+    "address2": null,
+    "country": null,
+    "state": "KS",
+    "city": "Independence",
+    "postalCode": "67301",
+    "preferred": true
   },
   "shipTo": {
-    "address1": "218, Robinson Road",
-    "address2": "Downtown",
-    "city": "C001",
-    "country": "C001",
-    "postalCode": 123456,
-    "preferred": true,
-    "state": "CS001"
+    "address1": "204 E Chestnut St",
+    "address2": null,
+    "country": "US",
+    "state": "KY",
+    "city": "Louisville",
+    "postalCode": "40202",
+    "preferred": true
   },
-  "status": "OPEN",
-  "tenantId": 123,
-  "unitPriceGstInclusive": true,
-  "validTillDate": "29-10-2019",
-  "warehouseCode": "WH-000001"
+  "billTo": {
+    "address1": "204 E Chestnut St",
+    "address2": null,
+    "country": "US",
+    "state": "KY",
+    "city": "Louisville",
+    "postalCode": "40202",
+    "preferred": true
+  },
+  "shipByDate": null,
+  "fulfillmentType": "NONE",
+  "warehouseCode": null,
+  "backOrder": false,
+  "linkedDocuments": null,
+  "contactDto": null,
+  "customField": null
 }
 ```
 
@@ -1815,6 +1675,7 @@ curl -X GET "https://bifrost.deskera.com/v1/quotations/code/Q001" -H "accept: ap
 | Authorization | global |
 
 ---
+<!--
 ### Update Quotation Attribute
 
 Update quotation attributes.
@@ -1864,6 +1725,7 @@ Quotation attributes has been updated successfully.
 | Authorization | global |
 
 ---
+-->
 ### Update Linked BackOrder
 
 Update linked documents for PO backorder

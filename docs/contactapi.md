@@ -204,7 +204,7 @@ https://bifrost.deskera.com/v1/contacts
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/contacts" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"attentionTo\": \"Peter Parker\", \"billingAddress\": [ { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" } ], \"businessUnit\": \"CAA01 - Cvl Avtn Authrty of Singapore\", \"currencyCode\": \"SGD\", \"customField\": { \"field1\": \"value1\", \"field2\": \"value2\" }, \"documentSequenceCode\": \"C-0000001\", \"emailId\": \"myinfo@domain.com\", \"invoices\": { \"additionalProp1\": [ { \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"taxAmount\": 1, \"totalAmount\": 46, \"type\": \"sale_invoice\" } ], \"additionalProp2\": [ { \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"taxAmount\": 1, \"totalAmount\": 46, \"type\": \"sale_invoice\" } ], \"additionalProp3\": [ { \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"taxAmount\": 1, \"totalAmount\": 46, \"type\": \"sale_invoice\" } ] }, \"name\": \"Sam\", \"payableAccountCode\": \"AC002\", \"paymentTermCode\": \"Net 0\", \"peppolId\": \"u000:11::11293\", \"receivableAccountCode\": \"AC001\", \"sequenceFormat\": 1, \"shippingAddress\": [ { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" } ], \"singaporeGovt\": true, \"taxExempted\": true, \"taxExemptionNo\": \"234s-few3-2422\", \"taxExemptionReason\": \"Resale, Federal Agency\", \"taxNumber\": 123456, \"uen\": \"DHJEUK\"}"
+curl -X POST "https://bifrost.deskera.com/v1/contacts" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"sequenceFormat\": \"5eeb3ede95ec493bcc4003ff\", \"name\": \"James Smith\", \"currencyCode\": \"SGD\", \"owe_them\": 0, \"owe_you\": 0, \"customer\": null, \"vendor\": null, \"uen\": \"79787978\", \"taxNumber\": \"123456780\", \"receivableAccountCode\": \"AC-0000003\", \"payableAccountCode\": \"AC-0000011\", \"paymentTermCode\": \"4\", \"billingAddress\": [ { \"address1\": \"204 E Chestnut St\", \"city\": \"Louisville\", \"state\": \"KY\", \"country\": \"US\", \"postalCode\": \"40202\", \"preferred\": true } ], \"shippingAddress\": [ { \"address1\": \"204 E Chestnut St\", \"city\": \"Louisville\", \"state\": \"KY\", \"country\": \"US\", \"postalCode\": \"40202\", \"preferred\": true } ], \"emailId\": \"james.smith@domain.com\", \"customerTypeMalaysia\": \"NONE\", \"exemptionCertificateMalaysia\": false, \"exemptionCriterialMalaysia\": \"NONE\", \"residentStatusIndonesia\": true, \"customField\": null, \"singaporeGovt\": null, \"businessUnit\": \"\", \"attentionTo\": null}"
 ```
 
 ##### Parameters
@@ -217,93 +217,47 @@ curl -X POST "https://bifrost.deskera.com/v1/contacts" -H "accept: application/j
 
 ```java
 {
-  "attentionTo": "Peter Parker",
+  "sequenceFormat": "5eeb3ede95ec493bcc4003ff",
+  "name": "James Smith",
+  "currencyCode": "SGD",
+  "owe_them": 0,
+  "owe_you": 0,
+  "customer": null,
+  "vendor": null,
+  "uen": "79787978",
+  "taxNumber": "123456780",
+  "receivableAccountCode": "AC-0000003",
+  "payableAccountCode": "AC-0000011",
+  "paymentTermCode": "4",
   "billingAddress": [
     {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
+      "address1": "204 E Chestnut St",
+      "city": "Louisville",
+      "state": "KY",
+      "country": "US",
+      "postalCode": "40202",
+      "preferred": true
     }
   ],
-  "businessUnit": "CAA01 - Cvl Avtn Authrty of Singapore",
-  "currencyCode": "SGD",
-  "customField": {
-    "field1": "value1",
-    "field2": "value2"
-  },
-  "documentSequenceCode": "C-0000001",
-  "emailId": "myinfo@domain.com",
-  "invoices": {
-    "additionalProp1": [
-      {
-        "documentCode": "SI-0000041",
-        "documentSequenceCode": "00000001",
-        "dueAmount": 46,
-        "id": 43,
-        "invoiceDate": "2018-10-01",
-        "invoiceDueDate": "2018-10-01",
-        "memo": "test",
-        "taxAmount": 1,
-        "totalAmount": 46,
-        "type": "sale_invoice"
-      }
-    ],
-    "additionalProp2": [
-      {
-        "documentCode": "SI-0000041",
-        "documentSequenceCode": "00000001",
-        "dueAmount": 46,
-        "id": 43,
-        "invoiceDate": "2018-10-01",
-        "invoiceDueDate": "2018-10-01",
-        "memo": "test",
-        "taxAmount": 1,
-        "totalAmount": 46,
-        "type": "sale_invoice"
-      }
-    ],
-    "additionalProp3": [
-      {
-        "documentCode": "SI-0000041",
-        "documentSequenceCode": "00000001",
-        "dueAmount": 46,
-        "id": 43,
-        "invoiceDate": "2018-10-01",
-        "invoiceDueDate": "2018-10-01",
-        "memo": "test",
-        "taxAmount": 1,
-        "totalAmount": 46,
-        "type": "sale_invoice"
-      }
-    ]
-  },
-  "name": "Sam",
-  "payableAccountCode": "AC002",
-  "paymentTermCode": "Net 0",
-  "peppolId": "u000:11::11293",
-  "receivableAccountCode": "AC001",
-  "sequenceFormat": 1,
   "shippingAddress": [
     {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
+      "address1": "204 E Chestnut St",
+      "city": "Louisville",
+      "state": "KY",
+      "country": "US",
+      "postalCode": "40202",
+      "preferred": true
     }
   ],
-  "singaporeGovt": true,
-  "taxExempted": true,
-  "taxExemptionNo": "234s-few3-2422",
-  "taxExemptionReason": "Resale, Federal Agency",
-  "taxNumber": 123456,
-  "uen": "DHJEUK"
+  "emailId": "james.smith@domain.com",
+  "customerTypeMalaysia": "NONE",
+  "exemptionCertificateMalaysia": false,
+  "exemptionCriterialMalaysia": "NONE",
+  "residentStatusIndonesia": true,
+  "customField": null,
+  "singaporeGovt": null,
+  "businessUnit": "",
+  "attentionTo": null
 }
 ```
 
@@ -311,93 +265,60 @@ curl -X POST "https://bifrost.deskera.com/v1/contacts" -H "accept: application/j
 
 ```java
 {
-  "attentionTo": "Peter Parker",
+  "id": 120227,
+  "code": "C-0000004",
+  "documentSequenceCode": "C-0000002",
+  "sequenceFormat": "5eeb3ede95ec493bcc4003ff",
+  "name": "James Smith",
+  "receivableAccountCode": "AC-0000003",
+  "payableAccountCode": "AC-0000011",
+  "currencyCode": "SGD",
+  "paymentTermCode": "4",
   "billingAddress": [
     {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
+      "address1": "204 E Chestnut St",
+      "address2": null,
+      "country": "US",
+      "state": "KY",
+      "city": "Louisville",
+      "postalCode": "40202",
+      "preferred": true
     }
   ],
-  "businessUnit": "CAA01 - Cvl Avtn Authrty of Singapore",
-  "currencyCode": "SGD",
-  "customField": {
-    "field1": "value1",
-    "field2": "value2"
-  },
-  "documentSequenceCode": "C-0000001",
-  "emailId": "myinfo@domain.com",
-  "invoices": {
-    "additionalProp1": [
-      {
-        "documentCode": "SI-0000041",
-        "documentSequenceCode": "00000001",
-        "dueAmount": 46,
-        "id": 43,
-        "invoiceDate": "2018-10-01",
-        "invoiceDueDate": "2018-10-01",
-        "memo": "test",
-        "taxAmount": 1,
-        "totalAmount": 46,
-        "type": "sale_invoice"
-      }
-    ],
-    "additionalProp2": [
-      {
-        "documentCode": "SI-0000041",
-        "documentSequenceCode": "00000001",
-        "dueAmount": 46,
-        "id": 43,
-        "invoiceDate": "2018-10-01",
-        "invoiceDueDate": "2018-10-01",
-        "memo": "test",
-        "taxAmount": 1,
-        "totalAmount": 46,
-        "type": "sale_invoice"
-      }
-    ],
-    "additionalProp3": [
-      {
-        "documentCode": "SI-0000041",
-        "documentSequenceCode": "00000001",
-        "dueAmount": 46,
-        "id": 43,
-        "invoiceDate": "2018-10-01",
-        "invoiceDueDate": "2018-10-01",
-        "memo": "test",
-        "taxAmount": 1,
-        "totalAmount": 46,
-        "type": "sale_invoice"
-      }
-    ]
-  },
-  "name": "Sam",
-  "payableAccountCode": "AC002",
-  "paymentTermCode": "Net 0",
-  "peppolId": "u000:11::11293",
-  "receivableAccountCode": "AC001",
-  "sequenceFormat": 1,
   "shippingAddress": [
     {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
+      "address1": "204 E Chestnut St",
+      "address2": null,
+      "country": "US",
+      "state": "KY",
+      "city": "Louisville",
+      "postalCode": "40202",
+      "preferred": true
     }
   ],
-  "singaporeGovt": true,
-  "taxExempted": true,
-  "taxExemptionNo": "234s-few3-2422",
-  "taxExemptionReason": "Resale, Federal Agency",
-  "taxNumber": 123456,
-  "uen": "DHJEUK"
+  "status": "ACTIVE",
+  "customer": false,
+  "vendor": false,
+  "deleted": false,
+  "tenantId": 1,
+  "theyOweYou": null,
+  "youOweThem": null,
+  "totalNetAmount": null,
+  "totalBillAmount": null,
+  "invoices": null,
+  "customField": null,
+  "emailId": "james.smith@domain.com",
+  "errorMessage": null,
+  "avalaraCustomerCode": "8a599b2e-ec6b-4878-8002-bd76ced4ffbb",
+  "uen": "79787978",
+  "taxNumber": "123456780",
+  "taxExempted": null,
+  "taxExemptionNo": null,
+  "taxExemptionReason": null,
+  "peppolId": null,
+  "singaporeGovt": null,
+  "businessUnit": "",
+  "attentionTo": null
 }
 ```
 
@@ -565,17 +486,17 @@ Get contact by code. [More about retrieve contact by code](https://deskera.docs.
 - Allows you to retrieve an existing contact by code.
 
 #### GET
-#### /v1/contacts/codes/{code}
+#### /v1/contacts/code/{code}
 ##### Request URL
 
 ```java
-https://bifrost.deskera.com/v1/contacts/codes
+https://bifrost.deskera.com/v1/contacts/code/C-0000001
 ```
 
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/contacts/codes" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "[ \"Paul\"]"
+curl -X GET "https://bifrost.deskera.com/v1/contacts/code/C-0000001" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "[ \"Paul\"]"
 ```
 ##### Parameters
 

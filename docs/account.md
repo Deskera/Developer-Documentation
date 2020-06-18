@@ -110,7 +110,7 @@ Returns list of accounts.
 |taxCode|`string`|Account Tax code.|
 |currency|`string`|Account Currency.|
 |status|`string`|Status of the account. Possible values for [account status](#status).|
-|controlAccount|`boolean`|Has the value `true` if the control acocunt flag is xxx or `false` if the control acocunt flag is xxx.|
+|controlAccount|`boolean`|Has the value `true` if the control account flag is false or `false` if the control account flag is true.|
 |openingBalanceCdType|`enum`|Credit / Debit Type. Possible values for [type](#type).|
 |customField        |`jsonobject`|Key-value pair for custom field name and its value.|
 
@@ -129,6 +129,7 @@ Returns list of accounts.
 - DEBIT
 
 ### ACCOUNT_NATURE
+- Assets
 
 ### TYPE
 - CREDIT

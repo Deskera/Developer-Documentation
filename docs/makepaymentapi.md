@@ -17,7 +17,7 @@ Get make payments by filter criteria. [More about search payment](https://desker
 ##### Description:
 
 - Allows you to retrieve a list of all make payments.
-- Allows you to retrieve a list of make payments based on it's filter criteria. 
+- Allows you to retrieve a list of make payments based on it's filter criteria.
 
 #### GET
 #### /v1/payments/make
@@ -468,19 +468,6 @@ Make a new payment. [More about make payment](https://deskera.docs.apiary.io/#re
 
 - Allows you to make a new payment.
 
-#### POST
-#### /v1/payments/make
-
-##### Request URL
-
-```java
-https://bifrost.deskera.com/v1/payments/make
-```
-
-##### Curl
-```java
-
-```
 
 #### POST
 #### /v1/payments/make
@@ -491,7 +478,7 @@ https://bifrost.deskera.com/v1/payments/make
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/payments/make" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"accountCodePayFrom\": \"AC-001\", \"accountName\": \"Bank\", \"amount\": 10, \"contactCode\": 19425, \"contactName\": \"ABC PTE LTD\", \"currency\": \"SGD\", \"documentDate\": \"2019-09-27\", \"exchangeRate\": 0.01891562, \"makePaymentItemDtoList\": [ { \"accountName\": \"Bank\", \"description\": \"General ledger for account.\", \"documentCode\": \"AC-001\", \"documentType\": \"General Ledger\", \"exchangeRate\": 0.01891562, \"paymentAmount\": 10.5, \"taxAmount\": 0.7, \"taxCode\": \"GST@7\", \"taxList\": [ { \"id\": 0, \"taxAmount\": 0, \"taxCode\": \"string\", \"taxRate\": 0, \"taxSeqCode\": \"string\", \"taxType\": \"string\", \"taxableAmount\": 0 } ] } ], \"makePaymentRecurringDto\": { \"paymentMemo\": { \"paymentMemos\": { \"additionalProp1\": \"string\", \"additionalProp2\": \"string\", \"additionalProp3\": \"string\" }, \"referenceDetails\": { \"additionalProp1\": \"string\", \"additionalProp2\": \"string\", \"additionalProp3\": \"string\" } }, \"recurringEndDate\": \"2019-09-27\", \"recurringFrequency\": 1, \"recurringPaymentCount\": 2, \"recurringType\": \"WEEK\" }, \"memo\": \"Sales quotation\", \"nextPaymentDate\": \"2019-09-27\", \"paymentType\": \"BANK_TRANSFER\", \"purchaseInvoice\": { \"attachmentIds\": [ 0 ], \"attachments\": [ \"string\" ], \"backOrder\": true, \"billTo\": { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" }, \"contact\": { \"address\": \"Raffles Place 1\", \"name\": \"ABC Pte Ltd\", \"peppolId\": \"u000:1109:uen\" }, \"contactCode\": \"C0001\", \"contactDto\": { \"attentionTo\": \"Peter Parker\", \"billingAddress\": [ { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" } ], \"businessUnit\": \"CAA01 - Cvl Avtn Authrty of Singapore\", \"currencyCode\": \"SGD\", \"customField\": { \"field1\": \"value1\", \"field2\": \"value2\" }, \"documentSequenceCode\": \"C-0000001\", \"emailId\": \"myinfo@domain.com\", \"invoices\": { \"additionalProp1\": [ { \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"purchaseOrderRefNo\": \"CPO001\", \"supplierInvoiceNo\": \"CSI001\", \"taxAmount\": 1, \"totalAmount\": 46, \"type\": \"sale_invoice\" } ], \"additionalProp2\": [ { \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"purchaseOrderRefNo\": \"CPO001\", \"supplierInvoiceNo\": \"CSI001\", \"taxAmount\": 1, \"totalAmount\": 46, \"type\": \"sale_invoice\" } ], \"additionalProp3\": [ { \"documentCode\": \"SI-0000041\", \"documentSequenceCode\": \"00000001\", \"dueAmount\": 46, \"id\": 43, \"invoiceDate\": \"2018-10-01\", \"invoiceDueDate\": \"2018-10-01\", \"memo\": \"test\", \"purchaseOrderRefNo\": \"CPO001\", \"supplierInvoiceNo\": \"CSI001\", \"taxAmount\": 1, \"totalAmount\": 46, \"type\": \"sale_invoice\" } ] }, \"name\": \"Sam\", \"payableAccountCode\": \"AC002\", \"paymentTermCode\": \"Net 0\", \"peppolId\": \"u000:11::11293\", \"receivableAccountCode\": \"AC001\", \"sequenceFormat\": 1, \"shippingAddress\": [ { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" } ], \"singaporeGovt\": true, \"taxExempted\": true, \"taxExemptionNo\": \"234s-few3-2422\", \"taxExemptionReason\": \"Resale, Federal Agency\", \"taxNumber\": 123456, \"uen\": \"DHJEUK\" }, \"currency\": \"C001\", \"customField\": [ { \"label\": \"Label\", \"module\": \"string\", \"value\": \"XYZ\" } ], \"documentSequenceCode\": \"0000001\", \"draft\": false, \"dropShip\": true, \"dueAmount\": 12.322, \"exchangeRate\": 0.456345, \"id\": 1, \"journalEntryCode\": \"JE0001\", \"knockoffInfo\": [ { \"amount\": 0, \"currency\": \"string\", \"documentCode\": \"string\", \"documentDate\": \"2020-06-16T08:45:46.952Z\", \"documentOrder\": 0, \"documentType\": \"QUOTATION\", \"exchangeRate\": 0 } ], \"linkedDocuments\": [ { \"documentCode\": \"QO-0000001\", \"documentSequenceCode\": \"0000001\", \"documentType\": \"QUOTATION\" } ], \"memo\": \"Memo details\", \"openingDocumentNumber\": \"DC-0001\", \"openingInvoice\": false, \"payableAccountCode\": \"AC-000001\", \"paymentStatus\": \"PENDING\", \"purchaseInvoiceAccounts\": [ { \"accountCode\": \"P00001\", \"accountDescription\": \"Apple watch\", \"accountOrder\": 1, \"amount\": 2, \"discount\": 2, \"discountInPercent\": true, \"id\": 2, \"taxAmount\": 0.5, \"taxCode\": \"GST7\", \"totalAmount\": 2.3 } ], \"purchaseInvoiceCode\": \"SI001\", \"purchaseInvoiceDate\": \"25-10-2019\", \"purchaseInvoiceDueDate\": \"25-10-2019\", \"purchaseInvoiceProducts\": [ { \"customField\": [ { \"label\": \"Label\", \"module\": \"string\", \"value\": \"XYZ\" } ], \"discount\": 2, \"discountInPercent\": true, \"id\": 2, \"invoiceLineNumber\": \"ABSCDDSD1212\", \"product\": { \"active\": true, \"barcode\": 2365234, \"bomAddCostConfiguration\": [ { \"label\": \"Labour charges\", \"price\": 10.5 } ], \"bomProductsConfiguration\": [ { \"itemId\": 1234, \"itemName\": \"Apple\", \"quantity\": 10.5 } ], \"categoryCode\": \"AB0001\", \"categoryDesc\": \"Medical Equipment\", \"customField\": { \"field1\": \"value1\", \"field2\": \"value2\" }, \"deleted\": true, \"description\": \"Description\", \"documentSequenceCode\": \"P-0000001\", \"id\": 1234, \"images\": [ \"string\" ], \"inventory\": { \"availableQuantity\": 100, \"costOfGoodsSoldAccountCode\": \"A-10231\", \"inventoryAccountCode\": \"A-10232\", \"inventoryAccountName\": \"Inventory Account\", \"openingQuantity\": 10, \"openingValuation\": 100.4, \"stockAdjustmentAccountCode\": \"A-10234\", \"warehouseCode\": \"WH-00001\" }, \"manufacturingCostAccountCode\": \"AC-0000012\", \"name\": \"Apple\", \"productId\": \"P000011\", \"purchaseAccountCode\": \"A-0012\", \"purchasePrice\": 123.33, \"purchasePriceTaxInclusive\": true, \"purchaseReturnAccountCode\": \"A-0014\", \"purchaseTaxCode\": \"T-001\", \"reorderEnabled\": true, \"reorderLevel\": 100, \"salesAccountCode\": \"A-0013\", \"salesPrice\": 120, \"salesPriceTaxInclusive\": false, \"salesReturnAccountCode\": \"A-0015\", \"salesTaxCode\": \"T-002\", \"sequenceFormat\": 1, \"stockUom\": 2, \"taxable\": true, \"type\": \"TRACKED\" }, \"productCode\": \"P00001\", \"productDescription\": \"Apple watch\", \"productOrder\": 1, \"productQuantity\": 2, \"purchaseInvoiceItemCode\": \"PII-000001\", \"tax\": { \"accountCode\": \"AC-001\", \"code\": \"TC-001\", \"deleted\": false, \"description\": \"sales Tax for SG\", \"name\": \"SGST\", \"percent\": 7, \"status\": \"active\", \"taxCode\": \"TC-001\", \"type\": \"SALES\" }, \"taxAmount\": 0.5, \"taxCode\": \"GST7\", \"tdsAccount\": \"AC-0000011\", \"tdsAmount\": 100, \"tdsId\": 1, \"tdsRate\": 10.1, \"totalAmount\": 2.3, \"unitPrice\": 0.7 } ], \"purchaseInvoiceRecurring\": { \"id\": 2, \"invoiceRecurringCount\": 1, \"recurrenceEndDate\": \"25-10-2019\", \"recurrenceFrequency\": \"WEEK\", \"recurrenceType\": 1 }, \"purchaseInvoiceType\": \"INVENTORY\", \"purchaseOrderRefNo\": \"CPO001\", \"receiveGoodsStatus\": \"UNRECEIVED\", \"recurring\": true, \"recurringActivated\": false, \"shipFrom\": { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" }, \"shipTo\": { \"address1\": \"218, Robinson Road\", \"address2\": \"Downtown\", \"city\": \"C001\", \"country\": \"C001\", \"postalCode\": 123456, \"preferred\": true, \"state\": \"CS001\" }, \"status\": \"OPEN\", \"supplierInvoiceNo\": \"string\", \"taxAmount\": 2.322, \"totalAmount\": 12.322, \"totalAmountInBaseCurrency\": 12.322, \"totalTdsAmount\": 12.32, \"unitPriceGstInclusive\": false, \"warehouseCode\": \"WH-000001\" }, \"recurringActivated\": false, \"recurringPayment\": false, \"referenceDate\": \"2019-09-27\", \"referenceNumber\": \"CH001\"}"
+curl -X POST "https://bifrost.deskera.com/v1/payments/make" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"documentDate\": \"2020-06-18\", \"closeDate\": \"2020-06-18\", \"amount\": 107, \"currency\": \"SGD\", \"exchangeRate\": 1, \"contactCode\": \"C-0000001\", \"accountCodePayFrom\": \"AC-0000002\", \"makePaymentItemDtoList\": [ { \"documentCode\": \"0000001\", \"documentType\": \"PURCHASE_INVOICE\", \"exchangeRate\": 1, \"paymentAmount\": 107 } ], \"paymentType\": \"CASH\"}"
 ```
 ##### Parameters
 
@@ -502,744 +489,68 @@ curl -X POST "https://bifrost.deskera.com/v1/payments/make" -H "accept: applicat
 ##### Sample Request
 ```java
 {
-  "accountCodePayFrom": "AC-001",
-  "accountName": "Bank",
-  "amount": 10,
-  "contactCode": 19425,
-  "contactName": "ABC PTE LTD",
+  "documentDate": "2020-06-18",
+  "closeDate": "2020-06-18",
+  "amount": 107,
   "currency": "SGD",
-  "documentDate": "2019-09-27",
-  "exchangeRate": 0.01891562,
+  "exchangeRate": 1,
+  "contactCode": "C-0000001",
+  "accountCodePayFrom": "AC-0000002",
   "makePaymentItemDtoList": [
     {
-      "accountName": "Bank",
-      "description": "General ledger for account.",
-      "documentCode": "AC-001",
-      "documentType": "General Ledger",
-      "exchangeRate": 0.01891562,
-      "paymentAmount": 10.5,
-      "taxAmount": 0.7,
-      "taxCode": "GST@7",
-      "taxList": [
-        {
-          "id": 0,
-          "taxAmount": 0,
-          "taxCode": "Tax10",
-          "taxRate": 0,
-          "taxSeqCode": "T001",
-          "taxType": "string",
-          "taxableAmount": 0
-        }
-      ]
+      "documentCode": "0000001",
+      "documentType": "PURCHASE_INVOICE",
+      "exchangeRate": 1,
+      "paymentAmount": 107
     }
   ],
-  "makePaymentRecurringDto": {
-    "paymentMemo": {
-      "paymentMemos": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
-      },
-      "referenceDetails": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
-      }
-    },
-    "recurringEndDate": "2019-09-27",
-    "recurringFrequency": 1,
-    "recurringPaymentCount": 2,
-    "recurringType": "WEEK"
-  },
-  "memo": "Sales quotation",
-  "nextPaymentDate": "2019-09-27",
-  "paymentType": "BANK_TRANSFER",
-  "purchaseInvoice": {
-    "attachmentIds": [
-      0
-    ],
-    "attachments": [
-      "string"
-    ],
-    "backOrder": true,
-    "billTo": {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
-    },
-    "contact": {
-      "address": "Raffles Place 1",
-      "name": "ABC Pte Ltd",
-      "peppolId": "u000:1109:uen"
-    },
-    "contactCode": "C0001",
-    "contactDto": {
-      "attentionTo": "Peter Parker",
-      "billingAddress": [
-        {
-          "address1": "218, Robinson Road",
-          "address2": "Downtown",
-          "city": "C001",
-          "country": "C001",
-          "postalCode": 123456,
-          "preferred": true,
-          "state": "CS001"
-        }
-      ],
-      "businessUnit": "CAA01 - Cvl Avtn Authrty of Singapore",
-      "currencyCode": "SGD",
-      "customField": {
-        "field1": "value1",
-        "field2": "value2"
-      },
-      "documentSequenceCode": "C-0000001",
-      "emailId": "myinfo@domain.com",
-      "invoices": {
-        "additionalProp1": [
-          {
-            "documentCode": "SI-0000041",
-            "documentSequenceCode": "00000001",
-            "dueAmount": 46,
-            "id": 43,
-            "invoiceDate": "2018-10-01",
-            "invoiceDueDate": "2018-10-01",
-            "memo": "test",
-            "purchaseOrderRefNo": "CPO001",
-            "supplierInvoiceNo": "CSI001",
-            "taxAmount": 1,
-            "totalAmount": 46,
-            "type": "sale_invoice"
-          }
-        ],
-        "additionalProp2": [
-          {
-            "documentCode": "SI-0000041",
-            "documentSequenceCode": "00000001",
-            "dueAmount": 46,
-            "id": 43,
-            "invoiceDate": "2018-10-01",
-            "invoiceDueDate": "2018-10-01",
-            "memo": "test",
-            "purchaseOrderRefNo": "CPO001",
-            "supplierInvoiceNo": "CSI001",
-            "taxAmount": 1,
-            "totalAmount": 46,
-            "type": "sale_invoice"
-          }
-        ],
-        "additionalProp3": [
-          {
-            "documentCode": "SI-0000041",
-            "documentSequenceCode": "00000001",
-            "dueAmount": 46,
-            "id": 43,
-            "invoiceDate": "2018-10-01",
-            "invoiceDueDate": "2018-10-01",
-            "memo": "test",
-            "purchaseOrderRefNo": "CPO001",
-            "supplierInvoiceNo": "CSI001",
-            "taxAmount": 1,
-            "totalAmount": 46,
-            "type": "sale_invoice"
-          }
-        ]
-      },
-      "name": "Sam",
-      "payableAccountCode": "AC002",
-      "paymentTermCode": "Net 0",
-      "peppolId": "u000:11::11293",
-      "receivableAccountCode": "AC001",
-      "sequenceFormat": 1,
-      "shippingAddress": [
-        {
-          "address1": "218, Robinson Road",
-          "address2": "Downtown",
-          "city": "C001",
-          "country": "C001",
-          "postalCode": 123456,
-          "preferred": true,
-          "state": "CS001"
-        }
-      ],
-      "singaporeGovt": true,
-      "taxExempted": true,
-      "taxExemptionNo": "234s-few3-2422",
-      "taxExemptionReason": "Resale, Federal Agency",
-      "taxNumber": 123456,
-      "uen": "DHJEUK"
-    },
-    "currency": "C001",
-    "customField": [
-      {
-        "label": "Label",
-        "module": "Make Payment",
-        "value": "Information"
-    }
-    ],
-    "documentSequenceCode": "0000001",
-    "draft": false,
-    "dropShip": true,
-    "dueAmount": 12.322,
-    "exchangeRate": 0.456345,
-    "id": 1,
-    "journalEntryCode": "JE0001",
-    "knockoffInfo": [
-      {
-        "amount": 0,
-        "currency": "SGD",
-        "documentCode": "DOC001",
-        "documentDate": "2020-06-16T08:45:46.952Z",
-        "documentOrder": 0,
-        "documentType": "QUOTATION",
-        "exchangeRate": 0
-      }
-    ],
-    "linkedDocuments": [
-      {
-        "documentCode": "QO-0000001",
-        "documentSequenceCode": "0000001",
-        "documentType": "QUOTATION"
-      }
-    ],
-    "memo": "Memo details",
-    "openingDocumentNumber": "DC-0001",
-    "openingInvoice": false,
-    "payableAccountCode": "AC-000001",
-    "paymentStatus": "PENDING",
-    "purchaseInvoiceAccounts": [
-      {
-        "accountCode": "P00001",
-        "accountDescription": "Apple watch",
-        "accountOrder": 1,
-        "amount": 2,
-        "discount": 2,
-        "discountInPercent": true,
-        "id": 2,
-        "taxAmount": 0.5,
-        "taxCode": "GST7",
-        "totalAmount": 2.3
-      }
-    ],
-    "purchaseInvoiceCode": "SI001",
-    "purchaseInvoiceDate": "25-10-2019",
-    "purchaseInvoiceDueDate": "25-10-2019",
-    "purchaseInvoiceProducts": [
-      {
-        "customField": [
-          {
-            "label": "Label",
-            "module": "Make Payment",
-            "value": "Information"
-        }
-        ],
-        "discount": 2,
-        "discountInPercent": true,
-        "id": 2,
-        "invoiceLineNumber": "ABSCDDSD1212",
-        "product": {
-          "active": true,
-          "barcode": 2365234,
-          "bomAddCostConfiguration": [
-            {
-              "label": "Labour charges",
-              "price": 10.5
-            }
-          ],
-          "bomProductsConfiguration": [
-            {
-              "itemId": 1234,
-              "itemName": "Apple",
-              "quantity": 10.5
-            }
-          ],
-          "categoryCode": "AB0001",
-          "categoryDesc": "Medical Equipment",
-          "customField": {
-            "field1": "value1",
-            "field2": "value2"
-          },
-          "deleted": true,
-          "description": "Description",
-          "documentSequenceCode": "P-0000001",
-          "id": 1234,
-          "images": [
-            "string"
-          ],
-          "inventory": {
-            "availableQuantity": 100,
-            "costOfGoodsSoldAccountCode": "A-10231",
-            "inventoryAccountCode": "A-10232",
-            "inventoryAccountName": "Inventory Account",
-            "openingQuantity": 10,
-            "openingValuation": 100.4,
-            "stockAdjustmentAccountCode": "A-10234",
-            "warehouseCode": "WH-00001"
-          },
-          "manufacturingCostAccountCode": "AC-0000012",
-          "name": "Apple",
-          "productId": "P000011",
-          "purchaseAccountCode": "A-0012",
-          "purchasePrice": 123.33,
-          "purchasePriceTaxInclusive": true,
-          "purchaseReturnAccountCode": "A-0014",
-          "purchaseTaxCode": "T-001",
-          "reorderEnabled": true,
-          "reorderLevel": 100,
-          "salesAccountCode": "A-0013",
-          "salesPrice": 120,
-          "salesPriceTaxInclusive": false,
-          "salesReturnAccountCode": "A-0015",
-          "salesTaxCode": "T-002",
-          "sequenceFormat": 1,
-          "stockUom": 2,
-          "taxable": true,
-          "type": "TRACKED"
-        },
-        "productCode": "P00001",
-        "productDescription": "Apple watch",
-        "productOrder": 1,
-        "productQuantity": 2,
-        "purchaseInvoiceItemCode": "PII-000001",
-        "tax": {
-          "accountCode": "AC-001",
-          "code": "TC-001",
-          "deleted": false,
-          "description": "sales Tax for SG",
-          "name": "SGST",
-          "percent": 7,
-          "status": "active",
-          "taxCode": "TC-001",
-          "type": "SALES"
-        },
-        "taxAmount": 0.5,
-        "taxCode": "GST7",
-        "tdsAccount": "AC-0000011",
-        "tdsAmount": 100,
-        "tdsId": 1,
-        "tdsRate": 10.1,
-        "totalAmount": 2.3,
-        "unitPrice": 0.7
-      }
-    ],
-    "purchaseInvoiceRecurring": {
-      "id": 2,
-      "invoiceRecurringCount": 1,
-      "recurrenceEndDate": "25-10-2019",
-      "recurrenceFrequency": "WEEK",
-      "recurrenceType": 1
-    },
-    "purchaseInvoiceType": "INVENTORY",
-    "purchaseOrderRefNo": "CPO001",
-    "receiveGoodsStatus": "UNRECEIVED",
-    "recurring": true,
-    "recurringActivated": false,
-    "shipFrom": {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
-    },
-    "shipTo": {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
-    },
-    "status": "OPEN",
-    "supplierInvoiceNo": "INV001",
-    "taxAmount": 2.322,
-    "totalAmount": 12.322,
-    "totalAmountInBaseCurrency": 12.322,
-    "totalTdsAmount": 12.32,
-    "unitPriceGstInclusive": false,
-    "warehouseCode": "WH-000001"
-  },
-  "recurringActivated": false,
-  "recurringPayment": false,
-  "referenceDate": "2019-09-27",
-  "referenceNumber": "CH001"
+  "paymentType": "CASH"
 }
 ```
 
 ##### Sample Response
 ```java
 {
-  "accountCodePayFrom": "AC-001",
-  "accountName": "Bank",
-  "amount": 10,
-  "contactCode": 19425,
-  "contactName": "ABC PTE LTD",
+  "id": 4810,
+  "parentPaymentId": null,
+  "code": "MP-0000001",
+  "jeCode": "JE-0000006",
+  "contactCode": "C-0000001",
+  "contactName": null,
   "currency": "SGD",
-  "documentDate": "2019-09-27",
-  "exchangeRate": 0.01891562,
+  "exchangeRate": 1,
+  "accountCodePayFrom": "AC-0000002",
+  "accountName": null,
+  "paymentType": "CASH",
+  "referenceNumber": null,
+  "referenceDate": null,
+  "amount": 107,
+  "documentDate": "2020-06-18T00:00:00.000+0000",
+  "memo": null,
+  "recurringPayment": false,
+  "recurringActivated": false,
+  "nextPaymentDate": null,
+  "deleted": false,
+  "tenantId": 1,
   "makePaymentItemDtoList": [
     {
-      "accountName": "Bank",
-      "description": "General ledger for account.",
-      "documentCode": "AC-001",
-      "documentType": "General Ledger",
-      "exchangeRate": 0.01891562,
-      "paymentAmount": 10.5,
-      "taxAmount": 0.7,
-      "taxCode": "GST@7",
+      "id": 5028,
+      "documentType": "PURCHASE_INVOICE",
+      "documentCode": "0000001",
+      "description": null,
+      "exchangeRate": 1,
+      "paymentAmount": 107,
+      "tenantId": 1,
+      "accountName": null,
+      "taxCode": null,
+      "taxAmount": null,
+      "whtRateInfo": null,
       "taxList": [
-        {
-          "id": 0,
-          "taxAmount": 0,
-          "taxCode": "Tax10",
-          "taxRate": 0,
-          "taxSeqCode": "T001",
-          "taxType": "string",
-          "taxableAmount": 0
-        }
+
       ]
     }
   ],
-  "makePaymentRecurringDto": {
-    "paymentMemo": {
-      "paymentMemos": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
-      },
-      "referenceDetails": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
-      }
-    },
-    "recurringEndDate": "2019-09-27",
-    "recurringFrequency": 1,
-    "recurringPaymentCount": 2,
-    "recurringType": "WEEK"
-  },
-  "memo": "Sales quotation",
-  "nextPaymentDate": "2019-09-27",
-  "paymentType": "BANK_TRANSFER",
-  "purchaseInvoice": {
-    "attachmentIds": [
-      0
-    ],
-    "attachments": [
-      "string"
-    ],
-    "backOrder": true,
-    "billTo": {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
-    },
-    "contact": {
-      "address": "Raffles Place 1",
-      "name": "ABC Pte Ltd",
-      "peppolId": "u000:1109:uen"
-    },
-    "contactCode": "C0001",
-    "contactDto": {
-      "attentionTo": "Peter Parker",
-      "billingAddress": [
-        {
-          "address1": "218, Robinson Road",
-          "address2": "Downtown",
-          "city": "C001",
-          "country": "C001",
-          "postalCode": 123456,
-          "preferred": true,
-          "state": "CS001"
-        }
-      ],
-      "businessUnit": "CAA01 - Cvl Avtn Authrty of Singapore",
-      "currencyCode": "SGD",
-      "customField": {
-        "field1": "value1",
-        "field2": "value2"
-      },
-      "documentSequenceCode": "C-0000001",
-      "emailId": "myinfo@domain.com",
-      "invoices": {
-        "additionalProp1": [
-          {
-            "documentCode": "SI-0000041",
-            "documentSequenceCode": "00000001",
-            "dueAmount": 46,
-            "id": 43,
-            "invoiceDate": "2018-10-01",
-            "invoiceDueDate": "2018-10-01",
-            "memo": "test",
-            "purchaseOrderRefNo": "CPO001",
-            "supplierInvoiceNo": "CSI001",
-            "taxAmount": 1,
-            "totalAmount": 46,
-            "type": "sale_invoice"
-          }
-        ],
-        "additionalProp2": [
-          {
-            "documentCode": "SI-0000041",
-            "documentSequenceCode": "00000001",
-            "dueAmount": 46,
-            "id": 43,
-            "invoiceDate": "2018-10-01",
-            "invoiceDueDate": "2018-10-01",
-            "memo": "test",
-            "purchaseOrderRefNo": "CPO001",
-            "supplierInvoiceNo": "CSI001",
-            "taxAmount": 1,
-            "totalAmount": 46,
-            "type": "sale_invoice"
-          }
-        ],
-        "additionalProp3": [
-          {
-            "documentCode": "SI-0000041",
-            "documentSequenceCode": "00000001",
-            "dueAmount": 46,
-            "id": 43,
-            "invoiceDate": "2018-10-01",
-            "invoiceDueDate": "2018-10-01",
-            "memo": "test",
-            "purchaseOrderRefNo": "CPO001",
-            "supplierInvoiceNo": "CSI001",
-            "taxAmount": 1,
-            "totalAmount": 46,
-            "type": "sale_invoice"
-          }
-        ]
-      },
-      "name": "Sam",
-      "payableAccountCode": "AC002",
-      "paymentTermCode": "Net 0",
-      "peppolId": "u000:11::11293",
-      "receivableAccountCode": "AC001",
-      "sequenceFormat": 1,
-      "shippingAddress": [
-        {
-          "address1": "218, Robinson Road",
-          "address2": "Downtown",
-          "city": "C001",
-          "country": "C001",
-          "postalCode": 123456,
-          "preferred": true,
-          "state": "CS001"
-        }
-      ],
-      "singaporeGovt": true,
-      "taxExempted": true,
-      "taxExemptionNo": "234s-few3-2422",
-      "taxExemptionReason": "Resale, Federal Agency",
-      "taxNumber": 123456,
-      "uen": "DHJEUK"
-    },
-    "currency": "C001",
-    "customField": [
-      {
-        "label": "Label",
-        "module": "Make Payment",
-        "value": "Information"
-    }
-    ],
-    "documentSequenceCode": "0000001",
-    "draft": false,
-    "dropShip": true,
-    "dueAmount": 12.322,
-    "exchangeRate": 0.456345,
-    "id": 1,
-    "journalEntryCode": "JE0001",
-    "knockoffInfo": [
-      {
-        "amount": 0,
-        "currency": "SGD",
-        "documentCode": "DOC001",
-        "documentDate": "2020-06-16T09:18:48.478Z",
-        "documentOrder": 0,
-        "documentType": "QUOTATION",
-        "exchangeRate": 0
-      }
-    ],
-    "linkedDocuments": [
-      {
-        "documentCode": "QO-0000001",
-        "documentSequenceCode": "0000001",
-        "documentType": "QUOTATION"
-      }
-    ],
-    "memo": "Memo details",
-    "openingDocumentNumber": "DC-0001",
-    "openingInvoice": false,
-    "payableAccountCode": "AC-000001",
-    "paymentStatus": "PENDING",
-    "purchaseInvoiceAccounts": [
-      {
-        "accountCode": "P00001",
-        "accountDescription": "Apple watch",
-        "accountOrder": 1,
-        "amount": 2,
-        "discount": 2,
-        "discountInPercent": true,
-        "id": 2,
-        "taxAmount": 0.5,
-        "taxCode": "GST7",
-        "totalAmount": 2.3
-      }
-    ],
-    "purchaseInvoiceCode": "SI001",
-    "purchaseInvoiceDate": "25-10-2019",
-    "purchaseInvoiceDueDate": "25-10-2019",
-    "purchaseInvoiceProducts": [
-      {
-        "customField": [
-          {
-            "label": "Label",
-            "module": "Make Payment",
-            "value": "Information"
-        }
-        ],
-        "discount": 2,
-        "discountInPercent": true,
-        "id": 2,
-        "invoiceLineNumber": "ABSCDDSD1212",
-        "product": {
-          "active": true,
-          "barcode": 2365234,
-          "bomAddCostConfiguration": [
-            {
-              "label": "Labour charges",
-              "price": 10.5
-            }
-          ],
-          "bomProductsConfiguration": [
-            {
-              "itemId": 1234,
-              "itemName": "Apple",
-              "quantity": 10.5
-            }
-          ],
-          "categoryCode": "AB0001",
-          "categoryDesc": "Medical Equipment",
-          "customField": {
-            "field1": "value1",
-            "field2": "value2"
-          },
-          "deleted": true,
-          "description": "Description",
-          "documentSequenceCode": "P-0000001",
-          "id": 1234,
-          "images": [
-            "string"
-          ],
-          "inventory": {
-            "availableQuantity": 100,
-            "costOfGoodsSoldAccountCode": "A-10231",
-            "inventoryAccountCode": "A-10232",
-            "inventoryAccountName": "Inventory Account",
-            "openingQuantity": 10,
-            "openingValuation": 100.4,
-            "stockAdjustmentAccountCode": "A-10234",
-            "warehouseCode": "WH-00001"
-          },
-          "manufacturingCostAccountCode": "AC-0000012",
-          "name": "Apple",
-          "productId": "P000011",
-          "purchaseAccountCode": "A-0012",
-          "purchasePrice": 123.33,
-          "purchasePriceTaxInclusive": true,
-          "purchaseReturnAccountCode": "A-0014",
-          "purchaseTaxCode": "T-001",
-          "reorderEnabled": true,
-          "reorderLevel": 100,
-          "salesAccountCode": "A-0013",
-          "salesPrice": 120,
-          "salesPriceTaxInclusive": false,
-          "salesReturnAccountCode": "A-0015",
-          "salesTaxCode": "T-002",
-          "sequenceFormat": 1,
-          "stockUom": 2,
-          "taxable": true,
-          "type": "TRACKED"
-        },
-        "productCode": "P00001",
-        "productDescription": "Apple watch",
-        "productOrder": 1,
-        "productQuantity": 2,
-        "purchaseInvoiceItemCode": "PII-000001",
-        "tax": {
-          "accountCode": "AC-001",
-          "code": "TC-001",
-          "deleted": false,
-          "description": "sales Tax for SG",
-          "name": "SGST",
-          "percent": 7,
-          "status": "active",
-          "taxCode": "TC-001",
-          "type": "SALES"
-        },
-        "taxAmount": 0.5,
-        "taxCode": "GST7",
-        "tdsAccount": "AC-0000011",
-        "tdsAmount": 100,
-        "tdsId": 1,
-        "tdsRate": 10.1,
-        "totalAmount": 2.3,
-        "unitPrice": 0.7
-      }
-    ],
-    "purchaseInvoiceRecurring": {
-      "id": 2,
-      "invoiceRecurringCount": 1,
-      "recurrenceEndDate": "25-10-2019",
-      "recurrenceFrequency": "WEEK",
-      "recurrenceType": 1
-    },
-    "purchaseInvoiceType": "INVENTORY",
-    "purchaseOrderRefNo": "CPO001",
-    "receiveGoodsStatus": "UNRECEIVED",
-    "recurring": true,
-    "recurringActivated": false,
-    "shipFrom": {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
-    },
-    "shipTo": {
-      "address1": "218, Robinson Road",
-      "address2": "Downtown",
-      "city": "C001",
-      "country": "C001",
-      "postalCode": 123456,
-      "preferred": true,
-      "state": "CS001"
-    },
-    "status": "OPEN",
-    "supplierInvoiceNo": "INV001",
-    "taxAmount": 2.322,
-    "totalAmount": 12.322,
-    "totalAmountInBaseCurrency": 12.322,
-    "totalTdsAmount": 12.32,
-    "unitPriceGstInclusive": false,
-    "warehouseCode": "WH-000001"
-  },
-  "recurringActivated": false,
-  "recurringPayment": false,
-  "referenceDate": "2019-09-27",
-  "referenceNumber": "CH001"
+  "makePaymentRecurringDto": null
 }
 ```
 ##### Responses

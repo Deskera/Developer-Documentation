@@ -183,7 +183,7 @@ https://bifrost.deskera.com/v1/products
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/products" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"barcode\": 2365234, \"bomAddCostConfiguration\": [ { \"label\": \"Labour charges\", \"price\": 10.5 } ], \"bomProductsConfiguration\": [ { \"itemId\": 1234, \"itemName\": \"Apple\", \"quantity\": 10.5 } ], \"categoryCode\": \"AB0001\", \"categoryDesc\": \"Medical Equipment\", \"customField\": { \"field1\": \"value1\", \"field2\": \"value2\" }, \"description\": \"Description\", \"documentSequenceCode\": \"P-0000001\", \"images\": [ \"string\" ], \"inventory\": { \"availableQuantity\": 100, \"costOfGoodsSoldAccountCode\": \"A-10231\", \"inventoryAccountCode\": \"A-10232\", \"inventoryAccountName\": \"Inventory Account\", \"openingQuantity\": 10, \"openingValuation\": 100.4, \"stockAdjustmentAccountCode\": \"A-10234\", \"warehouseCode\": \"WH-00001\" }, \"manufacturingCostAccountCode\": \"AC-0000012\", \"name\": \"Apple\", \"purchaseAccountCode\": \"A-0012\", \"purchasePrice\": 123.33, \"purchasePriceTaxInclusive\": true, \"purchaseReturnAccountCode\": \"A-0014\", \"purchaseTaxCode\": \"T-001\", \"reorderEnabled\": true, \"reorderLevel\": 100, \"salesAccountCode\": \"A-0013\", \"salesPrice\": 120, \"salesPriceTaxInclusive\": false, \"salesReturnAccountCode\": \"A-0015\", \"salesTaxCode\": \"T-002\", \"sequenceFormat\": 1, \"stockUom\": 2, \"taxable\": true, \"type\": \"TRACKED\"}"
+curl -X POST "https://bifrost.deskera.com/v1/products" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"name\": \"Demo Product\", \"description\": \"Demo Product Description\", \"type\": \"TRACKED\", \"sequenceFormat\": \"5eeb3cb495ec493bcc4003e5\", \"barcode\": \"123123132\", \"purchaseAccountCode\": \"AC-0000032\", \"purchasePrice\": 100, \"purchaseTaxCode\": \"TX-0000011\", \"purchasePriceTaxInclusive\": true, \"salesAccountCode\": \"AC-0000023\", \"salesPrice\": 120, \"salesTaxCode\": \"TX-0000001\", \"salesPriceTaxInclusive\": true, \"taxable\": true, \"stockUom\": \"2\", \"inventory\": { \"costOfGoodsSoldAccountCode\": \"AC-0000030\", \"inventoryAccountCode\": \"AC-0000004\", \"stockAdjustmentAccountCode\": \"AC-0000045\", \"openingQuantity\": 10, \"availableQuantity\": 0, \"openingValuation\": 1000, \"warehouseCode\": \"WH-0000001\" }, \"bomProductsConfiguration\": [ ], \"whtApplicable\": false, \"exciseApplicable\": false, \"exciseRate\": 0, \"exciseType\": \"FLAT\", \"images\": [ null ], \"manufacturingCostAccountCode\": \"AC-0000063\", \"bomAddCostConfiguration\": [ ], \"offeringType\": \"GOODS\", \"exemptedMalaysia\": true, \"whtSectionToWhtRateId\": null, \"customField\": null, \"taxPreference\": true}"
 ```
 ##### Parameters
 
@@ -195,122 +195,99 @@ curl -X POST "https://bifrost.deskera.com/v1/products" -H "accept: application/j
 
 ```java
 {
-  "barcode": 2365234,
-  "bomAddCostConfiguration": [
-    {
-      "label": "Labour charges",
-      "price": 10.5
-    }
-  ],
-  "bomProductsConfiguration": [
-    {
-      "itemId": 1234,
-      "itemName": "Apple",
-      "quantity": 10.5
-    }
-  ],
-  "categoryCode": "AB0001",
-  "categoryDesc": "Medical Equipment",
-  "customField": {
-    "field1": "value1",
-    "field2": "value2"
-  },
-  "description": "Description",
-  "documentSequenceCode": "P-0000001",
-  "images": [
-    "string"
-  ],
-  "inventory": {
-    "availableQuantity": 100,
-    "costOfGoodsSoldAccountCode": "A-10231",
-    "inventoryAccountCode": "A-10232",
-    "inventoryAccountName": "Inventory Account",
-    "openingQuantity": 10,
-    "openingValuation": 100.4,
-    "stockAdjustmentAccountCode": "A-10234",
-    "warehouseCode": "WH-00001"
-  },
-  "manufacturingCostAccountCode": "AC-0000012",
-  "name": "Apple",
-  "purchaseAccountCode": "A-0012",
-  "purchasePrice": 123.33,
+  "name": "Demo Product",
+  "description": "Demo Product Description",
+  "type": "TRACKED",
+  "sequenceFormat": "5eeb3cb495ec493bcc4003e5",
+  "barcode": "12131235",
+  "purchaseAccountCode": "AC-0000032",
+  "purchasePrice": 100,
+  "purchaseTaxCode": "TX-0000011",
   "purchasePriceTaxInclusive": true,
-  "purchaseReturnAccountCode": "A-0014",
-  "purchaseTaxCode": "T-001",
-  "reorderEnabled": true,
-  "reorderLevel": 100,
-  "salesAccountCode": "A-0013",
+  "salesAccountCode": "AC-0000023",
   "salesPrice": 120,
-  "salesPriceTaxInclusive": false,
-  "salesReturnAccountCode": "A-0015",
-  "salesTaxCode": "T-002",
-  "sequenceFormat": 1,
-  "stockUom": 2,
+  "salesTaxCode": "TX-0000001",
+  "salesPriceTaxInclusive": true,
   "taxable": true,
-  "type": "TRACKED"
+  "stockUom": "2",
+  "inventory": {
+    "costOfGoodsSoldAccountCode": "AC-0000030",
+    "inventoryAccountCode": "AC-0000004",
+    "stockAdjustmentAccountCode": "AC-0000045",
+    "openingQuantity": 10,
+    "availableQuantity": 0,
+    "openingValuation": 1000,
+    "warehouseCode": "WH-0000001"
+  },
+  "bomProductsConfiguration": [
+
+  ],
+  "whtApplicable": false,
+  "exciseApplicable": false,
+  "exciseRate": 0,
+  "exciseType": "FLAT",
+  "images": [
+    null
+  ],
+  "manufacturingCostAccountCode": "AC-0000063",
+  "bomAddCostConfiguration": [
+
+  ],
+  "offeringType": "GOODS",
+  "exemptedMalaysia": true,
+  "whtSectionToWhtRateId": null,
+  "customField": null,
+  "taxPreference": true
 }
 ```
 
 ##### Sample Response
 ```java
 {
-  "active": true,
-  "barcode": 2365234,
-  "bomAddCostConfiguration": [
-    {
-      "label": "Labour charges",
-      "price": 10.5
-    }
-  ],
-  "bomProductsConfiguration": [
-    {
-      "itemId": 1234,
-      "itemName": "Apple",
-      "quantity": 10.5
-    }
-  ],
-  "categoryCode": "AB0001",
-  "categoryDesc": "Medical Equipment",
-  "customField": {
-    "field1": "value1",
-    "field2": "value2"
-  },
-  "deleted": true,
-  "description": "Description",
-  "documentSequenceCode": "P-0000001",
-  "id": 1234,
+  "name": "Demo Product",
+  "type": "TRACKED",
+  "barcode": "12131235",
+  "description": "Demo Product Description",
+  "purchasePrice": 100.0,
+  "salesPrice": 120.0,
+  "purchaseAccountCode": "AC-0000032",
+  "salesAccountCode": "AC-0000023",
+  "purchaseReturnAccountCode": null,
+  "salesReturnAccountCode": null,
+  "manufacturingCostAccountCode": "AC-0000063",
+  "purchaseTaxCode": "TX-0000011",
+  "salesTaxCode": "TX-0000001",
+  "purchasePriceTaxInclusive": true,
+  "salesPriceTaxInclusive": true,
+  "stockUom": 2,
   "images": [
-    "string"
+    null
   ],
   "inventory": {
-    "availableQuantity": 100,
-    "costOfGoodsSoldAccountCode": "A-10231",
-    "inventoryAccountCode": "A-10232",
-    "inventoryAccountName": "Inventory Account",
-    "openingQuantity": 10,
-    "openingValuation": 100.4,
-    "stockAdjustmentAccountCode": "A-10234",
-    "warehouseCode": "WH-00001"
+    "openingQuantity": 10.0,
+    "openingValuation": 1000.0,
+    "availableQuantity": 10.0,
+    "costOfGoodsSoldAccountCode": "AC-0000030",
+    "inventoryAccountCode": "AC-0000004",
+    "stockAdjustmentAccountCode": "AC-0000045",
+    "inventoryAccountName": null,
+    "warehouseCode": "WH-0000001"
   },
-  "manufacturingCostAccountCode": "AC-0000012",
-  "name": "Apple",
-  "productId": "P000011",
-  "purchaseAccountCode": "A-0012",
-  "purchasePrice": 123.33,
-  "purchasePriceTaxInclusive": true,
-  "purchaseReturnAccountCode": "A-0014",
-  "purchaseTaxCode": "T-001",
-  "reorderEnabled": true,
-  "reorderLevel": 100,
-  "salesAccountCode": "A-0013",
-  "salesPrice": 120,
-  "salesPriceTaxInclusive": false,
-  "salesReturnAccountCode": "A-0015",
-  "salesTaxCode": "T-002",
-  "sequenceFormat": 1,
-  "stockUom": 2,
+  "categoryCode": null,
+  "categoryDesc": null,
   "taxable": true,
-  "type": "TRACKED"
+  "customField": null,
+  "reorderEnabled": false,
+  "reorderLevel": null,
+  "documentSequenceCode": "P-0000003",
+  "sequenceFormat": "5eeb3cb495ec493bcc4003e5",
+  "errorMessage": null,
+  "id": 58553,
+  "productId": "P-0000005",
+  "active": true,
+  "deleted": false,
+  "bomProductsConfiguration": [],
+  "bomAddCostConfiguration": []
 }
 ```
 

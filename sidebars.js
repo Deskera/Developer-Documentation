@@ -7,4 +7,9 @@ module.exports = {
     SDK: ['authentication', 'account', 'contact', 'product', 'taxes', 'invoice', 'order', 'payment', 'warehouse', 'stock', 'fulfillment', 'shipment']
 
   },
+
+  crmSidebar: {
+    Introduction:['crm/started'],
+    Resources: ['crm/dealsapi','crm/activitiesapi']
+  }
 };

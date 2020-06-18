@@ -139,12 +139,6 @@ https://bifrost.deskera.com/v1/iam/auth/logout
 curl -X GET "https://bifrost.deskera.com/v1/iam/auth/logout" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
 
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-
 ##### Responses
 
 | Code | Description | Schema |
@@ -236,7 +230,7 @@ Confirm forgot password.
 
 ##### Description:
 
-- Allows you to confirm a forgot password request. 
+- Allows you to confirm a forgot password request.
 - Allows you to change your existing password to the new password.
 
 #### POST
@@ -280,7 +274,7 @@ User has set new password successfully.
 ##### Responses
 
 | Code | Description | Schema |
-| ---- | ----------- | ------ | 
+| ---- | ----------- | ------ |
 | 200 | User has set new password successfully. ||
 | 201 | Created ||
 | 400 | User's new password request failed. ||
@@ -323,7 +317,7 @@ curl -X POST "https://bifrost.deskera.com/v1/iam/auth/password/forgot" -H "accep
 | ---- | ---------- | ----------- | -------- | ---- |
 | forgotPasswordRequest | body | forgotPasswordRequest | Yes | [ForgotPasswordRequest](#forgotpasswordrequest) |
 
-##### Sample Resquest
+##### Sample Request
 
 ```java
 {
@@ -379,12 +373,6 @@ https://bifrost.deskera.com/v1/iam/auth/sign-in/login/status
 curl -X GET "https://bifrost.deskera.com/v1/iam/auth/sign-in/login/status" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
 
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-
 ##### Sample Response
 
 ```java
@@ -420,8 +408,8 @@ Signin API to receive verification code and session.
 
 ##### Description:
 
-- Allows you to create new mobile sign-in session. 
-- Allows you to create and send out verification code to user. 
+- Allows you to create new mobile sign-in session.
+- Allows you to create and send out verification code to user.
 
 #### POST
 #### /v1/iam/auth/sign-in/mobile
@@ -474,7 +462,7 @@ Verify Api to get token against verification code.
 
 ##### Description:
 
-- Allows you to create token after successful verification for mobile. 
+- Allows you to create token after successful verification for mobile.
 
 #### POST
 #### /v1/iam/auth/sign-in/mobile/verify
@@ -542,7 +530,7 @@ Web Signin API to authenticate with username and password.
 
 ##### Description:
 
-- Allows you to authenticate with username and password for web sign-in. 
+- Allows you to authenticate with username and password for web sign-in.
 
 #### POST
 #### /v1/iam/auth/sign-in/web/sign-in
@@ -1179,11 +1167,6 @@ https://bifrost.deskera.com/v1/iam/users/email/delink
 ```java
 curl -X POST "https://bifrost.deskera.com/v1/iam/users/email/delink" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
 
 ##### Sample Response
 

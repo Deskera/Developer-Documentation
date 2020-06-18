@@ -15,17 +15,17 @@ You can create, and retrieve products by using API.
 |Attribute| Type | Description |
 |---------|------|-------------|
 |name|`string`|Name of the product.|
-|type|`enum`|Type of the product. Possible values for [product type](#producttype)|
+|type|`enum`|Type of the product. Possible values for [product type](#producttype).|
 |barcode|`string`|Barcode of product.|
-|description|`string`|Description of the product|
+|description|`string`|Description of the product.|
 |purchasePrice|`double`|Purchase price of the product.|
 |salesPrice|`double`|Sales price of the product.|
-|purchaseAccountCode|`string`|Purhcase account code|
-|salesAccountCode|`string`|Sales account code|
-|purchaseReturnAccountCode|`string`|Purchase return account code|
-|salesReturnAccountCode|`string`|Sales return account code|
-|purchaseTaxCode|`string`|Purchase tax code|
-|salesTaxCode|`string`|Sales tax code|
+|purchaseAccountCode|`string`|Purhcase account code.|
+|salesAccountCode|`string`|Sales account code.|
+|purchaseReturnAccountCode|`string`|Purchase return account code.|
+|salesReturnAccountCode|`string`|Sales return account code.|
+|purchaseTaxCode|`string`|Purchase tax code.|
+|salesTaxCode|`string`|Sales tax code.|
 |purchasePriceTaxInclusive|`boolean`|Has the value `true` if the purchase price of the product is inclusive of tax or `false` if the purchase price of the product is exclusive of tax.|
 |salesPriceTaxInclusive|`boolean`|Has the value `true` if the sales price of the product is inclusive of tax or `false` if the sales price of the product is exclusive of tax.|
 |stockUom        |`long`|Unit of measurement for stock.|
@@ -34,7 +34,7 @@ You can create, and retrieve products by using API.
 |categoryCode        |`string`|Category code of product.|
 |categoryDesc        |`string`|Category description of product.|
 |taxable|`boolean`|Has the value `true` if the product is taxable or `false` if the product is not taxable.|
-|customField        |`jsonobject`|Key-value pair for custom field name and its value|
+|customField        |`jsonobject`|Key-value pair for custom field name and its value.|
 |reorderEnabled|`boolean`|Has the value `true` if the reordering is enabled or `false` if the reordering is disabled.|
 |reorderLevel        |`long`|Reorder level of the product.|
 
@@ -89,17 +89,17 @@ Returns list of products.
 |active|`boolean`|Has the value `true` if the product is active or `false` if the product is not active.|
 |deleted|`boolean`|Has the value `true` if the product is deleted or `false` if the product is not deleted.|
 |name|`string`|Name of the product.|
-|type|`enum`|Type of the product. Possible values for [product type](#producttype)|
+|type|`enum`|Type of the product. Possible values for [product type](#producttype).|
 |barcode|`string`|Barcode of product.|
 |description|`string`|Description of the product|
 |purchasePrice|`double`|Purchase price of the product.|
 |salesPrice|`double`|Sales price of the product.|
-|purchaseAccountCode|`string`|Purhcase account code|
-|salesAccountCode|`string`|Sales account code|
-|purchaseReturnAccountCode|`string`|Purchase return account code|
-|salesReturnAccountCode|`string`|Sales return account code|
-|purchaseTaxCode|`string`|Purchase tax code|
-|salesTaxCode|`string`|Sales tax code|
+|purchaseAccountCode|`string`|Purhcase account code.|
+|salesAccountCode|`string`|Sales account code.|
+|purchaseReturnAccountCode|`string`|Purchase return account code.|
+|salesReturnAccountCode|`string`|Sales return account code.|
+|purchaseTaxCode|`string`|Purchase tax code.|
+|salesTaxCode|`string`|Sales tax code.|
 |purchasePriceTaxInclusive|`boolean`|Has the value `true` if the purchase price of the product is inclusive of tax or `false` if the purchase price of the product is exclusive of tax.|
 |salesPriceTaxInclusive|`boolean`|Has the value `true` if the sales price of the product is inclusive of tax or `false` if the sales price of the product is exclusive of tax.|
 |stockUom        |`long`|Unit of measurement for stock.|
@@ -108,7 +108,7 @@ Returns list of products.
 |categoryCode        |`string`|Category code of product.|
 |categoryDesc        |`string`|Category description of product.|
 |taxable|`boolean`|Has the value `true` if the product is taxable or `false` if the product is not taxable.|
-|customField        |`jsonobject`|Key-value pair for custom field name and its value|
+|customField        |`jsonobject`|Key-value pair for custom field name and its value.|
 |reorderEnabled|`boolean`|Has the value `true` if the reordering is enabled or `false` if the reordering is disabled.|
 |reorderLevel        |`long`|Reorder level of the product.|
 

@@ -152,7 +152,7 @@ https://bifrost.deskera.com/v1/notes/credit
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/notes/credit" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"cnDate\": \"06-11-2019\", \"contact\": { \"address\": \"Raffles Place 1\", \"name\": \"ABC Pte Ltd\" }, \"contactCode\": \"C-0000001\", \"currency\": \"SGD\", \"currencyExchangeRate\": 1, \"lineItems\": [ { \"accountCode\": \"AC-0000001\", \"amount\": 100, \"taxAmount\": 7, \"taxCode\": \"TC-001\" } ], \"linkedDocuments\": [ { \"amount\": 100, \"currency\": \"SGD\", \"documentCode\": \"SI-0000001\", \"documentType\": \"SALES_INVOICE\", \"exchangeRate\": 1, \"knockOffDate\": \"06-11-2019\", \"noteCode\": \"CN-0000001\" } ], \"memo\": \"memo\", \"type\": \"SALES\", \"unitPriceGstInclusive\": true}"
+curl -X POST "https://bifrost.deskera.com/v1/notes/credit" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"cnDate\": \"06-11-2019\", \"contact\": { \"address\": \"Raffles Place 1\", \"name\": \"ABC Pte Ltd\" }, \"contactCode\": \"C-0000001\", \"currency\": \"SGD\", \"currencyExchangeRate\": 1, \"lineItems\": [ { \"accountCode\": \"AC-0000001\", \"amount\": 100, \"taxAmount\": 7, \"taxCode\": \"TC-001\" } ], \"memo\": \"memo\", \"type\": \"SALES\", \"unitPriceGstInclusive\": true}"
 ```
 
 ##### Parameters
@@ -161,7 +161,7 @@ curl -X POST "https://bifrost.deskera.com/v1/notes/credit" -H "accept: applicati
 | ---- | ---------- | ----------- | -------- | ---- |
 | creditNoteRequestDto | body | Credit Note Detail Json | No | [CreditNoteRequestDto](#creditnoterequestdto) |
 
-##### Sample Resquest
+##### Sample Request
 
 ```java
 {
@@ -179,17 +179,6 @@ curl -X POST "https://bifrost.deskera.com/v1/notes/credit" -H "accept: applicati
       "amount": 100,
       "taxAmount": 7,
       "taxCode": "TC-001"
-    }
-  ],
-  "linkedDocuments": [
-    {
-      "amount": 100,
-      "currency": "SGD",
-      "documentCode": "SI-0000001",
-      "documentType": "SALES_INVOICE",
-      "exchangeRate": 1,
-      "knockOffDate": "06-11-2019",
-      "noteCode": "CN-0000001"
     }
   ],
   "memo": "memo",
@@ -223,17 +212,7 @@ curl -X POST "https://bifrost.deskera.com/v1/notes/credit" -H "accept: applicati
       "taxCode": "TC-001"
     }
   ],
-  "linkedDocuments": [
-    {
-      "amount": 100,
-      "currency": "SGD",
-      "documentCode": "SI-0000001",
-      "documentType": "SALES_INVOICE",
-      "exchangeRate": 1,
-      "knockOffDate": "06-11-2019",
-      "noteCode": "CN-0000001"
-    }
-  ],
+  "linkedDocuments": null,
   "memo": "memo",
   "type": "SALES",
   "unitPriceGstInclusive": true
@@ -284,7 +263,7 @@ curl -X PUT "https://bifrost.deskera.com/v1/notes/credit/knock-off" -H "accept: 
 | ---- | ---------- | ----------- | -------- | ---- |
 | noteLinkedDocumentInfos | body | noteLinkedDocumentInfos | Yes | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] |
 
-##### Sample Resquest
+##### Sample Request
 
 ```java
 [
@@ -440,7 +419,7 @@ curl -X PUT "https://bifrost.deskera.com/v1/notes/credit/1" -H "accept: applicat
 | creditNoteUpdateRequestDto | body | creditNoteUpdateRequestDto | Yes | [CreditNoteUpdateRequestDto](#creditnoteupdaterequestdto) |
 | id | path | id | Yes | long |
 
-##### Sample Resquest
+##### Sample Request
 
 ```java
 {
@@ -656,7 +635,7 @@ https://bifrost.deskera.com/v1/notes/debit
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/notes/debit" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"contact\": { \"address\": \"Raffles Place 1\", \"name\": \"ABC Pte Ltd\" }, \"contactCode\": \"C-0000001\", \"currency\": \"SGD\", \"currencyExchangeRate\": 1, \"dnDate\": \"06-11-2019\", \"lineItems\": [ { \"accountCode\": \"AC-0000001\", \"amount\": 100, \"taxAmount\": 7, \"taxCode\": \"TC-001\" } ], \"linkedDocuments\": [ { \"amount\": 100, \"currency\": \"SGD\", \"documentCode\": \"SI-0000001\", \"documentType\": \"SALES_INVOICE\", \"exchangeRate\": 1, \"knockOffDate\": \"06-11-2019\", \"noteCode\": \"CN-0000001\" } ], \"memo\": \"memo\", \"type\": \"SALES\", \"unitPriceGstInclusive\": true}"
+curl -X POST "https://bifrost.deskera.com/v1/notes/debit" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"contact\": { \"address\": \"Raffles Place 1\", \"name\": \"ABC Pte Ltd\" }, \"contactCode\": \"C-0000001\", \"currency\": \"SGD\", \"currencyExchangeRate\": 1, \"dnDate\": \"06-11-2019\", \"lineItems\": [ { \"accountCode\": \"AC-0000001\", \"amount\": 100, \"taxAmount\": 7, \"taxCode\": \"TC-001\" } ], \"memo\": \"memo\", \"type\": \"SALES\", \"unitPriceGstInclusive\": true}"
 ```
 
 ##### Parameters
@@ -683,17 +662,6 @@ curl -X POST "https://bifrost.deskera.com/v1/notes/debit" -H "accept: applicatio
       "amount": 100,
       "taxAmount": 7,
       "taxCode": "TC-001"
-    }
-  ],
-  "linkedDocuments": [
-    {
-      "amount": 100,
-      "currency": "SGD",
-      "documentCode": "SI-0000001",
-      "documentType": "SALES_INVOICE",
-      "exchangeRate": 1,
-      "knockOffDate": "06-11-2019",
-      "noteCode": "CN-0000001"
     }
   ],
   "memo": "memo",
@@ -727,17 +695,7 @@ curl -X POST "https://bifrost.deskera.com/v1/notes/debit" -H "accept: applicatio
       "taxCode": "TC-001"
     }
   ],
-  "linkedDocuments": [
-    {
-      "amount": 100,
-      "currency": "SGD",
-      "documentCode": "SI-0000001",
-      "documentType": "SALES_INVOICE",
-      "exchangeRate": 1,
-      "knockOffDate": "06-11-2019",
-      "noteCode": "CN-0000001"
-    }
-  ],
+  "linkedDocuments": null,
   "memo": "memo",
   "type": "SALES",
   "unitPriceGstInclusive": true

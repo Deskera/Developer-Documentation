@@ -358,12 +358,6 @@ https://bifrost.deskera.com/v1/inventories/stockAdjustmentList
 curl -X GET "https://bifrost.deskera.com/v1/inventories/stockAdjustmentList" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
 
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-
 ##### Sample Response
 
 ```java
@@ -750,11 +744,6 @@ https://bifrost.deskera.com/v1/inventories/stockTransferList
 curl -X GET "https://bifrost.deskera.com/v1/inventories/stockTransferList" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
 
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-
 ##### Sample Response
 
 ```java
@@ -818,10 +807,6 @@ https://bifrost.deskera.com/v1/inventories/valuation
 curl -X GET "https://bifrost.deskera.com/v1/inventories/valuation" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
 
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
 
 ##### Sample Response
 
@@ -880,11 +865,6 @@ https://bifrost.deskera.com/v1/inventories/warehouses
 ```java
 curl -X GET "https://bifrost.deskera.com/v1/inventories/warehouses" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
 
 ##### Sample Response
 

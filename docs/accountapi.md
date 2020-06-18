@@ -20,7 +20,7 @@ Get accounts by filter criteria. [More about search account](https://deskera.doc
 ##### Description:
 
 - Allows you to retrieve a list of all accounts.
-- Allows you to retrieve a list of account details based on it's filter criteria. 
+- Allows you to retrieve a list of account details based on it's filter criteria.
 
 #### GET
 
@@ -148,7 +148,7 @@ https://bifrost.deskera.com/v1/account
 ##### Curl
 
 ```java
-curl -X GET "https://bifrost.deskera.com/v1/account" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"accountCode\": \"Saving Account\", \"accountGroupId\": 1, \"accountGroupName\": \"Sample Account Group\", \"balance\": 999.99, \"currency\": \"SGD\", \"customField\": [ { \"label\": \"Label\", \"module\": \"string\", \"value\": \"XYZ\" } ], \"description\": \"Savings account description\", \"name\": \"Savings account\", \"openingBalance\": 999.99, \"openingBalanceCdType\": \"DEBIT\", \"taxCode\": \"Tax Code\", \"totalBalance\": 999.99}"
+curl -X POST "https://bifrost.deskera.com/v1/account" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"accountCode\": \"Saving Account\", \"accountGroupId\": 1, \"accountGroupName\": \"Sample Account Group\", \"balance\": 999.99, \"currency\": \"SGD\", \"customField\": [ { \"label\": \"Label\", \"module\": \"string\", \"value\": \"XYZ\" } ], \"description\": \"Savings account description\", \"name\": \"Savings account\", \"openingBalance\": 999.99, \"openingBalanceCdType\": \"DEBIT\", \"taxCode\": \"Tax Code\", \"totalBalance\": 999.99}"
 ```
 
 
@@ -158,7 +158,7 @@ curl -X GET "https://bifrost.deskera.com/v1/account" -H "accept: application/jso
 | ---- | ---------- | ----------- | -------- | ---- |
 | accountRequestDto | body | accountRequestDto | Yes | [AccountRequestDto](#accountrequestdto) |
 
-##### Sample Resquest
+##### Sample Request
 
 ```java
 {
@@ -321,7 +321,7 @@ https://bifrost.deskera.com/v1/account/1
 ##### Curl
 
 ```java
-curl -X GET "https://bifrost.deskera.com/v1/account/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"accountCode\": \"Saving Account\", \"accountGroupId\": 1, \"accountGroupName\": \"Sample Account Group\", \"balance\": 999.99, \"currency\": \"SGD\", \"customField\": [ { \"label\": \"Label\", \"module\": \"Account\", \"value\": \"Extra information\" } ], \"description\": \"Savings account description\", \"name\": \"Savings account\", \"openingBalance\": 999.99, \"openingBalanceCdType\": \"DEBIT\", \"taxCode\": \"Tax Code\", \"totalBalance\": 999.99}"
+curl -X PUT "https://bifrost.deskera.com/v1/account/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"accountCode\": \"Saving Account\", \"accountGroupId\": 1, \"accountGroupName\": \"Sample Account Group\", \"balance\": 999.99, \"currency\": \"SGD\", \"customField\": [ { \"label\": \"Label\", \"module\": \"Account\", \"value\": \"Extra information\" } ], \"description\": \"Savings account description\", \"name\": \"Savings account\", \"openingBalance\": 999.99, \"openingBalanceCdType\": \"DEBIT\", \"taxCode\": \"Tax Code\", \"totalBalance\": 999.99}"
 ```
 
 ##### Parameters
@@ -404,7 +404,7 @@ Get account groups by filter criteria. [More about list of account types](https:
 ##### Description:
 
 - Allows you to retrieve a list of all account groups.
-- Allows you to retrieve specific account group based on it's filter criteria. 
+- Allows you to retrieve specific account group based on it's filter criteria.
 
 #### GET
 #### /v1/account/group

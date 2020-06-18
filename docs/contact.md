@@ -16,11 +16,11 @@ sidebar_label: Contact
 |name|`string`|Name of the contact.|
 |receivableAccountCode|`string`|Account code of contact's account receivable.|
 |payableAccountCode|`string`|Account code of contact's account payable.|
-|currencyCode|`enum`|Currency code. Possible values for [currency code](#supported_currency_type)|
+|currencyCode|`enum`|Currency code. Possible values for [currency code](#supported_currency_type).|
 |paymentTermCode|`string`|Payment term for contact.|
-|billingAddress|`list`|List of billing addresses for contact. Attributes for [Address](#address)|
-|shippingAddress|`list`|List of shipping addresses for contact. Attributes for [Address](#address)|
-|status|`enum`|Status of the contact. Possible values for [contact status](#contact_status)|
+|billingAddress|`list`|List of billing addresses for contact. Attributes for [Address](#address).|
+|shippingAddress|`list`|List of shipping addresses for contact. Attributes for [Address](#address).|
+|status|`enum`|Status of the contact. Possible values for [contact status](#contact_status).|
 |customer|`boolean`|Has the value `true` if the contact is customer or `false` if the contact is not customer.|
 |vendor|`boolean`|Has the value `true` if the contact is vendor or `false` if the contact is not vendor.|
 |deleted|`boolean`|Has the value `true` if the contact is deleted or `false` if the contact is not deleted.|
@@ -29,7 +29,7 @@ sidebar_label: Contact
 |youOweThem        |`BigDecimal`|Amount that contact owe to others.|
 |totalNetAmount        |`BigDecimal`|Receivable account opening amount.|
 |totalBillAmount        |`BigDecimal`|Payable account opening amount.|
-|invoices        |`list`|List of invoices associated with contact. Attributes of [Invoice](#invoice)|
+|invoices        |`list`|List of invoices associated with contact. Attributes of [Invoice](#invoice).|
 |customField        |`jsonobject`|Key-value pair for custom field name and its value|
 |avalaraCustomerCode|`string`|Avlara customer code.|
 |uen|`string`|UEN of contact.|
@@ -43,7 +43,7 @@ sidebar_label: Contact
 ## API
 ---
 ### Create Contact
-Creates a new contact
+Creates a new contact.
 
 #### Parameters
 - [contactDto](#contact-object) `ContactDto`
@@ -60,7 +60,7 @@ Creates a new contact
 ```
 ---
 ### Retrieve Contact
-Retrieves the details of an existing contact. You need only supply the unique contact code that was returned upon contact creation.
+Retrieves the details of an existing contact. You only need to supply the unique contact code that was returned upon contact creation.
 
 #### Parameters
 - contactCode `string`
@@ -144,22 +144,22 @@ Updates the specified contact by setting the values of the parameters passed. An
 ### ContactAttributeUpdateDto
 |Attribute|Type| Description|
 |---------|----|------------|
-|billingAddress|`list`|List of billing addresses for contact. Attributes for [Address](#address)|
-|shippingAddress|`list`|List of shipping addresses for contact. Attributes for [Address](#address)|
-|status|`enum`|Status of the contact. Possible values for [contact status](#contact_status)|
+|billingAddress|`list`|List of billing addresses for contact. Attributes for [Address](#address).|
+|shippingAddress|`list`|List of shipping addresses for contact. Attributes for [Address](#address).|
+|status|`enum`|Status of the contact. Possible values for [contact status](#contact_status).|
 |customer|`boolean`|Has the value `true` if the contact is customer or `false` if the contact is not customer.|
 |vendor|`boolean`|Has the value `true` if the contact is vendor or `false` if the contact is not vendor.|
-|customField        |`jsonobject`|Key-value pair for custom field name and its value|
+|customField        |`jsonobject`|Key-value pair for custom field name and its value.|
 
 ### Address
 |Attribute|Type| Description|
 |---------|----|------------|
-|address1|`string`|Address line 1|
-|address2|`string`|Address line 2|
-|country|`string`|Country|
-|state|`string`|State|
-|city|`string`|City|
-|postalCode|`string`|Postal Code|
+|address1|`string`|Address line 1.|
+|address2|`string`|Address line 2.|
+|country|`string`|Country.|
+|state|`string`|State.|
+|city|`string`|City.|
+|postalCode|`string`|Postal Code.|
 |preferred|`boolean`|Has the value `true` if the address is default  or `false` if the address is not default address.|
 
 ### Invoice
@@ -167,13 +167,13 @@ Updates the specified contact by setting the values of the parameters passed. An
 |---------|----|------------|
 |id|`long`|Unique identifier for the invoice.|
 |invoiceDate|`date`|Invoice date.|
-|invoiceDueDate|`date`|Invoice due date|
-|memo|`string`|Invoice memo|
+|invoiceDueDate|`date`|Invoice due date.|
+|memo|`string`|Invoice memo.|
 |documentCode|`string`|Document code of invoice.|
 |totalAmount|`BigDecimal`|Total amount of invoice.|
 |dueAmount|`BigDecimal`|Due amount of invoice.|
 |taxAmount|`BigDecimal`|Tax amount of invoice.|
-|type|`string`|`sale_invoice` for invoice or `purchase invoice` for bill|
+|type|`string`|`sale_invoice` for invoice or `purchase invoice` for bill.|
 
 
 ## Enums

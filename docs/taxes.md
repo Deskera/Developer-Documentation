@@ -17,7 +17,7 @@ sidebar_label: Tax
 |accountCode|`string`|Account code of tax's account.|
 |accountName|`string`|Name of Tax's account.|
 |type|`enum`|Type of taxes. Possible values for [type](#type).|
-|description|`string`|Tax account descriptioon.|
+|description|`string`|Tax account description.|
 |percent|`BigDecimal`|Tax's percentage.|
 |code|`string`|Tax code.|
 |status|`string`|Tax Status.|

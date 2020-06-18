@@ -31,7 +31,7 @@ hr {
 }
 
 h1{
-  font-size: 24px !important;
+  font-size: 24px;
   margin-bottom: 1rem !important;
 }
 
@@ -68,4 +68,13 @@ h3 {
 
 .navbar {
   border-bottom: .23rem solid #ae2e00;
+}
+
+.header_colour {
+  background-color: #ffc64a !important;
+}
+
+.headerBtn {
+  background-color: #f3dcc7;
+  margin-left: 10px;
 }
