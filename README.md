@@ -4,11 +4,11 @@ The [Deskera](https://www.deskera.com/) java developer documentation provides co
 
 ### Installation
 #### Requirement
-* Node.js version >= 10.9.0 or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
-* Yarn version >= 1.5 (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
+* Node.js version >= 10.9.0 or above (which can be checked by running `node -v`). You may use `nvm` for managing multiple Node versions on a single machine installed
+* (Optional) Yarn version >= 1.5 (which can be checked by running `yarn version`). Yarn is a performant package manager for JavaScript and can be used in place of npm.
 
 #### Run Developer Document
-you can run a local development server that will serve developer documentation on your local environment 
+You may run a local development server that will serve developer documentation on your local environment 
 ##### Node
 
 ```
@@ -17,18 +17,12 @@ npm install
 npm run start
 ```
 
-*You can use `sudo npm install` in case npm install is not working*
+*You may have to use `sudo npm install` in case `npm` requires elevated access*
 
-
-##### Yarn
-
-```
-yarn run start
-```
 After successfully compiling, a browser window will open at http://localhost:3000. 
 
 ### Problems or Queries
-Ask for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/deskera), on our [GitHub](https://github.com/deskera) repository or [Twitter](https://twitter.com/deskera).
+Ask for help on [Reddit](https://www.reddit.com/r/Deskera/), on our [GitHub](https://github.com/deskera) repository, or [Twitter](https://twitter.com/deskera).
 
 
 

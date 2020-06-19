@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Deskera',
   tagline: 'Run Your Business',
-  url: 'https://kuld33psingh.github.io',
+  url: 'https://deskera.github.io',
   baseUrl: '/Developer-Documentation/',
   favicon: 'img/favicon.png',
   organizationName: 'Deskera', // Usually your GitHub org/user name.
@@ -60,8 +60,8 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/deskera',
+              label: 'Reddit',
+              href: 'https://www.reddit.com/r/Deskera/',
             },
             {
               label: 'LinkedIn',
