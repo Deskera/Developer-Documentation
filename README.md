@@ -12,10 +12,13 @@ you can run a local development server that will serve developer documentation o
 ##### Node
 
 ```
-sudo npm install
+npm install
 
 npm run start
 ```
+
+*You can use `sudo npm install` in case npm install is not working*
+
 
 ##### Yarn
 

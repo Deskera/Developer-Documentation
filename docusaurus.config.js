@@ -1,11 +1,11 @@
 module.exports = {
   title: 'Deskera',
   tagline: 'Run Your Business',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://kuld33psingh.github.io',
+  baseUrl: '/Developer-Documentation/',
   favicon: 'img/favicon.png',
   organizationName: 'Deskera', // Usually your GitHub org/user name.
-  projectName: 'Deskera', // Usually your repo name.
+  projectName: 'Developer-Documentation', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: '',
