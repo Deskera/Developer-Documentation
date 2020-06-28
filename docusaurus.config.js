@@ -22,7 +22,7 @@ module.exports = {
         },
         {
           to: 'docs/crm/started',
-          label: 'CRM Docs',
+          label: 'Sales Docs',
           position: 'left',
         },
       ],

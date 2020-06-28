@@ -19,7 +19,7 @@ const features = [
     link: 'docs/',
   },
   {
-    title: <>CRM Docs</>,
+    title: <>Sales Docs</>,
     imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>

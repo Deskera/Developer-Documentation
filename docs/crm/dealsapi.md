@@ -4,16 +4,26 @@ title: Deal APIs
 sidebar_label: Deal
 ---
 
+This APIs will help you to manage your deals and pipelines records.
+
+You will be able to do the following:
+- **Deal:**
+  - Create, Retrieve, Update and Delete
+- **Pipeline:**
+  - Create, Retrieve, Update and Delete
+- **Stage:**
+  - Delete
+
 ## API
 ---
 
-### Bulk Delete deal
+### Bulk Delete Deal
 
-Bulk Delete Deal
+Bulk Delete Deal.
 
 ##### Description:
 
-Bulk Delete Deal
+- Allows you to delete large volume of deal.
 
 #### DELETE
 #### /v1/crm/deals
@@ -33,13 +43,13 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals" -H "accept: applicatio
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| pipeline | body | Bulk Delete deal | Yes | [BulkOperations](#BulkOperations) |
+| pipeline | body | Bulk Delete deal | Yes | [BulkOperations](#bulkoperations) |
 
 ##### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 204 |  |
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 204 |  | |
 
 ##### Security
 
@@ -47,13 +57,15 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals" -H "accept: applicatio
 | --- | --- |
 | ApiKeyAuth | |
 
-### Get deals
+---
 
-Get Deals
+### Get Deals
+
+Get Deals.
 
 ##### Description:
 
-Get Deals
+- Allows you to retrieve a list of deal records.
 
 #### GET
 #### /v1/crm/deals
@@ -127,7 +139,7 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/j
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [FilterConfig](#FilterConfig) |
+| 200 | OK | [FilterConfig](#filterconfig) |
 
 ##### Security
 
@@ -135,13 +147,15 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/j
 | --- | --- |
 | ApiKeyAuth | |
 
-### Bulk Update deal
+---
 
-Bulk Update Deal
+### Bulk Update Deal
+
+Bulk Update Deal.
 
 ##### Description:
 
-Bulk Update Deal
+- Allows you to update a large amount of deal records at once.
 
 #### PATCH
 #### /v1/crm/deals
@@ -154,14 +168,14 @@ https://bifrost.deskera.com/v1/crm/deals
 ##### Curl
 
 ```java
-curl -X PATCH "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"ids\": [ 1,2 ], \"owner_id\": 12, \"pipeline_id\": 1, \"reason\": \"Test reason\", \"status\": 2, \"tenantId\": 1234}"
+curl -X PATCH "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"ids\": [ 1,2 ], \"pipeline_id\": 1, \"stage_id\":32, \"reason\": \"Test reason\", \"status\": 2}"
 ```
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| pipeline | body | Bulk Update deal | Yes | [BulkUpdateDealReq](#BulkUpdateDealReq) |
+| pipeline | body | Bulk Update deal | Yes | [BulkUpdateDealReq](#bulkupdatedealreq) |
 
 ##### Sample request
 ```java
@@ -171,6 +185,7 @@ curl -X PATCH "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application
   ],
   "owner_id": 12,
   "pipeline_id": 1,
+  "stage_id":2,
   "reason": "Test reason",
   "status": 2,
   "tenantId": 1234
@@ -194,13 +209,15 @@ curl -X PATCH "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application
 | --- | --- |
 | ApiKeyAuth | |
 
-### Create deal
+---
 
-Add deal
+### Create Deal
+
+Add deal.
 
 ##### Description:
 
-Add deal
+- Allows you to create a new deal record.
 
 #### POST
 #### /v1/crm/deals
@@ -213,40 +230,37 @@ https://bifrost.deskera.com/v1/crm/deals
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"name\": \"Test Deal\", \"contact_id\": 740, \"contact_name\" :\"Paul\", \"organization_id\":0, \"organization_name\" :\"Paul Org\", \"mobile\": \"9876543212\", \"email\": \"a@a.com\", \"currency_code\": \"SGD\", \"amount\": 12, \"closing_date\": \"2020-05-02T08:14:19.607Z\", \"status\": 1, \"pipeline_id\":1, \"stage_id\": 1, \"custom_field\": [ { \"code\": \"string\", \"label\": \"string\", \"module\": \"string\", \"shortName\": \"string\", \"value\": \"string\" } ]}"
+curl -X POST "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{\"name\": \"TestDeal1\",\"contact_id\": 0,\"contact_name\": \"Paul\",\"organization_name\": \"Paul Org \",\"organization_id\": 0,\"email\": \"\",\"currency_code\": \"SGD\",\"amount\": 0,\"stage_id\": 3169,\"pipeline_id\": 492,\"closing_date\": \"2020-06-23T07:30:26.438Z\",\"custom_field\": [],\"owner_id\": 9547,\"sub_owner_ids\": [],\"visibility_type\": \"team\"}"
 ```
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| pipeline | body | Add deal | Yes | [DealRequest](#DealRequest) |
+| pipeline | body | Add deal | Yes | [DealRequest](#dealrequest) |
 
-##### Samle Request
+##### Sample Request
 ```java
 {
-    "name": "Test Deal",
-    "contact_id": 740,
-    "contact_name" :"Paul",
-    "organization_id":0,
-    "organization_name" :"Paul Org",
-    "mobile": "9876543212",
-    "email": "a@a.com",
-    "currency_code": "SGD",
-    "amount": 12,
-    "closing_date": "2020-05-02T08:14:19.607Z",
-    "status": 1,
-    "pipeline_id":1,
-    "stage_id": 1,
-    "custom_field": [
-    {
-      "code": "string",
-      "label": "string",
-      "module": "string",
-      "shortName": "string",
-      "value": "string"
-    }
-  ]
+  "name": "TestDeal",
+  "contact_id": 0,
+  "contact_name": "Paul",
+  "organization_name": "Paul Org ",
+  "organization_id": 0,
+  "email": "",
+  "currency_code": "SGD",
+  "amount": 0,
+  "stage_id": 3169,
+  "pipeline_id": 492,
+  "closing_date": "2020-06-23T07:30:26.438Z",
+  "custom_field": [
+
+  ],
+  "owner_id": 9547,
+  "sub_owner_ids": [
+
+  ],
+  "visibility_type": "team"
 }
 ```
 
@@ -262,7 +276,7 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 201 | Created | [constants.CUDRecordResponse](#constants.cudrecordresponse) |
+| 201 | Created | [CUDRecordResponse](#cudrecordresponse) |
 
 ##### Security
 
@@ -270,13 +284,15 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/deals" -H "accept: application/
 | --- | --- |
 | ApiKeyAuth | |
 
-### Delete deal
+---
 
-Delete Deal
+### Delete Deal
+
+Delete Deal.
 
 ##### Description:
 
-Delete Deal
+- Allows you to delete deal record.
 
 #### DELETE
 #### /v1/crm/deals/{id}
@@ -289,7 +305,7 @@ https://bifrost.deskera.com/v1/crm/deals/1
 ##### Curl
 
 ```java
-curl -X GET "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
+curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
 
 ##### Parameters
@@ -310,16 +326,18 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application
 | --- | --- |
 | ApiKeyAuth | |
 
-### Get deal by id
+---
 
-Get Deal
+### Get Deal by Id
+
+Get Deal by id.
 
 ##### Description:
 
-Get Deal
+- Allows you to retrieve deal record by it's id.
 
 #### GET
-##### /v1/crm/deals/{id}
+#### /v1/crm/deals/{id}
 ##### Request URL
 
 ```java
@@ -377,7 +395,7 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [DealResponse](#DealResponse) |
+| 200 | OK | [DealResponse](#dealresponse) |
 
 ##### Security
 
@@ -385,13 +403,15 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application
 | --- | --- |
 | ApiKeyAuth | |
 
-### Update deal
+---
 
-Update Deal by id
+### Update Deal
+
+Update Deal by id.
 
 ##### Description:
 
-Update Deal by id
+- Allows you to update deal record by it's id.
 
 #### PUT
 #### /v1/crm/deals/{id}
@@ -404,7 +424,7 @@ https://bifrost.deskera.com/v1/crm/deals/1
 ##### Curl
 
 ```java
-curl -X PUT "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"name\": \"Test Deal\", \"contact_id\": 740, \"contact_name\" :\"Paul\", \"organization_id\":0, \"organization_name\" :\"Paul Org\", \"mobile\": \"9876543212\", \"email\": \"a@a.com\", \"currency_code\": \"SGD\", \"amount\": 12, \"closing_date\": \"2020-05-02T08:14:19.607Z\", \"status\": 1, \"pipeline_id\":1, \"stage_id\": 1, \"custom_field\": [ { \"code\": \"string\", \"label\": \"string\", \"module\": \"string\", \"shortName\": \"string\", \"value\": \"string\" } ]}"
+curl -X PUT "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{\"name\": \"TestDeal123\",\"contact_id\": 0,\"contact_name\": \"Paul\",\"organization_name\": \"Paul Org \",\"organization_id\": 0,\"email\": \"\",\"currency_code\": \"SGD\",\"amount\": 0,\"stage_id\": 3169,\"pipeline_id\": 492,\"closing_date\": \"2020-06-23T07:30:26.438Z\",\"custom_field\": [],\"owner_id\": 9547,\"sub_owner_ids\": [],\"visibility_type\": \"team\"}"
 ```
 
 ##### Parameters
@@ -412,37 +432,34 @@ curl -X PUT "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | id | path | Deal ID | Yes | integer |
-| pipeline | body | Update deal | Yes | [Deal](#Deal) |
+| pipeline | body | Update deal | Yes | [Deal](#deal) |
 
 ##### Sample Request
 ```java
 {
-    "name": "Test Deal",
-    "contact_id": 740,
-    "contact_name" :"Paul",
-    "organization_id":0,
-    "organization_name" :"Paul Org",
-    "mobile": "9876543212",
-    "email": "a@a.com",
-    "currency_code": "SGD",
-    "amount": 12,
-    "closing_date": "2020-05-02T08:14:19.607Z",
-    "status": 1,
-    "pipeline_id":1,
-    "stage_id": 1,
-    "custom_field": [
-    {
-      "code": "string",
-      "label": "string",
-      "module": "string",
-      "shortName": "string",
-      "value": "string"
-    }
-  ]
+  "name": "TestDeal",
+  "contact_id": 0,
+  "contact_name": "Paul",
+  "organization_name": "Paul Org ",
+  "organization_id": 0,
+  "email": "",
+  "currency_code": "SGD",
+  "amount": 0,
+  "stage_id": 3169,
+  "pipeline_id": 492,
+  "closing_date": "2020-06-23T07:30:26.438Z",
+  "custom_field": [
+
+  ],
+  "owner_id": 9547,
+  "sub_owner_ids": [
+
+  ],
+  "visibility_type": "team"
 }
 ```
 
-##### Sample response
+##### Sample Response
 ```java
 {
   "id": 1,
@@ -454,7 +471,7 @@ curl -X PUT "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [constants.CUDRecordResponse](#constants.cudrecordresponse) |
+| 200 | OK | [CUDRecordResponse](#cudrecordresponse) |
 
 ##### Security
 
@@ -462,13 +479,15 @@ curl -X PUT "https://bifrost.deskera.com/v1/crm/deals/1" -H "accept: application
 | --- | --- |
 | ApiKeyAuth | |
 
-### Get pipelines
+---
 
-Get Pipelines
+### Get Pipelines
+
+Get Pipelines.
 
 ##### Description:
 
-Get Pipelines
+- Allows you to retrieve a list of pipeline details.
 
 #### GET
 #### /v1/crm/deals/pipelines
@@ -616,7 +635,7 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/deals/pipelines" -H "accept: app
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [Pipeline](#Pipeline) |
+| 200 | OK | [Pipeline](#pipeline) |
 
 ##### Security
 
@@ -624,13 +643,15 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/deals/pipelines" -H "accept: app
 | --- | --- |
 | ApiKeyAuth | |
 
-### Create pipeline
+---
 
-Create Pipeline
+### Create Pipeline
+
+Create Pipeline.
 
 ##### Description:
 
-Create Pipeline
+- Allows you to cretae new pipeline.
 
 #### POST
 #### /v1/crm/deals/pipelines:
@@ -651,7 +672,7 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/deals/pipelines" -H "accept: ap
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| pipeline | body | Create Pipeline | Yes | [Pipeline](#Pipeline) |
+| pipeline | body | Create Pipeline | Yes | [Pipeline](#pipeline) |
 
 ##### Sample request
 ```java
@@ -700,7 +721,7 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/deals/pipelines" -H "accept: ap
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 201 | Created | [constants.CUDRecordResponse](#constants.cudrecordresponse) |
+| 201 | Created | [CUDRecordResponse](#cudrecordresponse) |
 
 ##### Security
 
@@ -708,13 +729,15 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/deals/pipelines" -H "accept: ap
 | --- | --- |
 | ApiKeyAuth | |
 
+---
+
 ### Delete Pipeline
 
-Delete Pipeline
+Delete Pipeline.
 
 ##### Description:
 
-Delete Pipelin
+- Allows you to delete existing pipeline.
 
 #### DELETE
 #### /v1/crm/deals/pipelines/{id}
@@ -740,9 +763,9 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/1" -H "accept
 
 ##### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 204 |  |
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 204 |  | |
 
 ##### Security
 
@@ -750,13 +773,15 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/1" -H "accept
 | --- | --- |
 | ApiKeyAuth | |
 
-### Get pipeline by id
+---
 
-Get Pipeline
+### Get Pipeline by Id
+
+Get Pipeline by id.
 
 ##### Description:
 
-Get Pipeline
+- Allows you to retrieve pipeline details by it's id.
 
 #### GET
 #### /v1/crm/deals/pipelines/{id}
@@ -769,6 +794,17 @@ https://bifrost.deskera.com/v1/deals/pipelines/1
 
 ##### Curl
 
+```java
+curl -X GET "https://bifrost.deskera.com/v1/crm/deals/pipelines/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
+```
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Pipeline ID | Yes | integer |
+
+##### Sample Response
 ```java
 {
   "id": 1,
@@ -842,17 +878,11 @@ https://bifrost.deskera.com/v1/deals/pipelines/1
 }
 ```
 
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Pipeline ID | Yes | integer |
-
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [Pipeline](#Pipeline) |
+| 200 | OK | [Pipeline](#pipeline) |
 
 ##### Security
 
@@ -860,13 +890,15 @@ https://bifrost.deskera.com/v1/deals/pipelines/1
 | --- | --- |
 | ApiKeyAuth | |
 
-### Update pipeline
+---
 
-Update Pipeline
+### Update Pipeline
+
+Update Pipeline.
 
 ##### Description:
 
-Update Pipeline
+- Allows you to update existing pipeline details.
 
 #### PUT
 #### /v1/crm/deals/pipelines/{id}
@@ -888,9 +920,9 @@ curl -X PUT "https://bifrost.deskera.com/v1/crm/deals/pipelines/2" -H "accept: a
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | id | path | Pipeline ID | Yes | integer |
-| pipeline | body | Update Pipeline | Yes | [Pipeline](#Pipeline) |
+| pipeline | body | Update Pipeline | Yes | [Pipeline](#pipeline) |
 
-##### Sample request
+##### Sample Request
 ```java
 {
   "name": "Updated Test Pipeline",
@@ -937,15 +969,17 @@ curl -X PUT "https://bifrost.deskera.com/v1/crm/deals/pipelines/2" -H "accept: a
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [constants.CUDRecordResponse](#constants.cudrecordresponse) |
+| 200 | OK | [CUDRecordResponse](#cudrecordresponse) |
 
-### Delete stage by id
+---
 
-Delete Stage
+### Delete Stage by Id
+
+Delete Stage.
 
 ##### Description:
 
-Delete stage
+- Allows you to delete stage by it's id.
 
 #### DELETE
 #### /v1/crm/deals/pipelines/stages/{id}
@@ -970,9 +1004,9 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 
 ##### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 204 |  |
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 204 |  ||
 
 ##### Security
 
@@ -980,10 +1014,11 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | --- | --- |
 | ApiKeyAuth | |
 
+---
+
 ## Models
 
 ---
-
 
 ### CUDRecordResponse
 
@@ -1020,7 +1055,7 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | created_date | string |  | No |
 | email | string |  | No |
 | id | integer |  | No |
-| label | [ContactLabel](#Contactlabel) |  | No |
+| label | [ContactLabel](#contactlabel) |  | No |
 | label_id | integer |  | No |
 | logo | string |  | No |
 | name | string |  | No |
@@ -1061,19 +1096,19 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | ---- | ---- | ----------- | -------- |
 | amount | number |  | No |
 | closing_date | string |  | No |
-| contact | [Contact](#Contact) |  | No |
+| contact | [Contact](#contact) |  | No |
 | contact_id | integer |  | No |
 | contact_name | string |  | No |
 | currency_code | string |  | No |
-| custom_field | [ [CustomField](#CustomField) ] |  | No |
+| custom_field | [ [CustomField](#customField) ] |  | No |
 | email | string |  | No |
 | id | integer |  | No |
 | mobile | string |  | No |
 | name | string |  | No |
-| organization | [Contact](#Contact) |  | No |
+| organization | [Contact](#contact) |  | No |
 | organization_id | integer |  | No |
 | organization_name | string |  | No |
-| owner | [UserAndTeams](#UserAndTeams) |  | No |
+| owner | [UserAndTeams](#userandteams) |  | No |
 | owner_id | integer |  | No |
 | pipeline_id | integer |  | No |
 | reason | string |  | No |
@@ -1091,7 +1126,7 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | contact_info | string |  | No |
 | created_at | string |  | No |
 | currency_code | string |  | No |
-| custom_field | [ [CustomField](#CustomField) ] |  | No |
+| custom_field | [ [CustomField](#customfield) ] |  | No |
 | email | string |  | No |
 | id | integer |  | No |
 | is_deleted | boolean |  | No |
@@ -1104,7 +1139,7 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | owner_info | string |  | No |
 | pipeline_id | integer |  | No |
 | reason | string |  | No |
-| stage | [StageDtoResponse](#StageDtoresponse) |  | No |
+| stage | [StageDtoResponse](#stagedtoresponse) |  | No |
 | stage_id | integer |  | No |
 | status | integer |  | No |
 | total_activities | integer |  | No |
@@ -1128,7 +1163,7 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | created_by | integer |  | No |
 | id | integer |  | No |
 | name | string |  | No |
-| stages | [ [StageDto](#StageDto) ] |  | No |
+| stages | [ [StageDto](#stagedto) ] |  | No |
 | tenantId | integer |  | No |
 | updated_at | string |  | No |
 
@@ -1138,7 +1173,7 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | ---- | ---- | ----------- | -------- |
 | created_at | string |  | No |
 | deal_probability | integer |  | No |
-| deals | [ [DealResponse](#DealResponse) ] |  | No |
+| deals | [ [DealResponse](#dealresponse) ] |  | No |
 | help_text | string |  | No |
 | id | integer |  | No |
 | name | string |  | No |
@@ -1188,7 +1223,7 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | owner_id | integer |  | No |
 | pipeline_id | integer |  | No |
 | reason | string |  | No |
-| stage | [StageModel](#StageModel) |  | No |
+| stage | [StageModel](#stagemodel) |  | No |
 | stage_id | integer |  | No |
 | status | integer |  | No |
 | tenant_id | integer |  | No |
@@ -1202,7 +1237,7 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/deals/pipelines/stages/1" -H 
 | created_by | integer |  | No |
 | created_dt | string |  | No |
 | deal_probability | integer |  | No |
-| deals | [ [Deal](#Deal) ] |  | No |
+| deals | [ [Deal](#deal) ] |  | No |
 | help_text | string |  | No |
 | id | integer |  | No |
 | is_deleted | boolean |  | No |

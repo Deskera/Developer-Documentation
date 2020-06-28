@@ -10,6 +10,6 @@ module.exports = {
 
   crmSidebar: {
     Introduction:['crm/started'],
-    Resources: ['crm/dealsapi','crm/activitiesapi']
+    Resources: ['crm/dealsapi','crm/activitiesapi','crm/contactsapi','crm/campaignapi']
   }
 };

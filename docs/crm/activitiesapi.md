@@ -4,16 +4,18 @@ title: Activity APIs
 sidebar_label: Activity
 ---
 
+You will be able to manage your activities details with this APIs, such as create, retrieve, update and delete.
+
 ## API
 ---
 
-### Get activities
+### Get Activities
 
-Show all activities
+Show all activities.
 
 ##### Description:
 
-Get all activities
+- Allows you to retrieve a list of all activities.
 
 #### GET
 #### /v1/crm/activities
@@ -87,7 +89,7 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/activities?page=1&pageSize=10&so
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [ActivityResponse](#Activityresponse) |
+| 200 | OK | [ActivityResponse](#activityresponse) |
 
 ##### Security
 
@@ -95,13 +97,15 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/activities?page=1&pageSize=10&so
 | --- | --- |
 | ApiKeyAuth | |
 
-### Create activity
+---
 
-Create activity
+### Create Activity
+
+Create activity.
 
 ##### Description:
 
-Add new activity
+- Allows you to add new activity.
 
 #### POST
 #### /v1/crm/activities
@@ -115,14 +119,14 @@ https://bifrost.deskera.com/v1/crm/activities
 ##### Curl
 
 ```java
-curl -X POST "https://bifrost.deskera.com/v1/crm/activities" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ name: \"Test Act\" activity_type: \"call\" date: 1592451000 time: \"09:00 AM\" duration: 1 assigned: null attendee: [{attendee_type: \"deal\"}] availability: null notes: \"\" is_send_invitation: true tenant_id: 23312 is_status: null}"
+curl -X POST "https://bifrost.deskera.com/v1/crm/activities" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"name\": \"Test Act\", \"activity_type\": \"call\", \"date\": 1592451000, \"time\": \"09:00 AM\", \"duration\": 1, \"assigned\": null, \"attendee\": [ { \"attendee_type\": \"deal\" } ], \"availability\": null, \"notes\": \"\", \"is_send_invitation\": true, \"tenant_id\": 23312, \"is_status\": null}"
 ```
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| activity | body | Create activity | Yes | [ActivityReq](#ActivityReq) |
+| activity | body | Create activity | Yes | [ActivityReq](#activityreq) |
 
 ##### Sample Request
 ```java
@@ -160,11 +164,14 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/activities" -H "accept: applica
 | --- | --- |
 | ApiKeyAuth | |
 
-### Get activity by Id
-Get activity by Id
+---
+
+### Get Activity by Id
+Get Activity by Id.
+
 ##### Description:
 
-Get activity by Id
+- Allows you to retrieve activity detail by it's id.
 
 #### GET
 #### /v1/crm/activities/{id}
@@ -227,7 +234,7 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: applic
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | OK | [Activity](#Activity) |
+| 200 | OK | [Activity](#activity) |
 
 ##### Security
 
@@ -235,13 +242,15 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: applic
 | --- | --- |
 | ApiKeyAuth | |
 
-### Update activity by id
+---
 
-Update Activity
+### Update Activity by Id
+
+Update Activity.
 
 ##### Description:
 
-Update Activity
+- Allows you to update an existing activity record.
 
 #### PUT
 #### /v1/crm/activities/{id}
@@ -255,14 +264,14 @@ https://bifrost.deskera.com/v1/crm/activities/1
 ##### Curl
 
 ```java
-curl -X PUT "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ name: \"Test Act\" activity_type: \"call\" date: 1592451000 time: \"09:00 AM\" duration: 1 assigned: null attendee: [{attendee_type: \"deal\"}] availability: null notes: \"\" is_send_invitation: true tenant_id: 23312 id: 246 is_status: false}"
+curl -X PUT "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: application/json" -H "x-access-token: sampleaccesstoken" -H "Content-Type: application/json" -d "{ \"name\": \"Test Act\", \"activity_type\": \"call\", \"date\": 1592451000, \"time\": \"09:00 AM\", \"duration\": 1, \"assigned\": null, \"attendee\": [ { \"attendee_type\": \"deal\" } ], \"availability\": null, \"notes\": \"\", \"is_send_invitation\": true, \"tenant_id\": 23312, \"id\": 246, \"is_status\": false}"
 ```
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | id | path | Activity ID | Yes | integer |
-| Activity | body | Update Activity | Yes | [ActivityReq](#ActivityReq) |
+| Activity | body | Update Activity | Yes | [ActivityReq](#activityreq) |
 
 ##### Sample Request
 ```java
@@ -302,13 +311,15 @@ curl -X PUT "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: applic
 | --- | --- |
 | ApiKeyAuth | |
 
-### Delete activity by id
+---
 
-Delete Activity
+### Delete Activity by Id
+
+Delete Activity.
 
 ##### Description:
 
-Delete Activity
+- Allows you to delete a specific activity.
 
 #### DELETE
 #### /v1/crm/activities/{id}
@@ -332,9 +343,9 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: app
 
 ##### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 204 | OK |
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 204 | OK | |
 
 ##### Security
 
@@ -342,13 +353,15 @@ curl -X DELETE "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: app
 | --- | --- |
 | ApiKeyAuth | |
 
+---
+
 ### Bulk Update
 
-Update multiple activity
+Update multiple activity.
 
 ##### Description:
 
-Update multiple activity
+- Allows you to update multiple activity.
 
 #### PATCH
 #### /v1/crm/activities/bulkUpdate
@@ -369,7 +382,7 @@ curl -X PATCH "https://bifrost.deskera.com/v1/crm/activities/bulkUpdate" -H "acc
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| activity | body | Update multiple activity | Yes | [MultiActivityUpdate](#MultiActivityUpdate) |
+| activity | body | Update multiple activity | Yes | [MultiActivityUpdate](#multiactivityupdate) |
 
 ##### Sample Request
 ```java
@@ -380,9 +393,9 @@ curl -X PATCH "https://bifrost.deskera.com/v1/crm/activities/bulkUpdate" -H "acc
 ```
 ##### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | OK |
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK ||
 
 ##### Security
 
@@ -390,13 +403,15 @@ curl -X PATCH "https://bifrost.deskera.com/v1/crm/activities/bulkUpdate" -H "acc
 | --- | --- |
 | ApiKeyAuth | |
 
+---
+
 ### Bulk Delete
 
-Delete multiple activity
+Delete multiple activity.
 
 ##### Description:
 
-Delete multiple activity
+- Allows you to delete large amount of activity record.
 
 #### POST
 #### /v1/crm/activities/bulkDelete
@@ -421,9 +436,9 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/activities/bulkDelete" -H "acce
 
 ##### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 204 | OK |
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 204 | OK | |
 
 ##### Security
 
@@ -438,7 +453,7 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/activities/bulkDelete" -H "acce
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| data | [ActivityAssigned](#ActivityAssigned) |  | No |
+| data | [ActivityAssigned](#activityassigned) |  | No |
 | paginationInfo | object |  | No |
 
 ### Activity
@@ -455,8 +470,8 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/activities/bulkDelete" -H "acce
 | is_send_invitation | boolean |  | No |
 | activity_type | string | call | meeting | task | deadline | email | lunch | No |
 | visibility_type | string | private | public | team | No |
-| assigned | [ActivityAssigned](#ActivityAssigned) |  | No |
-| attendee | [ActivityAttendee](#ActivityAttendee) |  | No |
+| assigned | [ActivityAssigned](#activityassigned) |  | No |
+| attendee | [ActivityAttendee](#activityattendee) |  | No |
 | assigned_to | string |  | No |
 | owner_id | integer |  | No |
 | tenant_id | integer |  | No |
@@ -522,8 +537,8 @@ curl -X POST "https://bifrost.deskera.com/v1/crm/activities/bulkDelete" -H "acce
 | is_availability | boolean |  | No |
 | is_send_invitation | boolean |  | No |
 | activity_type | string | call | meeting | task | deadline | email | lunch | No |
-| assigned | [ [ActivityAssignedReq](#ActivityAssignedReq) ] |  | No |
-| attendee | [ [ActivityAttendeeReq](#ActivityAttendeeReq) ] |  | No |
+| assigned | [ActivityAssignedReq](#activityassignedreq) |  | No |
+| attendee | [ActivityAttendeeReq](#activityattendeereq) |  | No |
 | assigned_to | string |  | No |
 
 ### ActivityAttendeeReq
