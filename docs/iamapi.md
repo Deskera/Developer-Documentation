@@ -772,7 +772,7 @@ curl -X POST "https://bifrost.deskera.com/v1/iam/auth/sign-up/web" -H "accept: a
 | --- | --- |
 | Authorization | global |
 ---
-### Get User
+### Check Existing User
 
 Api to check if user email or contact exists.
 
@@ -786,22 +786,22 @@ Api to check if user email or contact exists.
 ##### Request URL
 
 ```java
-https://bifrost.deskera.com/v1/iam/auth/user?contact=%2B6512345678&emailId=john.doe%40test.com
+https://bifrost.deskera.com/v1/iam/auth/user?action=checkExistingUserDetails&contact=%2B6512345678&emailId=john.doe%40test.com
 ```
 
 ##### Curl
 
 ```java
-curl -X GET "https://bifrost.deskera.com/v1/iam/auth/user?contact=%2B6512345678&emailId=john.doe%40test.com" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
+curl -X GET "https://bifrost.deskera.com/v1/iam/auth/user?action=checkExistingUserDetails&contact=%2B6512345678&emailId=john.doe%40test.com" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
 ```
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| action | query | action | No | string |
-| contact | query | Contact of user | No | string |
-| emailId | query | Email of user | No | string |
+| action | query | Possible value for [action](#action) | Yes | string |
+| contact | query | Contact of user | Yes | string |
+| emailId | query | Email of user | Yes | string |
 
 ##### Sample Response
 
@@ -1831,3 +1831,9 @@ curl -X PUT "https://bifrost.deskera.com/v1/iam/users/1" -H "accept: application
 | password | string | Password | No |
 | shouldSendEmail | boolean | flag to send email or not | No |
 | socialAuth | string | Needed, if user is signing up via social login | No |
+
+## Enums
+---
+
+### ACTION
+- checkExistingUserDetails
