@@ -16,18 +16,18 @@ const features = [
         Deskera Books, formerly Deskera ERP, is a cloud-based enterprise resource planning (ERP) solution which covers purchasing, sales, stock & inventory, customer management, vendor management, billing, financial reporting, and more.
       </>
     ),
-    link: 'docs/',
+    link: 'docs/books/started',
   },
   {
     title: <>Sales Docs</>,
     imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        API documentation for Customer Relationship Management (CRM).<br/>
-        CRM helps to manage and grow your customer base with ease.<br/>
+        API documentation for Deskera Sales.<br/>
+        Deskera Sales helps to manage and grow your customer base with ease.<br/>
       </>
     ),
-    link: 'docs/crm/new',
+    link: 'docs/sales/started',
   },
 ];
 
@@ -55,7 +55,7 @@ function Home() {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="All-in-One Business Accounting and Inventory Software, Run your business at ease with Deskera's Integrated Business Software on the Cloud. Sign up Now!">
       <header className={classnames('hero hero--primary header_colour', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -66,7 +66,7 @@ function Home() {
                 'button button--outline button--secondary button--lg headerBtn',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/')}>
+              to={useBaseUrl('docs/books/started')}>
               Get Started
             </Link>
             <Link

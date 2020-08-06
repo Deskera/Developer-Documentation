@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Deskera',
-  tagline: 'Run Your Business',
+  tagline: 'All in one business platform suite for small and medium businesses.',
   url: 'https://deskera.github.io',
   baseUrl: '/Developer-Documentation/',
   favicon: 'img/favicon.png',
@@ -15,8 +15,8 @@ module.exports = {
       },
       links: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
+          to: 'docs/books/started',
+          activeBasePath: 'docs/books/',
           label: 'Books Docs',
           position: 'left',
         },
@@ -35,23 +35,23 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: 'docs/',
+              to: 'docs/books/started/',
             },
             {
               label: 'Setup Developer Account',
-              to: 'docs/setup/',
+              to: 'docs/books/setup/',
             },
             {
               label: 'Authentication',
-              to: 'docs/authenticate/',
+              to: 'docs/books/authenticate/',
             },
             {
               label: 'Resources',
-              to: 'docs/accountapi/',
+              to: 'docs/books/accountapi/',
             },
             {
               label: 'SDK',
-              to: 'docs/account/',
+              to: 'docs/books/account/',
             }
 
           ],
