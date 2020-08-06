@@ -11,7 +11,8 @@ module.exports = {
       title: '',
       logo: {
         alt: 'Deskera Logo',
-        src: 'img/deskera-red-logo.png',
+        src: 'img/deskera-black-logo.png',
+        srcDark: "img/deskera-white-logo.png"
       },
       links: [
         {
@@ -21,14 +22,13 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/crm/started',
+          to: 'docs/sales/started',
           label: 'Sales Docs',
           position: 'left',
         },
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
           title: 'Docs',
@@ -87,7 +87,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Deskera. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://www.deskera.com">Deskera</a>. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -96,7 +96,7 @@ module.exports = {
       {
         docs: {
           // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'started',
+          homePageId: 'books/started',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // editUrl:

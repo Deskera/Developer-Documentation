@@ -12,7 +12,7 @@ const features = [
     imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        API documentation used in Deskera Books. <br/>
+        API documentation for Deskera Books. <br/>
         Deskera Books, formerly Deskera ERP, is a cloud-based enterprise resource planning (ERP) solution which covers purchasing, sales, stock & inventory, customer management, vendor management, billing, financial reporting, and more.
       </>
     ),

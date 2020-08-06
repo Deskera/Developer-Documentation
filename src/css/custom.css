@@ -7,22 +7,10 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #ae2e00;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
-  --ifm-code-font-size: 95%;
-
-}
-
-.docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+  --ifm-color-white-600: rgba(256, 256, 256, 0.6);
+  --ifm-color-emphasis-700: var(--ifm-color-white-600);
+  --ifm-menu-color-active: var(--ifm-color-white);
+  --ifm-hover-overlay: rgba(255, 255, 255, 0.25);
 }
 
 hr {
@@ -30,51 +18,27 @@ hr {
   margin-bottom: 1rem !important;
 }
 
-h1{
-  font-size: 24px;
-  margin-bottom: 1rem !important;
-}
-
-h2 { 
-  font-size: 18px;
-  margin-bottom: 1rem !important;
-}
-
-h3 {
-  font-size: 15px;
-  margin-bottom: 1rem !important;
-  margin-top: 1rem !important;
-}
-
-.footer--dark{
-  background-color: rgba(255,227,190,.84);
+.footer {
+  --ifm-footer-background-color: rgb(235, 237, 240);
 }
 
 .menu {
-  background-color: #ffc64a;
+  background-color: #394d9b;
 }
 
-.footer__title {
-  color: #000000;
-}
-
-.footer__link-item {
-  color: #000000;
-}
-
-.text--center{
-  color: #000000;
+.footer__title, .footer__link-item, .text--center{
+  color: #1c1e21;
 }
 
 .navbar {
-  border-bottom: .23rem solid #ae2e00;
+  border-bottom: 1px solid #e4e8f4;
 }
 
 .header_colour {
-  background-color: #ffc64a !important;
+  background-color: #394d9b !important;
 }
 
 .headerBtn {
-  background-color: #f3dcc7;
+  background-color: var(--ifm-hero-text-color);
   margin-left: 10px;
 }
