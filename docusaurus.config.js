@@ -78,7 +78,7 @@ module.exports = {
           items: [
             {
               label: 'Blog',
-              href: 'https://betterbusiness.deskera.com/',
+              href: 'https://deskera.com/blog/',
             },
             {
               label: 'GitHub',
