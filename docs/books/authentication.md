@@ -14,27 +14,15 @@ The Authentication API enables you to manage all aspects of user identity when y
 Your `access-token` contains many privileges, keep it secure!
 :::
 
-
-Web Signin API to authenticate with username and password
-
-## WebSignInRequest Object
-
-### Attributes
----
-
-| Attribute | Type | Description |
-| ---- | ---- | ----------- |
-| password | string | User password |
-| userName | string | Username |
-
-
-## API
+## APIs
 ---
 ### Login
 Login to receive token with username and password.
 
 #### Parameters
-- [webSignInRequest](#websigninrequest) `WebSignInRequest`
+- [WebSignInRequest](#websigninrequest) `Object`
+#### Returns
+- [AuthenticationResultTypeDto](#authenticationresulttypedto) `Object`
 
 #### Code
 
@@ -48,10 +36,70 @@ Login to receive token with username and password.
 ```
 ---
 
+### Connect With Authorization Code
+API to complete OAuth connection with code and get tokens
+
+#### Parameters
+- authCode `String`
+#### Returns
+- [OAuth2AccessToken](#oauth2accesstoken) `Object`
+
+#### Code
+
+```java
+  @Autowired
+  private OAuth2PartnerClient oauth2PartnerClient;
+
+    public OAuth2AccessToken connect(String authCode) {
+    return this.oauth2PartnerClient.connectWithDeskera(authCode);
+  }
+```
+---
+
+### Validate Deskera Access Token
+API to check the validity of Deskera Access Token
+
+#### Parameters
+- accessToken `String`
+#### Returns
+- isValid `Boolean`
+
+#### Code
+
+```java
+  @Autowired
+  private OAuth2PartnerClient oauth2PartnerClient;
+
+    public Boolean validateDeskeraToken(String accessToken) {
+    return this.oauth2PartnerClient.validateToken(accessToken);
+  }
+```
+---
+
+### Refresh Deskera Access Token
+API to fetch new access token with refresh token
+
+#### Parameters
+- refreshToken `String`
+#### Returns
+- [AuthenticationResultTypeDto](#authenticationresulttypedto) `Object`
+
+#### Code
+
+```java
+  @Autowired
+  private OAuth2PartnerClient oauth2PartnerClient;
+
+    public AuthenticationResultTypeDto refreshDeskeraToken(String refreshToken) {
+    return this.oauth2PartnerClient.getAppRefreshToken(refreshToken);
+  }
+```
+---
+
 ## Objects
 ---
 
-### AuthenticationResultType
+### AuthenticationResultTypeDto
 
 | Attribute | Type | Description |
 | ---- | ---- | ----------- |
@@ -68,3 +116,22 @@ Login to receive token with username and password.
 | ---- | ---- | ----------- |
 | deviceGroupKey | string |  |
 | deviceKey | string |  |
+
+### WebSignInRequest
+
+| Attribute | Type | Description |
+| ---- | ---- | ----------- |
+| password | string | User password |
+| userName | string | Username |
+
+### OAuth2AccessToken
+
+| Attribute | Type | Description |
+| ---- | ---- | ----------- |
+| accessToken | string | Auth token |
+| tokenType | string | Token Type |
+| refreshToken | string | Auth refresh token |
+| expiresIn | float | Time of expiry (Unused) |
+| scope | string | Token Scope |
+| deskeraToken | string | Deskera Access Token |
+| deskeraRefreshToken | string | Deskera Refresh Token |
