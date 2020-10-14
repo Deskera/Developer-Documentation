@@ -14,7 +14,8 @@ You can use below curl command to register with us by providing
 * The redirect URL of your webserver (to be used for authentication flow)
 
 ### Sample Request
-```
+
+```java
 curl --location --request POST 'https://bifrost.deskera.com/oauth/partner' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
@@ -24,12 +25,14 @@ curl --location --request POST 'https://bifrost.deskera.com/oauth/partner' \
 "webServerRedirectUri" : "http://localhost:8080/yourendpoint/"
 }'
 ```
+
 After executing above curl command successfully, you will get the following values:
 * clientId
 * clientSecret
 
 ### Sample Response
-```
+
+```java
 {
     "clientId": "cl_pub_eb4ef885035043abaab28ace82feec06",
     "clientSecret": "cl_priv_004d321b522743aab8bfa5d36940f2f8",
