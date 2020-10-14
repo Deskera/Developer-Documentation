@@ -3,9 +3,7 @@ id: authentication
 title: Authentication Service
 sidebar_label: Authentication
 ---
-A token is a piece of data that has no meaning or use on its own, but combined with the correct tokenization system, becomes a vital player in securing your application. Token based authentication works by ensuring that each request to a server is accompanied by a signed token which the server verifies for authenticity and only then responds to the request.
-
-JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained method for securely transmitting information between parties encoded as a JSON object. 
+A token is a piece of data that has no meaning or use on its own, but combined with the correct tokenization system, becomes a vital player in securing your application. Token based authentication works by ensuring that each request to a server is accompanied by a signed toke (RFC 7519) that defines a compact and self-contained method for securely transmitting information between parties encoded as a JSON object. 
 
 The Authentication API enables you to manage all aspects of user identity when you use Auth0. It offers endpoints so your users can log in, sign up, log out, access APIs, and more.
 
@@ -128,9 +126,9 @@ API to fetch new access token with refresh token
 
 | Attribute | Type | Description |
 | ---- | ---- | ----------- |
-| accessToken | string | Auth token |
+| accessToken | string | Auth token (Unused) |
 | tokenType | string | Token Type |
-| refreshToken | string | Auth refresh token |
+| refreshToken | string | Auth refresh token (Unused) |
 | expiresIn | float | Time of expiry (Unused) |
 | scope | string | Token Scope |
 | deskeraToken | string | Deskera Access Token |

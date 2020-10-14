@@ -8,7 +8,7 @@ The safe retrieval of secure resources while protecting user credentials can be 
 
 The OAuth 2.0 specification defines a delegation protocol that is useful for conveying authorization decisions across a network of web-enabled applications and APIs. OAuth is used in a wide variety of applications, including providing mechanisms for user authentication. This has led many developers and API providers to incorrectly conclude that OAuth is itself an authentication protocol and to mistakenly use it as such.
 
-Once you have registered as a Deskera developer and received your clientId and clientSecret. These can be used to implement the standard Oauth 2.0 three legged flow to allow user to authorize the application to access Deskera APIs.
+Once you have registered as a Deskera developer and received your `client_id` and `client_secret`, they can be used to implement the standard Oauth 2.0 three legged flow to allow user to authorize the application to access Deskera APIs.
 
 ### The OAuth connection flow
 A user connects to your platform using the following OAuth connection flow:
@@ -29,23 +29,25 @@ The Deskera endpoint should receive these parameters:
 
 
 ##### Sample OAuth Link
-```
-https://appauth.deskera.com/?client_id=cl_pub_12312412asdasdh123123qad123&scope=write&state=65289&response_type=code&redirect_uri=https%3A%2F%2Ftestapp.deskera.com%2Fpages%2Fdeskera
+
+```java
+https://appauth.deskera.com/?client_id=cl_pub_12312412asdasdh12&scope=write&state=65289&response_type=code&redirect_uri=https%3A%2F%2Ftestapp.deskera.com%2Fpages%2Fdeskera
 ```
 
 #### Step 2: Users connect their Deskera account
 
-Once on the Deskera App auth page, the user would be prompted to input his/her Deskera user name and password abd asked ti authorize the app. The user should be already registered to Deskera Books and have atleast one Org before coming to this step.
+Once on the Deskera App auth page, the user would be prompted to input his/her Deskera user name and password and asked to authorize the app. The user should be already registered to Deskera Books and have atleast one orhganisation before coming to this step.
 
 #### Step 3: Callback request with Auth Code
 
-After the user connects their existing account to you rplatform, we'll make an API call to the `callback_uri` with the below parameters
+After the user connects their existing account to your platform, we'll make an API call to the `callback_uri` with the below parameters
 - The `scope` granted
 - The `state` value, if any
 - The `code`, authorization code that is to be used get the tokens as described in next steps. This auth code is short lived and for one time use only.
 
 ##### Sample callback request
-```
+
+```java
 https://testapp.deskera.com/pages/deskera?code=Ag78aIu&state=65289&scope=write
 ```
 
@@ -56,22 +58,22 @@ Provide the code received in the Step 3 to the API below to get the tokens from 
 The `Authorization` header consists of Basic + baseEncode64(clientId:clientSecret)
 
 ##### Sample request to get tokens
-```
+```java
 curl --location --request POST 'https://bifrost.deskera.com/oauth/token?grant_type=authorization_code&scope=read+write&code=0P2xhb' \
 --header 'Authorization: Basic Y2xfcHViX2I5N2Q3MDI0ZmI4ZjQ5OGU4YmE0YjIwOTljMmRhMjAyOmNsX3ByaXZfNmZ'
 ```
 
 
 ##### Sample response for get tokens API
-```
+```java
 {
     "access_token": "95fd1877-368b-4ceb-8793-26e8d1a8a15d",
     "token_type": "bearer",
     "refresh_token": "fd4a88b6-5680-41fd-bf61-f9470604982c",
     "expires_in": 9,
     "scope": "read",
-    "deskera-token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIxMjA3NToxMTI0MiIsImlzcyI6IkRlc2tlcmEiLCJnaXZlbl9uYW1lIjoiTXkiLCJ1c2VySWQiOjEyMDc1LCJjbGllbnRfaWQiOiJhcHAtY2xpZW50IiwidGF4UmVzaWRlbmN5IjoiU0ciLCJjb21wbGlhbmNlRW5hYmxlZCI6dHJ1ZSwiZmlyZWJhc2VUb2tlbiI6ImV5SmhiR2NpT2lKU1V6STFOaUo5LmV5SmhkV1FpT2lKb2RIUndjem92TDJsa1pXNTBhWFI1ZEc5dmJHdHBkQzVuYjI5bmJHVmhjR2x6TG1OdmJTOW5iMjluYkdVdWFXUmxiblJwZEhrdWFXUmxiblJwZEhsMGIyOXNhMmw",
-    "deskera-refresh-token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIxMjA3NToxMTI0MiIsImlzcyI6IkRlc2tlcmEiLCJnaXZlbl9uYW1lIjoiTXkiLCJ1c2VySWQiOjEyMDc1LCJjbGllbnRfaWQiOiJhcHAtY2xpZW50IiwidGF4UmVzaWRlbmN5IjoiU0ciLCJjb21wbGlhbmNlRW5hYmxlZCI6dHJ1ZSwiZmlyZWJhc2VUb2tlbiI6ImV5SmhiR2NpT2lKU1V6STFOaUo5LmV5SmhkV1FpT2lKb2RIUndjem92TDJsa1pXNTBhWFI1ZEc5dmJHdHBkQzVuYjI5bmJHVmhjR2x6TG1OdmJTOW5iMjluYkdVdWFXUmxiblJwZEhrdWFXUmxiblJwZEhsMGIyOXNhMmwwTG5ZeExrbGtaVzUwYVhSNVZHOXZiR3RwZENJc0ltVjRjQ0k2TVRZd01EQTJOREUyT0N3aWFXRjBJam94TmpBd01EWXdOVFk0TENKcGMzTWlPaUptYVhKbFltRnpaUzFoWkcxcGJuTmtheTE2ZW1jMU4wQmtaWE5yYlc5aWFXeGxZWEJ3TFhOMFlXZHBibWN1YVdGdExtZHpaWEoyYVd",
+    "deskera-token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2lu",
+    "deskera-refresh-token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIx",
     "email": "test-user@mailinator.com",
     "username": "My Org",
     "org": "Singapore Org"
@@ -82,31 +84,31 @@ The `deskera-token` is not a permanent token and might become invalid time to ti
 
 ##### Sample request to check if token is valid
 
-```
+```java
 curl --location --request GET 'https://api-dev.deskera.xyz/v1/iam/token/app/validate' \
---header 'x-access-token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIxMjA3NToxMTI0MiIsImlzcyI6IkRlc2tlcmEiLCJnaXZlbl9uYW'
+--header 'x-access-token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3J'
 ```
 
 A `200` response for the above API would mean that the token is still valid.
-In case the tokenn is invalid, the deskera token can be refreshed by using the below API
+In case the token is invalid, the deskera token can be refreshed by using the below API
 
 ##### Sample request to refresh token
 
-```
+```java
 curl --location --request POST 'https://api-dev.deskera.xyz/v1/iam/auth/app/getrefreshtoken' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "refreshToken" : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIxMjA3NToxMTI0MiIsImlzcyI6IkRl"
+    "refreshToken" : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2V"
 }'
 ```
 
 ##### Sample respone for refresh token
 
-```
+```java
 {
-    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIxMjA3NToxMTI0MiIsImlzcyI6IkRlc2tlcmEi",
-    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIxMjA3NToxMTI0MiIsImlzcyI6IkRlc2tlcm",
-    "idToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX25hbWUiOiIxMjA3NToxMTI0MiIsImlzcyI6IkRlc2tlc",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2Vy",
+    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2Vy",
+    "idToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX",
     "expiresIn": 0,
     "tokenType": "bearer",
     "emailVerified": false
@@ -122,7 +124,7 @@ In the above refresh token API response -
 
 #### Step 4: User is redirected to Application
 
-If the `callback_uri` return a 2XX response and is successfully able to fetch the tokens and complete the connection, the user UI is then redirected to the `redirect_uri`, if any from step #1.
+If the `callback_uri` return a 2XX response and is successfully able to fetch the tokens and complete the connection, the user UI is then redirected to the `redirect_uri`, if any provided in step #1.
 
 
 :::note
