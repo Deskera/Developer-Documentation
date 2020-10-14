@@ -85,7 +85,7 @@ The `deskera-token` is not a permanent token and might become invalid time to ti
 ##### Sample request to check if token is valid
 
 ```java
-curl --location --request GET 'https://api-dev.deskera.xyz/v1/iam/token/app/validate' \
+curl --location --request GET 'https://bifrost.deskera.com/v1/iam/token/app/validate' \
 --header 'x-access-token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3J'
 ```
 
@@ -95,7 +95,7 @@ In case the token is invalid, the deskera token can be refreshed by using the be
 ##### Sample request to refresh token
 
 ```java
-curl --location --request POST 'https://api-dev.deskera.xyz/v1/iam/auth/app/getrefreshtoken' \
+curl --location --request POST 'https://bifrost.deskera.com/v1/iam/auth/app/getrefreshtoken' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "refreshToken" : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2V"
