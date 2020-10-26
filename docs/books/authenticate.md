@@ -30,7 +30,7 @@ The Deskera endpoint should receive these parameters:
 
 ##### Sample OAuth Link
 
-```java
+```
 https://appauth.deskera.com/?client_id=cl_pub_12312412asdasdh12&scope=write&state=65289&response_type=code&redirect_uri=https%3A%2F%2Ftestapp.deskera.com%2Fpages%2Fdeskera
 ```
 
@@ -47,7 +47,7 @@ After the user connects their existing account to your platform, we'll make an A
 
 ##### Sample callback request
 
-```java
+```
 https://testapp.deskera.com/pages/deskera?code=Ag78aIu&state=65289&scope=write
 ```
 
@@ -65,7 +65,7 @@ curl --location --request POST 'https://bifrost.deskera.com/oauth/token?grant_ty
 
 
 ##### Sample response for get tokens API
-```java
+```json
 {
     "access_token": "95fd1877-368b-4ceb-8793-26e8d1a8a15d",
     "token_type": "bearer",
@@ -84,7 +84,7 @@ The `deskera-token` is not a permanent token and might become invalid time to ti
 
 ##### Sample request to check if token is valid
 
-```java
+```bash
 curl --location --request GET 'https://bifrost.deskera.com/v1/iam/token/app/validate' \
 --header 'x-access-token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3J'
 ```
@@ -94,7 +94,7 @@ In case the token is invalid, the deskera token can be refreshed by using the be
 
 ##### Sample request to refresh token
 
-```java
+```bash
 curl --location --request POST 'https://bifrost.deskera.com/v1/iam/auth/app/getrefreshtoken' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -104,7 +104,7 @@ curl --location --request POST 'https://bifrost.deskera.com/v1/iam/auth/app/getr
 
 ##### Sample respone for refresh token
 
-```java
+```json
 {
     "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2Vy",
     "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2Vy",
