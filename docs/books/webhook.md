@@ -101,5 +101,5 @@ curl -X DELETE "https://bifrost.deskera.com/v1/webhooks/delete/8" -H "x-access-t
 | Value |
 | - |
 | CREATE_PRODUCTS |
-| CREATE_CONTACTS |
+| CREATE_CONTACT |
 
