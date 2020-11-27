@@ -60,7 +60,7 @@ Store `hookId` for future reference and deregistration.
 ### Deregister Webhook
 
 #### DELETE
-#### /v1/webhook/delete
+#### /v1/webhook/delete/{id}
 ##### Request URL 
 
 ```bash
