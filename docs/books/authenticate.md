@@ -51,14 +51,14 @@ After the user connects their existing account to your platform, we'll make an A
 https://testapp.deskera.com/pages/deskera?code=Ag78aIu&state=65289&scope=write
 ```
 
-#### Step 4: Platform completes the Desker account connection and gets tokens
+#### Step 4: Platform completes the Deskera account connection and gets tokens
 
 Provide the code received in the Step 3 to the API below to get the tokens from Deskera. The `deskera-token` can be used to make API calls to Deskera Books and the `deskera-refresh-token` can be used to fetch a new `deskera-token` in case it expires.
 
 The `Authorization` header consists of Basic + baseEncode64(clientId:clientSecret)
 
 ##### Sample request to get tokens
-```java
+```bash
 curl --location --request POST 'https://bifrost.deskera.com/oauth/token?grant_type=authorization_code&scope=read+write&code=0P2xhb' \
 --header 'Authorization: Basic Y2xfcHViX2I5N2Q3MDI0ZmI4ZjQ5OGU4YmE0YjIwOTljMmRhMjAyOmNsX3ByaXZfNmZ'
 ```
