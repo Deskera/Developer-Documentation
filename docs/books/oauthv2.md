@@ -70,7 +70,7 @@ curl --location --request POST 'https://api-staging.deskera.xyz/v2/oauth/token?g
 }
 ```
 
-The `access_token-token` is not a permanent token and might become invalid time to time. At any point of time the validity of the token can be checked by calling the below API.
+The `access_token` is not a permanent token and might become invalid time to time. At any point of time the validity of the token can be checked by calling the below API.
 
 ##### Sample request to check if token is valid
 
@@ -85,23 +85,18 @@ In case the token is invalid, the deskera token can be refreshed by using the be
 ##### Sample request to refresh token
 
 ```bash
-curl --location --request POST 'https://api-staging.deskera.xyz/v1/iam/auth/app/getrefreshtoken' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "refreshToken" : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2V"
-}'
+curl --location --request POST 'https://api-staging.deskera.xyz/v2/oauth/token?grant_type=refresh_token&refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjQ3MjU2LCJ3ZWJzaXRlIjoiRXVybyBPcmciLCJpc09yZ1NldCI6dHJ1ZSwidXNlcl9uYW1lIjoiNTEwNzM6NjQ5MzQiLCJpc3MiOiJEZXNrZXJhIiwiZ2l2ZW5fbmFtZSI6IkFua3VzaCIsInVzZXJJZCI6NTEwNzMsImNsaWVudF9pZCI6ImFwcC1jbGllbnQiLCJ0YXhSZXNpZGVuY3kiOiJFUyIsImNvbXBsaWFuY2VFbmFibGVkIjpmYWxzZSwiZmlyZWJh' \
+--header 'Authorization: Basic Y2xfcHViXzEyMzQ6Y2xfcHJpdl83NzIz'
 ```
 
 ##### Sample respone for refresh token
 
 ```json
 {
-    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2Vy",
-    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2Vy",
-    "idToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX",
-    "expiresIn": 0,
-    "tokenType": "bearer",
-    "emailVerified": false
+	"access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzc1Mywid2Vic2l0ZSI6IlZlZW0gT3JnIiwiaXNPcmdTZXQiOnRydWUsInVzZXJfbmFtZSI6IjEyNjk0NDoxMTY5MDMiLCJpc3MiOiJEZXNrZXJhIiwiZ2l2ZW5fbmFtZSI6IkFua3VzaCIsInVzZXJJZCI6MTI2OTQ0LCJjbGllbnRfaWQiOiJhcHAtY2xpZW50IiwidGF4UmVzaWRlbmN5IjoiVVMiLCJjb21wbGlhbmNlRW5hYmxlZCI6dHJ1ZSwiZmlyZWJhc2VUb2tlbiI6ImV5SmhiR2NpT2lKU1V6STFOaUo5LmV5SmhkV1FpT2lKb2RIUndjem92TDJsa1pXNTBhWFI1ZEc5dmJHdHBkQzVuYjI5bmJHVmhjR2x6TG1OdmJTOW5iMjluYkdVdWFXUmxiblJwZEhrdWFXUmxiblJwZEhsMGIyOXNhMmwwTG5ZeExrbGtaVzUwYVhSNVZHOXZiR3RwZENJc0ltVjRjQ0k2TVRZd05EazVOVEE1TVN3aWFXRjBJam94TmpBME9Ua3hORGt4TENKcGMzTWlPaUptYVhKbFltRnpaUzFoWkcxcGJuTmtheTFoTW1sdWMwQmtaWE5yYlc5aWFXeGxZWEJ3TFhCeWIyUXVhV0Z0TG1kelpYSjJhV05sWVdOamIzVnVkQzVqYjIwaUxDSnpkV0lpT2lKbWFYSmxZbUZ6WlMxaFpHMXBibk5rYXkxaE1tbHVj",
+	"token_type": "bearer",
+	"refresh_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzc1Mywid2Vic2l0ZSI6IlZlZW0gT3JnIiwiaXNPcmdTZXQiOnRydWUsInVzZXJfbmFtZSI6IjEyNjk0NDoxMTY5MDMiLCJpc3MiOiJEZXNrZXJhIiwiZ2l2ZW5fbmFtZSI6IkFua3VzaCIsInVzZXJJZCI6MTI2OTQ0LCJjbGllbnRfaWQiOiJhcHAtY2xpZW50IiwidGF4UmVzaWRlbmN5IjoiVVMiLCJjb21wbGlhbmNlRW5hYmxlZCI6dHJ1ZSwiZmlyZWJhc2VUb2tlbiI6ImV5SmhiR2NpT2lKU1V6STFOaUo5LmV5SmhkV1FpT2lKb2RIUndjem92TDJsa1pXNTBhWFI1ZEc5dmJHdHBkQzVuYjI5bmJHVmhjR2x6TG1OdmJTOW5iMjluYkdVdWFXUmxiblJwZEhrdWFXUmxiblJwZEhsMGIyOXNhMmwwTG5ZeExrbGtaVzUwYVhSNVZHOXZiR3RwZENJc0ltVjRjQ0k2TVRZd05EazVOVEE1TVN3aWFXRjBJam94TmpBME9Ua3hORGt4TENKcGMzTWlPaUptYVhKbFltRnpaUzFoWkcxcGJuTmtheTFoTW1sdWMwQmtaWE5yYlc5aWFXeGxZWEJ3TFhCeWIyUXVhV0Z0TG1kelpYSjJhV05sWVdOamIzVnVkQzVqYjIwaUxDSnpkV0lpT2lKbWFYSmxZbUZ6WlMxaFpHMXBibk5rYXkxaE1tbHVjMEJrWlhOcmJXOWlhV3hsWVhCd0xYQnliMlF1YVdGdExtZHpaWEoyYVdObFlXTmpiM1Z1ZEM1amIyMGlMQ0oxYVdRaU9pSmtZV0UzWXpVell5MW1aVFptTFRSaU5EY3RZV1V3Wmkx",
+	"expires_in": 0
 }
 ```
 

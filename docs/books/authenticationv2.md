@@ -69,7 +69,7 @@ API to fetch new access token with refresh token
   @Autowired
   private OAuthV2Client oAuthV2Client;
 
-    public AuthenticationResultTypeDto refreshDeskeraToken(String refreshToken) {
+    public OAuthV2AccessToken refreshDeskeraToken(String refreshToken) {
     return this.oAuthV2Client.getAppRefreshToken(refreshToken);
   }
 ```
