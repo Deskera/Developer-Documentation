@@ -1,8 +1,12 @@
 ---
 id: authenticate
-title: Authenticate using OAuth 2.0
-sidebar_label: Authentication
+title: Authenticate using OAuth (Deprecated)
+sidebar_label: Authentication V1
 ---
+
+:::warning
+The V1 authentication and OAuth APIs are deprecated and are being phased out. The following documentation is only for existing partners who are already using it. If you are a new partner please refer to [OAuth V2](oauthv2.md)
+:::
 
 The safe retrieval of secure resources while protecting user credentials can be achieved by OAuth 2.0.
 

@@ -1,8 +1,13 @@
 ---
 id: authentication
-title: Authentication Service
-sidebar_label: Authentication
+title: Authentication Service V1 (Deprecated)
+sidebar_label: Authentication V1
 ---
+
+:::warning
+The V1 authentication and OAuth APIs are deprecated and are being phased out. The following documentation is only for existing partners who are already using it. If you are a new partner please refer to [Authentication V2](authenticationv2.md)
+:::
+
 A token is a piece of data that has no meaning or use on its own, but combined with the correct tokenization system, becomes a vital player in securing your application. Token based authentication works by ensuring that each request to a server is accompanied by a signed toke (RFC 7519) that defines a compact and self-contained method for securely transmitting information between parties encoded as a JSON object. 
 
 The Authentication API enables you to manage all aspects of user identity when you use Auth0. It offers endpoints so your users can log in, sign up, log out, access APIs, and more.
