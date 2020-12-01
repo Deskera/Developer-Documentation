@@ -38,7 +38,7 @@ Once on the Deskera App auth page, the user would be prompted to select the orga
 
 #### Step 3: Redirection request with Auth Code
 
-After the user connects their existing account to your platform, we'll redirect trhe user to the `redirect_uri` (provided at the time of partner registration) with the below parameters
+After the user connects their existing account to your platform, we'll redirect the user to the `redirect_uri` (provided at the time of partner registration) with the below parameters
 - The `state` value, if any
 - The `code`, authorization code that is to be used get the tokens as described in next steps. This auth code is short lived and for one time use only.
 
