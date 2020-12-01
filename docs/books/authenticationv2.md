@@ -4,9 +4,9 @@ title: Authentication Service V2
 sidebar_label: Authentication V2
 ---
 
-A token is a piece of data that has no meaning or use on its own, but combined with the correct tokenization system, becomes a vital player in securing your application. Token based authentication works by ensuring that each request to a server is accompanied by a signed toke (RFC 7519) that defines a compact and self-contained method for securely transmitting information between parties encoded as a JSON object. 
+A token is a piece of data that has no meaning or use on its own, but combined with the correct tokenization system, becomes a vital player in securing your application. Token based authentication works by ensuring that each request to a server is accompanied by a signed token (RFC 7519) that defines a compact and self-contained method for securely transmitting information between parties encoded as a JSON object. 
 
-The Authentication V2 API enables you to manage all aspects of user identity when you use Auth0. It offers endpoints so your users can log in, sign up, log out, access APIs, and more.
+The Authentication V2 API enables you to manage all aspects of user identity. It offers endpoints so your users can log in, sign up, log out, access APIs, and more.
 
 :::note
 

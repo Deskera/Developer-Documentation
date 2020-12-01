@@ -34,11 +34,11 @@ https://oauth-staging.deskera.xyz/?client_id=cl_pub_1234&scope=write&state=65921
 
 #### Step 2: Users connect their Deskera account
 
-Once on the Deskera App auth page, the user would be prompted to input his/her Deskera user name and password, select the Organization we would like to connect and asked to authorize the app. The user should be already registered to Deskera Books and have atleast one organisation before coming to this step.
+Once on the Deskera App auth page, the user would be prompted to select the organization he/she would like to connect and asked to authorize the app. The user should be already registered to Deskera Books and have atleast one organisation before coming to this step.
 
 #### Step 3: Redirection request with Auth Code
 
-After the user connects their existing account to your platform, we'll make an API call to the `redirect_uri` (provided at the time of partner registration) with the below parameters
+After the user connects their existing account to your platform, we'll redirect him/her to the `redirect_uri` (provided at the time of partner registration) with the below parameters
 - The `state` value, if any
 - The `code`, authorization code that is to be used get the tokens as described in next steps. This auth code is short lived and for one time use only.
 
