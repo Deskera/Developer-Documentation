@@ -98,16 +98,29 @@ curl -X DELETE "https://bifrost.deskera.com/v1/webhooks/delete/8" -H "x-access-t
 
 ### eventTypes
 ---
-|  Value |  
-| - | - | - |
-| CREATE_PRODUCTS |
-| CREATE_CONTACT |
-| CREATE_BILL | UPDATE_BILL | DELETE_BILL |
-| CREATE_INVOICE | UPDATE_INVOICE | DELETE_INVOICE |
-| CREATE_DEBITNOTE | UPDATE_DEBITNOTE | DELETE_DEBITNOTE |
-| CREATE_CREDITNOTE | UPDATE_CREDITNOTE | DELETE_CREDITNOTE | 
-| CREATE_CRM_CONTACT | UPDATE_CRM_CONTACT | DELETE_CRM_CONTACT
-| CREATE_CRM_DEAL | UPDATE_CRM_DEAL | DELETE_CRM_DEAL |
-| STOCK_IN | STOCK_OUT |
+|  Event | Description |  
+| - | - |
+| CREATE_PRODUCTS | Triggers when a Product is added in Books |
+| CREATE_CONTACT | Triggers when a Contact is added in Books |
+| CREATE_BILL | Triggers when a Bill is created in Books |
+| UPDATE_BILL | Triggers when a Bill is updated in Books |
+| DELETE_BILL | Triggers when a Bill is deleted in Books |
+| CREATE_INVOICE | Triggers when an Invoice is created in Books |
+| UPDATE_INVOICE | Triggers when an Invoice is updated in Books |
+| DELETE_INVOICE | Triggers when an Invoice is deleted in Books |
+| CREATE_DEBITNOTE | Triggers when a Debit Note is created in Books |
+| UPDATE_DEBITNOTE | Triggers when a Debit Note is updated in Books |
+| DELETE_DEBITNOTE | Triggers when a Debit Note is deleted in Books |
+| CREATE_CREDITNOTE | Triggers when a Credit Note is created in Books |
+| UPDATE_CREDITNOTE | Triggers when a Credit Note is updated in Books |
+| DELETE_CREDITNOTE | Triggers when a Credit Note is deleted in Books |
+| CREATE_CRM_CONTACT | Triggers when a Contact is created in Sales |
+| UPDATE_CRM_CONTACT | Triggers when a Contact is updated in Sales |
+| DELETE_CRM_CONTACT | Triggers when a Contact is deleted in Sales |
+| CREATE_CRM_DEAL | Triggers when a Deal is created in Sales |
+| UPDATE_CRM_DEAL | Triggers when a Deal is updated in Sales |
+| DELETE_CRM_DEAL | Triggers when a Deal is deleted in Sales |
+| STOCK_IN | Triggers when the Stock is increased for a Product in Books |
+| STOCK_OUT | Triggers when the Stock is reduced for a Product in Books |
 
 
