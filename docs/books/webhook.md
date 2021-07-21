@@ -12,7 +12,7 @@ Webhooks notify you about certain events that occur in Deskera. You can select w
 Register webhook for an event.
 
 #### POST
-#### /v1/webhook/register
+#### /v1/webhooks/register
 ##### Request URL 
 
 ```bash
@@ -35,7 +35,7 @@ curl -X POST "https://bifrost.deskera.com/webhooks/register" -H "accept: applica
 | clientSecret | body | Client Secret | Yes | string |
 | accessToken | body | Access Token | Yes | string |
 | refreshToken | body | Refresh Token | Yes | string |
-| eventType | body | Event Type | Yes | [enum](#eventtype) |
+| eventType | body | Event Type | Yes | [enum](#eventtypes) |
 | webhookUrl | body | Client Secret | Yes | string |
 | x-access-token | header | Access Token | Yes | string |
 
@@ -43,12 +43,16 @@ curl -X POST "https://bifrost.deskera.com/webhooks/register" -H "accept: applica
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hookId | body | Webhook Id | Yes | long |
+| eventType | body | Event Type | Yes | [enum](#eventtypes) |
+| webhookUrl | body | Webhook Url | Yes | string |
 | deleted | body | Status | Yes | boolean |
 
 ##### Sample Response
 ```json
 {
 	"hookId": 4,
+	"eventType":"CREATE_CRM_DEAL",
+	"webhookUrl":"https://fb3d2be15599.ngrok.io/api/webhooks",
 	"deleted": false
 }
 ```
@@ -60,7 +64,7 @@ Store `hookId` for future reference and deregistration.
 ### Deregister Webhook
 
 #### DELETE
-#### /v1/webhook/delete/{id}
+#### /v1/webhooks/delete/{id}
 ##### Request URL 
 
 ```bash
@@ -84,14 +88,67 @@ curl -X DELETE "https://bifrost.deskera.com/v1/webhooks/delete/8" -H "x-access-t
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hookId | body | Webhook Id | Yes | long |
+| eventType | body | Event Type | Yes | [enum](#eventtypes) |
+| webhookUrl | body | Webhook Url | Yes | string |
 | deleted | body | Status | Yes | boolean |
 
 ##### Sample Response
 ```json
 {
-	"hookId": 8,
-	"deleted": true
+	"hookId": 4,
+	"eventType":"CREATE_CRM_DEAL",
+	"webhookUrl":"https://fb3d2be15599.ngrok.io/api/webhooks",
+	"deleted": false
 }
+```
+
+
+### List All Registered Webhooks
+
+#### GET
+#### /v1/webhooks
+##### Request URL 
+
+```bash
+https://bifrost.deskera.com/v1/webhooks
+```
+
+##### Curl
+
+```bash
+curl -X GET "https://bifrost.deskera.com/v1/webhooks" -H "x-access-token: sampleaccesstoken"
+```
+
+##### Parameters
+###### Request
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| x-access-token | header | Access Token | Yes | string |
+
+###### Response
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| hookId | body | Webhook Id | Yes | long |
+| eventType | body | Event Type | Yes | [enum](#eventtypes) |
+| webhookUrl | body | Webhook Url | Yes | string |
+| deleted | body | Status | Yes | boolean |
+
+##### Sample Response
+```json
+[
+	{
+	"hookId": 4,
+	"eventType":"CREATE_CRM_DEAL",
+	"webhookUrl":"https://fb3d2be15599.ngrok.io/api/webhooks",
+	"deleted": false
+	},
+	{
+	"hookId": 5,
+	"eventType":"UPDATE_CRM_DEAL",
+	"webhookUrl":"https://fb3d2be15599.ngrok.io/api/webhooks",
+	"deleted": false
+	}
+]
 ```
 
 ## Enums
