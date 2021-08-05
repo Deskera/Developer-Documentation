@@ -215,38 +215,10 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/activities?page=1&pageSize=10&so
         "custom_field": [
           {
             "code": "D-0000008",
-            "label": "Numbro",
+            "label": "CF01",
             "value": "",
             "module": "",
-            "shortName": "Numbro"
-          },
-          {
-            "code": "D-0000006",
-            "label": "DT-M",
-            "value": "03/30/2021",
-            "module": "",
-            "shortName": "DT-M"
-          },
-          {
-            "code": "D-0000005",
-            "label": "DT",
-            "value": "",
-            "module": "",
-            "shortName": "DT"
-          },
-          {
-            "code": "D-0000002",
-            "label": "CF2",
-            "value": "",
-            "module": "",
-            "shortName": "CF2"
-          },
-          {
-            "code": "D-0000001",
-            "label": "Test CF",
-            "value": "20",
-            "module": "",
-            "shortName": "Test_CF"
+            "shortName": "CF01"
           }
         ],
         "created_at": "2021-04-22T05:16:05.857311Z"
@@ -577,38 +549,10 @@ curl -X GET "https://bifrost.deskera.com/v1/crm/activities/1" -H "accept: applic
     "custom_field": [
       {
         "code": "D-0000008",
-        "label": "Numbro",
+        "label": "CF01",
         "value": "",
         "module": "",
-        "shortName": "Numbro"
-      },
-      {
-        "code": "D-0000006",
-        "label": "DT-M",
-        "value": "03/30/2021",
-        "module": "",
-        "shortName": "DT-M"
-      },
-      {
-        "code": "D-0000005",
-        "label": "DT",
-        "value": "",
-        "module": "",
-        "shortName": "DT"
-      },
-      {
-        "code": "D-0000002",
-        "label": "CF2",
-        "value": "",
-        "module": "",
-        "shortName": "CF2"
-      },
-      {
-        "code": "D-0000001",
-        "label": "Test CF",
-        "value": "20",
-        "module": "",
-        "shortName": "Test_CF"
+        "shortName": "CF01"
       }
     ],
     "created_at": "2021-04-22T05:16:05.857311Z"
