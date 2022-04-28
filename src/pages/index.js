@@ -29,6 +29,17 @@ const features = [
     ),
     link: 'docs/sales/started',
   },
+  {
+    title: <>CRM+ Docs</>,
+    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    description: (
+      <>
+        API documentation for Deskera CRM+.<br/>
+        Deskera CRM+ helps to manage and grow your customer base with ease.<br/>
+      </>
+    ),
+    link: 'docs/crmplus/started',
+  },
 ];
 
 function Feature({imageUrl, title, description,link}) {
