@@ -26,6 +26,11 @@ module.exports = {
           label: 'Sales Docs',
           position: 'left',
         },
+        {
+          to: 'docs/crmplus/started',
+          label: 'CRM+ Docs',
+          position: 'left',
+        },
       ],
     },
     footer: {
