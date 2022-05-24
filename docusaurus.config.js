@@ -31,6 +31,11 @@ module.exports = {
           label: 'CRM+ Docs',
           position: 'left',
         },
+        {
+          to: 'docs/people/started',
+          label: 'People Docs',
+          position: 'left',
+        },
       ],
     },
     footer: {

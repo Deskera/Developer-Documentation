@@ -15,5 +15,11 @@ module.exports = {
   crmplusSidebar: {
     Introduction:['crmplus/started'],
     Resources: ['crmplus/table-api','crmplus/column-api','crmplus/record-api']
+  },
+
+  peopleSidebar: {
+    Introduction:['people/started'],
+    Setup: ['people/setup'],
+    Resources: ['people/users','people/employee','people/compliance','people/payrun','people/attendance','people/expense', 'people/component']
   }
 };

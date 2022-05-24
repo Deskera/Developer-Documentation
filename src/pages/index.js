@@ -40,6 +40,17 @@ const features = [
     ),
     link: 'docs/crmplus/started',
   },
+  {
+    title: <>People Docs</>,
+    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    description: (
+      <>
+        API documentation for Deskera People.<br/>
+        Deskera People - The platform to automate your payroll. Hire and onboard employees. Give them access to the self-service portal for leaves, attendance, and expenses. Process payroll faster with built-in tax calculations.<br/>
+      </>
+    ),
+    link: 'docs/people/started',
+  },
 ];
 
 function Feature({imageUrl, title, description,link}) {
