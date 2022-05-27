@@ -8,13 +8,8 @@ In order to create Apps on Deskera platform, developer needs to register with us
 
 We uses OAuth 2.0 for the Authentication scheme. Developers must first register with us by providing some details about their app, such as email, callbankURL, and name.
 
-Please send us an email at `care@deskera.com` with the information mentioned below to register as a partner and obtain Deskera `client_id` and `client_secret`
-* Your app name
-* The purpose of your application
-* Your company name
-* Your email address
-* The callbackURL of your webserver (A valid HTTPS URL to be used for authentication flow)
-* Whether it will be used privately or will be available publicly.
+Please fill in the following form below to register as a partner and obtain Deskera `client_id` and `client_secret`
+https://docs.google.com/forms/d/e/1FAIpQLScZpPZg0Gu18AFF4E7YrekqSWLLbN7MVi6fBxTluQ_KFm4-zw/viewform
 
 
 
