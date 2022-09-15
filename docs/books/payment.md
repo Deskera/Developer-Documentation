@@ -3,7 +3,7 @@ id: payment
 title: Payment Service
 sidebar_label: Payment
 ---
-`Payment` on account is any partial payment of an amount that is owed, either to you or by you, that is not matched to a specific invoice. If you [receive a payment]((https://www.deskera.com/sg/books/accept-and-receive-payments-with-stripe/)) (either full or partial payment) from a customer or make a payment to a vendor without making reference to a specific invoice this can be treated as a payment on account.
+`Payment` on account is any partial payment of an amount that is owed, either to you or by you, that is not matched to a specific invoice. If you [receive a payment](https://www.deskera.com/sg/books/accept-and-receive-payments-with-stripe/) (either full or partial payment) from a customer or make a payment to a vendor without making reference to a specific invoice this can be treated as a payment on account.
 
 ## ReceivePaymentDTO Object
 
