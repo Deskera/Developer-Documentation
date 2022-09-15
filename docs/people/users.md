@@ -3,7 +3,6 @@ id: users
 title: Users
 sidebar_label: Users
 ---
-
 ### Security
 **ApiKeyAuth**  
 
@@ -11,6 +10,30 @@ sidebar_label: Users
 |---|---|
 |Name|x-access-token|
 |In|header|
+
+### /internal/users
+
+#### POST
+##### Summary
+
+Get User Details By Email Or Contact
+
+##### Description
+
+Get User Details By Email Or Contact
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1SearchRequest](#v1searchrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1UserList](#v1userlist) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
 ### /v1/people/users
 
@@ -332,6 +355,30 @@ API to check whether user exists in People with the given email
 | 200 | A successful response. | [v1UserExistsResponse](#v1userexistsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+### /v1/people/users/emails
+
+#### POST
+##### Summary
+
+User data with emailIds
+
+##### Description
+
+User data with emailIds
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1UsersEmailsRequest](#v1usersemailsrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1UsersEmailsResponse](#v1usersemailsresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
 ### /v1/people/users/expense/approve
 
 #### POST
@@ -442,6 +489,252 @@ Get list of all users with pagination.
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | A successful response. | [v1GetUsersResponse](#v1getusersresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+### /v1/people/users/geofencing/locations
+
+#### GET
+##### Summary
+
+Get geolocations
+
+##### Description
+
+Get geolocation values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| limit | query |  | No | string (int64) |
+| currentPage | query |  | No | string (int64) |
+| orderBy.field | query |  | No | string |
+| orderBy.order | query |  | No | string |
+| searchString | query |  | No | string |
+| searchField | query |  | No | string |
+| getComponents | query |  | No | boolean |
+| fromDate | query |  | No | dateTime |
+| toDate | query |  | No | dateTime |
+| userType | query |  | No | string |
+| cpfAccount | query |  | No | string |
+| accountType | query |  | No | string |
+| getBenefits | query |  | No | boolean |
+| order | query |  | No | string |
+| field | query |  | No | string |
+| isInCompleteProfile | query |  | No | boolean |
+| stage | query |  | No | string |
+| includeDraft | query |  | No | boolean |
+| ignTeamData | query |  | No | boolean |
+| ignRoles | query |  | No | boolean |
+| ignUserApprovers | query |  | No | boolean |
+| ignTeamMembers | query |  | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1Geolocations](#v1geolocations) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+#### DELETE
+##### Summary
+
+Delete geolocations
+
+##### Description
+
+Delete geolocation values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1BulkIdRequest](#v1bulkidrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1Geolocations](#v1geolocations) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+#### POST
+##### Summary
+
+Add geolocations
+
+##### Description
+
+Add geolocation values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1Geolocations](#v1geolocations) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1Geolocations](#v1geolocations) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+#### PUT
+##### Summary
+
+Edit geolocations
+
+##### Description
+
+Edit geolocations values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1Geolocations](#v1geolocations) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1Geolocations](#v1geolocations) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+### /v1/people/users/geolocation/mappings
+
+#### GET
+##### Summary
+
+Get geolocation mappings
+
+##### Description
+
+Get geolocation mapping values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| limit | query |  | No | string (int64) |
+| currentPage | query |  | No | string (int64) |
+| orderBy.field | query |  | No | string |
+| orderBy.order | query |  | No | string |
+| searchString | query |  | No | string |
+| searchField | query |  | No | string |
+| getComponents | query |  | No | boolean |
+| fromDate | query |  | No | dateTime |
+| toDate | query |  | No | dateTime |
+| userType | query |  | No | string |
+| cpfAccount | query |  | No | string |
+| accountType | query |  | No | string |
+| getBenefits | query |  | No | boolean |
+| order | query |  | No | string |
+| field | query |  | No | string |
+| isInCompleteProfile | query |  | No | boolean |
+| stage | query |  | No | string |
+| includeDraft | query |  | No | boolean |
+| ignTeamData | query |  | No | boolean |
+| ignRoles | query |  | No | boolean |
+| ignUserApprovers | query |  | No | boolean |
+| ignTeamMembers | query |  | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+#### DELETE
+##### Summary
+
+Delete geolocation mappings
+
+##### Description
+
+Delete geolocation mapping values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1BulkIdRequest](#v1bulkidrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+#### POST
+##### Summary
+
+Add geolocation mappings
+
+##### Description
+
+Add geolocation mapping values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1GeolocationMappingsRequest](#v1geolocationmappingsrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+#### PUT
+##### Summary
+
+Edit geolocation mappings
+
+##### Description
+
+Edit geolocation mapping values
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1GeolocationMappingsRequest](#v1geolocationmappingsrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+### /v1/people/users/geolocations/iam/{iamUserId}
+
+#### GET
+##### Summary
+
+Get geolocations for iamUserId
+
+##### Description
+
+Get geolocations values by iamUserId
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| iamUserId | path |  | Yes | string (int64) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1AddressLatLongResponse](#v1addresslatlongresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
 ### /v1/people/users/iam/{iamUserId}
@@ -614,6 +907,24 @@ API to fetch user data by erpTenantId and IamUserIds
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | A successful response. | [v1TerminationStatus](#v1terminationstatus) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+### /v1/people/users/list/email
+
+#### GET
+##### Summary
+
+Get users email
+
+##### Description
+
+Get users email
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1UsersEmailsAndUserCount](#v1usersemailsandusercount) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
 ### /v1/people/users/login/info
@@ -1071,6 +1382,7 @@ field. Example (for message [google.protobuf.Duration][]):
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | userComponents | [ [v1UserComponents](#v1usercomponents) ] |  | No |
+| countryCode | string |  | No |
 
 #### v1AddComponentsResponse
 
@@ -1122,6 +1434,22 @@ field. Example (for message [google.protobuf.Duration][]):
 | country | string |  | No |
 | suburb | string |  | No |
 | county | string |  | No |
+
+#### v1AddressLatLong
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| latitude | string |  | No |
+| longitude | string |  | No |
+| name | string |  | No |
+| address | string |  | No |
+| radius | float |  | No |
+
+#### v1AddressLatLongResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| geolocations | [ [v1AddressLatLong](#v1addresslatlong) ] |  | No |
 
 #### v1Announcement
 
@@ -1269,6 +1597,8 @@ field. Example (for message [google.protobuf.Duration][]):
 | subType | string |  | No |
 | frequency | [v1ComponentFrequency](#v1componentfrequency) |  | No |
 | includeInOTCalc | boolean |  | No |
+| formula | string |  | No |
+| formulaConfig | [ [v1FormulaConfig](#v1formulaconfig) ] |  | No |
 
 #### v1ComponentMapping
 
@@ -1370,6 +1700,15 @@ field. Example (for message [google.protobuf.Duration][]):
 | totalPage | string (int64) |  | No |
 | numberOfRecords | string (int64) |  | No |
 
+#### v1FormulaConfig
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| index | string |  | No |
+| componentId | string |  | No |
+| type | string |  | No |
+| percentage | float |  | No |
+
 #### v1Frequency
 
 | Name | Type | Description | Required |
@@ -1377,6 +1716,59 @@ field. Example (for message [google.protobuf.Duration][]):
 | always | boolean |  | No |
 | fromDate | dateTime |  | No |
 | toDate | dateTime |  | No |
+
+#### v1Geolocation
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | string |  | No |
+| name | string |  | No |
+| address | string |  | No |
+| latitude | string |  | No |
+| longitude | string |  | No |
+| radius | float |  | No |
+| placeId | string |  | No |
+| active | boolean |  | No |
+
+#### v1GeolocationMappingRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | string |  | No |
+| applicableToAll | boolean |  | No |
+| iamUserIds | [ string (int64) ] |  | No |
+| locationIds | [ string ] |  | No |
+| active | boolean |  | No |
+
+#### v1GeolocationMappingResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | string |  | No |
+| users | [ [v1UserBasicInfo](#v1userbasicinfo) ] |  | No |
+| locations | [ [v1Geolocation](#v1geolocation) ] |  | No |
+| applicableToAll | boolean |  | No |
+| active | boolean |  | No |
+
+#### v1GeolocationMappingsRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| geolocations | [ [v1GeolocationMappingRequest](#v1geolocationmappingrequest) ] |  | No |
+
+#### v1GeolocationMappingsResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| geolocations | [ [v1GeolocationMappingResponse](#v1geolocationmappingresponse) ] |  | No |
+| filterConfig | [v1FilterConfig](#v1filterconfig) |  | No |
+
+#### v1Geolocations
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| geolocations | [ [v1Geolocation](#v1geolocation) ] |  | No |
+| filterConfig | [v1FilterConfig](#v1filterconfig) |  | No |
 
 #### v1GetUserBasicsResponse
 
@@ -1541,6 +1933,8 @@ field. Example (for message [google.protobuf.Duration][]):
 | branchName | string |  | No |
 | ifsc | string |  | No |
 | upi | string |  | No |
+| transitNumber | string |  | No |
+| institutionNumber | string |  | No |
 
 #### v1PaypalBatchPayoutRequest
 
@@ -1626,6 +2020,13 @@ field. Example (for message [google.protobuf.Duration][]):
 | fixedLimit | string (int64) |  | No |
 | currentCount | string (int64) |  | No |
 | message | string |  | No |
+
+#### v1SearchRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| email | string |  | No |
+| contact | string |  | No |
 
 #### v1SignConfig
 
@@ -1819,6 +2220,12 @@ field. Example (for message [google.protobuf.Duration][]):
 | cnfrmDateUpdated | boolean |  | No |
 | checkHqError | [protobufAny](#protobufany) |  | No |
 | checkEmployeeId | string |  | No |
+| documentSequenceId | string |  | No |
+| isFromKafka | boolean |  | No |
+| tenantUserId | string (int64) |  | No |
+| customFields | object |  | No |
+| prevDateOfJoining | [ string ] |  | No |
+| isRehire | boolean |  | No |
 
 #### v1UserBasicInfo
 
@@ -1858,6 +2265,12 @@ field. Example (for message [google.protobuf.Duration][]):
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | conditions | [ [v1Condition](#v1condition) ] |  | No |
+
+#### v1UserList
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| data | [ [v1User](#v1user) ] |  | No |
 
 #### v1UserPaymentDetails
 
@@ -1920,8 +2333,39 @@ field. Example (for message [google.protobuf.Duration][]):
 | tenantId | string (int64) |  | No |
 | iamUserId | string (int64) |  | No |
 
+#### v1UsersEmailsAndUserCount
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| emails | [ string ] |  | No |
+| empCount | string (int64) |  | No |
+
+#### v1UsersEmailsRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| emails | [ string ] |  | No |
+
+#### v1UsersEmailsResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| userWithEmailResponse | [ [v1UsersWithEmailResponse](#v1userswithemailresponse) ] |  | No |
+| message | string |  | No |
+
 #### v1UsersPaymentDetails
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | usersPaymentDetails | [ [v1UserPaymentDetails](#v1userpaymentdetails) ] |  | No |
+
+#### v1UsersWithEmailResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| email | string |  | No |
+| iamUserId | string (int64) |  | No |
+| employeeId | string |  | No |
+| designation | string |  | No |
+| firstName | string |  | No |
+| lastName | string |  | No |

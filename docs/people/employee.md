@@ -360,6 +360,38 @@ initiateTerminationJob
 | --- | --- |
 | Authorization | global |
 
+### /v1/people/employees/termination/rehire/{userId}
+
+#### GET
+##### Summary
+
+Update Employee Termination Details.
+
+##### Description
+
+API to update employee termination details.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path | userId | Yes | long |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Employee termination details has been updated successfully. |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
 ### /v1/people/employees/{empid}/check-list
 
 #### GET
@@ -504,6 +536,8 @@ _Example:_ `"Downtown"` | No |
 _Example:_ `"Pune"` | No |
 | country | string | Country
 _Example:_ `"IN"` | No |
+| county | string | County
+_Example:_ `"Montgomery County"` | No |
 | state | string | State
 _Example:_ `"MH"` | No |
 | zipCode | string | Postal Code
