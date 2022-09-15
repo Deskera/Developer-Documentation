@@ -14,7 +14,7 @@ module.exports = {
         src: 'img/deskera-black-logo.png',
         srcDark: "img/deskera-white-logo.png"
       },
-      links: [
+      items: [
         {
           to: 'docs/books/started',
           activeBasePath: 'docs/books/',
@@ -106,7 +106,8 @@ module.exports = {
       {
         docs: {
           // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'books/started',
+       
+          routeBasePath: '/docs', // Serve the docs at the site's root
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // editUrl:

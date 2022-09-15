@@ -20,6 +20,9 @@ module.exports = {
   peopleSidebar: {
     Introduction:['people/started'],
     Setup: ['people/setup'],
-    Resources: ['people/users','people/employee','people/compliance','people/payrun','people/attendance','people/expense', 'people/component']
+    Authentication: ['people/authenticate', 'people/oauthv2'],
+    Resources: ['people/users','people/employee','people/compliance','people/attendance','people/expense', 'people/component',
+                  'people/account','people/payruns','people/bankaccount','people/componentgroups','people/customfields','people/performanceappraisal', 
+                  'people/component', 'people/shift', 'people/team', 'people/template', 'people/tenant']
   }
 };

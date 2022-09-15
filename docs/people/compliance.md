@@ -152,6 +152,7 @@ API to Validate or Validate & Submit AIS Submission
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | code | query | code | Yes | string |
+| isFromNewSetup | query | isFromNewSetup | No | boolean |
 | state | query | state | Yes | string |
 
 ##### Responses
@@ -329,6 +330,7 @@ initiateCorpPassAuthentication
 | aisEmployeeRequestDto | body | aisEmployeeRequestDto | Yes | [AISEmployeeRequestDto](#aisemployeerequestdto) |
 | authorizedUserId | query | authorizedUserId | Yes | string |
 | cpfAccountId | query | cpfAccountId | Yes | string |
+| isFromNewSetup | query | isFromNewSetup | No | boolean |
 | validateOnly | query | validateOnly | Yes | boolean |
 | year | query | year | Yes | integer |
 
@@ -2692,11 +2694,15 @@ _Example:_ `123456789` | No |
 | bank | string |  | No |
 | employeeId | string |  | No |
 | employeeName | string |  | No |
+| epfGiroGenerated | boolean |  | No |
 | giroGenerated | boolean |  | No |
+| incomeTaxGiroGenerated | boolean |  | No |
 | netPay | number |  | No |
 | payPeriodFromDate | string |  | No |
 | payPeriodToDate | string |  | No |
 | paySchedule | string |  | No |
+| salaryGiroGenerated | boolean |  | No |
+| socsoGiroGenerated | boolean |  | No |
 
 #### GIROPaymentAuditDTO
 
@@ -2707,8 +2713,10 @@ _Example:_ `123456789` | No |
 | batchId | long |  | No |
 | fileName | string |  | No |
 | filePath | string |  | No |
+| giroType | string |  | No |
 | payDate | date |  | No |
 | payrunId | string |  | No |
+| statutoryType | string |  | No |
 | tenantId | long |  | No |
 | totalPayment | number |  | No |
 
@@ -2719,13 +2727,17 @@ _Example:_ `123456789` | No |
 | accountNumber | string |  | No |
 | autoGenerate | boolean |  | No |
 | bank | string |  | No |
+| bankCode | string |  | No |
 | batchId | long |  | No |
 | branchCode | string |  | No |
 | companyCode | string |  | No |
+| contactName | string |  | No |
 | employeeIds | [ string ] |  | No |
 | format | string |  | No |
+| giroType | string |  | No |
 | payDate | date |  | No |
 | payrunId | string |  | No |
+| statutoryType | string |  | No |
 
 #### GIROPaymentDetailsResponseDTO
 

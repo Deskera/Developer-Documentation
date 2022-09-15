@@ -1,7 +1,7 @@
 ---
-id: payrun
-title: Payrun
-sidebar_label: Payrun
+id: payruns
+title: Payruns
+sidebar_label: Payruns
 ---
 
 ### Security
@@ -1257,33 +1257,19 @@ Get paystubs in a year for a Tenant
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| edliWages | number |  | No |
+| edliWages | string |  | No |
 | employeID | string |  | No |
 | employeeName | string |  | No |
 | epfContributionRemitted | number |  | No |
-| epfEpsDiffRemitted | number |  | No |
+| epfEpsDiffRemitted | string |  | No |
 | epfWages | number |  | No |
 | epsContributionRemitted | number |  | No |
 | epsWages | number |  | No |
-| grossWages | number |  | No |
+| grossWages | string |  | No |
 | iamUserId | string |  | No |
-| ncpDays | integer |  | No |
-| pf | boolean |  | No |
-| refundOfAdvance | integer |  | No |
-| uanNumber | string |  | No |
-
-#### dto.ESIReport
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| employeeContribution | number |  | No |
-| employeeID | string |  | No |
-| employeeName | string |  | No |
-| employerContribution | number |  | No |
-| esiApplicable | boolean |  | No |
-| esiNumber | string |  | No |
-| iamUserId | string |  | No |
-| totalContribution | number |  | No |
+| ncpDays | string |  | No |
+| refundOfAdvance | string |  | No |
+| uanNumber | number |  | No |
 
 #### dto.EffectiveCompensation
 
@@ -1444,7 +1430,6 @@ Get paystubs in a year for a Tenant
 | employeID | string |  | No |
 | employeeName | string |  | No |
 | iamUserId | string |  | No |
-| professionalTax | boolean |  | No |
 | ptTaxAmount | number |  | No |
 | ptWagesAmount | number |  | No |
 
@@ -1490,7 +1475,6 @@ Get paystubs in a year for a Tenant
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | accountNumber | string |  | No |
-| accountType | string |  | No |
 | bank | string |  | No |
 | basicAfter | number |  | No |
 | basicBefore | number |  | No |
@@ -1514,7 +1498,6 @@ Get paystubs in a year for a Tenant
 | hasSalaryAdvance | boolean |  | No |
 | hoursWorked | number |  | No |
 | iamUserId | integer |  | No |
-| ifsc | string |  | No |
 | lastName | string |  | No |
 | lossOfPay | number |  | No |
 | overtime | [ [dto.Overtime](#dtoovertime) ] |  | No |
@@ -1522,7 +1505,6 @@ Get paystubs in a year for a Tenant
 | routingNumber | string |  | No |
 | tenantId | string |  | No |
 | type | string |  | No |
-| upi | string |  | No |
 | userId | string |  | No |
 
 #### dto.PayrollResponse
@@ -1531,7 +1513,6 @@ Get paystubs in a year for a Tenant
 | ---- | ---- | ----------- | -------- |
 | _id | string |  | No |
 | accountNumber | string |  | No |
-| accountType | string |  | No |
 | bank | string |  | No |
 | basicAfter | number |  | No |
 | basicBefore | number |  | No |
@@ -1560,7 +1541,6 @@ Get paystubs in a year for a Tenant
 | hasSalaryAdvance | boolean |  | No |
 | hourlyPay | number |  | No |
 | hoursWorked | number |  | No |
-| ifsc | string |  | No |
 | isPaymentDone | boolean |  | No |
 | lastName | string |  | No |
 | lossOfPay | number |  | No |
@@ -1581,7 +1561,6 @@ Get paystubs in a year for a Tenant
 | routingNumber | string |  | No |
 | unfilledFields | [ string ] |  | No |
 | updatedAt | string |  | No |
-| upi | string |  | No |
 | userId | string |  | No |
 
 #### dto.PayrollsResponse
@@ -1631,7 +1610,6 @@ Get paystubs in a year for a Tenant
 | firstPayDate | string |  | No |
 | isForAllUsers | boolean |  | No |
 | isForContractors | boolean |  | No |
-| location | integer |  | No |
 | payDate | string |  | No |
 | payDay | string |  | No |
 | payPeriod | string |  | No |
@@ -1656,7 +1634,6 @@ Get paystubs in a year for a Tenant
 | hasDirectPayment | boolean |  | No |
 | holidays | [ [dto.Holiday](#dtoholiday) ] |  | No |
 | isForAllUsers | boolean |  | No |
-| isForContractors | boolean |  | No |
 | isNetPayNegative | boolean |  | No |
 | isPaymentDone | boolean |  | No |
 | isPayrunReverted | boolean |  | No |
@@ -1666,7 +1643,6 @@ Get paystubs in a year for a Tenant
 | jeId | string |  | No |
 | jePostedOn | string |  | No |
 | jeStatus | string |  | No |
-| location | integer |  | No |
 | month | integer |  | No |
 | netPay | number |  | No |
 | payDate | string |  | No |
@@ -1821,7 +1797,6 @@ Get paystubs in a year for a Tenant
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | epfReport | [ [dto.EPFReport](#dtoepfreport) ] |  | No |
-| esiReport | [ [dto.ESIReport](#dtoesireport) ] |  | No |
 | filterResponse | [dto.FilterResponse](#dtofilterresponse) |  | No |
 | ptReport | [ [dto.PTReport](#dtoptreport) ] |  | No |
 
