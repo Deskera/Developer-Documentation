@@ -3,286 +3,12 @@ id: payruns
 title: Payruns
 sidebar_label: Payruns
 ---
+Payrun apis allow admins to manage (create/update/list/delete) payruns for their employees
 
-### Security
-**ApiKeyAuth**  
+## API
+---
 
-|apiKey|*API Key*|
-|---|---|
-|Name|x-access-token|
-|In|header|
-
-### /check-print/bulk
-
-#### POST
-##### Summary
-
-Get Check Print Details By Employee Id and Payrun Id
-
-##### Description
-
-Get Check Print Details By Employee Id and Payrun Id
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payroll | body | CheckPrint request dto | Yes | [dto.CheckPrintRequestDto](#dtocheckprintrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrollCheckPrintResponseDto](#dtopayrollcheckprintresponsedto) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /commission/add
-
-#### POST
-##### Summary
-
-Add Commission Endpoint
-
-##### Description
-
-Add Commission Endpoint for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| commission | body | Commission Dto | Yes | [dto.CommissionRequestDto](#dtocommissionrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /commission/details
-
-#### GET
-##### Summary
-
-Get Commission Endpoint
-
-##### Description
-
-Get Commission Endpoint for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| commission | body | Commission paging Dto | Yes | [dto.GetCommissionRequestDto](#dtogetcommissionrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /commission/update
-
-#### PATCH
-##### Summary
-
-Update Commission Endpoint
-
-##### Description
-
-Update Commission Endpoint for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| commission | body | Commission Dto | Yes | [dto.CommissionRequestDto](#dtocommissionrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /internal/payrun/{payrunId}
-
-#### DELETE
-##### Summary
-
-Internal Delete Payrun By Id
-
-##### Description
-
-Internal Delete Payrun by Id for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payrunId | path | Id | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.BulkDeleteResponse](#dtobulkdeleteresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payrolls
-
-#### GET
-##### Summary
-
-Get Payrolls
-
-##### Description
-
-Get Payrolls
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrollsResponse](#dtopayrollsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-#### POST
-##### Summary
-
-Add new Payroll
-
-##### Description
-
-Add new Payroll for a tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payroll | body | Payroll Dto | Yes | [dto.PayrollRequest](#dtopayrollrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrollResponse](#dtopayrollresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payrolls/employee/{employeeId}
-
-#### GET
-##### Summary
-
-Get Payroll payrun mapping by Employee Id
-
-##### Description
-
-Get Payroll payrun mapping by Employee Id
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrollsResponse](#dtopayrollsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payrolls/payroll/migrations
-
-#### GET
-##### Summary
-
-Encrypt Payroll controller
-
-##### Description
-
-Encrypt Payroll controller
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| year | path | Year | Yes | integer |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.EncryptedPayrollsCount](#dtoencryptedpayrollscount) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payrolls/{id}
-
-#### GET
-##### Summary
-
-Get Payroll by ID
-
-##### Description
-
-Get Payroll by ID
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrollResponse](#dtopayrollresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payruns
+### Payruns
 
 #### GET
 ##### Summary
@@ -308,6 +34,179 @@ Get all Payruns of a tenant
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunsResponse](#dtopayrunsresponse) |
+
+
+##### Request URL
+
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns?limit=20&currentPage=1&order=desc&field=_id
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people-pay-run/payruns?limit=20&currentPage=1&order=desc&field=_id" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
+```
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.PayrollsResponse](#dtopayrollsresponse) |
+
+##### Sample Response
+```java
+{
+    "payruns": [
+        {
+            "_id": "6359f7126aed621f3eb9e98c",
+            "payrunType": 1,
+            "paySchedule": {
+                "id": "6359f7029baf6fc88bb19d39",
+                "name": "oct-payschedule"
+            },
+            "payPeriod": "monthly",
+            "workWeek": [
+                5,
+                1,
+                2,
+                3,
+                4
+            ],
+            "payDay": "lastWorkingDayMonth",
+            "firstPayDate": "10/31/2022",
+            "workPeriod": {
+                "from": "10/01/2022",
+                "to": "10/31/2022"
+            },
+            "isForAllUsers": false,
+            "isForContractors": false,
+            "employees": [
+                "63525be29f4afb9427b6f509",
+                "6310886bc741a206031c257c"
+            ],
+            "totalCost": 20961,
+            "totalTaxes": 0,
+            "totalEarnings": 20001,
+            "totalDeductions": 960,
+            "netPay": 19041,
+            "totalEmployerTaxes": 960,
+            "totalEmployerCost": 960,
+            "totalEmployeeCost": 20001,
+            "year": 2022,
+            "month": 10,
+            "hasDirectPayment": false,
+            "directDepositConsent": false,
+            "tenantWorkWeek": [
+                {
+                    "day": "friday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "saturday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "sunday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "monday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "tuesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "wednesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "thursday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                }
+            ],
+            "holidays": null,
+            "unpaidLeaves": null,
+            "createdAt": "2022-10-27T03:12:18.221Z",
+            "updatedAt": "2022-10-27T03:12:24.731Z",
+            "stage": "",
+            "processed": true,
+            "processedAt": "2022-10-27T03:12:32.67Z",
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "payDate": "10/31/2022",
+            "totalDirectDepositNetPay": 19040,
+            "totalCashNetPay": 0,
+            "totalCheckNetPay": 0,
+            "companyDaysBetweenPeriod": 21,
+            "isNetPayNegative": false,
+            "isValid": true,
+            "jeStatus": "POSTED",
+            "jeId": "20219893",
+            "jePostedOn": "2022-10-27T03:12:33.421Z",
+            "jeEntryNumber": "JE-0000030",
+            "jeDetails": [
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "20219893",
+                    "jePostedOn": "2022-10-27T03:12:33.421Z",
+                    "jeEntryNumber": "JE-0000030",
+                    "isRevertJE": false
+                }
+            ],
+            "employeeCount": 2,
+            "revertedAt": "0001-01-01T00:00:00Z",
+            "isPayrunReverted": false,
+            "paymentCount": 2,
+            "paymentFailureCount": 2,
+            "location": 0,
+            "shiftsInvolved": [],
+            "otInvolved": [],
+            "customFields": [
+                {
+                    "fieldId": "6323d1eeaabe99169d328446",
+                    "fieldName": "C1",
+                    "fieldValue": [
+                        "c1"
+                    ]
+                }
+            ]
+        }
+    ],
+    "filterResponse": {
+        "currentPage": 1,
+        "count": 8,
+        "limit": 20,
+        "totalPages": 1,
+        "totalCount": 8
+    }
+}
+```
 
 ##### Security
 
@@ -336,6 +235,560 @@ Add Payrun for a Tenant
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns
+```
+
+##### Curl
+
+```java
+curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
+-H "accept: application/json" -H "x-access-token: sampleaccesstoken
+-d '{
+    "countryCode": "IN",
+    "tenantId": "208637",
+    "deleted": false,
+    "payrunType": 1,
+    "location": 0,
+    "paySchedule": {
+        "id": "6359f7029baf6fc88bb19d39",
+        "name": "oct-payschedule"
+    },
+    "payPeriod": "monthly",
+    "workWeek": [
+        5,
+        1,
+        2,
+        3,
+        4
+    ],
+    "payDay": "lastWorkingDayMonth",
+    "firstPayDate": "10/31/2022",
+    "payDate": "10/31/2022",
+    "workPeriod": {
+        "from": "10/01/2022",
+        "to": "10/31/2022"
+    },
+    "isForAllUsers": false,
+    "employees": [
+        "63525be29f4afb9427b6f509",
+        "6310886bc741a206031c257c"
+    ],
+    "customFields": [
+        {
+            "fieldId": "6323d1eeaabe99169d328446",
+            "fieldName": "C1",
+            "fieldValue": [
+                "c1"
+            ]
+        }
+    ]
+}'"
+```
+
+##### Sample Request
+```java
+{
+    "countryCode": "IN",
+    "tenantId": "208637",
+    "deleted": false,
+    "payrunType": 1,
+    "location": 0,
+    "paySchedule": {
+        "id": "6359f7029baf6fc88bb19d39",
+        "name": "oct-payschedule"
+    },
+    "payPeriod": "monthly",
+    "workWeek": [
+        5,
+        1,
+        2,
+        3,
+        4
+    ],
+    "payDay": "lastWorkingDayMonth",
+    "firstPayDate": "10/31/2022",
+    "payDate": "10/31/2022",
+    "workPeriod": {
+        "from": "10/01/2022",
+        "to": "10/31/2022"
+    },
+    "isForAllUsers": false,
+    "employees": [
+        "63525be29f4afb9427b6f509",
+        "6310886bc741a206031c257c"
+    ],
+    "customFields": [
+        {
+            "fieldId": "6323d1eeaabe99169d328446",
+            "fieldName": "C1",
+            "fieldValue": [
+                "c1"
+            ]
+        }
+    ]
+}
+```
+
+##### Sample Response
+```java
+{
+    "_id": "635a023088e99679a2493d59",
+    "payrunType": 1,
+    "paySchedule": {
+        "id": "6359f7029baf6fc88bb19d39",
+        "name": "oct-payschedule"
+    },
+    "payPeriod": "monthly",
+    "workWeek": [
+        5,
+        1,
+        2,
+        3,
+        4
+    ],
+    "payDay": "lastWorkingDayMonth",
+    "firstPayDate": "10/31/2022",
+    "workPeriod": {
+        "from": "10/01/2022",
+        "to": "10/31/2022"
+    },
+    "isForAllUsers": false,
+    "isForContractors": false,
+    "payrolls": [
+        {
+            "_id": "635a023088e99679a2493d5b",
+            "payrunId": "635a023088e99679a2493d59",
+            "employeeId": "63525be29f4afb9427b6f509",
+            "empId": "00043",
+            "userId": "63525be29f4afb9427b6f509",
+            "firstName": "Simon",
+            "lastName": "Chua",
+            "daysOff": 0,
+            "daysWorked": 21,
+            "hoursWorked": 189,
+            "overtime": null,
+            "otPayRate": 0,
+            "compensationCurrency": "",
+            "compensationPeriod": "30",
+            "compensation": 0.4,
+            "netPay": 1,
+            "basicPayrun": 0.4,
+            "netPayrun": 0.4,
+            "basicPayrunYTD": 0.8,
+            "netPayrunYTD": 0.8,
+            "hourlyPay": 0,
+            "netPayYTD": 2,
+            "deductions": 0,
+            "earnings": 0.6,
+            "netTaxes": 0,
+            "components": [
+                {
+                    "componentId": "623adf1618c85cfab9f9f387",
+                    "employeeId": "",
+                    "name": "HRA",
+                    "amount": 0.16,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0.32,
+                    "status": "",
+                    "isVariable": true,
+                    "componentConfig": {
+                        "configureAmountBasis": "percentageOfBasicSalary",
+                        "basisComponentId": "",
+                        "componentPercent": 40,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "hra",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 0.16,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f386",
+                    "employeeId": "",
+                    "name": "Conveyance Allowance",
+                    "amount": 0,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "conveyance_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": false,
+                    "defaultAmount": 0,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f385",
+                    "employeeId": "",
+                    "name": "Fixed Allowance",
+                    "amount": 0.44,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0.88,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "fixed_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 0.44,
+                    "formulaConfig": null,
+                    "formula": ""
+                }
+            ],
+            "benefits": null,
+            "benefitsMeta": [],
+            "compliance": {
+                "userId": "63525be29f4afb9427b6f509",
+                "countryCode": "IN",
+                "employerContribution": {},
+                "employeeContribution": {},
+                "grossWageYTD": 0,
+                "taxableWageYTD": 0,
+                "taxDetails": [],
+                "preTaxDeductionYTD": 0,
+                "postTaxDeductionYTD": 0,
+                "preTaxDeduction": 0,
+                "postTaxDeduction": 0
+            },
+            "directDepositConsent": false,
+            "bank": "",
+            "accountType": "",
+            "ifsc": "",
+            "upi": "5800123456@abc",
+            "accountNumber": "",
+            "routingNumber": "",
+            "paymentMethod": "upi",
+            "createdAt": "2022-10-27T03:59:44.259Z",
+            "processed": false,
+            "processedAt": "0001-01-01T00:00:00Z",
+            "updatedAt": "2022-10-27T03:59:45.16Z",
+            "hasSalaryAdvance": false,
+            "effectiveCompensations": null,
+            "daysOffBefore": 0,
+            "daysOffAfter": 0,
+            "basicBefore": 0.01904761904761905,
+            "basicAfter": 0.01904761904761905,
+            "lossOfPay": 0,
+            "overtimePay": 0,
+            "basicPayForDay": 0.02,
+            "unfilledFields": null,
+            "ctc": 1,
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "terminationInitiated": false,
+            "terminationDate": "0001-01-01T00:00:00Z"
+        },
+        {
+            "_id": "635a023088e99679a2493d5a",
+            "payrunId": "635a023088e99679a2493d59",
+            "employeeId": "6310886bc741a206031c257c",
+            "empId": "00037",
+            "userId": "6310886bc741a206031c257c",
+            "firstName": "Felicity",
+            "lastName": "Howard",
+            "daysOff": 0,
+            "daysWorked": 21,
+            "hoursWorked": 189,
+            "overtime": null,
+            "otPayRate": 0,
+            "compensationCurrency": "",
+            "compensationPeriod": "30",
+            "compensation": 8000,
+            "netPay": 20000,
+            "basicPayrun": 8000,
+            "netPayrun": 8000,
+            "basicPayrunYTD": 32000,
+            "netPayrunYTD": 32000,
+            "hourlyPay": 41.03,
+            "netPayYTD": 77120,
+            "deductions": 0,
+            "earnings": 12000,
+            "netTaxes": 0,
+            "components": [
+                {
+                    "componentId": "623adf1618c85cfab9f9f387",
+                    "employeeId": "",
+                    "name": "HRA",
+                    "amount": 3200,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 12800,
+                    "status": "",
+                    "isVariable": true,
+                    "componentConfig": {
+                        "configureAmountBasis": "percentageOfBasicSalary",
+                        "basisComponentId": "",
+                        "componentPercent": 40,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "hra",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 3200,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f386",
+                    "employeeId": "",
+                    "name": "Conveyance Allowance",
+                    "amount": 0,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "conveyance_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": false,
+                    "defaultAmount": 0,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f385",
+                    "employeeId": "",
+                    "name": "Fixed Allowance",
+                    "amount": 8800,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 35200,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "fixed_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 8800,
+                    "formulaConfig": null,
+                    "formula": ""
+                }
+            ],
+            "benefits": null,
+            "benefitsMeta": [],
+            "compliance": null,
+            "directDepositConsent": false,
+            "bank": "",
+            "accountType": "currentAccount",
+            "ifsc": "ABCD0123456",
+            "upi": "",
+            "accountNumber": "12345678910",
+            "routingNumber": "26009140",
+            "paymentMethod": "directDeposit",
+            "createdAt": "2022-10-27T03:59:44.258Z",
+            "processed": false,
+            "processedAt": "0001-01-01T00:00:00Z",
+            "updatedAt": "2022-10-27T03:59:45.169Z",
+            "hasSalaryAdvance": false,
+            "effectiveCompensations": null,
+            "daysOffBefore": 0,
+            "daysOffAfter": 0,
+            "basicBefore": 380.95238095238096,
+            "basicAfter": 380.95238095238096,
+            "lossOfPay": 0,
+            "overtimePay": 0,
+            "basicPayForDay": 380.95,
+            "unfilledFields": null,
+            "ctc": 20000,
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "terminationInitiated": false,
+            "terminationDate": "0001-01-01T00:00:00Z"
+        }
+    ],
+    "employees": [
+        "63525be29f4afb9427b6f509",
+        "6310886bc741a206031c257c"
+    ],
+    "totalCost": 20001,
+    "totalTaxes": 0,
+    "totalEarnings": 20001,
+    "totalDeductions": 0,
+    "netPay": 20001,
+    "totalEmployerTaxes": 0,
+    "totalEmployerCost": 0,
+    "totalEmployeeCost": 20001,
+    "year": 2022,
+    "month": 10,
+    "hasDirectPayment": false,
+    "directDepositConsent": false,
+    "tenantWorkWeek": [
+        {
+            "day": "monday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "tuesday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "wednesday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "thursday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "friday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "saturday",
+            "isWorkingDay": false,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "sunday",
+            "isWorkingDay": false,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        }
+    ],
+    "holidays": [],
+    "unpaidLeaves": null,
+    "createdAt": "2022-10-27T03:59:44.243Z",
+    "updatedAt": "2022-10-27T03:59:45.179Z",
+    "stage": "",
+    "processed": false,
+    "processedAt": "0001-01-01T00:00:00Z",
+    "isPaymentDone": false,
+    "paymentDoneAt": "0001-01-01T00:00:00Z",
+    "paymentVendor": "",
+    "paymentFailureReason": "",
+    "payDate": "10/31/2022",
+    "totalDirectDepositNetPay": 20000,
+    "totalCashNetPay": 0,
+    "totalCheckNetPay": 0,
+    "companyDaysBetweenPeriod": 21,
+    "isNetPayNegative": false,
+    "isValid": true,
+    "jeStatus": "",
+    "jeId": "",
+    "jePostedOn": "0001-01-01T00:00:00Z",
+    "jeEntryNumber": "",
+    "jeDetails": null,
+    "employeeCount": 0,
+    "revertedAt": "0001-01-01T00:00:00Z",
+    "isPayrunReverted": false,
+    "paymentCount": 0,
+    "paymentFailureCount": 0,
+    "location": 0,
+    "shiftsInvolved": [],
+    "otInvolved": [],
+    "customFields": [
+        {
+            "fieldId": "6323d1eeaabe99169d328446",
+            "fieldName": "C1",
+            "fieldValue": [
+                "c1"
+            ]
+        }
+    ]
+}
+```
+
 ##### Security
 
 | Security Schema | Scopes |
@@ -363,68 +816,94 @@ Bulk Delete Payruns by Ids for a Tenant
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
 
-##### Security
 
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns
+```
 
-### /payruns/giro/file
+##### Curl
 
-#### GET
-##### Summary
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
+  -X 'DELETE' \
+ --header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+  --data-raw '[{"payrunId":"635a4a596aed621f3eb9e9f4"}]' \
+  --compressed
+```
 
-Get GIRO
+##### Sample Request
+```java
+[{"payrunId":"635a4a596aed621f3eb9e9f4"}]
+```
 
-##### Description
-
-Get GIRO file
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| sortOrder | query | Sort Order | No | string |
-| sortField | query | Sort Field | No | string |
-| limit | query | Limit per Page | No | integer |
-| currentPage | query | Current Page number | No | integer |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.GIROFileResponse](#dtogirofileresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payruns/payment-status/{vendor}/{payrunId}
-
-#### PATCH
-##### Summary
-
-Payment done of a given payrun
-
-##### Description
-
-Payment done of a given payrun by Id for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payrunId | path | Payrun Id | Yes | string |
-| vendor | path | vendor | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
-
+##### Sample Response
+```java
+{
+    "_id": "",
+    "paySchedule": {
+        "id": "",
+        "name": ""
+    },
+    "payPeriod": "",
+    "workWeek": null,
+    "payDay": "",
+    "firstPayDate": "",
+    "workPeriod": {
+        "from": "",
+        "to": ""
+    },
+    "isForAllUsers": false,
+    "isForContractors": false,
+    "totalCost": 0,
+    "totalTaxes": 0,
+    "totalEarnings": 0,
+    "totalDeductions": 0,
+    "netPay": 0,
+    "totalEmployerTaxes": 0,
+    "totalEmployerCost": 0,
+    "totalEmployeeCost": 0,
+    "year": 0,
+    "month": 0,
+    "hasDirectPayment": false,
+    "directDepositConsent": false,
+    "tenantWorkWeek": null,
+    "holidays": null,
+    "unpaidLeaves": null,
+    "createdAt": "0001-01-01T00:00:00Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "stage": "",
+    "processed": false,
+    "processedAt": "0001-01-01T00:00:00Z",
+    "isPaymentDone": false,
+    "paymentDoneAt": "0001-01-01T00:00:00Z",
+    "paymentVendor": "",
+    "paymentFailureReason": "",
+    "payDate": "",
+    "totalDirectDepositNetPay": 0,
+    "totalCashNetPay": 0,
+    "totalCheckNetPay": 0,
+    "companyDaysBetweenPeriod": 0,
+    "isNetPayNegative": false,
+    "isValid": false,
+    "jeStatus": "",
+    "jeId": "",
+    "jePostedOn": "0001-01-01T00:00:00Z",
+    "jeEntryNumber": "",
+    "jeDetails": null,
+    "employeeCount": 0,
+    "revertedAt": "0001-01-01T00:00:00Z",
+    "isPayrunReverted": false,
+    "paymentCount": 0,
+    "paymentFailureCount": 0,
+    "location": 0,
+    "shiftsInvolved": null,
+    "otInvolved": null,
+    "customFields": null
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -436,7 +915,7 @@ Payment done of a given payrun by Id for a Tenant
 #### PUT
 ##### Summary
 
-Update Payroll of a Payrun
+Update Payroll of an employee for a  Payrun
 
 ##### Description
 
@@ -456,63 +935,741 @@ Update Payroll of a Payrun for a Tenant
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
 
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126aed621f3eb9e98c/payroll/6359f7126aed621f3eb9e98e
+```
+
+##### Curl
+
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126aed621f3eb9e98c/payroll/6359f7126aed621f3eb9e98e' \
+  -X 'PUT' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+  --data-raw '{"_id":"6359f7126aed621f3eb9e98e","payrunId":"6359f7126aed621f3eb9e98c","employeeId":"63525be29f4afb9427b6f509","empId":"00043","userId":"63525be29f4afb9427b6f509","firstName":"Simon","lastName":"Chua","daysOff":1,"daysWorked":21,"hoursWorked":189,"overtime":null,"otPayRate":0,"compensationCurrency":"","compensationPeriod":"30","compensation":0.4,"netPay":1,"basicPayrun":0.4,"netPayrun":0.4,"basicPayrunYTD":0.4,"netPayrunYTD":0.4,"hourlyPay":0,"netPayYTD":1,"deductions":0,"earnings":0.6,"netTaxes":0,"components":[{"componentId":"623adf1618c85cfab9f9f386","employeeId":"","name":"Conveyance Allowance","amount":0,"type":"EARNING","modified":false,"YTD":0,"status":"","isVariable":false,"componentConfig":{"configureAmountBasis":"","basisComponentId":"","componentPercent":0,"amountPerDay":0,"deductionType":""},"frequency":{"period":"everyPayrun","occurrence":null,"when":""},"isHidden":false,"subType":"conveyance_allowance","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":false,"defaultAmount":0,"formulaConfig":null,"formula":""},{"componentId":"623adf1618c85cfab9f9f387","employeeId":"","name":"HRA","amount":0.16,"type":"EARNING","modified":false,"YTD":0.16,"status":"","isVariable":true,"componentConfig":{"configureAmountBasis":"percentageOfBasicSalary","basisComponentId":"","componentPercent":40,"amountPerDay":0,"deductionType":""},"frequency":{"period":"everyPayrun","occurrence":null,"when":""},"isHidden":false,"subType":"hra","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":true,"defaultAmount":0.0128,"formulaConfig":null,"formula":""},{"componentId":"623adf1618c85cfab9f9f385","employeeId":"","name":"Fixed Allowance","amount":0.43999999999999995,"type":"EARNING","modified":false,"YTD":0.44,"status":"","isVariable":false,"componentConfig":{"configureAmountBasis":"","basisComponentId":"","componentPercent":0,"amountPerDay":0,"deductionType":""},"frequency":{"period":"everyPayrun","occurrence":null,"when":""},"isHidden":false,"subType":"fixed_allowance","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":true,"defaultAmount":0.04,"formulaConfig":null,"formula":""}],"benefits":null,"benefitsMeta":[],"compliance":{"userId":"63525be29f4afb9427b6f509","countryCode":"IN","employerContribution":{},"employeeContribution":{},"grossWageYTD":0,"taxableWageYTD":0,"taxDetails":[],"preTaxDeductionYTD":0,"postTaxDeductionYTD":0,"preTaxDeduction":0,"postTaxDeduction":0},"directDepositConsent":false,"bank":"","accountType":"","ifsc":"","upi":"5800123456@abc","accountNumber":"","routingNumber":"","paymentMethod":"upi","createdAt":"2022-10-27T03:12:18.251Z","processed":false,"processedAt":"0001-01-01T00:00:00Z","updatedAt":"2022-10-27T09:40:14.206Z","hasSalaryAdvance":false,"effectiveCompensations":null,"daysOffBefore":0,"daysOffAfter":0,"basicBefore":0.01904761904761905,"basicAfter":0.01904761904761905,"lossOfPay":0.047619047619047616,"overtimePay":0,"basicPayForDay":0.02,"unfilledFields":null,"ctc":1,"isPaymentDone":false,"paymentDoneAt":"0001-01-01T00:00:00Z","paymentVendor":"","paymentFailureReason":"","terminationInitiated":false,"terminationDate":"0001-01-01T00:00:00Z"}' \
+  --compressed
+```
+
+##### Sample Request
+```java
+{
+    "_id": "6359f7126aed621f3eb9e98e",
+    "payrunId": "6359f7126aed621f3eb9e98c",
+    "employeeId": "63525be29f4afb9427b6f509",
+    "empId": "00043",
+    "userId": "63525be29f4afb9427b6f509",
+    "firstName": "Simon",
+    "lastName": "Chua",
+    "daysOff": 1,
+    "daysWorked": 21,
+    "hoursWorked": 189,
+    "overtime": null,
+    "otPayRate": 0,
+    "compensationCurrency": "",
+    "compensationPeriod": "30",
+    "compensation": 0.4,
+    "netPay": 1,
+    "basicPayrun": 0.4,
+    "netPayrun": 0.4,
+    "basicPayrunYTD": 0.4,
+    "netPayrunYTD": 0.4,
+    "hourlyPay": 0,
+    "netPayYTD": 1,
+    "deductions": 0,
+    "earnings": 0.6,
+    "netTaxes": 0,
+    "components": [
+        {
+            "componentId": "623adf1618c85cfab9f9f386",
+            "employeeId": "",
+            "name": "Conveyance Allowance",
+            "amount": 0,
+            "type": "EARNING",
+            "modified": false,
+            "YTD": 0,
+            "status": "",
+            "isVariable": false,
+            "componentConfig": {
+                "configureAmountBasis": "",
+                "basisComponentId": "",
+                "componentPercent": 0,
+                "amountPerDay": 0,
+                "deductionType": ""
+            },
+            "frequency": {
+                "period": "everyPayrun",
+                "occurrence": null,
+                "when": ""
+            },
+            "isHidden": false,
+            "subType": "conveyance_allowance",
+            "includeInCTC": true,
+            "includeInOTCalc": false,
+            "isUnpaidIncluded": false,
+            "defaultAmount": 0,
+            "formulaConfig": null,
+            "formula": ""
+        },
+        {
+            "componentId": "623adf1618c85cfab9f9f387",
+            "employeeId": "",
+            "name": "HRA",
+            "amount": 0.16,
+            "type": "EARNING",
+            "modified": false,
+            "YTD": 0.16,
+            "status": "",
+            "isVariable": true,
+            "componentConfig": {
+                "configureAmountBasis": "percentageOfBasicSalary",
+                "basisComponentId": "",
+                "componentPercent": 40,
+                "amountPerDay": 0,
+                "deductionType": ""
+            },
+            "frequency": {
+                "period": "everyPayrun",
+                "occurrence": null,
+                "when": ""
+            },
+            "isHidden": false,
+            "subType": "hra",
+            "includeInCTC": true,
+            "includeInOTCalc": false,
+            "isUnpaidIncluded": true,
+            "defaultAmount": 0.0128,
+            "formulaConfig": null,
+            "formula": ""
+        },
+        {
+            "componentId": "623adf1618c85cfab9f9f385",
+            "employeeId": "",
+            "name": "Fixed Allowance",
+            "amount": 0.43999999999999995,
+            "type": "EARNING",
+            "modified": false,
+            "YTD": 0.44,
+            "status": "",
+            "isVariable": false,
+            "componentConfig": {
+                "configureAmountBasis": "",
+                "basisComponentId": "",
+                "componentPercent": 0,
+                "amountPerDay": 0,
+                "deductionType": ""
+            },
+            "frequency": {
+                "period": "everyPayrun",
+                "occurrence": null,
+                "when": ""
+            },
+            "isHidden": false,
+            "subType": "fixed_allowance",
+            "includeInCTC": true,
+            "includeInOTCalc": false,
+            "isUnpaidIncluded": true,
+            "defaultAmount": 0.04,
+            "formulaConfig": null,
+            "formula": ""
+        }
+    ],
+    "benefits": null,
+    "benefitsMeta": [],
+    "compliance": {
+        "userId": "63525be29f4afb9427b6f509",
+        "countryCode": "IN",
+        "employerContribution": {},
+        "employeeContribution": {},
+        "grossWageYTD": 0,
+        "taxableWageYTD": 0,
+        "taxDetails": [],
+        "preTaxDeductionYTD": 0,
+        "postTaxDeductionYTD": 0,
+        "preTaxDeduction": 0,
+        "postTaxDeduction": 0
+    },
+    "directDepositConsent": false,
+    "bank": "",
+    "accountType": "",
+    "ifsc": "",
+    "upi": "5800123456@abc",
+    "accountNumber": "",
+    "routingNumber": "",
+    "paymentMethod": "upi",
+    "createdAt": "2022-10-27T03:12:18.251Z",
+    "processed": false,
+    "processedAt": "0001-01-01T00:00:00Z",
+    "updatedAt": "2022-10-27T09:40:14.206Z",
+    "hasSalaryAdvance": false,
+    "effectiveCompensations": null,
+    "daysOffBefore": 0,
+    "daysOffAfter": 0,
+    "basicBefore": 0.01904761904761905,
+    "basicAfter": 0.01904761904761905,
+    "lossOfPay": 0.047619047619047616,
+    "overtimePay": 0,
+    "basicPayForDay": 0.02,
+    "unfilledFields": null,
+    "ctc": 1,
+    "isPaymentDone": false,
+    "paymentDoneAt": "0001-01-01T00:00:00Z",
+    "paymentVendor": "",
+    "paymentFailureReason": "",
+    "terminationInitiated": false,
+    "terminationDate": "0001-01-01T00:00:00Z"
+}
+```
+
+##### Sample Response
+```java
+{
+    "_id": "6359f7126aed621f3eb9e98c",
+    "payrunType": 1,
+    "paySchedule": {
+        "id": "6359f7029baf6fc88bb19d39",
+        "name": "oct-payschedule"
+    },
+    "payPeriod": "monthly",
+    "workWeek": [
+        5,
+        1,
+        2,
+        3,
+        4
+    ],
+    "payDay": "lastWorkingDayMonth",
+    "firstPayDate": "10/31/2022",
+    "workPeriod": {
+        "from": "10/01/2022",
+        "to": "10/31/2022"
+    },
+    "isForAllUsers": false,
+    "isForContractors": false,
+    "payrolls": [
+        {
+            "_id": "6359f7126aed621f3eb9e98d",
+            "payrunId": "6359f7126aed621f3eb9e98c",
+            "employeeId": "6310886bc741a206031c257c",
+            "empId": "00037",
+            "userId": "6310886bc741a206031c257c",
+            "firstName": "Felicity",
+            "lastName": "Howard",
+            "daysOff": 0,
+            "daysWorked": 21,
+            "hoursWorked": 189,
+            "overtime": null,
+            "otPayRate": 0,
+            "compensationCurrency": "",
+            "compensationPeriod": "30",
+            "compensation": 8000,
+            "netPay": 19040,
+            "basicPayrun": 8000,
+            "netPayrun": 8000,
+            "basicPayrunYTD": 8000,
+            "netPayrunYTD": 8000,
+            "hourlyPay": 41.03,
+            "netPayYTD": 19040,
+            "deductions": 960,
+            "earnings": 12000,
+            "netTaxes": 960,
+            "components": [
+                {
+                    "componentId": "623adf1618c85cfab9f9f386",
+                    "employeeId": "",
+                    "name": "Conveyance Allowance",
+                    "amount": 0,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "conveyance_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": false,
+                    "defaultAmount": 0,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f387",
+                    "employeeId": "",
+                    "name": "HRA",
+                    "amount": 3200,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 3200,
+                    "status": "",
+                    "isVariable": true,
+                    "componentConfig": {
+                        "configureAmountBasis": "percentageOfBasicSalary",
+                        "basisComponentId": "",
+                        "componentPercent": 40,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "hra",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 3200,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f385",
+                    "employeeId": "",
+                    "name": "Fixed Allowance",
+                    "amount": 8800,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 8800,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "fixed_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 8800,
+                    "formulaConfig": null,
+                    "formula": ""
+                }
+            ],
+            "benefits": null,
+            "benefitsMeta": [],
+            "compliance": {
+                "userId": "6310886bc741a206031c257c",
+                "countryCode": "IN",
+                "employerContribution": {
+                    "EPF": 293.6,
+                    "EPS": 666.4
+                },
+                "employeeContribution": {
+                    "EPF": 960,
+                    "Income Tax": 0
+                },
+                "grossWageYTD": 0,
+                "taxableWageYTD": 0,
+                "taxDetails": [
+                    {
+                        "taxName": "EPF",
+                        "payeeType": "EMPLOYEE",
+                        "taxAmount": 960,
+                        "monthToDate": 960,
+                        "quaterToDate": 960,
+                        "yearToDate": 960,
+                        "authorityCode": ""
+                    },
+                    {
+                        "taxName": "EPF",
+                        "payeeType": "EMPLOYER",
+                        "taxAmount": 293.6,
+                        "monthToDate": 293.6,
+                        "quaterToDate": 293.6,
+                        "yearToDate": 293.6,
+                        "authorityCode": ""
+                    },
+                    {
+                        "taxName": "EPS",
+                        "payeeType": "EMPLOYER",
+                        "taxAmount": 666.4,
+                        "monthToDate": 666.4,
+                        "quaterToDate": 666.4,
+                        "yearToDate": 666.4,
+                        "authorityCode": ""
+                    },
+                    {
+                        "taxName": "Income Tax",
+                        "payeeType": "EMPLOYEE",
+                        "taxAmount": 0,
+                        "monthToDate": 0,
+                        "quaterToDate": 0,
+                        "yearToDate": 0,
+                        "authorityCode": ""
+                    }
+                ],
+                "preTaxDeductionYTD": 0,
+                "postTaxDeductionYTD": 0,
+                "preTaxDeduction": 0,
+                "postTaxDeduction": 0
+            },
+            "directDepositConsent": false,
+            "bank": "",
+            "accountType": "currentAccount",
+            "ifsc": "ABCD0123456",
+            "upi": "",
+            "accountNumber": "12345678910",
+            "routingNumber": "26009140",
+            "paymentMethod": "directDeposit",
+            "createdAt": "2022-10-27T03:12:18.251Z",
+            "processed": false,
+            "processedAt": "0001-01-01T00:00:00Z",
+            "updatedAt": "2022-10-27T09:40:14.199Z",
+            "hasSalaryAdvance": false,
+            "effectiveCompensations": null,
+            "daysOffBefore": 0,
+            "daysOffAfter": 0,
+            "basicBefore": 380.95238095238096,
+            "basicAfter": 380.95238095238096,
+            "lossOfPay": 0,
+            "overtimePay": 0,
+            "basicPayForDay": 380.95,
+            "unfilledFields": null,
+            "ctc": 20000,
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "terminationInitiated": false,
+            "terminationDate": "0001-01-01T00:00:00Z"
+        },
+        {
+            "_id": "6359f7126aed621f3eb9e98e",
+            "payrunId": "6359f7126aed621f3eb9e98c",
+            "employeeId": "63525be29f4afb9427b6f509",
+            "empId": "00043",
+            "userId": "63525be29f4afb9427b6f509",
+            "firstName": "Simon",
+            "lastName": "Chua",
+            "daysOff": 1,
+            "daysWorked": 21,
+            "hoursWorked": 189,
+            "overtime": null,
+            "otPayRate": 0,
+            "compensationCurrency": "",
+            "compensationPeriod": "30",
+            "compensation": 0.4,
+            "netPay": 0.95,
+            "basicPayrun": 0.4,
+            "netPayrun": 0.38,
+            "basicPayrunYTD": 0.4,
+            "netPayrunYTD": 0.38,
+            "hourlyPay": 0,
+            "netPayYTD": 0.95,
+            "deductions": 0,
+            "earnings": 0.57,
+            "netTaxes": 0,
+            "components": [
+                {
+                    "componentId": "623adf1618c85cfab9f9f385",
+                    "employeeId": "",
+                    "name": "Fixed Allowance",
+                    "amount": 0.42,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0.42,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "fixed_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 0.04,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f386",
+                    "employeeId": "",
+                    "name": "Conveyance Allowance",
+                    "amount": 0,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "conveyance_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": false,
+                    "defaultAmount": 0,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f387",
+                    "employeeId": "",
+                    "name": "HRA",
+                    "amount": 0.15,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0.15,
+                    "status": "",
+                    "isVariable": true,
+                    "componentConfig": {
+                        "configureAmountBasis": "percentageOfBasicSalary",
+                        "basisComponentId": "",
+                        "componentPercent": 40,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "hra",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 0.0128,
+                    "formulaConfig": null,
+                    "formula": ""
+                }
+            ],
+            "benefits": null,
+            "benefitsMeta": [],
+            "compliance": {
+                "userId": "63525be29f4afb9427b6f509",
+                "countryCode": "IN",
+                "employerContribution": {},
+                "employeeContribution": {},
+                "grossWageYTD": 0,
+                "taxableWageYTD": 0,
+                "taxDetails": [],
+                "preTaxDeductionYTD": 0,
+                "postTaxDeductionYTD": 0,
+                "preTaxDeduction": 0,
+                "postTaxDeduction": 0
+            },
+            "directDepositConsent": false,
+            "bank": "",
+            "accountType": "",
+            "ifsc": "",
+            "upi": "5800123456@abc",
+            "accountNumber": "",
+            "routingNumber": "",
+            "paymentMethod": "upi",
+            "createdAt": "2022-10-27T03:12:18.251Z",
+            "processed": false,
+            "processedAt": "0001-01-01T00:00:00Z",
+            "updatedAt": "2022-10-27T09:49:56.069Z",
+            "hasSalaryAdvance": false,
+            "effectiveCompensations": null,
+            "daysOffBefore": 0,
+            "daysOffAfter": 0,
+            "basicBefore": 0.01904761904761905,
+            "basicAfter": 0.01904761904761905,
+            "lossOfPay": 0.02,
+            "overtimePay": 0,
+            "basicPayForDay": 0.02,
+            "unfilledFields": null,
+            "ctc": 1,
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "terminationInitiated": false,
+            "terminationDate": "0001-01-01T00:00:00Z"
+        }
+    ],
+    "employees": [
+        "63525be29f4afb9427b6f509",
+        "6310886bc741a206031c257c"
+    ],
+    "totalCost": 20960.95,
+    "totalTaxes": 0,
+    "totalEarnings": 20000.95,
+    "totalDeductions": 960,
+    "netPay": 19040.95,
+    "totalEmployerTaxes": 960,
+    "totalEmployerCost": 960,
+    "totalEmployeeCost": 20000.95,
+    "year": 2022,
+    "month": 10,
+    "hasDirectPayment": false,
+    "directDepositConsent": false,
+    "tenantWorkWeek": [
+        {
+            "day": "friday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "saturday",
+            "isWorkingDay": false,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "sunday",
+            "isWorkingDay": false,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "monday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "tuesday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "wednesday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "thursday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        }
+    ],
+    "holidays": null,
+    "unpaidLeaves": null,
+    "createdAt": "2022-10-27T03:12:18.221Z",
+    "updatedAt": "2022-10-27T09:49:56.079Z",
+    "stage": "",
+    "processed": false,
+    "processedAt": "0001-01-01T00:00:00Z",
+    "isPaymentDone": false,
+    "paymentDoneAt": "0001-01-01T00:00:00Z",
+    "paymentVendor": "",
+    "paymentFailureReason": "",
+    "payDate": "10/31/2022",
+    "totalDirectDepositNetPay": 19040,
+    "totalCashNetPay": 0,
+    "totalCheckNetPay": 0,
+    "companyDaysBetweenPeriod": 21,
+    "isNetPayNegative": false,
+    "isValid": true,
+    "jeStatus": "REVERTED",
+    "jeId": "20226558",
+    "jePostedOn": "2022-10-27T09:39:31.982Z",
+    "jeEntryNumber": "JE-0000035",
+    "jeDetails": [
+        {
+            "jeStatus": "POSTED",
+            "jeId": "20219893",
+            "jePostedOn": "2022-10-27T03:12:33.421Z",
+            "jeEntryNumber": "JE-0000030",
+            "isRevertJE": false
+        },
+        {
+            "jeStatus": "REVERTED",
+            "jeId": "20226452",
+            "jePostedOn": "2022-10-27T09:23:34.931Z",
+            "jeEntryNumber": "JE-0000033",
+            "isRevertJE": true
+        },
+        {
+            "jeStatus": "POSTED",
+            "jeId": "20226552",
+            "jePostedOn": "2022-10-27T09:38:59.254Z",
+            "jeEntryNumber": "JE-0000034",
+            "isRevertJE": false
+        },
+        {
+            "jeStatus": "REVERTED",
+            "jeId": "20226558",
+            "jePostedOn": "2022-10-27T09:39:31.982Z",
+            "jeEntryNumber": "JE-0000035",
+            "isRevertJE": true
+        }
+    ],
+    "employeeCount": 0,
+    "revertedAt": "2022-10-27T09:39:31.669Z",
+    "isPayrunReverted": true,
+    "paymentCount": 0,
+    "paymentFailureCount": 0,
+    "location": 0,
+    "shiftsInvolved": [],
+    "otInvolved": [],
+    "customFields": [
+        {
+            "fieldId": "6323d1eeaabe99169d328446",
+            "fieldName": "C1",
+            "fieldValue": [
+                "c1"
+            ]
+        }
+    ]
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/process-payment/{id}
-
-#### PATCH
-##### Summary
-
-process Payment by Payrun Id
-
-##### Description
-
-Payment by Payrun Id
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payrunId | path | Id | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | string |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payruns/revert-je
-
-#### POST
-##### Summary
-
-Revert Payrun JE From Books
-
-##### Description
-
-Revert Payrun JE From Books
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.RevertPayrunJEsRequest](#dtorevertpayrunjesrequest) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
 
 ### /payruns/revert/{payrunId}
 
@@ -537,6 +1694,96 @@ Revert Payrun by Id for a Tenant
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
 
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/revert/6359f7126aed621f3eb9e98c
+```
+
+##### Curl
+
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/revert/6359f7126aed621f3eb9e98c' \
+  -X 'PATCH' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+
+  --data-raw '{}' \
+  --compressed
+```
+
+##### Sample Request
+```java
+{}
+```
+
+##### Sample Response
+```java
+{
+    "_id": "",
+    "paySchedule": {
+        "id": "",
+        "name": ""
+    },
+    "payPeriod": "",
+    "workWeek": null,
+    "payDay": "",
+    "firstPayDate": "",
+    "workPeriod": {
+        "from": "",
+        "to": ""
+    },
+    "isForAllUsers": false,
+    "isForContractors": false,
+    "totalCost": 0,
+    "totalTaxes": 0,
+    "totalEarnings": 0,
+    "totalDeductions": 0,
+    "netPay": 0,
+    "totalEmployerTaxes": 0,
+    "totalEmployerCost": 0,
+    "totalEmployeeCost": 0,
+    "year": 0,
+    "month": 0,
+    "hasDirectPayment": false,
+    "directDepositConsent": false,
+    "tenantWorkWeek": null,
+    "holidays": null,
+    "unpaidLeaves": null,
+    "createdAt": "0001-01-01T00:00:00Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "stage": "",
+    "processed": false,
+    "processedAt": "0001-01-01T00:00:00Z",
+    "isPaymentDone": false,
+    "paymentDoneAt": "0001-01-01T00:00:00Z",
+    "paymentVendor": "",
+    "paymentFailureReason": "",
+    "payDate": "",
+    "totalDirectDepositNetPay": 0,
+    "totalCashNetPay": 0,
+    "totalCheckNetPay": 0,
+    "companyDaysBetweenPeriod": 0,
+    "isNetPayNegative": false,
+    "isValid": false,
+    "jeStatus": "",
+    "jeId": "",
+    "jePostedOn": "0001-01-01T00:00:00Z",
+    "jeEntryNumber": "",
+    "jeDetails": null,
+    "employeeCount": 0,
+    "revertedAt": "0001-01-01T00:00:00Z",
+    "isPayrunReverted": false,
+    "paymentCount": 0,
+    "paymentFailureCount": 0,
+    "location": 0,
+    "shiftsInvolved": null,
+    "otInvolved": null,
+    "customFields": null
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -566,28 +1813,21 @@ Processes a given payrun by Id for a Tenant
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
 
-##### Security
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/status/635a4a596aed621f3eb9e9f4
+```
 
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
+##### Curl
 
-### /payruns/sync-je
-
-#### POST
-##### Summary
-
-Sync Payrun JE To Books
-
-##### Description
-
-Sync Payrun JE To Books
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.SyncPayrunJEsRequest](#dtosyncpayrunjesrequest) |
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/status/635a4a596aed621f3eb9e9f4' \
+  -X 'PATCH' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+  --compressed
+```
 
 ##### Security
 
@@ -595,57 +1835,6 @@ Sync Payrun JE To Books
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/update/je-status
-
-#### PATCH
-##### Summary
-
-Update payrun JE status
-
-##### Description
-
-Update payrun JE status
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrunJEPostedRequest](#dtopayrunjepostedrequest) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payruns/year/{year}
-
-#### GET
-##### Summary
-
-Get Payruns in a year
-
-##### Description
-
-Get payruns in a year for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| year | path | Year | Yes | integer |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrunsResponse](#dtopayrunsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
 
 ### /payruns/{id}
 
@@ -663,6 +1852,96 @@ Delete Payrun by Id for a Tenant
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | id | path | Id | Yes | string |
+
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns
+```
+
+##### Curl
+
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
+  -X 'DELETE' \
+ --header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+  --data-raw '[{"payrunId":"635a4a596aed621f3eb9e9f4"}]' \
+  --compressed
+```
+
+##### Sample Request
+```java
+[{"payrunId":"635a4a596aed621f3eb9e9f4"}]
+```
+
+##### Sample Response
+```java
+{
+    "_id": "",
+    "paySchedule": {
+        "id": "",
+        "name": ""
+    },
+    "payPeriod": "",
+    "workWeek": null,
+    "payDay": "",
+    "firstPayDate": "",
+    "workPeriod": {
+        "from": "",
+        "to": ""
+    },
+    "isForAllUsers": false,
+    "isForContractors": false,
+    "totalCost": 0,
+    "totalTaxes": 0,
+    "totalEarnings": 0,
+    "totalDeductions": 0,
+    "netPay": 0,
+    "totalEmployerTaxes": 0,
+    "totalEmployerCost": 0,
+    "totalEmployeeCost": 0,
+    "year": 0,
+    "month": 0,
+    "hasDirectPayment": false,
+    "directDepositConsent": false,
+    "tenantWorkWeek": null,
+    "holidays": null,
+    "unpaidLeaves": null,
+    "createdAt": "0001-01-01T00:00:00Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "stage": "",
+    "processed": false,
+    "processedAt": "0001-01-01T00:00:00Z",
+    "isPaymentDone": false,
+    "paymentDoneAt": "0001-01-01T00:00:00Z",
+    "paymentVendor": "",
+    "paymentFailureReason": "",
+    "payDate": "",
+    "totalDirectDepositNetPay": 0,
+    "totalCashNetPay": 0,
+    "totalCheckNetPay": 0,
+    "companyDaysBetweenPeriod": 0,
+    "isNetPayNegative": false,
+    "isValid": false,
+    "jeStatus": "",
+    "jeId": "",
+    "jePostedOn": "0001-01-01T00:00:00Z",
+    "jeEntryNumber": "",
+    "jeDetails": null,
+    "employeeCount": 0,
+    "revertedAt": "0001-01-01T00:00:00Z",
+    "isPayrunReverted": false,
+    "paymentCount": 0,
+    "paymentFailureCount": 0,
+    "location": 0,
+    "shiftsInvolved": null,
+    "otInvolved": null,
+    "customFields": null
+}
+```
 
 ##### Responses
 
@@ -704,6 +1983,575 @@ Get Payrun by Id for a Tenant
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
 
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3eb9e98c?limit=20&currentPage=1&sortOrder=desc&sortField=_id&searchField=firstName&searchString=&paymentMethod=
+```
+
+##### Curl
+
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3eb9e98c?limit=20&currentPage=1&sortOrder=desc&sortField=_id&searchField=firstName&searchString=&paymentMethod=' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+  --compressed
+```
+
+##### Sample Request
+```java
+?limit=20&currentPage=1&sortOrder=desc&sortField=_id&searchField=firstName&searchString=&paymentMethod=
+```
+
+##### Sample Response
+```java
+{
+    "_id": "6359f7126aed621f3eb9e98c",
+    "payrunType": 1,
+    "paySchedule": {
+        "id": "6359f7029baf6fc88bb19d39",
+        "name": "oct-payschedule"
+    },
+    "payPeriod": "monthly",
+    "workWeek": [
+        5,
+        1,
+        2,
+        3,
+        4
+    ],
+    "payDay": "lastWorkingDayMonth",
+    "firstPayDate": "10/31/2022",
+    "workPeriod": {
+        "from": "10/01/2022",
+        "to": "10/31/2022"
+    },
+    "isForAllUsers": false,
+    "isForContractors": false,
+    "payrolls": [
+        {
+            "_id": "6359f7126aed621f3eb9e98e",
+            "payrunId": "6359f7126aed621f3eb9e98c",
+            "employeeId": "63525be29f4afb9427b6f509",
+            "empId": "00043",
+            "userId": "63525be29f4afb9427b6f509",
+            "firstName": "Simon",
+            "lastName": "Chua",
+            "daysOff": 0,
+            "daysWorked": 21,
+            "hoursWorked": 189,
+            "overtime": null,
+            "otPayRate": 0,
+            "compensationCurrency": "",
+            "compensationPeriod": "30",
+            "compensation": 0.4,
+            "netPay": 1,
+            "basicPayrun": 0.4,
+            "netPayrun": 0.4,
+            "basicPayrunYTD": 0.4,
+            "netPayrunYTD": 0.4,
+            "hourlyPay": 0,
+            "netPayYTD": 1,
+            "deductions": 0,
+            "earnings": 0.6,
+            "netTaxes": 0,
+            "components": [
+                {
+                    "componentId": "623adf1618c85cfab9f9f386",
+                    "employeeId": "",
+                    "name": "Conveyance Allowance",
+                    "amount": 0,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "conveyance_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": false,
+                    "defaultAmount": 0,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f387",
+                    "employeeId": "",
+                    "name": "HRA",
+                    "amount": 0.16,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0.16,
+                    "status": "",
+                    "isVariable": true,
+                    "componentConfig": {
+                        "configureAmountBasis": "percentageOfBasicSalary",
+                        "basisComponentId": "",
+                        "componentPercent": 40,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "hra",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 0.0128,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f385",
+                    "employeeId": "",
+                    "name": "Fixed Allowance",
+                    "amount": 0.44,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0.44,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "fixed_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 0.04,
+                    "formulaConfig": null,
+                    "formula": ""
+                }
+            ],
+            "benefits": null,
+            "benefitsMeta": [],
+            "compliance": {
+                "userId": "63525be29f4afb9427b6f509",
+                "countryCode": "IN",
+                "employerContribution": {},
+                "employeeContribution": {},
+                "grossWageYTD": 0,
+                "taxableWageYTD": 0,
+                "taxDetails": [],
+                "preTaxDeductionYTD": 0,
+                "postTaxDeductionYTD": 0,
+                "preTaxDeduction": 0,
+                "postTaxDeduction": 0
+            },
+            "directDepositConsent": false,
+            "bank": "",
+            "accountType": "",
+            "ifsc": "",
+            "upi": "5800123456@abc",
+            "accountNumber": "",
+            "routingNumber": "",
+            "paymentMethod": "upi",
+            "createdAt": "2022-10-27T03:12:18.251Z",
+            "processed": false,
+            "processedAt": "0001-01-01T00:00:00Z",
+            "updatedAt": "2022-10-27T09:40:14.206Z",
+            "hasSalaryAdvance": false,
+            "effectiveCompensations": null,
+            "daysOffBefore": 0,
+            "daysOffAfter": 0,
+            "basicBefore": 0.01904761904761905,
+            "basicAfter": 0.01904761904761905,
+            "lossOfPay": 0,
+            "overtimePay": 0,
+            "basicPayForDay": 0.02,
+            "unfilledFields": null,
+            "ctc": 1,
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "terminationInitiated": false,
+            "terminationDate": "0001-01-01T00:00:00Z"
+        },
+        {
+            "_id": "6359f7126aed621f3eb9e98d",
+            "payrunId": "6359f7126aed621f3eb9e98c",
+            "employeeId": "6310886bc741a206031c257c",
+            "empId": "00037",
+            "userId": "6310886bc741a206031c257c",
+            "firstName": "Felicity",
+            "lastName": "Howard",
+            "daysOff": 0,
+            "daysWorked": 21,
+            "hoursWorked": 189,
+            "overtime": null,
+            "otPayRate": 0,
+            "compensationCurrency": "",
+            "compensationPeriod": "30",
+            "compensation": 8000,
+            "netPay": 19040,
+            "basicPayrun": 8000,
+            "netPayrun": 8000,
+            "basicPayrunYTD": 8000,
+            "netPayrunYTD": 8000,
+            "hourlyPay": 41.03,
+            "netPayYTD": 19040,
+            "deductions": 960,
+            "earnings": 12000,
+            "netTaxes": 960,
+            "components": [
+                {
+                    "componentId": "623adf1618c85cfab9f9f386",
+                    "employeeId": "",
+                    "name": "Conveyance Allowance",
+                    "amount": 0,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 0,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "conveyance_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": false,
+                    "defaultAmount": 0,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f387",
+                    "employeeId": "",
+                    "name": "HRA",
+                    "amount": 3200,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 3200,
+                    "status": "",
+                    "isVariable": true,
+                    "componentConfig": {
+                        "configureAmountBasis": "percentageOfBasicSalary",
+                        "basisComponentId": "",
+                        "componentPercent": 40,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "hra",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 3200,
+                    "formulaConfig": null,
+                    "formula": ""
+                },
+                {
+                    "componentId": "623adf1618c85cfab9f9f385",
+                    "employeeId": "",
+                    "name": "Fixed Allowance",
+                    "amount": 8800,
+                    "type": "EARNING",
+                    "modified": false,
+                    "YTD": 8800,
+                    "status": "",
+                    "isVariable": false,
+                    "componentConfig": {
+                        "configureAmountBasis": "",
+                        "basisComponentId": "",
+                        "componentPercent": 0,
+                        "amountPerDay": 0,
+                        "deductionType": ""
+                    },
+                    "frequency": {
+                        "period": "everyPayrun",
+                        "occurrence": null,
+                        "when": ""
+                    },
+                    "isHidden": false,
+                    "subType": "fixed_allowance",
+                    "includeInCTC": true,
+                    "includeInOTCalc": false,
+                    "isUnpaidIncluded": true,
+                    "defaultAmount": 8800,
+                    "formulaConfig": null,
+                    "formula": ""
+                }
+            ],
+            "benefits": null,
+            "benefitsMeta": [],
+            "compliance": {
+                "userId": "6310886bc741a206031c257c",
+                "countryCode": "IN",
+                "employerContribution": {
+                    "EPF": 293.6,
+                    "EPS": 666.4
+                },
+                "employeeContribution": {
+                    "EPF": 960,
+                    "Income Tax": 0
+                },
+                "grossWageYTD": 0,
+                "taxableWageYTD": 0,
+                "taxDetails": [
+                    {
+                        "taxName": "EPF",
+                        "payeeType": "EMPLOYEE",
+                        "taxAmount": 960,
+                        "monthToDate": 960,
+                        "quaterToDate": 960,
+                        "yearToDate": 960,
+                        "authorityCode": ""
+                    },
+                    {
+                        "taxName": "EPF",
+                        "payeeType": "EMPLOYER",
+                        "taxAmount": 293.6,
+                        "monthToDate": 293.6,
+                        "quaterToDate": 293.6,
+                        "yearToDate": 293.6,
+                        "authorityCode": ""
+                    },
+                    {
+                        "taxName": "EPS",
+                        "payeeType": "EMPLOYER",
+                        "taxAmount": 666.4,
+                        "monthToDate": 666.4,
+                        "quaterToDate": 666.4,
+                        "yearToDate": 666.4,
+                        "authorityCode": ""
+                    },
+                    {
+                        "taxName": "Income Tax",
+                        "payeeType": "EMPLOYEE",
+                        "taxAmount": 0,
+                        "monthToDate": 0,
+                        "quaterToDate": 0,
+                        "yearToDate": 0,
+                        "authorityCode": ""
+                    }
+                ],
+                "preTaxDeductionYTD": 0,
+                "postTaxDeductionYTD": 0,
+                "preTaxDeduction": 0,
+                "postTaxDeduction": 0
+            },
+            "directDepositConsent": false,
+            "bank": "",
+            "accountType": "currentAccount",
+            "ifsc": "ABCD0123456",
+            "upi": "",
+            "accountNumber": "12345678910",
+            "routingNumber": "26009140",
+            "paymentMethod": "directDeposit",
+            "createdAt": "2022-10-27T03:12:18.251Z",
+            "processed": false,
+            "processedAt": "0001-01-01T00:00:00Z",
+            "updatedAt": "2022-10-27T09:40:14.199Z",
+            "hasSalaryAdvance": false,
+            "effectiveCompensations": null,
+            "daysOffBefore": 0,
+            "daysOffAfter": 0,
+            "basicBefore": 380.95238095238096,
+            "basicAfter": 380.95238095238096,
+            "lossOfPay": 0,
+            "overtimePay": 0,
+            "basicPayForDay": 380.95,
+            "unfilledFields": null,
+            "ctc": 20000,
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "terminationInitiated": false,
+            "terminationDate": "0001-01-01T00:00:00Z"
+        }
+    ],
+    "filter": {
+        "currentPage": 1,
+        "count": 2,
+        "limit": 20,
+        "totalPages": 1,
+        "totalCount": 2
+    },
+    "employees": [
+        "63525be29f4afb9427b6f509",
+        "6310886bc741a206031c257c"
+    ],
+    "totalCost": 20961,
+    "totalTaxes": 0,
+    "totalEarnings": 20001,
+    "totalDeductions": 960,
+    "netPay": 19041,
+    "totalEmployerTaxes": 960,
+    "totalEmployerCost": 960,
+    "totalEmployeeCost": 20001,
+    "year": 2022,
+    "month": 10,
+    "hasDirectPayment": false,
+    "directDepositConsent": false,
+    "tenantWorkWeek": [
+        {
+            "day": "friday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "saturday",
+            "isWorkingDay": false,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "sunday",
+            "isWorkingDay": false,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "monday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "tuesday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "wednesday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        },
+        {
+            "day": "thursday",
+            "isWorkingDay": true,
+            "startTime": "09:00 AM",
+            "endTime": "06:00 PM",
+            "duration": 9
+        }
+    ],
+    "holidays": null,
+    "unpaidLeaves": null,
+    "createdAt": "2022-10-27T03:12:18.221Z",
+    "updatedAt": "2022-10-27T09:40:14.214Z",
+    "stage": "",
+    "processed": false,
+    "processedAt": "0001-01-01T00:00:00Z",
+    "isPaymentDone": false,
+    "paymentDoneAt": "0001-01-01T00:00:00Z",
+    "paymentVendor": "",
+    "paymentFailureReason": "",
+    "payDate": "10/31/2022",
+    "totalDirectDepositNetPay": 19040,
+    "totalCashNetPay": 0,
+    "totalCheckNetPay": 0,
+    "companyDaysBetweenPeriod": 21,
+    "isNetPayNegative": false,
+    "isValid": true,
+    "jeStatus": "REVERTED",
+    "jeId": "20226558",
+    "jePostedOn": "2022-10-27T09:39:31.982Z",
+    "jeEntryNumber": "JE-0000035",
+    "jeDetails": [
+        {
+            "jeStatus": "POSTED",
+            "jeId": "20219893",
+            "jePostedOn": "2022-10-27T03:12:33.421Z",
+            "jeEntryNumber": "JE-0000030",
+            "isRevertJE": false
+        },
+        {
+            "jeStatus": "REVERTED",
+            "jeId": "20226452",
+            "jePostedOn": "2022-10-27T09:23:34.931Z",
+            "jeEntryNumber": "JE-0000033",
+            "isRevertJE": true
+        },
+        {
+            "jeStatus": "POSTED",
+            "jeId": "20226552",
+            "jePostedOn": "2022-10-27T09:38:59.254Z",
+            "jeEntryNumber": "JE-0000034",
+            "isRevertJE": false
+        },
+        {
+            "jeStatus": "REVERTED",
+            "jeId": "20226558",
+            "jePostedOn": "2022-10-27T09:39:31.982Z",
+            "jeEntryNumber": "JE-0000035",
+            "isRevertJE": true
+        }
+    ],
+    "employeeCount": 0,
+    "revertedAt": "2022-10-27T09:39:31.669Z",
+    "isPayrunReverted": true,
+    "paymentCount": 0,
+    "paymentFailureCount": 2,
+    "location": 0,
+    "shiftsInvolved": [],
+    "otInvolved": [],
+    "customFields": [
+        {
+            "fieldId": "6323d1eeaabe99169d328446",
+            "fieldName": "C1",
+            "fieldValue": [
+                "c1"
+            ]
+        }
+    ]
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -759,6 +2607,958 @@ Delete Payrolls of a Payrun by Id for a Tenant
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+### /payruns/year/{year}
+
+#### GET
+##### Summary
+
+Get Payruns in a year
+
+##### Description
+
+Get payruns in a year for a Tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| year | path | Year | Yes | integer |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.PayrunsResponse](#dtopayrunsresponse) |
+
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/year/2022?limit=20&currentPage=1&order=desc&field=_id
+```
+
+##### Curl
+
+```java
+curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/year/2022?limit=20&currentPage=1&order=desc&field=_id' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+    "payruns": [
+        {
+            "_id": "",
+            "payrunType": 1,
+            "paySchedule": {
+                "id": "62611056bac41ace51e7dcb8",
+                "name": "monthly"
+            },
+            "payPeriod": "monthly",
+            "workWeek": [
+                5,
+                1,
+                2,
+                3,
+                4
+            ],
+            "payDay": "lastWorkingDayMonth",
+            "firstPayDate": "04/30/2022",
+            "workPeriod": {
+                "from": "04/01/2022",
+                "to": "04/30/2022"
+            },
+            "isForAllUsers": false,
+            "isForContractors": false,
+            "employees": [
+                "623c2dc0e3a652c5aee32876"
+            ],
+            "totalCost": 11988.42,
+            "totalTaxes": 0,
+            "totalEarnings": 11988.42,
+            "totalDeductions": 0,
+            "netPay": 11988.42,
+            "totalEmployerTaxes": 0,
+            "totalEmployerCost": 0,
+            "totalEmployeeCost": 11988.42,
+            "year": 2022,
+            "month": 4,
+            "hasDirectPayment": false,
+            "directDepositConsent": false,
+            "tenantWorkWeek": [
+                {
+                    "day": "friday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "saturday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "sunday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "monday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "tuesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "wednesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "thursday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                }
+            ],
+            "holidays": null,
+            "unpaidLeaves": null,
+            "createdAt": "2022-04-21T08:06:02.6Z",
+            "updatedAt": "2022-04-21T08:07:50.962Z",
+            "stage": "",
+            "processed": true,
+            "processedAt": "2022-04-20T19:07:55.252Z",
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "payDate": "04/30/2022",
+            "totalDirectDepositNetPay": 0,
+            "totalCashNetPay": 11988.42,
+            "totalCheckNetPay": 0,
+            "companyDaysBetweenPeriod": 21,
+            "isNetPayNegative": false,
+            "isValid": true,
+            "jeStatus": "POSTED",
+            "jeId": "18506757",
+            "jePostedOn": "2022-07-29T10:22:08.105Z",
+            "jeEntryNumber": "JE-0000023",
+            "jeDetails": [
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "18506757",
+                    "jePostedOn": "2022-07-29T10:22:08.105Z",
+                    "jeEntryNumber": "JE-0000023",
+                    "isRevertJE": false
+                }
+            ],
+            "employeeCount": 0,
+            "revertedAt": "0001-01-01T00:00:00Z",
+            "isPayrunReverted": false,
+            "paymentCount": 0,
+            "paymentFailureCount": 0,
+            "location": 0,
+            "shiftsInvolved": null,
+            "otInvolved": null,
+            "customFields": null
+        },
+        {
+            "_id": "",
+            "payrunType": 1,
+            "paySchedule": {
+                "id": "62611056bac41ace51e7dcb8",
+                "name": "monthly"
+            },
+            "payPeriod": "monthly",
+            "workWeek": [
+                5,
+                1,
+                2,
+                3,
+                4
+            ],
+            "payDay": "lastWorkingDayMonth",
+            "firstPayDate": "07/31/2022",
+            "workPeriod": {
+                "from": "07/01/2022",
+                "to": "07/31/2022"
+            },
+            "isForAllUsers": true,
+            "isForContractors": false,
+            "totalCost": 51440,
+            "totalTaxes": 0,
+            "totalEarnings": 50000,
+            "totalDeductions": 1615,
+            "netPay": 48385,
+            "totalEmployerTaxes": 1440,
+            "totalEmployerCost": 1440,
+            "totalEmployeeCost": 50000,
+            "year": 2022,
+            "month": 7,
+            "hasDirectPayment": false,
+            "directDepositConsent": false,
+            "tenantWorkWeek": [
+                {
+                    "day": "friday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "saturday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "sunday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "monday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "tuesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "wednesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "thursday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                }
+            ],
+            "holidays": null,
+            "unpaidLeaves": null,
+            "createdAt": "2022-07-29T10:55:58.908Z",
+            "updatedAt": "2022-09-02T15:39:18.717Z",
+            "stage": "",
+            "processed": true,
+            "processedAt": "2022-09-02T15:39:24.067Z",
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "payDate": "07/31/2022",
+            "totalDirectDepositNetPay": 19040,
+            "totalCashNetPay": 19345,
+            "totalCheckNetPay": 0,
+            "companyDaysBetweenPeriod": 21,
+            "isNetPayNegative": false,
+            "isValid": true,
+            "jeStatus": "POSTED",
+            "jeId": "19145285",
+            "jePostedOn": "2022-09-02T15:39:24.957Z",
+            "jeEntryNumber": "JE-0000026",
+            "jeDetails": [
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "19145285",
+                    "jePostedOn": "2022-09-02T15:39:24.957Z",
+                    "jeEntryNumber": "JE-0000026",
+                    "isRevertJE": false
+                }
+            ],
+            "employeeCount": 0,
+            "revertedAt": "0001-01-01T00:00:00Z",
+            "isPayrunReverted": false,
+            "paymentCount": 0,
+            "paymentFailureCount": 0,
+            "location": 0,
+            "shiftsInvolved": null,
+            "otInvolved": null,
+            "customFields": null
+        },
+        {
+            "_id": "",
+            "payrunType": 1,
+            "paySchedule": {
+                "id": "62611056bac41ace51e7dcb8",
+                "name": "monthly"
+            },
+            "payPeriod": "monthly",
+            "workWeek": [
+                5,
+                1,
+                2,
+                3,
+                4
+            ],
+            "payDay": "lastWorkingDayMonth",
+            "firstPayDate": "07/31/2022",
+            "workPeriod": {
+                "from": "07/01/2022",
+                "to": "07/31/2022"
+            },
+            "isForAllUsers": false,
+            "isForContractors": false,
+            "employees": [
+                "62b95a63076208827c8f4eaa"
+            ],
+            "totalCost": 223580.32,
+            "totalTaxes": 0,
+            "totalEarnings": 213340,
+            "totalDeductions": 10440.32,
+            "netPay": 202899.68,
+            "totalEmployerTaxes": 10240.32,
+            "totalEmployerCost": 10240.32,
+            "totalEmployeeCost": 213340,
+            "year": 2022,
+            "month": 7,
+            "hasDirectPayment": false,
+            "directDepositConsent": false,
+            "tenantWorkWeek": [
+                {
+                    "day": "monday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "tuesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "wednesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "thursday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "friday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "saturday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "sunday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                }
+            ],
+            "holidays": null,
+            "unpaidLeaves": null,
+            "createdAt": "2022-07-29T11:33:43.706Z",
+            "updatedAt": "2022-09-02T15:39:08.881Z",
+            "stage": "",
+            "processed": true,
+            "processedAt": "2022-09-02T15:39:12.086Z",
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "payDate": "07/31/2022",
+            "totalDirectDepositNetPay": 0,
+            "totalCashNetPay": 202899.68,
+            "totalCheckNetPay": 0,
+            "companyDaysBetweenPeriod": 21,
+            "isNetPayNegative": false,
+            "isValid": true,
+            "jeStatus": "POSTED",
+            "jeId": "19145275",
+            "jePostedOn": "2022-09-02T15:39:12.91Z",
+            "jeEntryNumber": "JE-0000025",
+            "jeDetails": [
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "19145275",
+                    "jePostedOn": "2022-09-02T15:39:12.91Z",
+                    "jeEntryNumber": "JE-0000025",
+                    "isRevertJE": false
+                }
+            ],
+            "employeeCount": 0,
+            "revertedAt": "0001-01-01T00:00:00Z",
+            "isPayrunReverted": false,
+            "paymentCount": 0,
+            "paymentFailureCount": 0,
+            "location": 0,
+            "shiftsInvolved": null,
+            "otInvolved": null,
+            "customFields": null
+        },
+        {
+            "_id": "",
+            "payrunType": 1,
+            "paySchedule": {
+                "id": "62611056bac41ace51e7dcb8",
+                "name": "monthly"
+            },
+            "payPeriod": "monthly",
+            "workWeek": [
+                5,
+                1,
+                2,
+                3,
+                4
+            ],
+            "payDay": "lastWorkingDayMonth",
+            "firstPayDate": "04/30/2022",
+            "workPeriod": {
+                "from": "04/01/2022",
+                "to": "04/30/2022"
+            },
+            "isForAllUsers": false,
+            "isForContractors": false,
+            "employees": [
+                "62b13c668024d6e694f7d25a",
+                "62b08b06196cdc080a2167cd"
+            ],
+            "totalCost": 20480,
+            "totalTaxes": 0,
+            "totalEarnings": 20000,
+            "totalDeductions": 655,
+            "netPay": 19345,
+            "totalEmployerTaxes": 480,
+            "totalEmployerCost": 480,
+            "totalEmployeeCost": 20000,
+            "year": 2022,
+            "month": 4,
+            "hasDirectPayment": false,
+            "directDepositConsent": false,
+            "tenantWorkWeek": [
+                {
+                    "day": "friday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "saturday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "sunday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "monday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "tuesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "wednesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "thursday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                }
+            ],
+            "holidays": null,
+            "unpaidLeaves": null,
+            "createdAt": "2022-08-10T10:52:49.718Z",
+            "updatedAt": "2022-08-10T10:52:57.236Z",
+            "stage": "",
+            "processed": true,
+            "processedAt": "2022-08-10T10:53:04.703Z",
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "payDate": "04/30/2022",
+            "totalDirectDepositNetPay": 0,
+            "totalCashNetPay": 9345,
+            "totalCheckNetPay": 0,
+            "companyDaysBetweenPeriod": 21,
+            "isNetPayNegative": false,
+            "isValid": true,
+            "jeStatus": "POSTED",
+            "jeId": "18763839",
+            "jePostedOn": "2022-08-10T10:53:05.838Z",
+            "jeEntryNumber": "JE-0000024",
+            "jeDetails": [
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "18763839",
+                    "jePostedOn": "2022-08-10T10:53:05.838Z",
+                    "jeEntryNumber": "JE-0000024",
+                    "isRevertJE": false
+                }
+            ],
+            "employeeCount": 0,
+            "revertedAt": "0001-01-01T00:00:00Z",
+            "isPayrunReverted": false,
+            "paymentCount": 0,
+            "paymentFailureCount": 0,
+            "location": 0,
+            "shiftsInvolved": null,
+            "otInvolved": null,
+            "customFields": null
+        },
+        {
+            "_id": "",
+            "payrunType": 1,
+            "paySchedule": {
+                "id": "62611056bac41ace51e7dcb8",
+                "name": "monthly"
+            },
+            "payPeriod": "monthly",
+            "workWeek": [
+                5,
+                1,
+                2,
+                3,
+                4
+            ],
+            "payDay": "lastWorkingDayMonth",
+            "firstPayDate": "04/30/2022",
+            "workPeriod": {
+                "from": "04/01/2022",
+                "to": "04/30/2022"
+            },
+            "isForAllUsers": false,
+            "isForContractors": false,
+            "employees": [
+                "6310886cc741a206031c2583"
+            ],
+            "totalCost": 10000,
+            "totalTaxes": 0,
+            "totalEarnings": 10000,
+            "totalDeductions": 0,
+            "netPay": 10000,
+            "totalEmployerTaxes": 0,
+            "totalEmployerCost": 0,
+            "totalEmployeeCost": 10000,
+            "year": 2022,
+            "month": 4,
+            "hasDirectPayment": false,
+            "directDepositConsent": false,
+            "tenantWorkWeek": [
+                {
+                    "day": "friday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "saturday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "sunday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "monday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "tuesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "wednesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "thursday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                }
+            ],
+            "holidays": null,
+            "unpaidLeaves": null,
+            "createdAt": "2022-09-16T01:32:21.208Z",
+            "updatedAt": "2022-10-27T10:23:50.711Z",
+            "stage": "",
+            "processed": true,
+            "processedAt": "2022-10-27T10:23:54.368Z",
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "payDate": "04/30/2022",
+            "totalDirectDepositNetPay": 0,
+            "totalCashNetPay": 0,
+            "totalCheckNetPay": 0,
+            "companyDaysBetweenPeriod": 21,
+            "isNetPayNegative": false,
+            "isValid": true,
+            "jeStatus": "POSTED",
+            "jeId": "20226933",
+            "jePostedOn": "2022-10-27T10:23:55.084Z",
+            "jeEntryNumber": "JE-0000040",
+            "jeDetails": [
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "19364560",
+                    "jePostedOn": "2022-09-16T01:32:31.751Z",
+                    "jeEntryNumber": "JE-0000027",
+                    "isRevertJE": false
+                },
+                {
+                    "jeStatus": "REVERTED",
+                    "jeId": "20226564",
+                    "jePostedOn": "2022-10-27T09:39:41.896Z",
+                    "jeEntryNumber": "JE-0000038",
+                    "isRevertJE": true
+                },
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "20226933",
+                    "jePostedOn": "2022-10-27T10:23:55.084Z",
+                    "jeEntryNumber": "JE-0000040",
+                    "isRevertJE": false
+                }
+            ],
+            "employeeCount": 0,
+            "revertedAt": "2022-10-27T09:39:41.59Z",
+            "isPayrunReverted": false,
+            "paymentCount": 0,
+            "paymentFailureCount": 0,
+            "location": 58128,
+            "shiftsInvolved": [],
+            "otInvolved": [],
+            "customFields": [
+                {
+                    "fieldId": "6323d1eeaabe99169d328446",
+                    "fieldName": "C1",
+                    "fieldValue": [
+                        "mycustom"
+                    ]
+                }
+            ]
+        },
+        {
+            "_id": "",
+            "payrunType": 1,
+            "paySchedule": {
+                "id": "62611056bac41ace51e7dcb8",
+                "name": "monthly"
+            },
+            "payPeriod": "monthly",
+            "workWeek": [
+                5,
+                1,
+                2,
+                3,
+                4
+            ],
+            "payDay": "lastWorkingDayMonth",
+            "firstPayDate": "04/30/2022",
+            "workPeriod": {
+                "from": "04/01/2022",
+                "to": "04/30/2022"
+            },
+            "isForAllUsers": false,
+            "isForContractors": false,
+            "employees": [
+                "62b13c678024d6e694f7d261",
+                "6310886bc741a206031c257c",
+                "6310886cc741a206031c2583"
+            ],
+            "totalCost": 35960,
+            "totalTaxes": 0,
+            "totalEarnings": 35000,
+            "totalDeductions": 960,
+            "netPay": 34040,
+            "totalEmployerTaxes": 960,
+            "totalEmployerCost": 960,
+            "totalEmployeeCost": 35000,
+            "year": 2022,
+            "month": 4,
+            "hasDirectPayment": false,
+            "directDepositConsent": false,
+            "tenantWorkWeek": [
+                {
+                    "day": "monday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "tuesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "wednesday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "thursday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "friday",
+                    "isWorkingDay": true,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "saturday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                },
+                {
+                    "day": "sunday",
+                    "isWorkingDay": false,
+                    "startTime": "09:00 AM",
+                    "endTime": "06:00 PM",
+                    "duration": 9
+                }
+            ],
+            "holidays": null,
+            "unpaidLeaves": null,
+            "createdAt": "2022-09-30T08:07:16.047Z",
+            "updatedAt": "2022-10-27T10:23:38.508Z",
+            "stage": "",
+            "processed": true,
+            "processedAt": "2022-10-27T10:23:41.419Z",
+            "isPaymentDone": false,
+            "paymentDoneAt": "0001-01-01T00:00:00Z",
+            "paymentVendor": "",
+            "paymentFailureReason": "",
+            "payDate": "04/30/2022",
+            "totalDirectDepositNetPay": 19040,
+            "totalCashNetPay": 5000,
+            "totalCheckNetPay": 0,
+            "companyDaysBetweenPeriod": 21,
+            "isNetPayNegative": false,
+            "isValid": true,
+            "jeStatus": "POSTED",
+            "jeId": "20226931",
+            "jePostedOn": "2022-10-27T10:23:42.193Z",
+            "jeEntryNumber": "JE-0000039",
+            "jeDetails": [
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "19664661",
+                    "jePostedOn": "2022-09-30T08:07:38.47Z",
+                    "jeEntryNumber": "JE-0000029",
+                    "isRevertJE": false
+                },
+                {
+                    "jeStatus": "REVERTED",
+                    "jeId": "20226560",
+                    "jePostedOn": "2022-10-27T09:39:35.196Z",
+                    "jeEntryNumber": "JE-0000036",
+                    "isRevertJE": true
+                },
+                {
+                    "jeStatus": "POSTED",
+                    "jeId": "20226931",
+                    "jePostedOn": "2022-10-27T10:23:42.193Z",
+                    "jeEntryNumber": "JE-0000039",
+                    "isRevertJE": false
+                }
+            ],
+            "employeeCount": 0,
+            "revertedAt": "2022-10-27T09:39:34.867Z",
+            "isPayrunReverted": false,
+            "paymentCount": 0,
+            "paymentFailureCount": 0,
+            "location": 0,
+            "shiftsInvolved": [],
+            "otInvolved": [],
+            "customFields": [
+                {
+                    "fieldId": "6323d1eeaabe99169d328446",
+                    "fieldName": "C1",
+                    "fieldValue": [
+                        "c1"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+### /payruns/sync-je
+
+#### POST
+##### Summary
+
+Sync Payrun JE To Books
+
+##### Description
+
+Sync Payrun JE To Books
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.SyncPayrunJEsRequest](#dtosyncpayrunjesrequest) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+### /payruns/update/je-status
+
+#### PATCH
+##### Summary
+
+Update payrun JE status
+
+##### Description
+
+Update payrun JE status
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.PayrunJEPostedRequest](#dtopayrunjepostedrequest) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+
+
+### /payruns/revert-je
+
+#### POST
+##### Summary
+
+Revert Payrun JE From Books
+
+##### Description
+
+Revert Payrun JE From Books
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.RevertPayrunJEsRequest](#dtorevertpayrunjesrequest) |
 
 ##### Security
 
@@ -1093,6 +3893,219 @@ Get paystubs in a year for a Tenant
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
+
+
+### Security
+**ApiKeyAuth**  
+
+|apiKey|*API Key*|
+|---|---|
+|Name|x-access-token|
+|In|header|
+
+### /check-print/bulk
+
+#### POST
+##### Summary
+
+Get Check Print Details By Employee Id and Payrun Id
+
+##### Description
+
+Get Check Print Details By Employee Id and Payrun Id
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payroll | body | CheckPrint request dto | Yes | [dto.CheckPrintRequestDto](#dtocheckprintrequestdto) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.PayrollCheckPrintResponseDto](#dtopayrollcheckprintresponsedto) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+
+### /payruns/giro/file
+
+#### GET
+##### Summary
+
+Get GIRO
+
+##### Description
+
+Get GIRO file
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| sortOrder | query | Sort Order | No | string |
+| sortField | query | Sort Field | No | string |
+| limit | query | Limit per Page | No | integer |
+| currentPage | query | Current Page number | No | integer |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.GIROFileResponse](#dtogirofileresponse) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+
+### /payruns/process-payment/{id}
+
+#### PATCH
+##### Summary
+
+process Payment by Payrun Id
+
+##### Description
+
+Payment by Payrun Id
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payrunId | path | Id | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | string |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+### /payruns/payment-status/{vendor}/{payrunId}
+
+#### PATCH
+##### Summary
+
+Payment done of a given payrun
+
+##### Description
+
+Payment done of a given payrun by Id for a Tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payrunId | path | Payrun Id | Yes | string |
+| vendor | path | vendor | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+
+### /commission/add
+
+#### POST
+##### Summary
+
+Add Commission Endpoint
+
+##### Description
+
+Add Commission Endpoint for a Tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| commission | body | Commission Dto | Yes | [dto.CommissionRequestDto](#dtocommissionrequestdto) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+### /commission/details
+
+#### GET
+##### Summary
+
+Get Commission Endpoint
+
+##### Description
+
+Get Commission Endpoint for a Tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| commission | body | Commission paging Dto | Yes | [dto.GetCommissionRequestDto](#dtogetcommissionrequestdto) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
+### /commission/update
+
+#### PATCH
+##### Summary
+
+Update Commission Endpoint
+
+##### Description
+
+Update Commission Endpoint for a Tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| commission | body | Commission Dto | Yes | [dto.CommissionRequestDto](#dtocommissionrequestdto) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
 
 ### Models
 
