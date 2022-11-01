@@ -3,15 +3,8 @@ id: componentgroups
 title: Component Groups
 sidebar_label: Component Groups
 ---
-### Security
-**ApiKeyAuth**  
 
-|apiKey|*API Key*|
-|---|---|
-|Name|x-access-token|
-|In|header|
-
-### /v1/people/tenants/component-group
+### Manage component groups
 
 #### GET
 ##### Summary
@@ -56,6 +49,26 @@ Get list of all Component Groups with pagination.
 | 200 | A successful response. | [v1GetComponentGroupsResponse](#v1getcomponentgroupsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/year/2022?limit=20&currentPage=1&order=desc&field=_id
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people-pay-run/payruns?limit=20&currentPage=1&order=desc&field=_id" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
+```
+
+##### Sample Request
+```java
+{key:value}
+```
+
+##### Sample Response
+```java
+{key:value}
+```
 #### POST
 ##### Summary
 
@@ -78,6 +91,116 @@ Add Component Group.
 | 200 | A successful response. | [v1ComponentGroup](#v1componentgroup) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/component-group
+```
+
+##### Curl
+
+```java
+curl-X'POST'\'https://bifrost-us.deskera.com/v1/people/tenants/component-group'\-H'accept: application/json'\-H'x-access-token: sampletoken'\-H'Content-Type: application/json'\-d'{   "id": "",   "name": "xyz",   "hasFixedComponents": true,   "fixedComponents": [     {       "name": "A",       "isActive": true,       "type": "EARNING",       "isForAllEmployee": true,       "compliance": {         "countryCode": "IN",         "pf": false,         "esi": false,         "taxexempt": false       },       "defaultComponent": false,       "id": "635fbcd93295b0023353c318",       "employees": [                ],       "isVariable": false,       "isFormula": false,       "componentConfig": {         "configureAmountBasis": "",         "basisComponentId": "",         "componentPercent": 0,         "applicableValues": null,         "amountPerDay": 0,         "deductionType": "posttaxdeduction"       },       "frequency": {         "period": "everyPayrun",         "occurrence": null,         "when": ""       },       "isHidden": false,       "subType": "",       "includeInCTC": true,       "includeInOTCalc": false,       "isUnpaidIncluded": false,       "formulaConfig": null,       "formula": "",       "amount": "400",       "componentId": "635fbcd93295b0023353c318"     }   ],   "variableComponents": [        ],   "hasVarComponents": false,   "applyToAll": true,   "users": [        ] }'
+```
+
+##### Sample Request
+```java
+{
+  "id": "",
+  "name": "xyz",
+  "hasFixedComponents": true,
+  "fixedComponents": [
+    {
+      "name": "A",
+      "isActive": true,
+      "type": "EARNING",
+      "isForAllEmployee": true,
+      "compliance": {
+        "countryCode": "IN",
+        "pf": false,
+        "esi": false,
+        "taxexempt": false
+      },
+      "defaultComponent": false,
+      "id": "635fbcd93295b0023353c318",
+      "employees": [
+        
+      ],
+      "isVariable": false,
+      "isFormula": false,
+      "componentConfig": {
+        "configureAmountBasis": "",
+        "basisComponentId": "",
+        "componentPercent": 0,
+        "applicableValues": null,
+        "amountPerDay": 0,
+        "deductionType": "posttaxdeduction"
+      },
+      "frequency": {
+        "period": "everyPayrun",
+        "occurrence": null,
+        "when": ""
+      },
+      "isHidden": false,
+      "subType": "",
+      "includeInCTC": true,
+      "includeInOTCalc": false,
+      "isUnpaidIncluded": false,
+      "formulaConfig": null,
+      "formula": "",
+      "amount": "400",
+      "componentId": "635fbcd93295b0023353c318"
+    }
+  ],
+  "variableComponents": [
+    
+  ],
+  "hasVarComponents": false,
+  "applyToAll": true,
+  "users": [
+    
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "id": "635fbfbf5ced530c2f3be9eb",
+  "name": "xyz",
+  "hasFixedComponents": true,
+  "fixedComponents": [
+    {
+      "componentId": "635fbcd93295b0023353c318",
+      "name": "A",
+      "amount": 400,
+      "type": "EARNING",
+      "status": "",
+      "componentConfig": {
+        "configureAmountBasis": "",
+        "basisComponentId": "",
+        "componentPercent": 0,
+        "amountPerDay": 0,
+        "deductionType": "",
+        "applicableValues": null
+      },
+      "subType": "",
+      "frequency": null,
+      "includeInOTCalc": false,
+      "formula": "",
+      "formulaConfig": []
+    }
+  ],
+  "hasVarComponents": false,
+  "variableComponents": [],
+  "hasBenefits": false,
+  "benefits": [],
+  "applyToAll": true,
+  "users": [],
+  "deleted": false,
+  "error": null
+}
+}
+```
 #### PUT
 ##### Summary
 
@@ -100,7 +223,99 @@ Update a Component Group.
 | 200 | A successful response. | [v1ComponentGroup](#v1componentgroup) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/component-group/delete
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/year/2022?limit=20&currentPage=1&order=desc&field=_id
+```
+
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/component-group' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+
+##### Sample Request
+```java
+{
+  "id": "635fbcea0ab739d2f218da8b",
+  "name": "Comp group",
+  "hasFixedComponents": true,
+  "fixedComponents": [
+    {
+      "componentId": "635fbcd93295b0023353c318",
+      "name": "A",
+      "amount": 5000,
+      "type": "EARNING",
+      "status": "",
+      "componentConfig": {
+        "configureAmountBasis": "",
+        "basisComponentId": "",
+        "componentPercent": 0,
+        "amountPerDay": 0,
+        "deductionType": "",
+        "applicableValues": null
+      },
+      "subType": "",
+      "frequency": null,
+      "includeInOTCalc": false,
+      "formula": "",
+      "formulaConfig": [
+        
+      ]
+    }
+  ],
+  "variableComponents": [
+    
+  ],
+  "hasVarComponents": false,
+  "applyToAll": true,
+  "users": [
+    
+  ]
+}```
+
+##### Sample Response
+```java
+{
+  "id": "635fbcea0ab739d2f218da8b",
+  "name": "Comp group",
+  "hasFixedComponents": true,
+  "fixedComponents": [
+    {
+      "componentId": "635fbcd93295b0023353c318",
+      "name": "A",
+      "amount": 5000,
+      "type": "EARNING",
+      "status": "",
+      "componentConfig": {
+        "configureAmountBasis": "",
+        "basisComponentId": "",
+        "componentPercent": 0,
+        "amountPerDay": 0,
+        "deductionType": "",
+        "applicableValues": null
+      },
+      "subType": "",
+      "frequency": null,
+      "includeInOTCalc": false,
+      "formula": "",
+      "formulaConfig": []
+    }
+  ],
+  "hasVarComponents": false,
+  "variableComponents": [],
+  "hasBenefits": false,
+  "benefits": [],
+  "applyToAll": true,
+  "users": [],
+  "deleted": false,
+  "error": null
+}
+```
+
+### Delete component group
 
 #### POST
 ##### Summary
@@ -124,7 +339,42 @@ Delete a Component Group by it's id.
 | 200 | A successful response. | [v1DeleteResponse](#v1deleteresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/component-group/{id}
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/component-group/delete
+```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/component-group/delete' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "ids": [
+    "635fbf560ab739d2f218da8c"
+  ]
+}'```
+
+##### Sample Request
+```java
+{
+  "ids": [
+    "635fbf560ab739d2f218da8c"
+  ]
+}```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "message": "Deleted {1} Component Group document(s) for id {[635fbf560ab739d2f218da8c]}",
+  "errCode": ""
+}
+```
+### Fetch component group
 
 #### GET
 ##### Summary
@@ -153,6 +403,74 @@ Get a Component Group by it's id.
 | 200 | A successful response. | [v1ComponentGroup](#v1componentgroup) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/component-group
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/component-group' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "componentGroups": [
+    {
+      "id": "635fbcea0ab739d2f218da8b",
+      "name": "Comp group",
+      "hasFixedComponents": true,
+      "fixedComponents": [
+        {
+          "componentId": "635fbcd93295b0023353c318",
+          "name": "A",
+          "amount": 5000,
+          "type": "EARNING",
+          "status": "",
+          "componentConfig": {
+            "configureAmountBasis": "",
+            "basisComponentId": "",
+            "componentPercent": 0,
+            "amountPerDay": 0,
+            "deductionType": "",
+            "applicableValues": null
+          },
+          "subType": "",
+          "frequency": null,
+          "includeInOTCalc": false,
+          "formula": "",
+          "formulaConfig": []
+        }
+      ],
+      "hasVarComponents": false,
+      "variableComponents": [],
+      "hasBenefits": false,
+      "benefits": [],
+      "applyToAll": true,
+      "users": [],
+      "deleted": false,
+      "error": null
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "1",
+    "sizePerPage": "1",
+    "totalPage": "1",
+    "numberOfRecords": "1"
+  },
+  "error": null
+}
+```
 ### Models
 
 #### gatewayruntimeError
