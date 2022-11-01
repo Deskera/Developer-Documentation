@@ -3,39 +3,8 @@ id: users
 title: Users
 sidebar_label: Users
 ---
-### Security
-**ApiKeyAuth**  
 
-|apiKey|*API Key*|
-|---|---|
-|Name|x-access-token|
-|In|header|
-
-### /internal/users
-
-#### POST
-##### Summary
-
-Get User Details By Email Or Contact
-
-##### Description
-
-Get User Details By Email Or Contact
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1SearchRequest](#v1searchrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1UserList](#v1userlist) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users
+### Manage Users
 
 #### GET
 ##### Summary
@@ -72,6 +41,9 @@ Get list of all users with pagination.
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -80,6 +52,281 @@ Get list of all users with pagination.
 | 200 | A successful response. | [v1GetUsersResponse](#v1getusersresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users?limit=20&currentPage=1&order=desc&field=_id
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users?limit=20&currentPage=1&order=desc&field=_id' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampleaccesstoken'
+```
+
+##### Sample Request
+```java
+No Request Body
+```
+
+##### Sample Response
+```
+{
+  "status": "OK",
+  "users": [
+    {
+      "userId": "635b6e005ced530c2f3be9dd",
+      "firstName": "test",
+      "lastName": "user",
+      "designation": "qa",
+      "emailId": "jkdfhkj@getnada.com",
+      "contact": ",
+      "gender": ",
+      "profileImagePath": ",
+      "profileImageRelativePath": ",
+      "organizationName": "malaysia",
+      "username": ",
+      "tenantId": "634f74cdcc648ad3b50bc1e9",
+      "name": "test user",
+      "employeeId": "00006",
+      "employeeType": "0",
+      "address": {
+        "addressLine1": ",
+        "addressLine2": ",
+        "zipCode": ",
+        "city": ",
+        "state": ",
+        "country": "MY",
+        "suburb": ",
+        "county": "
+      },
+      "nationality": ",
+      "department": ",
+      "iamUserId": "66195",
+      "erpTenantId": "75630",
+      "dateOfJoining": "2022-03-09T00:00:00.000Z",
+      "dateOfConfirmation": "2022-03-09T00:00:00.000Z",
+      "status": "active",
+      "maritalStatus": "married",
+      "appName": ",
+      "roles": [
+        {
+          "roleId": "5f4fd64782e6aa8ee90378ee",
+          "name": "USER",
+          "appName": "PEOPLE",
+          "policies": []
+        }
+      ],
+      "teams": [
+        {
+          "teamId": "634f74cdcc648ad3b50bc1eb",
+          "name": "Default Team",
+          "createdAt": "2022-10-18T04:22:59.719Z",
+          "members": [
+            {
+              "userId": "634f74cdcc648ad3b50bc1f4",
+              "iamUserId": "65973",
+              "firstName": "sonali_compoff@temp.deskera.xyz",
+              "lastName": "kk",
+              "employeeId": "00001",
+              "roles": [
+                "MANAGER"
+              ]
+            },
+            {
+              "userId": "634f7738e0e4d94bdec23f71",
+              "iamUserId": "51127",
+              "firstName": "Tom",
+              "lastName": "Brady",
+              "employeeId": "00002",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7738e0e4d94bdec23f73",
+              "iamUserId": "46121",
+              "firstName": "ABDALLAH",
+              "lastName": "ZAID",
+              "employeeId": "00003",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7739e0e4d94bdec23f75",
+              "iamUserId": "46123",
+              "firstName": "Felicity",
+              "lastName": "Howard",
+              "employeeId": "00004",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7739e0e4d94bdec23f77",
+              "iamUserId": "56969",
+              "firstName": "Simon",
+              "lastName": "Chua",
+              "employeeId": "00005",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "635b6e005ced530c2f3be9dd",
+              "iamUserId": "66195",
+              "firstName": "test",
+              "lastName": "user",
+              "employeeId": "00006",
+              "roles": [
+                "USER"
+              ]
+            }
+          ],
+          "status": "active",
+          "type": "default"
+        }
+      ],
+      "approvers": [
+        {
+          "firstName": "sonali_compoff@temp.deskera.xyz",
+          "lastName": "kk",
+          "designation": "a",
+          "emailId": "sonali_compoff@temp.deskera.xyz",
+          "iamUserId": "65973"
+        }
+      ],
+      "countryCode": "MY",
+      "hasComponents": true,
+      "components": [],
+      "hasCompliance": true,
+      "compliance": {
+        "@type": "type.googleapis.com/v1.MYCompliance",
+        "residenceStatus": "malaysian",
+        "icNumber": "123323-23-3333",
+        "passportNumber": ",
+        "workerStatus": "normal",
+        "nationality": "afghan",
+        "countryOfOrigin": "AO",
+        "race": "others",
+        "religion": ",
+        "epfNumber": "43",
+        "epfContribution": true,
+        "epfMemberBeforeAugust": false,
+        "employeeEpfRate": 11,
+        "additionalEmployeeRate": 0,
+        "employerEpfRate": 0,
+        "additionalEmployerRate": 0,
+        "pcbNumber": ",
+        "socsoCategory": ",
+        "eisContribution": true,
+        "pcbBorneByEmployer": false,
+        "disabilityStatus": "notdisabled",
+        "disabilityStatusSpouse": "notdisabled",
+        "havingChildren": true,
+        "spouseWorking": false,
+        "numberOfQualifyingChildren": 0,
+        "previousEmployerRemuneration": 0,
+        "previousEmployerEpfContribution": 0,
+        "previousEmployerMtdAmount": 0,
+        "previousEmployerTaxReliefDeduction": 0,
+        "taxExemption": false,
+        "bikContribution": false,
+        "bikAmount": 0,
+        "socsoEmployee": ",
+        "socsoEmployerContributionOnly": false,
+        "numberOfChildrenAbove18ReceivingDegreeOutsideMalaysia": 1,
+        "numberOfChildrenAbove18ReceivingDiplomaInMalaysia": 0,
+        "numberOfChildrenUnder18": 0,
+        "numberOfDisabledChildren": 0,
+        "numberOfDisabledChildrenStudying": 0
+      },
+      "dateOfTermination": ",
+      "dateOfBirth": "1998-10-07T00:00:00.000Z",
+      "passportNumber": ",
+      "compensation": 45000,
+      "compensationPeriod": "30",
+      "compensationCurrency": "MYR",
+      "paymentDetails": {
+        "bank": ",
+        "bankId": ",
+        "paymentMethod": "cash",
+        "accountType": ",
+        "routingNumber": ",
+        "accountNumber": ",
+        "branchCode": ",
+        "branchName": ",
+        "ifsc": ",
+        "upi": ",
+        "transitNumber": ",
+        "institutionNumber": "
+      },
+      "profileStages": {
+        "employeeDetails": false,
+        "paymentDetails": false
+      },
+      "isTerminated": false,
+      "title": ",
+      "middleName": ",
+      "displayName": ",
+      "contractorType": ",
+      "type": ",
+      "documents": [],
+      "createdAt": "2022-10-27T12:06:56Z",
+      "employerIdentificationNumber": ",
+      "tenantCountryCode": ",
+      "tenantCurrencyCode": ",
+      "terminationStage": ",
+      "hasBenefits": false,
+      "benefits": [],
+      "socialSecurityNumber": ",
+      "directDepositConsent": false,
+      "consentMailSend": false,
+      "hasSalaryAdvance": false,
+      "salaryAdvance": null,
+      "effectiveCompensations": [],
+      "isEffectiveSalary": false,
+      "passportCountry": ",
+      "ctc": 0,
+      "deleted": false,
+      "isImported": false,
+      "announcements": [],
+      "isInCompleteProfile": false,
+      "inCompleteFields": [],
+      "isContactUpdated": false,
+      "beneficiaryId": ",
+      "customFieldData": [],
+      "aliasName": ",
+      "beneficiaryStatus": ",
+      "beneficiaryReason": ",
+      "makePayroll": false,
+      "componentGroup": ",
+      "inviteUserToFillInfo": false,
+      "hasDocuments": false,
+      "locationValue": ",
+      "cnfrmDateUpdated": false,
+      "isFromKafka": false,
+      "tenantUserId": "0",
+      "documentSequenceId": ",
+      "customFields": {},
+      "prevDateOfJoining": [],
+      "isRehire": false
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "1",
+    "sizePerPage": "1",
+    "totalPage": "6",
+    "numberOfRecords": "6"
+  },
+  "beneficiariesToAdd": "0"
+}
+```
 #### POST
 ##### Summary
 
@@ -102,6 +349,354 @@ Add a new user.
 | 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users
+```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/users' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "firstName": "Test",
+    "lastName": "01",
+    "name": "Test 01",
+    "employeeId": ",
+    "documentSequenceId": "63467ae3b0c1b8ae61f1563a",
+    "aliasName": ",
+    "designation": "Designer",
+    "emailId": "test@temp.deskera.xyz",
+    "contact": "+911111111111",
+    "gender": "male",
+    "employeeType": 1,
+    "organizationName": "India",
+    "countryCode": "IN",
+    "compensation": 0,
+    "compensationCurrency": "INR",
+    "compensationPeriod": "30",
+    "dateOfBirth": "2001-10-18T00:00:00.000Z",
+    "maritalStatus": "single",
+    "passportNumber": "123465423456",
+    "passportCountry": "IN",
+    "dateOfJoining": "2022-09-02T00:00:00.000Z",
+    "dateOfConfirmation": "2022-10-01T00:00:00.000Z",
+    "address": {
+        "addressLine1": "SHahu",
+        "zipCode": "422009",
+        "city": "Nasik",
+        "state": "MH",
+        "country": "IN"
+    },
+    "paymentDetails": {
+        "paymentMethod": "directDeposit",
+        "accountType": "currentAccount",
+        "routingNumber": "12321",
+        "accountNumber": "1331133",
+        "bank": ",
+        "bankId": ",
+        "upi": ",
+        "ifsc": "ABCD0123122"
+    },
+    "isEffectiveSalary": true,
+    "effectiveCompensations": [
+        {
+            "compensation": "50000",
+            "period": "30",
+            "effectiveDate": "2022-10-01",
+            "isVisible": true
+        }
+    ],
+    "ctc": "10000",
+    "customFieldData": [],
+    "inviteUserToFillInfo": false,
+    "hasComponents": false,
+    "hasCompliance": false,
+    "makePayroll": true
+}'
+```
+
+##### Sample Request
+```java
+{
+    "firstName": "Test",
+    "lastName": "01",
+    "name": "Test 01",
+    "employeeId": ",
+    "documentSequenceId": "63467ae3b0c1b8ae61f1563a",
+    "aliasName": ",
+    "designation": "Designer",
+    "emailId": "test@temp.deskera.xyz",
+    "contact": "+911111111111",
+    "gender": "male",
+    "employeeType": 1,
+    "organizationName": "India",
+    "countryCode": "IN",
+    "compensation": 0,
+    "compensationCurrency": "INR",
+    "compensationPeriod": "30",
+    "dateOfBirth": "2001-10-18T00:00:00.000Z",
+    "maritalStatus": "single",
+    "passportNumber": "123465423456",
+    "passportCountry": "IN",
+    "dateOfJoining": "2022-09-02T00:00:00.000Z",
+    "dateOfConfirmation": "2022-10-01T00:00:00.000Z",
+    "address": {
+        "addressLine1": "SHahu",
+        "zipCode": "422009",
+        "city": "Nasik",
+        "state": "MH",
+        "country": "IN"
+    },
+    "paymentDetails": {
+        "paymentMethod": "directDeposit",
+        "accountType": "currentAccount",
+        "routingNumber": "12321",
+        "accountNumber": "1331133",
+        "bank": ",
+        "bankId": ",
+        "upi": ",
+        "ifsc": "ABCD0123122"
+    },
+    "isEffectiveSalary": true,
+    "effectiveCompensations": [
+        {
+            "compensation": "50000",
+            "period": "30",
+            "effectiveDate": "2022-10-01",
+            "isVisible": true
+        }
+    ],
+    "ctc": "10000",
+    "customFieldData": [],
+    "inviteUserToFillInfo": false,
+    "hasComponents": false,
+    "hasCompliance": false,
+    "makePayroll": true
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "user": {
+    "userId": "635bbfb25ced530c2f3be9e4",
+    "firstName": "Test",
+    "lastName": "01",
+    "designation": "Designer",
+    "emailId": "test@temp.deskera.xyz",
+    "contact": "+911111111111",
+    "gender": "male",
+    "profileImagePath": ",
+    "profileImageRelativePath": ",
+    "organizationName": "India",
+    "username": ",
+    "tenantId": "63467ae3af49e0abcbb5da14",
+    "name": "Test 01",
+    "employeeId": "00006",
+    "employeeType": "1",
+    "address": {
+      "addressLine1": "SHahu",
+      "addressLine2": ",
+      "zipCode": "422009",
+      "city": "Nasik",
+      "state": "MH",
+      "country": "IN",
+      "suburb": ",
+      "county": "
+    },
+    "nationality": ",
+    "department": ",
+    "iamUserId": "56518",
+    "erpTenantId": "75584",
+    "dateOfJoining": "2022-09-02T00:00:00.000Z",
+    "dateOfConfirmation": "2022-10-01T00:00:00.000Z",
+    "status": "active",
+    "maritalStatus": "single",
+    "appName": ",
+    "roles": [
+    ],
+    "teams": [
+      {
+        "teamId": "63467ae3af49e0abcbb5da16",
+        "name": "Default Team",
+        "createdAt": "1970-01-01T00:00:00Z",
+        "members": [
+          {
+            "userId": "63467ae3af49e0abcbb5da1f",
+            "iamUserId": "0",
+            "firstName": ",
+            "lastName": ",
+            "employeeId": ",
+            "roles": [
+              "MANAGER"
+            ]
+          },
+          {
+            "userId": "63513fa4a529443b09b3405d",
+            "iamUserId": "0",
+            "firstName": ",
+            "lastName": ",
+            "employeeId": ",
+            "roles": [
+              "USER"
+            ]
+          },
+          {
+            "userId": "63513fa5a529443b09b3405f",
+            "iamUserId": "0",
+            "firstName": ",
+            "lastName": ",
+            "employeeId": ",
+            "roles": [
+              "USER"
+            ]
+          },
+          {
+            "userId": "63513fa5a529443b09b34061",
+            "iamUserId": "0",
+            "firstName": ",
+            "lastName": ",
+            "employeeId": ",
+            "roles": [
+              "USER"
+            ]
+          },
+          {
+            "userId": "63513fa5a529443b09b34063",
+            "iamUserId": "0",
+            "firstName": ",
+            "lastName": ",
+            "employeeId": ",
+            "roles": [
+              "USER"
+            ]
+          },
+          {
+            "userId": "635bbfb25ced530c2f3be9e4",
+            "iamUserId": "0",
+            "firstName": ",
+            "lastName": ",
+            "employeeId": ",
+            "roles": [
+              "USER"
+            ]
+          }
+        ],
+        "status": "active",
+        "type": "default"
+      }
+    ],
+    "approvers": [
+    ],
+    "countryCode": "IN",
+    "hasComponents": true,
+    "components": [
+    ],
+    "hasCompliance": false,
+    "compliance": null,
+    "dateOfTermination": ",
+    "dateOfBirth": "2001-10-18T00:00:00.000Z",
+    "passportNumber": "123465423456",
+    "compensation": 0,
+    "compensationPeriod": "30",
+    "compensationCurrency": "INR",
+    "paymentDetails": {
+      "bank": ",
+      "bankId": ",
+      "paymentMethod": "directDeposit",
+      "accountType": "currentAccount",
+      "routingNumber": "12321",
+      "accountNumber": "1331133",
+      "branchCode": ",
+      "branchName": ",
+      "ifsc": "ABCD0123122",
+      "upi": ",
+      "transitNumber": ",
+      "institutionNumber": "
+    },
+    "profileStages": {
+      "employeeDetails": false,
+      "paymentDetails": false,
+      "witholdingSetup": false,
+      "filingAuthorization": false
+    },
+    "isTerminated": false,
+    "title": ",
+    "middleName": ",
+    "displayName": ",
+    "contractorType": ",
+    "type": ",
+    "documents": [
+    ],
+    "createdAt": "2022-10-27T12:06:56Z",
+    "employerIdentificationNumber": ",
+    "tenantCountryCode": ",
+    "tenantCurrencyCode": ",
+    "terminationStage": ",
+    "hasBenefits": false,
+    "benefits": [
+    ],
+    "socialSecurityNumber": ",
+    "directDepositConsent": false,
+    "consentMailSend": false,
+    "hasSalaryAdvance": false,
+    "salaryAdvance": null,
+    "effectiveCompensations": [
+      {
+        "effectiveDate": "2022-10-01",
+        "compensation": 50000,
+        "period": "30",
+        "isVisible": true,
+        "basicCompensation": 0
+      }
+    ],
+    "isEffectiveSalary": true,
+    "passportCountry": "IN",
+    "ctc": 10000,
+    "deleted": false,
+    "isImported": false,
+    "announcements": [
+    ],
+    "isInCompleteProfile": false,
+    "inCompleteFields": [
+    ],
+    "isContactUpdated": false,
+    "beneficiaryId": ",
+    "customFieldData": [
+    ],
+    "aliasName": ",
+    "beneficiaryStatus": ",
+    "beneficiaryReason": ",
+    "makePayroll": true,
+    "componentGroup": ",
+    "inviteUserToFillInfo": false,
+    "hasDocuments": false,
+    "locationValue": ",
+    "cnfrmDateUpdated": false,
+    "checkHqError": null,
+    "checkEmployeeId": ",
+    "documentSequenceId": "63467ae3b0c1b8ae61f1563a",
+    "isFromKafka": false,
+    "tenantUserId": "0",
+    "customFields": {
+    },
+    "prevDateOfJoining": [
+    ],
+    "isRehire": false
+  },
+  "errors": [
+  ],
+  "httpStatusCode": "0",
+  "error": null
+}
+```
 #### PUT
 ##### Summary
 
@@ -124,6 +719,315 @@ Update a user.
 | 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users
+```
+
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/users' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "firstName": "Test",
+  "lastName": "01",
+  "name": "Test 01",
+  "employeeId": "00006",
+  "aliasName": ",
+  "designation": "Designer",
+  "emailId": "test@temp.deskera.xyz",
+  "contact": "+911111111111",
+  "gender": "male",
+  "employeeType": 1,
+  "organizationName": "India",
+  "countryCode": "IN",
+  "compensation": 0,
+  "compensationCurrency": "INR",
+  "compensationPeriod": "30",
+  "dateOfBirth": "2001-10-18T00:00:00.000Z",
+  "maritalStatus": "single",
+  "passportNumber": "123465423456",
+  "passportCountry": "IN",
+  "dateOfJoining": "2022-09-02T00:00:00.000Z",
+  "dateOfConfirmation": "2022-10-01T00:00:00.000Z",
+  "address": {
+    "addressLine1": "SHahu",
+    "addressLine2": ",
+    "zipCode": "422009",
+    "city": "Nasik",
+    "state": "MH",
+    "country": "IN",
+    "suburb": ",
+    "county": "
+  },
+  "paymentDetails": {
+    "paymentMethod": "directDeposit",
+    "accountType": "currentAccount",
+    "routingNumber": "12321",
+    "accountNumber": "1331133",
+    "bank": ",
+    "bankId": ",
+    "upi": ",
+    "ifsc": "ABCD0123122"
+  },
+  "isEffectiveSalary": true,
+  "effectiveCompensations": [
+    {
+      "effectiveDate": "2022-10-01",
+      "compensation": 50000,
+      "period": "30",
+      "isVisible": false,
+      "basicCompensation": 0
+    },
+    {
+      "compensation": 50000,
+      "period": "30",
+      "effectiveDate": "2022-10-01",
+      "isVisible": true
+    }
+  ],
+  "ctc": "10000",
+  "customFieldData": [
+    
+  ],
+  "inviteUserToFillInfo": false,
+  "hasComponents": false,
+  "hasCompliance": false,
+  "userId": "635bbfb25ced530c2f3be9e4"
+}'
+```
+
+##### Sample Request
+```java
+{
+  "firstName": "Test",
+  "lastName": "01",
+  "name": "Test 01",
+  "employeeId": "00006",
+  "aliasName": ",
+  "designation": "Designer",
+  "emailId": "test@temp.deskera.xyz",
+  "contact": "+911111111111",
+  "gender": "male",
+  "employeeType": 1,
+  "organizationName": "India",
+  "countryCode": "IN",
+  "compensation": 0,
+  "compensationCurrency": "INR",
+  "compensationPeriod": "30",
+  "dateOfBirth": "2001-10-18T00:00:00.000Z",
+  "maritalStatus": "single",
+  "passportNumber": "123465423456",
+  "passportCountry": "IN",
+  "dateOfJoining": "2022-09-02T00:00:00.000Z",
+  "dateOfConfirmation": "2022-10-01T00:00:00.000Z",
+  "address": {
+    "addressLine1": "SHahu",
+    "addressLine2": ",
+    "zipCode": "422009",
+    "city": "Nasik",
+    "state": "MH",
+    "country": "IN",
+    "suburb": ",
+    "county": "
+  },
+  "paymentDetails": {
+    "paymentMethod": "directDeposit",
+    "accountType": "currentAccount",
+    "routingNumber": "12321",
+    "accountNumber": "1331133",
+    "bank": ",
+    "bankId": ",
+    "upi": ",
+    "ifsc": "ABCD0123122"
+  },
+  "isEffectiveSalary": true,
+  "effectiveCompensations": [
+    {
+      "effectiveDate": "2022-10-01",
+      "compensation": 50000,
+      "period": "30",
+      "isVisible": false,
+      "basicCompensation": 0
+    },
+    {
+      "compensation": 50000,
+      "period": "30",
+      "effectiveDate": "2022-10-01",
+      "isVisible": true
+    }
+  ],
+  "ctc": "10000",
+  "customFieldData": [
+    
+  ],
+  "inviteUserToFillInfo": false,
+  "hasComponents": false,
+  "hasCompliance": false,
+  "userId": "635bbfb25ced530c2f3be9e4"
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "user": {
+    "userId": "635bbfb25ced530c2f3be9e4",
+    "firstName": "Test",
+    "lastName": "01",
+    "designation": "Designer",
+    "emailId": "test@temp.deskera.xyz",
+    "contact": "+911111111111",
+    "gender": "male",
+    "profileImagePath": ",
+    "profileImageRelativePath": ",
+    "organizationName": "India",
+    "username": ",
+    "tenantId": "63467ae3af49e0abcbb5da14",
+    "name": "Test 01",
+    "employeeId": "00006",
+    "employeeType": "1",
+    "address": {
+      "addressLine1": "SHahu",
+      "addressLine2": ",
+      "zipCode": "422009",
+      "city": "Nasik",
+      "state": "MH",
+      "country": "IN",
+      "suburb": ",
+      "county": "
+    },
+    "nationality": ",
+    "department": ",
+    "iamUserId": "56518",
+    "erpTenantId": "75584",
+    "dateOfJoining": "2022-09-02T00:00:00.000Z",
+    "dateOfConfirmation": "2022-10-01T00:00:00.000Z",
+    "status": "active",
+    "maritalStatus": "single",
+    "appName": ",
+    "roles": [
+    ],
+    "teams": [
+    ],
+    "approvers": [
+    ],
+    "countryCode": "IN",
+    "hasComponents": true,
+    "components": [
+    ],
+    "hasCompliance": false,
+    "compliance": null,
+    "dateOfTermination": ",
+    "dateOfBirth": "2001-10-18T00:00:00.000Z",
+    "passportNumber": "123465423456",
+    "compensation": 0,
+    "compensationPeriod": "30",
+    "compensationCurrency": "INR",
+    "paymentDetails": {
+      "bank": ",
+      "bankId": ",
+      "paymentMethod": "directDeposit",
+      "accountType": "currentAccount",
+      "routingNumber": "12321",
+      "accountNumber": "1331133",
+      "branchCode": ",
+      "branchName": ",
+      "ifsc": "ABCD0123122",
+      "upi": ",
+      "transitNumber": ",
+      "institutionNumber": "
+    },
+    "profileStages": {
+      "employeeDetails": false,
+      "paymentDetails": false,
+      "witholdingSetup": false,
+      "filingAuthorization": false
+    },
+    "isTerminated": false,
+    "title": ",
+    "middleName": ",
+    "displayName": ",
+    "contractorType": ",
+    "type": ",
+    "documents": [
+    ],
+    "createdAt": ",
+    "employerIdentificationNumber": ",
+    "tenantCountryCode": ",
+    "tenantCurrencyCode": ",
+    "terminationStage": ",
+    "hasBenefits": false,
+    "benefits": [
+    ],
+    "socialSecurityNumber": ",
+    "directDepositConsent": false,
+    "consentMailSend": false,
+    "hasSalaryAdvance": false,
+    "salaryAdvance": null,
+    "effectiveCompensations": [
+      {
+        "effectiveDate": "2022-10-01",
+        "compensation": 50000,
+        "period": "30",
+        "isVisible": false,
+        "basicCompensation": 0
+      },
+      {
+        "effectiveDate": "2022-10-01",
+        "compensation": 50000,
+        "period": "30",
+        "isVisible": true,
+        "basicCompensation": 0
+      }
+    ],
+    "isEffectiveSalary": true,
+    "passportCountry": "IN",
+    "ctc": 10000,
+    "deleted": false,
+    "isImported": false,
+    "announcements": [
+    ],
+    "isInCompleteProfile": false,
+    "inCompleteFields": [
+    ],
+    "isContactUpdated": false,
+    "beneficiaryId": ",
+    "customFieldData": [
+    ],
+    "aliasName": ",
+    "beneficiaryStatus": ",
+    "beneficiaryReason": ",
+    "makePayroll": false,
+    "componentGroup": ",
+    "inviteUserToFillInfo": false,
+    "hasDocuments": false,
+    "locationValue": ",
+    "cnfrmDateUpdated": false,
+    "checkHqError": null,
+    "checkEmployeeId": ",
+    "documentSequenceId": ",
+    "isFromKafka": false,
+    "tenantUserId": "0",
+    "customFields": {
+    },
+    "prevDateOfJoining": [
+    ],
+    "isRehire": false
+  },
+  "errors": [
+  ],
+  "httpStatusCode": "0",
+  "error": null
+}
+```
 #### PATCH
 ##### Summary
 
@@ -146,153 +1050,8 @@ Patch a user
 | 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/approvers/list
 
-#### GET
-##### Summary
-
-Get User Approvers
-
-##### Description
-
-Get user approvers.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| id | query |  | No | string |
-| getCompliance | query |  | No | boolean |
-| getComponents | query |  | No | boolean |
-| getBenefits | query |  | No | boolean |
-| getRolesAndTeams | query |  | No | boolean |
-| customFieldModule | query |  | No | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUsersResponse](#v1getusersresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/beneficiary-status
-
-#### PUT
-##### Summary
-
-*
-API to Update User Status For CashFree
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1BeneficiaryRequest](#v1beneficiaryrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1BeneficiaryResponse](#v1beneficiaryresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/bulk
-
-#### POST
-##### Summary
-
-Add users in bulk
-
-##### Description
-
-Add new users in bulk.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1AddUsersRequest](#v1addusersrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1AddUsersResponse](#v1addusersresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/bulk/components
-
-#### POST
-##### Summary
-
-Setup components for users in bulk
-
-##### Description
-
-Setup components for users in bulk.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1AddComponentsRequest](#v1addcomponentsrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1AddComponentsResponse](#v1addcomponentsresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/bulk/info
-
-#### POST
-##### Summary
-
-Get User's in bulk
-
-##### Description
-
-Get bulk User's using IamUserId and UserId
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1BulkUsersIdRequest](#v1bulkusersidrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUsersResponse](#v1getusersresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/bulk/shortinfo
-
-#### POST
-##### Summary
-
-Get bulk User's short info
-
-##### Description
-
-Get bulk User's short info
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1BulkInt64IdRequest](#v1bulkint64idrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUsersResponse](#v1getusersresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/delete/bulk
+### Bulk Delete users
 
 #### POST
 ##### Summary
@@ -316,136 +1075,48 @@ Delete a users by ids.
 | 200 | A successful response. | [v1DeleteResponse](#v1deleteresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/designations
 
-#### GET
-##### Summary
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/delete/bulk
+```
 
-Get a list of all designations for given tenant
+##### Curl
 
-##### Description
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/users/delete/bulk' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "ids": [
+    "63513fa5a529443b09b34063"
+  ],
+  "forcedDelete": true
+}'
+```
 
-Get a list of all designations for given tenant
+##### Sample Request
+```java
+{
+  "ids": [
+    "63513fa5a529443b09b34063"
+  ],
+  "forcedDelete": true
+}
+```
 
-##### Responses
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "message": "0 Document deleted successfully.",
+  "errCode": "
+}
+```
 
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1DesignationsResponse](#v1designationsresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/email/{email}
-
-#### GET
-##### Summary
-
-*
-API to check whether user exists in People with the given email
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| email | path |  | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1UserExistsResponse](#v1userexistsresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/emails
-
-#### POST
-##### Summary
-
-User data with emailIds
-
-##### Description
-
-User data with emailIds
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1UsersEmailsRequest](#v1usersemailsrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1UsersEmailsResponse](#v1usersemailsresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/expense/approve
-
-#### POST
-##### Summary
-
-Pay expense with off-cycle
-
-##### Description
-
-Pay expense with off-cycle
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1PayExpenseRequest](#v1payexpenserequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1SuccessResponse](#v1successresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/expense/pay
-
-#### POST
-##### Summary
-
-Pay expense with off-cycle
-
-##### Description
-
-Pay expense with off-cycle
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1PayExpenseRequest](#v1payexpenserequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1SuccessResponse](#v1successresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/expense/paystubs
-
-#### GET
-##### Summary
-
-Pay expense with off-cycle
-
-##### Description
-
-Pay expense with off-cycle
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1PayStubListDto](#v1paystublistdto) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/filtered-users
+### Search Users
 
 #### POST
 ##### Summary
@@ -483,6 +1154,9 @@ Get list of all users with pagination.
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -491,7 +1165,1155 @@ Get list of all users with pagination.
 | 200 | A successful response. | [v1GetUsersResponse](#v1getusersresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/geofencing/locations
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/filtered-users?limit=20&currentPage=1&includeDraft=true&ignTeamData=true&order=desc&field=_id
+```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/users/filtered-users?limit=20&currentPage=1&includeDraft=true&ignTeamData=true&order=desc&field=_id' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "conditions": [
+    {
+      "colId": "name",
+      "value": "simon",
+      "opr": "c",
+      "key": "
+    }
+  ]
+}'
+```
+
+##### Sample Request
+```java
+{
+  "conditions": [
+    {
+      "colId": "name",
+      "value": "simon",
+      "opr": "c",
+      "key": "
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "users": [
+    {
+      "userId": "634f7739e0e4d94bdec23f77",
+      "firstName": "Simon",
+      "lastName": "Chua",
+      "designation": "Designer",
+      "emailId": "simon@getnada.com",
+      "contact": ",
+      "gender": "female",
+      "profileImagePath": ",
+      "profileImageRelativePath": ",
+      "organizationName": "malaysia",
+      "username": ",
+      "tenantId": "634f74cdcc648ad3b50bc1e9",
+      "name": "Simon Chua",
+      "employeeId": "00005",
+      "employeeType": "0",
+      "address": {
+        "addressLine1": "5d",
+        "addressLine2": "Plaza sentral,Jalan Stesen Sentral 8",
+        "zipCode": "50450",
+        "city": "Kuala lumpur",
+        "state": "Selangor",
+        "country": "MY",
+        "suburb": ",
+        "county": "
+      },
+      "nationality": ",
+      "department": ",
+      "iamUserId": "56969",
+      "erpTenantId": "75630",
+      "dateOfJoining": "2020-01-01T00:00:00Z",
+      "dateOfConfirmation": "2023-01-06T00:00:00Z",
+      "status": "active",
+      "maritalStatus": "single",
+      "appName": ",
+      "roles": [
+        {
+          "roleId": "5f4fd64782e6aa8ee90378ee",
+          "name": "USER",
+          "appName": "PEOPLE",
+          "policies": []
+        }
+      ],
+      "teams": [
+        {
+          "teamId": "634f74cdcc648ad3b50bc1eb",
+          "name": "Default Team",
+          "createdAt": "2022-10-18T04:22:59.719Z",
+          "members": [
+            {
+              "userId": "634f74cdcc648ad3b50bc1f4",
+              "iamUserId": "65973",
+              "firstName": "sonali_compoff@temp.deskera.xyz",
+              "lastName": "kk",
+              "employeeId": "00001",
+              "roles": [
+                "MANAGER"
+              ]
+            },
+            {
+              "userId": "634f7738e0e4d94bdec23f71",
+              "iamUserId": "51127",
+              "firstName": "Tom",
+              "lastName": "Brady",
+              "employeeId": "00002",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7738e0e4d94bdec23f73",
+              "iamUserId": "46121",
+              "firstName": "ABDALLAH",
+              "lastName": "ZAID",
+              "employeeId": "00003",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7739e0e4d94bdec23f75",
+              "iamUserId": "46123",
+              "firstName": "Felicity",
+              "lastName": "Howard",
+              "employeeId": "00004",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7739e0e4d94bdec23f77",
+              "iamUserId": "56969",
+              "firstName": "Simon",
+              "lastName": "Chua",
+              "employeeId": "00005",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "635b6e005ced530c2f3be9dd",
+              "iamUserId": "66195",
+              "firstName": "test",
+              "lastName": "user",
+              "employeeId": "00006",
+              "roles": [
+                "USER"
+              ]
+            }
+          ],
+          "status": "active",
+          "type": "default"
+        }
+      ],
+      "approvers": [
+        {
+          "firstName": "sonali_compoff@temp.deskera.xyz",
+          "lastName": "kk",
+          "designation": "a",
+          "emailId": "sonali_compoff@temp.deskera.xyz",
+          "iamUserId": "65973"
+        }
+      ],
+      "countryCode": "MY",
+      "hasComponents": false,
+      "components": [],
+      "hasCompliance": true,
+      "compliance": {
+        "@type": "type.googleapis.com/v1.MYCompliance",
+        "residenceStatus": "malaysian",
+        "icNumber": "870721-127873",
+        "passportNumber": ",
+        "workerStatus": "iskandar",
+        "nationality": "malaysian",
+        "countryOfOrigin": "MY",
+        "race": "malay",
+        "religion": ",
+        "epfNumber": "98764434",
+        "epfContribution": true,
+        "epfMemberBeforeAugust": true,
+        "employeeEpfRate": 11,
+        "additionalEmployeeRate": 1,
+        "employerEpfRate": 0,
+        "additionalEmployerRate": 1,
+        "pcbNumber": "MY 87643456-098",
+        "socsoCategory": ",
+        "eisContribution": true,
+        "pcbBorneByEmployer": false,
+        "disabilityStatus": "notdisabled",
+        "disabilityStatusSpouse": "notdisabled",
+        "havingChildren": true,
+        "spouseWorking": true,
+        "numberOfQualifyingChildren": 0,
+        "previousEmployerRemuneration": 500,
+        "previousEmployerEpfContribution": 100,
+        "previousEmployerMtdAmount": 1000,
+        "previousEmployerTaxReliefDeduction": 10000,
+        "taxExemption": true,
+        "bikContribution": true,
+        "bikAmount": 1,
+        "socsoEmployee": ",
+        "socsoEmployerContributionOnly": false,
+        "numberOfChildrenAbove18ReceivingDegreeOutsideMalaysia": 0,
+        "numberOfChildrenAbove18ReceivingDiplomaInMalaysia": 0,
+        "numberOfChildrenUnder18": 1,
+        "numberOfDisabledChildren": 0,
+        "numberOfDisabledChildrenStudying": 0
+      },
+      "dateOfTermination": ",
+      "dateOfBirth": "1999-01-01T00:00:00Z",
+      "passportNumber": ",
+      "compensation": 10000,
+      "compensationPeriod": "30",
+      "compensationCurrency": ",
+      "paymentDetails": {
+        "bank": ",
+        "bankId": ",
+        "paymentMethod": "cash",
+        "accountType": ",
+        "routingNumber": ",
+        "accountNumber": ",
+        "branchCode": ",
+        "branchName": ",
+        "ifsc": ",
+        "upi": ",
+        "transitNumber": ",
+        "institutionNumber": "
+      },
+      "profileStages": {
+        "employeeDetails": false,
+        "paymentDetails": false
+      },
+      "isTerminated": false,
+      "title": ",
+      "middleName": ",
+      "displayName": ",
+      "contractorType": ",
+      "type": ",
+      "documents": [],
+      "createdAt": "2022-10-18T08:04:51Z",
+      "employerIdentificationNumber": ",
+      "tenantCountryCode": ",
+      "tenantCurrencyCode": ",
+      "terminationStage": ",
+      "hasBenefits": false,
+      "benefits": [],
+      "socialSecurityNumber": ",
+      "directDepositConsent": false,
+      "consentMailSend": false,
+      "hasSalaryAdvance": false,
+      "salaryAdvance": null,
+      "effectiveCompensations": [],
+      "isEffectiveSalary": false,
+      "passportCountry": ",
+      "ctc": 0,
+      "deleted": false,
+      "isImported": false,
+      "announcements": [],
+      "isInCompleteProfile": false,
+      "inCompleteFields": [],
+      "isContactUpdated": false,
+      "beneficiaryId": ",
+      "customFieldData": [],
+      "aliasName": "Simmi",
+      "beneficiaryStatus": ",
+      "beneficiaryReason": ",
+      "makePayroll": false,
+      "componentGroup": ",
+      "inviteUserToFillInfo": false,
+      "hasDocuments": false,
+      "locationValue": ",
+      "cnfrmDateUpdated": false,
+      "isFromKafka": false,
+      "tenantUserId": "0",
+      "documentSequenceId": ",
+      "customFields": {},
+      "prevDateOfJoining": [],
+      "isRehire": false
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "1",
+    "sizePerPage": "1",
+    "totalPage": "1",
+    "numberOfRecords": "1"
+  },
+  "beneficiariesToAdd": "0"
+}
+```
+
+
+### Fetch users by id
+
+#### GET
+##### Summary
+
+Get a user by it's iamUserId
+
+##### Description
+
+Get a user by it's iamUserId.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| iamUserId | path |  | Yes | string (int64) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geolocations/iam/56518
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/geolocations/iam/56518' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+No Request Body
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "latitude": "19.9842462",
+      "longitude": "73.7610578",
+      "name": "Nasik",
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "radius": 50
+    }
+  ]
+}
+```
+
+
+### Fetch logged-in user info
+
+#### GET
+##### Summary
+
+Get the logged in user's info
+
+##### Description
+
+Get the logged in user's meta-information.
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/login/info
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/login/info' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+```
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "user": {
+    "userId": "60dab2fde1ad8cb2268f50f1",
+    "firstName": "myuser98@temp.deskera.xyz",
+    "lastName": "1",
+    "designation": "dev",
+    "emailId": "myuser98@temp.deskera.xyz",
+    "contact": ",
+    "gender": ",
+    "profileImagePath": ",
+    "profileImageRelativePath": ",
+    "organizationName": "qqq",
+    "username": "desk.myuser98@temp.deskera.xyz",
+    "tenantId": "60dab2fde1ad8cb2268f50e5",
+    "name": ",
+    "employeeId": "00001",
+    "employeeType": "0",
+    "address": null,
+    "nationality": ",
+    "department": ",
+    "iamUserId": "55872",
+    "erpTenantId": "70815",
+    "dateOfJoining": "2015-01-01T00:00:00.000Z",
+    "dateOfConfirmation": "2015-01-01T00:00:00.000Z",
+    "status": "active",
+    "maritalStatus": ",
+    "appName": "PEOPLE",
+    "roles": [
+      {
+        "roleId": "5f4fd64782e6aa8ee90378eb",
+        "name": "ADMIN",
+        "appName": "PEOPLE",
+        "policies": []
+      }
+    ],
+    "teams": [
+      {
+        "teamId": "60dab2fde1ad8cb2268f50e7",
+        "name": "Default Team",
+        "createdAt": "2021-06-25T08:00:20.512Z",
+        "members": [
+          {
+            "userId": "60dab2fde1ad8cb2268f50f1",
+            "iamUserId": "55872",
+            "firstName": "myuser98@temp.deskera.xyz",
+            "lastName": "1",
+            "employeeId": "00001",
+            "roles": [
+              "MANAGER"
+            ]
+          },
+          {
+            "userId": "62ff086e1e1b72c08f506293",
+            "iamUserId": "46121",
+            "firstName": "ABDALLAH",
+            "lastName": "ZAID",
+            "employeeId": ",
+            "roles": [
+              "USER"
+            ]
+          },
+          {
+            "userId": "62ff08a80337f259a7a0d8f9",
+            "iamUserId": "51127",
+            "firstName": "Tom",
+            "lastName": "Brady",
+            "employeeId": "00004",
+            "roles": [
+              "USER"
+            ]
+          }
+        ],
+        "status": "active",
+        "type": "default"
+      }
+    ],
+    "approvers": [],
+    "countryCode": ",
+    "hasComponents": false,
+    "components": [],
+    "hasCompliance": false,
+    "compliance": null,
+    "dateOfTermination": ",
+    "dateOfBirth": ",
+    "passportNumber": ",
+    "compensation": 0,
+    "compensationPeriod": ",
+    "compensationCurrency": ",
+    "paymentDetails": null,
+    "profileStages": {
+      "employeeDetails": true,
+      "paymentDetails": true,
+      "witholdingSetup": false,
+      "filingAuthorization": false
+    },
+    "isTerminated": false,
+    "title": ",
+    "middleName": ",
+    "displayName": ",
+    "contractorType": ",
+    "type": ",
+    "documents": [],
+    "createdAt": "2021-06-25T08:00:20Z",
+    "employerIdentificationNumber": ",
+    "tenantCountryCode": "MY",
+    "tenantCurrencyCode": "MYR",
+    "terminationStage": ",
+    "hasBenefits": false,
+    "benefits": [],
+    "socialSecurityNumber": ",
+    "directDepositConsent": false,
+    "consentMailSend": false,
+    "hasSalaryAdvance": false,
+    "salaryAdvance": null,
+    "effectiveCompensations": [],
+    "isEffectiveSalary": false,
+    "passportCountry": ",
+    "ctc": 0,
+    "deleted": false,
+    "isImported": false,
+    "announcements": [],
+    "isInCompleteProfile": false,
+    "inCompleteFields": [],
+    "isContactUpdated": false,
+    "beneficiaryId": ",
+    "customFieldData": [],
+    "aliasName": ",
+    "beneficiaryStatus": ",
+    "beneficiaryReason": ",
+    "makePayroll": false,
+    "componentGroup": ",
+    "inviteUserToFillInfo": false,
+    "hasDocuments": false,
+    "locationValue": ",
+    "cnfrmDateUpdated": false,
+    "checkHqError": null,
+    "checkEmployeeId": ",
+    "documentSequenceId": ",
+    "isFromKafka": false,
+    "tenantUserId": "0",
+    "customFields": {},
+    "prevDateOfJoining": [],
+    "isRehire": false
+  },
+  "errors": [],
+  "httpStatusCode": "0",
+  "error": null
+}
+```
+
+### Update user's profile
+
+#### PUT
+##### Summary
+
+Update a User Profile Stage
+
+##### Description
+
+Update a User.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| stage | path |  | Yes | string |
+| body | body |  | Yes | [v1ProfileStage](#v1profilestage) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/profile/{stage}```
+
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/users/profile/paymentDetails' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+
+##### Sample Request
+```java
+{
+  "stage": "paymentDetails"
+}```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "user": {
+    "userId": "6332e1f84a34b52444ff72c4",
+    "firstName": "Rohan",
+    "lastName": "Test",
+    "designation": "qa",
+    "emailId": "/Z84ro/Tdio/g/keyERLeF7zTW/wBv5G7ykO3neezC34tjbDDtZ8NdiFoA0bpw==",
+    "contact": ",
+    "gender": "male",
+    "profileImagePath": ",
+    "profileImageRelativePath": ",
+    "organizationName": "SingaporeTEst",
+    "username": ",
+    "tenantId": "6332e1f84a34b52444ff72b9",
+    "name": "Rohan Test",
+    "employeeId": "00001",
+    "employeeType": "0",
+    "address": {
+      "addressLine1": ",
+      "addressLine2": ",
+      "zipCode": ",
+      "city": ",
+      "state": ",
+      "country": ",
+      "suburb": ",
+      "county": "
+    },
+    "nationality": ",
+    "department": ",
+    "iamUserId": "58372",
+    "erpTenantId": "75531",
+    "dateOfJoining": "2017-09-06T00:00:00.000Z",
+    "dateOfConfirmation": "2018-09-19T00:00:00.000Z",
+    "status": "active",
+    "maritalStatus": "married",
+    "appName": ",
+    "roles": [],
+    "teams": [],
+    "approvers": [],
+    "countryCode": ",
+    "hasComponents": true,
+    "components": [],
+    "hasCompliance": true,
+    "compliance": null,
+    "dateOfTermination": ",
+    "dateOfBirth": "1993-09-07T00:00:00.000Z",
+    "passportNumber": ",
+    "compensation": 50000,
+    "compensationPeriod": "30",
+    "compensationCurrency": "SGD",
+    "paymentDetails": {
+      "bank": ",
+      "bankId": ",
+      "paymentMethod": "cash",
+      "accountType": ",
+      "routingNumber": ",
+      "accountNumber": ",
+      "branchCode": ",
+      "branchName": ",
+      "ifsc": ",
+      "upi": ",
+      "transitNumber": ",
+      "institutionNumber": "
+    },
+    "profileStages": {
+      "employeeDetails": false,
+      "paymentDetails": true,
+      "witholdingSetup": false,
+      "filingAuthorization": false
+    },
+    "isTerminated": false,
+    "title": ",
+    "middleName": ",
+    "displayName": ",
+    "contractorType": ",
+    "type": ",
+    "documents": [],
+    "createdAt": ",
+    "employerIdentificationNumber": ",
+    "tenantCountryCode": ",
+    "tenantCurrencyCode": ",
+    "terminationStage": ",
+    "hasBenefits": false,
+    "benefits": [],
+    "socialSecurityNumber": ",
+    "directDepositConsent": false,
+    "consentMailSend": false,
+    "hasSalaryAdvance": false,
+    "salaryAdvance": null,
+    "effectiveCompensations": [],
+    "isEffectiveSalary": false,
+    "passportCountry": ",
+    "ctc": 0,
+    "deleted": false,
+    "isImported": false,
+    "announcements": [],
+    "isInCompleteProfile": false,
+    "inCompleteFields": [],
+    "isContactUpdated": false,
+    "beneficiaryId": ",
+    "customFieldData": [],
+    "aliasName": "QAA",
+    "beneficiaryStatus": ",
+    "beneficiaryReason": ",
+    "makePayroll": false,
+    "componentGroup": ",
+    "inviteUserToFillInfo": false,
+    "hasDocuments": false,
+    "locationValue": "b0293b3a-49d8-4663-9fd8-ee918692435b",
+    "cnfrmDateUpdated": false,
+    "checkHqError": null,
+    "checkEmployeeId": ",
+    "documentSequenceId": ",
+    "isFromKafka": false,
+    "tenantUserId": "0",
+    "customFields": {},
+    "prevDateOfJoining": [],
+    "isRehire": false
+  },
+  "errors": [],
+  "httpStatusCode": "0",
+  "error": null
+}
+```
+
+### Fetch user's salary-advance details
+
+#### POST
+##### Summary
+
+API to get Bulk User salary advance details
+
+##### Description
+
+API to get Bulk User salary advance details
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1BulkInt64IdRequest](#v1bulkint64idrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1BulkUsersSalaryAdvanceDetails](#v1bulkuserssalaryadvancedetails) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+###  Fetch users' minimal info
+
+#### GET
+##### Summary
+
+Get a user short info by it's iamUserId
+
+##### Description
+
+Get a user short info by it's iamUserId.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| iamUserId | path |  | Yes | string (int64) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1UserShortInfoResponse](#v1usershortinforesponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/short-info/{iamUserId}```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/short-info/46121' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "userShortInfo": {
+    "userId": "62ff086e1e1b72c08f506293",
+    "firstName": "ABDALLAH",
+    "lastName": "ZAID",
+    "paymentDetails": {
+      "bank": ",
+      "bankId": ",
+      "paymentMethod": "cash",
+      "accountType": ",
+      "routingNumber": ",
+      "accountNumber": ",
+      "branchCode": ",
+      "branchName": ",
+      "ifsc": ",
+      "upi": ",
+      "transitNumber": ",
+      "institutionNumber": "
+    },
+    "emailId": "slam123@getnada.com",
+    "tenantId": "60dab2fde1ad8cb2268f50e5",
+    "employeeId": ",
+    "address": {
+      "addressLine1": "3a",
+      "addressLine2": "Plaza sentral,Jalan Stesen Sentral 6",
+      "zipCode": "50088",
+      "city": "Kuala lumpur",
+      "state": "Selangor",
+      "country": "MY",
+      "suburb": ",
+      "county": "
+    },
+    "iamUserId": "46121",
+    "erpTenantId": "70815",
+    "dateOfTermination": ",
+    "directDepositConsent": false,
+    "taxConfiguration": ",
+    "dateOfBirth": "1999-01-01T00:00:00Z",
+    "dateOfJoining": "2020-01-01T00:00:00Z",
+    "hasCompliance": true,
+    "compensationCurrency": ",
+    "beneficiaryId": ",
+    "beneficiaryStatus": ",
+    "beneficiaryReason": ",
+    "ctc": 0
+  }
+}
+```
+### Fetch multiple users' minimal info
+
+#### POST
+##### Summary
+
+Get User's short info in bulk
+
+##### Description
+
+Get bulk User's short info using IamUserId and UserId
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1BulkUsersIdRequest](#v1bulkusersidrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1BulkUsersShortInfoResponse](#v1bulkusersshortinforesponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/shortinfo```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/users/shortinfo' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "userIds": [
+    "62ff086e1e1b72c08f506293"
+  ],
+"iamUserIds": [
+    "46121"
+  ],
+  
+  "deleted": false
+}'```
+
+##### Sample Request
+```java
+{
+  "userIds": [
+    "62ff086e1e1b72c08f506293"
+  ],
+"iamUserIds": [
+    "46121"
+  ],
+  
+  "deleted": false
+}```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "usersShortInfo": [
+    {
+      "userId": "62ff086e1e1b72c08f506293",
+      "firstName": "ABDALLAH",
+      "lastName": "ZAID",
+      "paymentDetails": {
+        "bank": "",
+        "bankId": "",
+        "paymentMethod": "cash",
+        "accountType": "",
+        "routingNumber": "",
+        "accountNumber": "",
+        "branchCode": "",
+        "branchName": "",
+        "ifsc": "",
+        "upi": "",
+        "transitNumber": "",
+        "institutionNumber": ""
+      },
+      "emailId": "slam123@getnada.com",
+      "tenantId": "60dab2fde1ad8cb2268f50e5",
+      "employeeId": "",
+      "address": {
+        "addressLine1": "3a",
+        "addressLine2": "Plaza sentral,Jalan Stesen Sentral 6",
+        "zipCode": "50088",
+        "city": "Kuala lumpur",
+        "state": "Selangor",
+        "country": "MY",
+        "suburb": "",
+        "county": ""
+      },
+      "iamUserId": "46121",
+      "erpTenantId": "70815",
+      "dateOfTermination": "",
+      "directDepositConsent": false,
+      "taxConfiguration": "",
+      "dateOfBirth": "1999-01-01T00:00:00Z",
+      "dateOfJoining": "2020-01-01T00:00:00Z",
+      "hasCompliance": true,
+      "compensationCurrency": "",
+      "beneficiaryId": "",
+      "beneficiaryStatus": "",
+      "beneficiaryReason": "",
+      "ctc": 0
+    }
+  ]
+}
+```
+
+### /v1/people/users/{id}
+
+#### GET
+##### Summary
+
+Get a user by id
+
+##### Description
+
+Get a user by it's id.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | string |
+| getCompliance | query |  | No | boolean |
+| getComponents | query |  | No | boolean |
+| getBenefits | query |  | No | boolean |
+| getRolesAndTeams | query |  | No | boolean |
+| customFieldModule | query |  | No | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/{id}```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/62ff086e1e1b72c08f506293' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "user": {
+    "userId": "62ff086e1e1b72c08f506293",
+    "firstName": "ABDALLAH",
+    "lastName": "ZAID",
+    "designation": "QA Engineer",
+    "emailId": "slam123@getnada.com",
+    "contact": "",
+    "gender": "male",
+    "profileImagePath": "",
+    "profileImageRelativePath": "",
+    "organizationName": "Desk",
+    "username": "",
+    "tenantId": "60dab2fde1ad8cb2268f50e5",
+    "name": "",
+    "employeeId": "",
+    "employeeType": "0",
+    "address": {
+      "addressLine1": "3a",
+      "addressLine2": "Plaza sentral,Jalan Stesen Sentral 6",
+      "zipCode": "50088",
+      "city": "Kuala lumpur",
+      "state": "Selangor",
+      "country": "MY",
+      "suburb": "",
+      "county": ""
+    },
+    "nationality": "",
+    "department": "",
+    "iamUserId": "46121",
+    "erpTenantId": "70815",
+    "dateOfJoining": "2020-01-01T00:00:00Z",
+    "dateOfConfirmation": "2021-01-06T00:00:00Z",
+    "status": "active",
+    "maritalStatus": "married",
+    "appName": "",
+    "roles": [],
+    "teams": [],
+    "approvers": [],
+    "countryCode": "MY",
+    "hasComponents": false,
+    "components": [],
+    "hasCompliance": true,
+    "compliance": null,
+    "dateOfTermination": "",
+    "dateOfBirth": "1999-01-01T00:00:00Z",
+    "passportNumber": "",
+    "compensation": 15000,
+    "compensationPeriod": "30",
+    "compensationCurrency": "",
+    "paymentDetails": {
+      "bank": "",
+      "bankId": "",
+      "paymentMethod": "cash",
+      "accountType": "",
+      "routingNumber": "",
+      "accountNumber": "",
+      "branchCode": "",
+      "branchName": "",
+      "ifsc": "",
+      "upi": "",
+      "transitNumber": "",
+      "institutionNumber": ""
+    },
+    "profileStages": {
+      "employeeDetails": false,
+      "paymentDetails": false,
+      "witholdingSetup": false,
+      "filingAuthorization": false
+    },
+    "isTerminated": false,
+    "title": "",
+    "middleName": "",
+    "displayName": "",
+    "contractorType": "",
+    "type": "",
+    "documents": [],
+    "createdAt": "",
+    "employerIdentificationNumber": "",
+    "tenantCountryCode": "",
+    "tenantCurrencyCode": "",
+    "terminationStage": "",
+    "hasBenefits": false,
+    "benefits": [],
+    "socialSecurityNumber": "",
+    "directDepositConsent": false,
+    "consentMailSend": false,
+    "hasSalaryAdvance": false,
+    "salaryAdvance": null,
+    "effectiveCompensations": [],
+    "isEffectiveSalary": false,
+    "passportCountry": "",
+    "ctc": 0,
+    "deleted": false,
+    "isImported": false,
+    "announcements": [],
+    "isInCompleteProfile": false,
+    "inCompleteFields": [],
+    "isContactUpdated": false,
+    "beneficiaryId": "",
+    "customFieldData": [],
+    "aliasName": "ABD",
+    "beneficiaryStatus": "",
+    "beneficiaryReason": "",
+    "makePayroll": false,
+    "componentGroup": "",
+    "inviteUserToFillInfo": false,
+    "hasDocuments": false,
+    "locationValue": "",
+    "cnfrmDateUpdated": false,
+    "checkHqError": null,
+    "checkEmployeeId": "",
+    "documentSequenceId": "",
+    "isFromKafka": false,
+    "tenantUserId": "0",
+    "customFields": {},
+    "prevDateOfJoining": [],
+    "isRehire": false
+  },
+  "errors": [],
+  "httpStatusCode": "0",
+  "error": null
+}
+```
+#### DELETE
+##### Summary
+
+Delete a user by id
+
+##### Description
+
+Delete a user by it's id.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | string |
+| getCompliance | query |  | No | boolean |
+| getComponents | query |  | No | boolean |
+| getBenefits | query |  | No | boolean |
+| getRolesAndTeams | query |  | No | boolean |
+| customFieldModule | query |  | No | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1DeleteResponse](#v1deleteresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+### Manage Geofencing locations
 
 #### GET
 ##### Summary
@@ -528,6 +2350,9 @@ Get geolocation values
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -536,6 +2361,50 @@ Get geolocation values
 | 200 | A successful response. | [v1Geolocations](#v1geolocations) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geofencing/locations?currentPage=1&limit=20&searchString=&searchField=
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/geofencing/locations?currentPage=1&limit=20&searchString=&searchField=' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+No Request Body
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bb20d5ced530c2f3be9e2",
+      "name": "Nasik",
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "latitude": "19.9842462",
+      "longitude": "73.7610578",
+      "radius": 50,
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA",
+      "active": true
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "1",
+    "sizePerPage": "20",
+    "totalPage": "1",
+    "numberOfRecords": "1"
+  }
+}
+```
 #### DELETE
 ##### Summary
 
@@ -558,6 +2427,56 @@ Delete geolocation values
 | 200 | A successful response. | [v1Geolocations](#v1geolocations) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geofencing/locations
+```
+
+##### Curl
+
+```java
+curl -X 'DELETE' \
+  'https://bifrost-us.deskera.com/v1/people/users/geofencing/locations' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "ids": [
+    "635bb66de686859b374e0ba9"
+  ],
+  "forcedDelete": true
+}'
+```
+
+##### Sample Request
+```java
+{
+  "ids": [
+    "635bb66de686859b374e0ba9"
+  ],
+  "forcedDelete": true
+}
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bb66de686859b374e0ba9",
+      "name": "Nasik",
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "latitude": "19.9842462",
+      "longitude": "73.7610578",
+      "radius": 50,
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA",
+      "active": true
+    }
+  ],
+  "filterConfig": null
+}
+```
 #### POST
 ##### Summary
 
@@ -580,6 +2499,70 @@ Add geolocation values
 | 200 | A successful response. | [v1Geolocations](#v1geolocations) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geofencing/locations
+```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/users/geofencing/locations' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "geolocations": [
+    {
+      "active": true,
+      "radius": 50,
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "longitude": "73.7610578",
+      "latitude": "19.9842462",
+      "name": "Nasik",
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eEJJrA"
+    }
+  ]
+}'
+```
+
+##### Sample Request
+```java
+{
+  "geolocations": [
+    {
+      "active": true,
+      "radius": 50,
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "longitude": "73.7610578",
+      "latitude": "19.9842462",
+      "name": "Nasik",
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA"
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bb66de686859b374e0ba9",
+      "name": "Nasik",
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "latitude": "19.9842462",
+      "longitude": "73.7610578",
+      "radius": 50,
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eEJJrA",
+      "active": true
+    }
+  ],
+  "filterConfig": null
+}
+```
 #### PUT
 ##### Summary
 
@@ -602,7 +2585,74 @@ Edit geolocations values
 | 200 | A successful response. | [v1Geolocations](#v1geolocations) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/geolocation/mappings
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geofencing/locations
+```
+
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/users/geofencing/locations' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "geolocations": [
+    {
+      "id": "635bb66de686859b374e0ba9",
+      "active": true,
+      "radius": 50,
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "longitude": "73.7610578",
+      "latitude": "19.9842462",
+      "name": "Nasik",
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA"
+    }
+  ]
+}'
+```
+
+##### Sample Request
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bb66de686859b374e0ba9",
+      "active": true,
+      "radius": 50,
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "longitude": "73.7610578",
+      "latitude": "19.9842462",
+      "name": "Nasik",
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA"
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bb66de686859b374e0ba9",
+      "name": "Nasik",
+      "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+      "latitude": "19.9842462",
+      "longitude": "73.7610578",
+      "radius": 50,
+      "placeId": "ChIJ7XrNC-Tr3TsRC8162eEJJrA",
+      "active": true
+    }
+  ],
+  "filterConfig": null
+}
+```
+### Manage geolocation mappings
 
 #### GET
 ##### Summary
@@ -639,6 +2689,9 @@ Get geolocation mapping values
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -647,6 +2700,58 @@ Get geolocation mapping values
 | 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings?currentPage=1&limit=20&searchString=&searchField=
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings?currentPage=1&limit=20&searchString=&searchField=' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+No Request Body
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bb9280ab739d2f218da7a",
+      "users": [],
+      "locations": [
+        {
+          "id": "635bb20d5ced530c2f3be9e2",
+          "name": "Nasik",
+          "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+          "latitude": "19.9842462",
+          "longitude": "73.7610578",
+          "radius": 50,
+          "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA",
+          "active": true
+        }
+      ],
+      "applicableToAll": true,
+      "active": true
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "1",
+    "sizePerPage": "20",
+    "totalPage": "1",
+    "numberOfRecords": "1"
+  }
+}
+```
 #### DELETE
 ##### Summary
 
@@ -669,6 +2774,64 @@ Delete geolocation mapping values
 | 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings
+```
+
+##### Curl
+
+```java
+curl -X 'DELETE' \
+  'https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "ids": [
+    "635bbb30e686859b374e0baa"
+  ],
+  "forcedDelete": true
+}'
+```
+
+##### Sample Request
+```java
+{
+  "ids": [
+    "635bbb30e686859b374e0baa"
+  ],
+  "forcedDelete": true
+}
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bbb30e686859b374e0baa",
+      "users": [],
+      "locations": [
+        {
+          "id": "635bb20d5ced530c2f3be9e2",
+          "name": "Nasik",
+          "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+          "latitude": "19.9842462",
+          "longitude": "73.7610578",
+          "radius": 50,
+          "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA",
+          "active": true
+        }
+      ],
+      "applicableToAll": true,
+      "active": true
+    }
+  ],
+  "filterConfig": null
+}
+```
 #### POST
 ##### Summary
 
@@ -691,6 +2854,80 @@ Add geolocation mapping values
 | 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings
+```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "geolocations": [
+    {
+      "applicableToAll": true,
+      "active": true,
+      "iamUserIds": [
+        
+      ],
+      "locationIds": [
+        "635bb20d5ced530c2f3be9e2"
+      ]
+    }
+  ]
+}'
+```
+
+##### Sample Request
+```java
+{
+  "geolocations": [
+    {
+      "applicableToAll": true,
+      "active": true,
+      "iamUserIds": [
+        
+      ],
+      "locationIds": [
+        "635bb20d5ced530c2f3be9e2"
+      ]
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bbb30e686859b374e0baa",
+      "users": [],
+      "locations": [
+        {
+          "id": "635bb20d5ced530c2f3be9e2",
+          "name": "Nasik",
+          "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+          "latitude": "19.9842462",
+          "longitude": "73.7610578",
+          "radius": 50,
+          "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA",
+          "active": true
+        }
+      ],
+      "applicableToAll": true,
+      "active": true
+    }
+  ],
+  "filterConfig": null
+}
+```
 #### PUT
 ##### Summary
 
@@ -713,121 +2950,579 @@ Edit geolocation mapping values
 | 200 | A successful response. | [v1GeolocationMappingsResponse](#v1geolocationmappingsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/geolocations/iam/{iamUserId}
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings
+```
+
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/users/geolocation/mappings' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "geolocations": [
+    {
+      "id": "635bbb30e686859b374e0baa",
+      "applicableToAll": true,
+      "active": true,
+      "iamUserIds": [
+        
+      ],
+      "locationIds": [
+        "635bb20d5ced530c2f3be9e2"
+      ]
+    }
+  ]
+}'
+```
+
+##### Sample Request
+```java
+{
+  "geolocations": [
+    {
+      "applicableToAll": true,
+      "active": true,
+      "iamUserIds": [
+        
+      ],
+      "locationIds": [
+        "635bb20d5ced530c2f3be9e2"
+      ]
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "geolocations": [
+    {
+      "id": "635bbb30e686859b374e0baa",
+      "users": [],
+      "locations": [
+        {
+          "id": "635bb20d5ced530c2f3be9e2",
+          "name": "Nasik",
+          "address": "Kalika Park Garden, Jagtap Nagar, Nashik, Maharashtra, India",
+          "latitude": "19.9842462",
+          "longitude": "73.7610578",
+          "radius": 50,
+          "placeId": "ChIJ7XrNC-Tr3TsRC8162eECJrA",
+          "active": true
+        }
+      ],
+      "applicableToAll": true,
+      "active": true
+    }
+  ],
+  "filterConfig": null
+}
+```
+
+
+### List approvers
 
 #### GET
 ##### Summary
 
-Get geolocations for iamUserId
+Get User Approvers
 
 ##### Description
 
-Get geolocations values by iamUserId
+Get user approvers.
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| iamUserId | path |  | Yes | string (int64) |
+| id | query |  | No | string |
+| getCompliance | query |  | No | boolean |
+| getComponents | query |  | No | boolean |
+| getBenefits | query |  | No | boolean |
+| getRolesAndTeams | query |  | No | boolean |
+| customFieldModule | query |  | No | string |
 
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | A successful response. | [v1AddressLatLongResponse](#v1addresslatlongresponse) |
+| 200 | A successful response. | [v1GetUsersResponse](#v1getusersresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/iam/{iamUserId}
 
-#### GET
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/approvers/list?getCompliance=false&getComponents=true&getBenefits=true&getRolesAndTeams=true
+```
+
+##### Curl
+
+```java
+  curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/approvers/list?getCompliance=false&getComponents=true&getBenefits=true&getRolesAndTeams=true' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+No Request Body
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "users": [
+    {
+      "userId": "634f74cdcc648ad3b50bc1f4",
+      "firstName": "sonali_compoff@temp.deskera.xyz",
+      "lastName": "kk",
+      "designation": "a",
+      "emailId": "sonali_compoff@temp.deskera.xyz",
+      "contact": ",
+      "gender": ",
+      "profileImagePath": ",
+      "profileImageRelativePath": ",
+      "organizationName": "malaysia",
+      "username": ",
+      "tenantId": "634f74cdcc648ad3b50bc1e9",
+      "name": "sonali_compoff@temp.deskera.xyz kk",
+      "employeeId": "00001",
+      "employeeType": "0",
+      "address": {
+        "addressLine1": ",
+        "addressLine2": ",
+        "zipCode": ",
+        "city": ",
+        "state": ",
+        "country": ",
+        "suburb": ",
+        "county": "
+      },
+      "nationality": ",
+      "department": ",
+      "iamUserId": "65973",
+      "erpTenantId": "75630",
+      "dateOfJoining": "2022-09-09T00:00:00.000Z",
+      "dateOfConfirmation": "2022-10-03T00:00:00.000Z",
+      "status": "active",
+      "maritalStatus": ",
+      "appName": ",
+      "roles": [
+        {
+          "roleId": "5f4fd64782e6aa8ee90378eb",
+          "name": "ADMIN",
+          "appName": "PEOPLE",
+          "policies": []
+        }
+      ],
+      "teams": [
+        {
+          "teamId": "634f74cdcc648ad3b50bc1eb",
+          "name": "Default Team",
+          "createdAt": "2022-10-18T04:22:59.719Z",
+          "members": [
+            {
+              "userId": "634f74cdcc648ad3b50bc1f4",
+              "iamUserId": "65973",
+              "firstName": "sonali_compoff@temp.deskera.xyz",
+              "lastName": "kk",
+              "employeeId": "00001",
+              "roles": [
+                "MANAGER"
+              ]
+            },
+            {
+              "userId": "634f7738e0e4d94bdec23f71",
+              "iamUserId": "51127",
+              "firstName": "Tom",
+              "lastName": "Brady",
+              "employeeId": "00002",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7738e0e4d94bdec23f73",
+              "iamUserId": "46121",
+              "firstName": "ABDALLAH",
+              "lastName": "ZAID",
+              "employeeId": "00003",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7739e0e4d94bdec23f75",
+              "iamUserId": "46123",
+              "firstName": "Felicity",
+              "lastName": "Howard",
+              "employeeId": "00004",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "634f7739e0e4d94bdec23f77",
+              "iamUserId": "56969",
+              "firstName": "Simon",
+              "lastName": "Chua",
+              "employeeId": "00005",
+              "roles": [
+                "USER"
+              ]
+            },
+            {
+              "userId": "635b6e005ced530c2f3be9dd",
+              "iamUserId": "66195",
+              "firstName": "test",
+              "lastName": "user",
+              "employeeId": "00006",
+              "roles": [
+                "USER"
+              ]
+            }
+          ],
+          "status": "active",
+          "type": "default"
+        }
+      ],
+      "approvers": [],
+      "countryCode": "MY",
+      "hasComponents": true,
+      "components": [],
+      "hasCompliance": true,
+      "compliance": null,
+      "dateOfTermination": ",
+      "dateOfBirth": "1999-10-12T00:00:00.000Z",
+      "passportNumber": ",
+      "compensation": 50000,
+      "compensationPeriod": "30",
+      "compensationCurrency": "MYR",
+      "paymentDetails": {
+        "bank": "amBank",
+        "bankId": "619733d4fcf7ca6deb847cf5",
+        "paymentMethod": "directDeposit",
+        "accountType": "619733d4fcf7ca6deb847cf5",
+        "routingNumber": "345",
+        "accountNumber": "456789",
+        "branchCode": ",
+        "branchName": ",
+        "ifsc": ",
+        "upi": ",
+        "transitNumber": ",
+        "institutionNumber": "
+      },
+      "profileStages": {
+        "employeeDetails": false,
+        "paymentDetails": false
+      },
+      "isTerminated": false,
+      "title": ",
+      "middleName": ",
+      "displayName": ",
+      "contractorType": ",
+      "type": ",
+      "documents": [],
+      "createdAt": ",
+      "employerIdentificationNumber": ",
+      "tenantCountryCode": ",
+      "tenantCurrencyCode": ",
+      "terminationStage": ",
+      "hasBenefits": false,
+      "benefits": [],
+      "socialSecurityNumber": ",
+      "directDepositConsent": false,
+      "consentMailSend": false,
+      "hasSalaryAdvance": false,
+      "salaryAdvance": null,
+      "effectiveCompensations": [],
+      "isEffectiveSalary": false,
+      "passportCountry": ",
+      "ctc": 0,
+      "deleted": false,
+      "isImported": false,
+      "announcements": [],
+      "isInCompleteProfile": false,
+      "inCompleteFields": [],
+      "isContactUpdated": false,
+      "beneficiaryId": ",
+      "customFieldData": [],
+      "aliasName": ",
+      "beneficiaryStatus": ",
+      "beneficiaryReason": ",
+      "makePayroll": false,
+      "componentGroup": ",
+      "inviteUserToFillInfo": false,
+      "hasDocuments": false,
+      "locationValue": ",
+      "cnfrmDateUpdated": false,
+      "isFromKafka": false,
+      "tenantUserId": "0",
+      "documentSequenceId": ",
+      "customFields": {},
+      "prevDateOfJoining": [],
+      "isRehire": false
+    }
+  ],
+  "filterConfig": null,
+  "beneficiariesToAdd": "0"
+}
+```
+### Cashfree Beneficiaries
+
+#### PUT
 ##### Summary
 
-Get a user by it's iamUserId
-
-##### Description
-
-Get a user by it's iamUserId.
+*
+API to Update User Status For CashFree
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| iamUserId | path |  | Yes | string (int64) |
+| body | body |  | Yes | [v1BeneficiaryRequest](#v1beneficiaryrequest) |
 
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
+| 200 | A successful response. | [v1BeneficiaryResponse](#v1beneficiaryresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/iams/paged
 
-#### POST
-##### Summary
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/beneficiary-status
+```
 
-Get all users with iamIds with pagination
+##### Curl
 
-##### Description
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/users/beneficiary-status' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampleaccesstoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "beneficiaryStatusInfo": [
+    {
+      "beneficiaryDetails": [
+        {
+          "userId": "634f74cdcc648ad3b50bc1f4",
+          "reason": "Acds",
+          "beneId": "634f74cdcc648ad3b50bc1f4"
+        }
+      ],
+      "operation": "update"
+    }
+  ]
+}'
+```
 
-Get list of all users with iamIds with pagination.
+##### Sample Request
+```java
+{
+  "beneficiaryStatusInfo": [
+    {
+      "beneficiaryDetails": [
+        {
+          "userId": "634f74cdcc648ad3b50bc1f4",
+          "reason": "Acds",
+          "beneId": "634f74cdcc648ad3b50bc1f4"
+        }
+      ],
+      "operation": "update"
+    }
+  ]
+}
+```
 
-##### Parameters
+##### Sample Response
+```java
+{
+  "status": "all user beneficiary status form cashfree updated successfully"
+}
+```
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1IamIdsWithPaginationRequest](#v1iamidswithpaginationrequest) |
 
-##### Responses
 
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUserBasicsResponse](#v1getuserbasicsresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/in/migration
+### Cashfree sync-beneficiaries
 
 #### POST
 ##### Summary
 
 *
-API to perform India tax migration activity
+API to Sync Users to CashFree as a Beneficiary
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1INMigrationRequest](#v1inmigrationrequest) |
+| body | body |  | Yes |  |
 
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | A successful response. | [v1MigrationResponse](#v1migrationresponse) |
+| 200 | A successful response. | [v1BeneficiaryResponse](#v1beneficiaryresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/in/migration/review
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/sync-beneficiaries```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/users/sync-beneficiaries' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{}'```
+
+##### Sample Request
+```java
+{}```
+
+##### Sample Response
+```java
+{
+  "status": "INITIATED: Syncing Beneficiaries to CashFree"
+}
+```
+
+### Designations
+
+#### GET
+##### Summary
+
+Get a list of all designations for given tenant
+
+##### Description
+
+Get a list of all designations for given tenant
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1DesignationsResponse](#v1designationsresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/designations
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/users/designations' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+No Request Body
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "designations": [
+    "BA",
+    "Designer",
+    "QA Engineer",
+    "a",
+    "qa"
+  ]
+}
+```
+
+### Expenses
 
 #### POST
 ##### Summary
 
-*
-API to perform India tax migration activity
+Approve expenses
+
+##### Description
+
+Approve expenses
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1INMigrationRequest](#v1inmigrationrequest) |
+| body | body |  | Yes | [v1Pay"Request](#v1pay"request) |
 
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | A successful response. | [v1INMigrationResponse](#v1inmigrationresponse) |
+| 200 | A successful response. | [v1SuccessResponse](#v1successresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/in/tax-declaration-info/list
+### Pay expenses off-cycle
+
+#### POST
+##### Summary
+
+Pay expenses with off-cycle
+
+##### Description
+
+Pay expenses with off-cycle
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1Pay"Request](#v1pay"request) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1SuccessResponse](#v1successresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+### Off-cycle expense payments
+
+#### GET
+##### Summary
+
+Pay expenses with off-cycle
+
+##### Description
+
+Pay expenses with off-cycle
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1PayStubListDto](#v1paystublistdto) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+### India tax-declaration infomration list
 
 #### GET
 ##### Summary
@@ -864,6 +3559,9 @@ Get all users Tax declaration Info list with status
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -872,413 +3570,55 @@ Get all users Tax declaration Info list with status
 | 200 | A successful response. | [v1TaxDeclarationInfoResponse](#v1taxdeclarationinforesponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/internal/bulk/info
 
-#### POST
-##### Summary
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/users/in/tax-declaration-info/list?limit=20&currentPage=1&order=desc&field=_id&stage=DECLARATION
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/users/in/tax-declaration-info/list?limit=20&currentPage=1&order=desc&field=_id&stage=DECLARATION" -H "accept: application/json" -H "x-access-token: sampletoken"```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "taxDeclarationInfo": [
+    {
+      "userId": "6298543909c8200b44e67127",
+      "employeeName": "Simon Chu",
+      "submitOn": ",
+      "status": ",
+      "rejectedItems": [
+        
+      ]
+    },
+    {
+      "userId": "62835aaec922cf795d61d408",
+      "employeeName": "Tom Brandy",
+      "submitOn": ",
+      "status": ",
+      "rejectedItems": [
+        
+      ]
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "2",
+    "sizePerPage": "20",
+    "totalPage": "1",
+    "numberOfRecords": "2"
+  }
+}
+```
 
-*
-API to fetch user data by erpTenantId and IamUserIds
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1InternalUserRequest](#v1internaluserrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1InternalUserResponse](#v1internaluserresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/internal/bulk/termination
-
-#### POST
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1TerminationStatusRequest](#v1terminationstatusrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1TerminationStatus](#v1terminationstatus) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/list/email
-
-#### GET
-##### Summary
-
-Get users email
-
-##### Description
-
-Get users email
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1UsersEmailsAndUserCount](#v1usersemailsandusercount) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/login/info
-
-#### GET
-##### Summary
-
-Get the logged in user's info
-
-##### Description
-
-Get the logged in user's meta-information.
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/migration/encryption
-
-#### GET
-##### Summary
-
-Encrypt Users having plain text fields
-
-##### Description
-
-Encrypt Users
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| tenantId | query |  | No | string (int64) |
-| model | query |  | No | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1EncryptedUsersResponse](#v1encryptedusersresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/payment-details
-
-#### POST
-##### Summary
-
-Get payment details for a list of users
-
-##### Description
-
-Get payment details for a list of users
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1BulkIdRequest](#v1bulkidrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1UsersPaymentDetails](#v1userspaymentdetails) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/paypal/payouts
-
-#### POST
-##### Summary
-
-Payouts using Paypal
-
-##### Description
-
-Payouts using Paypal
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1PaypalBatchPayoutRequest](#v1paypalbatchpayoutrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1PaypalBatchPayoutResponse](#v1paypalbatchpayoutresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/pii/support/page
-
-#### POST
-##### Summary
-
-Encrypt/Decrypt Text
-
-##### Description
-
-Encrypt/Decrypt Text
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1PIISupport](#v1piisupport) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1PIISupport](#v1piisupport) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/profile/{stage}
-
-#### PUT
-##### Summary
-
-Update a User Profile Stage
-
-##### Description
-
-Update a User.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| stage | path |  | Yes | string |
-| body | body |  | Yes | [v1ProfileStage](#v1profilestage) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/salary-advance/details
-
-#### POST
-##### Summary
-
-API to get Bulk User salary advance details
-
-##### Description
-
-API to get Bulk User salary advance details
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1BulkInt64IdRequest](#v1bulkint64idrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1BulkUsersSalaryAdvanceDetails](#v1bulkuserssalaryadvancedetails) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/setup-bulk
-
-#### POST
-##### Summary
-
-Setup users in bulk
-
-##### Description
-
-Setup IAM users in PEOPLE, in bulk.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1AddUsersRequest](#v1addusersrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1AddUsersBucketResponse](#v1addusersbucketresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/short-info/{iamUserId}
-
-#### GET
-##### Summary
-
-Get a user short info by it's iamUserId
-
-##### Description
-
-Get a user short info by it's iamUserId.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| iamUserId | path |  | Yes | string (int64) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1UserShortInfoResponse](#v1usershortinforesponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/shortinfo
-
-#### POST
-##### Summary
-
-Get User's short info in bulk
-
-##### Description
-
-Get bulk User's short info using IamUserId and UserId
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1BulkUsersIdRequest](#v1bulkusersidrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1BulkUsersShortInfoResponse](#v1bulkusersshortinforesponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/sync-beneficiaries
-
-#### POST
-##### Summary
-
-*
-API to Sync Users to CashFree as a Beneficiary
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes |  |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1BeneficiaryResponse](#v1beneficiaryresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/terminate/bulk
-
-#### POST
-##### Summary
-
-Terminate users
-
-##### Description
-
-Terminate user from system.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1TerminateUserRequest](#v1terminateuserrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1DeleteResponse](#v1deleteresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/terminate/initiation
-
-#### POST
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1TerminationRequest](#v1terminationrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1TerminateUserStatus](#v1terminateuserstatus) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/users/{id}
-
-#### GET
-##### Summary
-
-Get a user by id
-
-##### Description
-
-Get a user by it's id.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| id | path |  | Yes | string |
-| getCompliance | query |  | No | boolean |
-| getComponents | query |  | No | boolean |
-| getBenefits | query |  | No | boolean |
-| getRolesAndTeams | query |  | No | boolean |
-| customFieldModule | query |  | No | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetUserResponse](#v1getuserresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-#### DELETE
-##### Summary
-
-Delete a user by id
-
-##### Description
-
-Delete a user by it's id.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| id | path |  | Yes | string |
-| getCompliance | query |  | No | boolean |
-| getComponents | query |  | No | boolean |
-| getBenefits | query |  | No | boolean |
-| getRolesAndTeams | query |  | No | boolean |
-| customFieldModule | query |  | No | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1DeleteResponse](#v1deleteresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
 ### Models
 
@@ -1534,6 +3874,7 @@ field. Example (for message [google.protobuf.Duration][]):
 | ids | [ string (int64) ] |  | No |
 | deleted | boolean |  | No |
 | getCompliance | boolean |  | No |
+| getComponents | boolean |  | No |
 
 #### v1BulkUsersIdRequest
 
@@ -1614,6 +3955,7 @@ field. Example (for message [google.protobuf.Duration][]):
 | colId | string |  | No |
 | value | string |  | No |
 | opr | string |  | No |
+| key | string |  | No |
 
 #### v1CustomFieldData
 
@@ -1819,18 +4161,6 @@ field. Example (for message [google.protobuf.Duration][]):
 | iamUserIds | [ string (int64) ] |  | No |
 | criteria | [v1Pagination](#v1pagination) |  | No |
 
-#### v1InternalUserRequest
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| erpTenantId | string (int64) |  | No |
-| iamUserIdList | [ string (int64) ] |  | No |
-
-#### v1InternalUserResponse
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| userResponseData | [ [v1UserResponseData](#v1userresponsedata) ] |  | No |
 
 #### v1Items
 
@@ -1847,15 +4177,9 @@ field. Example (for message [google.protobuf.Duration][]):
 | iamUserId | string (int64) |  | No |
 | firstName | string |  | No |
 | lastName | string |  | No |
+| employeeId | string |  | No |
 | roles | [ string ] |  | No |
 
-#### v1MigrationResponse
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| statusCode | string (int64) |  | No |
-| msg | string |  | No |
-| error | [v1Error](#v1error) |  | No |
 
 #### v1OrderBy
 
@@ -1897,6 +4221,9 @@ field. Example (for message [google.protobuf.Duration][]):
 | userFilter | [v1UserFilter](#v1userfilter) |  | No |
 | ignUserApprovers | boolean |  | No |
 | ignTeamMembers | boolean |  | No |
+| userIds | [ string ] |  | No |
+| isCustomFieldFilter | boolean |  | No |
+| onlyTeamMembers | boolean |  | No |
 
 #### v1PaidInstallmentDetails
 
@@ -1906,12 +4233,12 @@ field. Example (for message [google.protobuf.Duration][]):
 | amountPaid | double |  | No |
 | amountPaidDate | string |  | No |
 
-#### v1PayExpenseRequest
+#### v1Pay"Request
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| expenseId | string |  | No |
-| expenseAmount | string (int64) |  | No |
+| "Id | string |  | No |
+| "Amount | string (int64) |  | No |
 
 #### v1PayStubListDto
 

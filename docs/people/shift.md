@@ -3,15 +3,7 @@ id: shift
 title: Shifts
 sidebar_label: Shifts
 ---
-### Security
-**ApiKeyAuth**  
-
-|apiKey|*API Key*|
-|---|---|
-|Name|x-access-token|
-|In|header|
-
-### /v1/people/tenants/overtime
+### Fetch Overtime policies
 
 #### GET
 ##### Summary
@@ -48,6 +40,9 @@ Get all configured Overtime Policies.
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -55,6 +50,124 @@ Get all configured Overtime Policies.
 | ---- | ----------- | ------ |
 | 200 | A successful response. | [v1GetOvertimeResponse](#v1getovertimeresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime?limit=20&currentPage=1
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/tenants/overtime?limit=20&currentPage=1" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "data": [
+    {
+      "id": "63316ecf46f40e1b904e6af9",
+      "policyName": "OT Policy 2",
+      "description": "OT Policy 2",
+      "activated": true,
+      "effectiveFrom": "2022-08-31T18:30:00Z",
+      "status": "ACTIVE",
+      "remark": "AA",
+      "employees": [
+        {
+          "employeeId": "6218718e01c98198c7a3e41d",
+          "dateOfAssign": "2022-09-26T00:00:00.000Z"
+        },
+        {
+          "employeeId": "624595fdb0bc1377fac94575",
+          "dateOfAssign": "2022-09-26T00:00:00.000Z"
+        },
+        {
+          "employeeId": "626a292ceee2302daeee58b1",
+          "dateOfAssign": "2022-09-26T00:00:00.000Z"
+        }
+      ],
+      "employeeIamUserIds": [
+        
+      ],
+      "applicableToAll": false,
+      "breakHours": {
+        "restDay": "01:00",
+        "offDay": "01:00",
+        "holiday": "01:00",
+        "regularDay": "01:00",
+        "halfDay": "01:00",
+        "all": "01:00"
+      },
+      "maxOvertime": {
+        "daily": "04:00",
+        "weekly": "20:00",
+        "monthly": "80:00",
+        "quarterly": "240:00"
+      },
+      "minHours": "00:30",
+      "otToRoundOff": "ROUND_DOWN",
+      "blockTime": 30,
+      "hasExpiry": false,
+      "actionDue": 0,
+      "calculationType": "SHIFT",
+      "calculationMethod": "COMPONENT",
+      "flatAmount": "0",
+      "component": "63316ee999b248f47220d2cb",
+      "employeeDetails": [
+        {
+          "userId": "6218718e01c98198c7a3e41d",
+          "firstName": "Rohan",
+          "lastName": "Shelar",
+          "iamUserId": "
+        },
+        {
+          "userId": "624595fdb0bc1377fac94575",
+          "firstName": "Karan",
+          "lastName": "Bhandari",
+          "iamUserId": "
+        },
+        {
+          "userId": "626a292ceee2302daeee58b1",
+          "firstName": "Shubham",
+          "lastName": "Parihar",
+          "iamUserId": "
+        }
+      ],
+      "eUIMap": {
+        
+      },
+      "createdAt": "2022-09-26T09:20:15.898Z",
+      "multiplier": {
+        "restDay": "2",
+        "offDay": "2",
+        "holiday": "2",
+        "regularDay": "1",
+        "halfDay": "1",
+        "all": "
+      },
+      "createdBy": "Ganesh Karale (00001)",
+      "updatedAt": "2022-09-26T09:21:44.586Z",
+      "updatedBy": "Ganesh Karale (00001)",
+      "employeeCount": 3
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "3",
+    "sizePerPage": "20",
+    "totalPage": "1",
+    "numberOfRecords": "3"
+  }
+}
+```
 
 #### POST
 ##### Summary
@@ -78,6 +191,114 @@ Add a new Overtime.
 | 200 | A successful response. | [v1Overtime](#v1overtime) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/tenants/overtime" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"policyName\":\"Day Shift\",\"description\":\"Day shift policy\",\"remark\":\"\",\"breakHours\":{\"all\":\"01:00\",\"restDay\":\"01:00\",\"offDay\":\"01:00\",\"holiday\":\"01:00\",\"regularDay\":\"01:00\",\"halfDay\":\"01:00\"},\"maxOvertime\":{\"daily\":\"02:00\",\"weekly\":\"10:00\",\"monthly\":\"40:00\",\"quarterly\":\"120:00\"},\"multiplier\":{\"all\":\"1\",\"restDay\":\"1\",\"offDay\":\"1\",\"holiday\":\"1\",\"regularDay\":\"1\",\"halfDay\":\"1\"},\"minHours\":\"00:30\",\"otToRoundOff\":\"ROUND_UP\",\"blockTime\":15,\"hasExpiry\":false,\"actionDue\":null,\"actionDueDate\":\"\",\"calculationType\":\"SHIFT\",\"calculationMethod\":\"FLAT\",\"flatAmount\":100,\"component\":\"\",\"effectiveFrom\":\"0001-01-01T00:00:00Z\",\"updatedAt\":\"2022-10-28T10:21:49.614Z\",\"status\":\"DRAFT\",\"activated\":false,\"employees\":[\"635a7c7e0ab739d2f218da6d\",\"63109c4f18ca88d8a9a9a035\"],\"applicableToAll\":false}"
+```
+
+##### Sample Request
+```java
+{
+  "policyName": "Day Shift",
+  "description": "Day shift policy",
+  "remark": ",
+  "breakHours": {
+    "all": "01:00",
+    "restDay": "01:00",
+    "offDay": "01:00",
+    "holiday": "01:00",
+    "regularDay": "01:00",
+    "halfDay": "01:00"
+  },
+  "maxOvertime": {
+    "daily": "02:00",
+    "weekly": "10:00",
+    "monthly": "40:00",
+    "quarterly": "120:00"
+  },
+  "multiplier": {
+    "all": "1",
+    "restDay": "1",
+    "offDay": "1",
+    "holiday": "1",
+    "regularDay": "1",
+    "halfDay": "1"
+  },
+  "minHours": "00:30",
+  "otToRoundOff": "ROUND_UP",
+  "blockTime": 15,
+  "hasExpiry": false,
+  "actionDue": null,
+  "actionDueDate": ",
+  "calculationType": "SHIFT",
+  "calculationMethod": "FLAT",
+  "flatAmount": 100,
+  "component": ",
+  "effectiveFrom": "0001-01-01T00:00:00Z",
+  "updatedAt": "2022-10-28T10:21:49.614Z",
+  "status": "DRAFT",
+  "activated": false,
+  "employees": [
+    "635a7c7e0ab739d2f218da6d",
+    "63109c4f18ca88d8a9a9a035"
+  ],
+  "applicableToAll": false
+}
+```
+
+##### Sample Response
+```java
+{
+  "id": "635bad3f0ab739d2f218da74",
+  "policyName": "Day Shift",
+  "description": "Day shift policy",
+  "activated": false,
+  "effectiveFrom": "0001-01-01T00:00:00Z",
+  "status": "DRAFT",
+  "remark": ",
+  "employees": [
+  ],
+  "applicableToAll": false,
+  "breakHours": {
+    "restDay": "01:00",
+    "offDay": "01:00",
+    "holiday": "01:00",
+    "regularDay": "01:00",
+    "halfDay": "01:00",
+    "all": "01:00"
+  },
+  "maxOvertime": {
+    "daily": "02:00",
+    "weekly": "10:00",
+    "monthly": "40:00",
+    "quarterly": "120:00"
+  },
+  "minHours": "00:30",
+  "otToRoundOff": "ROUND_UP",
+  "blockTime": 15,
+  "hasExpiry": false,
+  "actionDue": 0,
+  "calculationType": "SHIFT",
+  "calculationMethod": "FLAT",
+  "flatAmount": "100",
+  "component": ",
+  "multiplier": {
+    "restDay": "1",
+    "offDay": "1",
+    "holiday": "1",
+    "regularDay": "1",
+    "halfDay": "1",
+    "all": "1"
+  }
+}
+```
 #### PATCH
 ##### Summary
 
@@ -100,8 +321,147 @@ Update Overtime policy.
 | 200 | A successful response. | [v1Overtime](#v1overtime) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/overtime/delete
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime
+```
+
+##### Curl
+
+```java
+curl -X PATCH "https://bifrost-us.deskera.com/v1/people/tenants/overtime" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"policyName\":\"Day Shift\",\"description\":\"Day shift policy\",\"remark\":\"\",\"breakHours\":{\"all\":\"01:00\",\"restDay\":\"01:00\",\"offDay\":\"01:00\",\"holiday\":\"01:00\",\"regularDay\":\"01:00\",\"halfDay\":\"01:00\"},\"maxOvertime\":{\"daily\":\"02:00\",\"weekly\":\"10:00\",\"monthly\":\"40:00\",\"quarterly\":\"120:00\"},\"multiplier\":{\"all\":\"1\",\"restDay\":\"1\",\"offDay\":\"1\",\"holiday\":\"1\",\"regularDay\":\"1\",\"halfDay\":\"1\"},\"minHours\":\"00:30\",\"otToRoundOff\":\"ROUND_UP\",\"blockTime\":15,\"hasExpiry\":false,\"actionDue\":0,\"actionDueDate\":\"\",\"calculationType\":\"SHIFT\",\"calculationMethod\":\"FLAT\",\"flatAmount\":100,\"component\":\"\",\"effectiveFrom\":\"0001-01-01T00:00:00Z\",\"updatedAt\":\"0001-01-01T00:00:00Z\",\"status\":\"DRAFT\",\"activated\":false,\"employees\":[\"635a7c7e0ab739d2f218da6d\",\"63109c4f18ca88d8a9a9a035\"],\"applicableToAll\":false,\"id\":\"635bad3f0ab739d2f218da74\"}"
+```
+
+##### Sample Request
+```java
+{
+  "policyName": "Day Shift",
+  "description": "Day shift policy",
+  "remark": ",
+  "breakHours": {
+    "all": "01:00",
+    "restDay": "01:00",
+    "offDay": "01:00",
+    "holiday": "01:00",
+    "regularDay": "01:00",
+    "halfDay": "01:00"
+  },
+  "maxOvertime": {
+    "daily": "02:00",
+    "weekly": "10:00",
+    "monthly": "40:00",
+    "quarterly": "120:00"
+  },
+  "multiplier": {
+    "all": "1",
+    "restDay": "1",
+    "offDay": "1",
+    "holiday": "1",
+    "regularDay": "1",
+    "halfDay": "1"
+  },
+  "minHours": "00:30",
+  "otToRoundOff": "ROUND_UP",
+  "blockTime": 15,
+  "hasExpiry": false,
+  "actionDue": 0,
+  "actionDueDate": ",
+  "calculationType": "SHIFT",
+  "calculationMethod": "FLAT",
+  "flatAmount": 100,
+  "component": ",
+  "effectiveFrom": "0001-01-01T00:00:00Z",
+  "updatedAt": "0001-01-01T00:00:00Z",
+  "status": "DRAFT",
+  "activated": false,
+  "employees": [
+    "635a7c7e0ab739d2f218da6d",
+    "63109c4f18ca88d8a9a9a035"
+  ],
+  "applicableToAll": false,
+  "id": "635bad3f0ab739d2f218da74"
+}
+```
+
+##### Sample Response
+```java
+{
+  "id": "635bad3f0ab739d2f218da74",
+  "policyName": "Day Shift",
+  "description": "Day shift policy",
+  "activated": false,
+  "effectiveFrom": "0001-01-01T00:00:00Z",
+  "status": "DRAFT",
+  "remark": ",
+  "employees": [
+  ],
+  "applicableToAll": false,
+  "breakHours": {
+    "restDay": "01:00",
+    "offDay": "01:00",
+    "holiday": "01:00",
+    "regularDay": "01:00",
+    "halfDay": "01:00",
+    "all": "01:00"
+  },
+  "maxOvertime": {
+    "daily": "02:00",
+    "weekly": "10:00",
+    "monthly": "40:00",
+    "quarterly": "120:00"
+  },
+  "minHours": "00:30",
+  "otToRoundOff": "ROUND_UP",
+  "blockTime": 15,
+  "hasExpiry": false,
+  "actionDue": 0,
+  "calculationType": "SHIFT",
+  "calculationMethod": "FLAT",
+  "flatAmount": "100",
+  "component": ",
+  "multiplier": {
+    "restDay": "1",
+    "offDay": "1",
+    "holiday": "1",
+    "regularDay": "1",
+    "halfDay": "1",
+    "all": "1"
+  }
+}
+```
+### Delete overtime policy
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime/delete
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/tenants/overtime/delete" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"ids\":[\"635bad3f0ab739d2f218da74\"],\"forcedDelete\":true}"
+```
+
+##### Sample Request
+```java
+{
+  "ids": [
+    "635bad3f0ab739d2f218da74"
+  ],
+  "forcedDelete": true
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "message": "Deleted {1} document(s) with Id(s) {[635bad3f0ab739d2f218da74]}",
+  "errCode": "
+}
+```
 #### POST
 ##### Summary
 
@@ -124,7 +484,8 @@ Delete overtime policies
 | 200 | A successful response. | [v1DeleteResponse](#v1deleteresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/overtime/find
+
+### Seach Overtime policies
 
 #### POST
 ##### Summary
@@ -148,7 +509,106 @@ Get a OT Policy by Employee id
 | 200 | A successful response. | [v1GetOvertimeResponse](#v1getovertimeresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/overtime/ot-multiplier
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime/find
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/tenants/overtime/find" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"iamUserIds\":[\"66194\"]}"
+```
+
+##### Sample Request
+```java
+{
+  "iamUserIds": [
+    "55189"
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "data": [
+    {
+      "id": "633152f3dbe993639a0b3110",
+      "policyName": "OT Policy 1",
+      "description": "OT Policy 1",
+      "activated": true,
+      "effectiveFrom": "2022-08-31T18:30:00Z",
+      "status": "ACTIVE",
+      "remark": ",
+      "employees": [
+        {
+          "employeeId": "60b734520a2aaa7131f2c588",
+          "dateOfAssign": "2022-09-26T00:00:00.000Z"
+        },
+        {
+          "employeeId": "60d4374e32ed46f7fe1eb013",
+          "dateOfAssign": "2022-09-26T00:00:00.000Z"
+        },
+        {
+          "employeeId": "627a69e05bb6f9ec5715525c",
+          "dateOfAssign": "2022-09-26T00:00:00.000Z"
+        }
+      ],
+      "employeeIamUserIds": [
+        "55189",
+        "0",
+        "0"
+      ],
+      "applicableToAll": false,
+      "breakHours": {
+        "restDay": "01:00",
+        "offDay": "01:00",
+        "holiday": "01:00",
+        "regularDay": "01:00",
+        "halfDay": "01:00",
+        "all": "01:00"
+      },
+      "maxOvertime": {
+        "daily": "02:00",
+        "weekly": "10:00",
+        "monthly": "40:00",
+        "quarterly": "120:00"
+      },
+      "minHours": "00:30",
+      "otToRoundOff": "ROUND_DOWN",
+      "blockTime": 30,
+      "hasExpiry": false,
+      "actionDue": 0,
+      "calculationType": "SHIFT",
+      "calculationMethod": "FLAT",
+      "flatAmount": "5",
+      "component": ",
+      "employeeDetails": [
+      ],
+      "eUIMap": {
+      },
+      "createdAt": "1970-01-01T00:00:00Z",
+      "multiplier": {
+        "restDay": "2",
+        "offDay": "2",
+        "holiday": "2",
+        "regularDay": "1",
+        "halfDay": "1",
+        "all": "
+      },
+      "createdBy": "55189",
+      "updatedAt": "1970-01-01T00:00:00Z",
+      "updatedBy": "55189",
+      "employeeCount": 0
+    }
+  ],
+  "filterConfig": null
+}
+```
+### Manage Overtime multiplier
 
 #### GET
 ##### Summary
@@ -185,6 +645,9 @@ Get Overtime Payroll Multiplier
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -193,6 +656,50 @@ Get Overtime Payroll Multiplier
 | 200 | A successful response. | [v1OvertimePayrollMultiplierResponse](#v1overtimepayrollmultiplierresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime/ot-multiplier
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/tenants/overtime/ot-multiplier" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "overtimePayrollMultiplier": {
+    "id": "6331529246f40e1b904e6adb",
+    "overtimeMultiplierValues": [
+      {
+        "value": "1",
+        "description": "
+      },
+      {
+        "value": "2",
+        "description": "
+      },
+      {
+        "value": "3",
+        "description": "
+      },
+      {
+        "value": "4",
+        "description": "
+      }
+    ]
+  }
+}
+```
 #### PATCH
 ##### Summary
 
@@ -215,7 +722,199 @@ Update Overtime Payroll Multiplier.
 | 200 | A successful response. | [v1OvertimePayrollMultiplierResponse](#v1overtimepayrollmultiplierresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/shifts
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime/ot-multiplier
+```
+
+##### Curl
+
+```java
+curl -X PATCH "https://bifrost-us.deskera.com/v1/people/tenants/overtime/ot-multiplier" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"overtimeMultiplierValues\":[{\"value\":\"1\",\"description\":\"\"},{\"value\":\"2\",\"description\":\"\"},{\"value\":\"3\",\"description\":\"\"},{\"value\":\"4.2\",\"description\":\"\"}],\"id\":\"6331529246f40e1b904e6adb\"}"
+```
+
+##### Sample Request
+```java
+{
+  "overtimeMultiplierValues": [
+    {
+      "value": "1",
+      "description": "
+    },
+    {
+      "value": "2",
+      "description": "
+    },
+    {
+      "value": "3",
+      "description": "
+    },
+    {
+      "value": "4.2",
+      "description": "
+    }
+  ],
+  "id": "6331529246f40e1b904e6adb"
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "overtimePayrollMultiplier": {
+    "id": "6331529246f40e1b904e6adb",
+    "overtimeMultiplierValues": [
+      {
+        "value": "1",
+        "description": "
+      },
+      {
+        "value": "2",
+        "description": "
+      },
+      {
+        "value": "3",
+        "description": "
+      },
+      {
+        "value": "4.2",
+        "description": "
+      }
+    ]
+  }
+}
+```
+### Fetch Overtime policy by id
+
+#### GET
+##### Summary
+
+Get an overtime policy by id
+
+##### Description
+
+Get an overtime policy by id
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1OvertimeResponse](#v1overtimeresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/overtime/633152f3dbe993639a0b3110
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/tenants/overtime/633152f3dbe993639a0b3110" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "id": "633152f3dbe993639a0b3110",
+  "policyName": "OT Policy 1",
+  "description": "OT Policy 1",
+  "activated": true,
+  "effectiveFrom": "2022-08-31T18:30:00Z",
+  "status": "ACTIVE",
+  "remark": ",
+  "employees": [
+    {
+      "employeeId": "60b734520a2aaa7131f2c588",
+      "dateOfAssign": "2022-09-26T00:00:00.000Z"
+    },
+    {
+      "employeeId": "60d4374e32ed46f7fe1eb013",
+      "dateOfAssign": "2022-09-26T00:00:00.000Z"
+    },
+    {
+      "employeeId": "627a69e05bb6f9ec5715525c",
+      "dateOfAssign": "2022-09-26T00:00:00.000Z"
+    }
+  ],
+  "employeeIamUserIds": [
+  ],
+  "applicableToAll": false,
+  "breakHours": {
+    "restDay": "01:00",
+    "offDay": "01:00",
+    "holiday": "01:00",
+    "regularDay": "01:00",
+    "halfDay": "01:00",
+    "all": "01:00"
+  },
+  "maxOvertime": {
+    "daily": "02:00",
+    "weekly": "10:00",
+    "monthly": "40:00",
+    "quarterly": "120:00"
+  },
+  "minHours": "00:30",
+  "otToRoundOff": "ROUND_DOWN",
+  "blockTime": 30,
+  "hasExpiry": false,
+  "actionDue": 0,
+  "calculationType": "SHIFT",
+  "calculationMethod": "FLAT",
+  "flatAmount": "5",
+  "component": ",
+  "employeeDetails": [
+    {
+      "userId": "60b734520a2aaa7131f2c588",
+      "firstName": "Ganesh",
+      "lastName": "Karale",
+      "iamUserId": "55189"
+    },
+    {
+      "userId": "60d4374e32ed46f7fe1eb013",
+      "firstName": "Sandeep",
+      "lastName": "Misal",
+      "iamUserId": "55728"
+    },
+    {
+      "userId": "627a69e05bb6f9ec5715525c",
+      "firstName": "Amit",
+      "lastName": "Gunjal",
+      "iamUserId": "56844"
+    }
+  ],
+  "eUIMap": {
+  },
+  "createdAt": "2022-09-26T07:21:23.380Z",
+  "multiplier": {
+    "restDay": "2",
+    "offDay": "2",
+    "holiday": "2",
+    "regularDay": "1",
+    "halfDay": "1",
+    "all": "
+  },
+  "createdBy": "Ganesh Karale (00001)",
+  "updatedAt": "2022-09-26T07:21:43.181Z",
+  "updatedBy": "Ganesh Karale (00001)",
+  "employeeCount": 3
+}
+```
+### Manage shifts
 
 #### GET
 ##### Summary
@@ -252,6 +951,9 @@ Get Shifts.
 | ignRoles | query |  | No | boolean |
 | ignUserApprovers | query |  | No | boolean |
 | ignTeamMembers | query |  | No | boolean |
+| userIds | query |  | No | [ string ] |
+| isCustomFieldFilter | query |  | No | boolean |
+| onlyTeamMembers | query |  | No | boolean |
 
 ##### Responses
 
@@ -260,6 +962,129 @@ Get Shifts.
 | 200 | A successful response. | [v1GetShiftResponse](#v1getshiftresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/shifts?orderBy.field=updatedAt&orderBy.order=desc&currentPage=1&limit=20
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/tenants/shifts?orderBy.field=updatedAt&orderBy.order=desc&currentPage=1&limit=20" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "data": [
+    {
+      "id": "633a7b71faf6115ea85eb5af",
+      "name": "New Shift 2",
+      "from": "09:05",
+      "to": "17:05",
+      "shiftMargin": true,
+      "shiftMarginBefore": "00:30",
+      "shiftMarginAfter": "00:30",
+      "reqdHrsToMarkPresent": "08:00",
+      "reqdHrsToMarkHalfPresent": "04:00",
+      "applicableTo": false,
+      "employees": [
+        
+      ],
+      "isOvertimeEnabled": false,
+      "overtimeThreshold": "0",
+      "overtimeUnit": "0",
+      "overtimeMapping": ",
+      "shiftWorkWeek": [
+        {
+          "day": "MONDAY",
+          "workingStatus": "WEEK_DAY",
+          "inTime": "09:05",
+          "outTime": "17:05",
+          "otMapped": [
+            
+          ]
+        },
+        {
+          "day": "TUESDAY",
+          "workingStatus": "WEEK_DAY",
+          "inTime": "09:05",
+          "outTime": "17:05",
+          "otMapped": [
+            
+          ]
+        },
+        {
+          "day": "WEDNESDAY",
+          "workingStatus": "WEEK_DAY",
+          "inTime": "09:05",
+          "outTime": "17:05",
+          "otMapped": [
+            
+          ]
+        },
+        {
+          "day": "THURSDAY",
+          "workingStatus": "OFF_DAY",
+          "inTime": "00:00",
+          "outTime": "00:00",
+          "otMapped": [
+            
+          ]
+        },
+        {
+          "day": "FRIDAY",
+          "workingStatus": "WEEK_DAY",
+          "inTime": "09:05",
+          "outTime": "17:05",
+          "otMapped": [
+            
+          ]
+        },
+        {
+          "day": "SATURDAY",
+          "workingStatus": "WEEK_DAY",
+          "inTime": "09:05",
+          "outTime": "17:05",
+          "otMapped": [
+            
+          ]
+        },
+        {
+          "day": "SUNDAY",
+          "workingStatus": "WEEK_DAY",
+          "inTime": "09:05",
+          "outTime": "17:05",
+          "otMapped": [
+            
+          ]
+        }
+      ],
+      "employeeDetails": [
+        
+      ],
+      "eUIMap": {
+        
+      },
+      "createdAt": "
+    }
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "4",
+    "sizePerPage": "20",
+    "totalPage": "1",
+    "numberOfRecords": "4"
+  }
+}
+```
 #### POST
 ##### Summary
 
@@ -282,6 +1107,160 @@ Add a new Shift.
 | 200 | A successful response. | [v1Shift](#v1shift) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/shifts
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/tenants/shifts" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"name\":\"Morning Shift\",\"from\":\"07:00\",\"to\":\"15:00\",\"shiftMargin\":true,\"shiftMarginBefore\":\"03:00\",\"shiftMarginAfter\":\"03:00\",\"reqdHrsToMarkPresent\":\"08:00\",\"reqdHrsToMarkHalfPresent\":\"04:00\",\"applicableTo\":false,\"employees\":[\"626a292ceee2302daeee58b1\",\"624595fdb0bc1377fac94575\"],\"shiftWorkWeek\":[{\"day\":\"MONDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"TUESDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"WEDNESDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"THURSDAY\",\"workingStatus\":\"OFF_DAY\",\"inTime\":\"00:00\",\"outTime\":\"00:00\"},{\"day\":\"FRIDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"SATURDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"SUNDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"}]}"
+```
+
+##### Sample Request
+```java
+{
+  "name": "Morning Shift",
+  "from": "07:00",
+  "to": "15:00",
+  "shiftMargin": true,
+  "shiftMarginBefore": "03:00",
+  "shiftMarginAfter": "03:00",
+  "reqdHrsToMarkPresent": "08:00",
+  "reqdHrsToMarkHalfPresent": "04:00",
+  "applicableTo": false,
+  "employees": [
+    "626a292ceee2302daeee58b1",
+    "624595fdb0bc1377fac94575"
+  ],
+  "shiftWorkWeek": [
+    {
+      "day": "MONDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "TUESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "WEDNESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "THURSDAY",
+      "workingStatus": "OFF_DAY",
+      "inTime": "00:00",
+      "outTime": "00:00"
+    },
+    {
+      "day": "FRIDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "SATURDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "SUNDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "id": "635bba8e0ab739d2f218da7b",
+  "name": "Morning Shift",
+  "from": "07:00",
+  "to": "15:00",
+  "shiftMargin": true,
+  "shiftMarginBefore": "03:00",
+  "shiftMarginAfter": "03:00",
+  "reqdHrsToMarkPresent": "08:00",
+  "reqdHrsToMarkHalfPresent": "04:00",
+  "applicableTo": false,
+  "employees": [
+  ],
+  "isOvertimeEnabled": false,
+  "overtimeThreshold": "0",
+  "overtimeUnit": "0",
+  "overtimeMapping": ",
+  "shiftWorkWeek": [
+    {
+      "day": "MONDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "TUESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "WEDNESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "THURSDAY",
+      "workingStatus": "OFF_DAY",
+      "inTime": "00:00",
+      "outTime": "00:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "FRIDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "SATURDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "SUNDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    }
+  ]
+}
+```
 #### PATCH
 ##### Summary
 
@@ -304,7 +1283,163 @@ Update a Shift.
 | 200 | A successful response. | [v1Shift](#v1shift) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/shifts/delete
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/shifts
+```
+
+##### Curl
+
+```java
+curl -X PATCH "https://bifrost-us.deskera.com/v1/people/tenants/shifts" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"name\":\"Morning Shift\",\"from\":\"07:00\",\"to\":\"15:00\",\"shiftMargin\":true,\"shiftMarginBefore\":\"03:00\",\"shiftMarginAfter\":\"03:00\",\"reqdHrsToMarkPresent\":\"08:00\",\"reqdHrsToMarkHalfPresent\":\"04:00\",\"applicableTo\":false,\"employees\":[\"626a292ceee2302daeee58b1\",\"624595fdb0bc1377fac94575\"],\"shiftWorkWeek\":[{\"day\":\"MONDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"TUESDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"WEDNESDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"THURSDAY\",\"workingStatus\":\"OFF_DAY\",\"inTime\":\"00:00\",\"outTime\":\"00:00\"},{\"day\":\"FRIDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"SATURDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"},{\"day\":\"SUNDAY\",\"workingStatus\":\"WEEK_DAY\",\"inTime\":\"07:00\",\"outTime\":\"15:00\"}]}"
+```
+
+##### Sample Request
+```java
+{
+  "name": "Morning Shift",
+  "from": "07:00",
+  "to": "15:00",
+  "shiftMargin": true,
+  "shiftMarginBefore": "03:00",
+  "shiftMarginAfter": "03:00",
+  "reqdHrsToMarkPresent": "08:00",
+  "reqdHrsToMarkHalfPresent": "04:00",
+  "id": "635bba8e0ab739d2f218da7b",
+  "applicableTo": false,
+  "employees": [
+    "626a292ceee2302daeee58b1",
+    "624595fdb0bc1377fac94575"
+  ],
+  "shiftWorkWeek": [
+    {
+      "day": "MONDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "TUESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "WEDNESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "THURSDAY",
+      "workingStatus": "OFF_DAY",
+      "inTime": "00:00",
+      "outTime": "00:00"
+    },
+    {
+      "day": "FRIDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "SATURDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    },
+    {
+      "day": "SUNDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00"
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "id": "635bba8e0ab739d2f218da7b",
+  "name": "Morning Shift",
+  "from": "07:00",
+  "to": "15:00",
+  "shiftMargin": true,
+  "shiftMarginBefore": "03:00",
+  "shiftMarginAfter": "03:00",
+  "reqdHrsToMarkPresent": "08:00",
+  "reqdHrsToMarkHalfPresent": "04:00",
+  "applicableTo": false,
+  "employees": [
+  ],
+  "isOvertimeEnabled": false,
+  "overtimeThreshold": "0",
+  "overtimeUnit": "0",
+  "overtimeMapping": ",
+  "shiftWorkWeek": [
+    {
+      "day": "MONDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "TUESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "WEDNESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "THURSDAY",
+      "workingStatus": "OFF_DAY",
+      "inTime": "00:00",
+      "outTime": "00:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "FRIDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "SATURDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "SUNDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "07:00",
+      "outTime": "15:00",
+      "otMapped": [
+      ]
+    }
+  ]
+}
+```
+### Delete shifts
 
 #### POST
 ##### Summary
@@ -328,31 +1463,37 @@ Delete multiple Shifts
 | 200 | A successful response. | [v1DeleteResponse](#v1deleteresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/shifts/find
 
-#### POST
-##### Summary
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/shifts/delete
+```
 
-Get a Shift by Employee id
+##### Curl
 
-##### Description
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/tenants/shifts/delete" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{\"ids\":[\"635bba8e0ab739d2f218da7b\"]}"
+```
 
-Get a Shift by Employee id
+##### Sample Request
+```java
+{
+  "ids": [
+    "635bba8e0ab739d2f218da7b"
+  ]
+}
+```
 
-##### Parameters
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "message": "Deleted {1} document(s) with Id(s) {[635bba8e0ab739d2f218da7b]}",
+  "errCode": ""
+}
+```
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1ShiftIdRequest](#v1shiftidrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetShiftResponse](#v1getshiftresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/shifts/{id}
+### Fetch shifts by id
 
 #### GET
 ##### Summary
@@ -376,29 +1517,128 @@ Get a Shift by id
 | 200 | A successful response. | [v1ShiftResponse](#v1shiftresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/shiftsbyids
+"
 
-#### POST
-##### Summary
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/shifts/633aa30d7ee86486e5858ef9
+```
 
-Get Shifts by Shift ids
+##### Curl
 
-##### Description
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/tenants/shifts/633aa30d7ee86486e5858ef9" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
 
-Get Shifts by Shift ids
+##### Sample Request
+```java
 
-##### Parameters
+```
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1ShiftIdsRequest](#v1shiftidsrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetShiftResponse](#v1getshiftresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+##### Sample Response
+```java
+{
+  "id": "633aa30d7ee86486e5858ef9",
+  "name": "New",
+  "from": "09:00",
+  "to": "16:00",
+  "shiftMargin": true,
+  "shiftMarginBefore": "01:00",
+  "shiftMarginAfter": "02:00",
+  "reqdHrsToMarkPresent": "07:00",
+  "reqdHrsToMarkHalfPresent": "03:30",
+  "applicableTo": false,
+  "employees": [
+    {
+      "employeeId": "627a69e05bb6f9ec5715525c",
+      "dateOfAssign": "2022-10-03T00:00:00.000Z"
+    },
+    {
+      "employeeId": "626a292ceee2302daeee58b1",
+      "dateOfAssign": "2022-10-28T00:00:00.000Z"
+    }
+  ],
+  "isOvertimeEnabled": false,
+  "overtimeThreshold": "0",
+  "overtimeUnit": "0",
+  "overtimeMapping": "",
+  "shiftWorkWeek": [
+    {
+      "day": "MONDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "10:00",
+      "outTime": "16:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "TUESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "10:00",
+      "outTime": "16:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "WEDNESDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "09:00",
+      "outTime": "17:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "THURSDAY",
+      "workingStatus": "OFF_DAY",
+      "inTime": "00:00",
+      "outTime": "00:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "FRIDAY",
+      "workingStatus": "OFF_DAY",
+      "inTime": "09:00",
+      "outTime": "16:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "SATURDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "09:00",
+      "outTime": "16:00",
+      "otMapped": [
+      ]
+    },
+    {
+      "day": "SUNDAY",
+      "workingStatus": "WEEK_DAY",
+      "inTime": "09:00",
+      "outTime": "16:00",
+      "otMapped": [
+      ]
+    }
+  ],
+  "employeeDetails": [
+    {
+      "userId": "626a292ceee2302daeee58b1",
+      "firstName": "Shubham",
+      "lastName": "Parihar",
+      "iamUserId": "59466"
+    },
+    {
+      "userId": "627a69e05bb6f9ec5715525c",
+      "firstName": "Amit",
+      "lastName": "Gunjal",
+      "iamUserId": "56844"
+    }
+  ],
+  "eUIMap": {
+  },
+  "createdAt": ""
+}
+```
 
 ### Models
 
@@ -522,6 +1762,7 @@ field. Example (for message [google.protobuf.Duration][]):
 | colId | string |  | No |
 | value | string |  | No |
 | opr | string |  | No |
+| key | string |  | No |
 
 #### v1DeleteResponse
 
@@ -612,6 +1853,18 @@ field. Example (for message [google.protobuf.Duration][]):
 | calculationMethod | string |  | No |
 | flatAmount | string (uint64) |  | No |
 | component | string |  | No |
+| multiplier | [v1OvertimeMultiplierMappings](#v1overtimemultipliermappings) |  | No |
+
+#### v1OvertimeMultiplierMappings
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| restDay | string |  | No |
+| offDay | string |  | No |
+| holiday | string |  | No |
+| regularDay | string |  | No |
+| halfDay | string |  | No |
+| all | string |  | No |
 
 #### v1OvertimeMultiplierValues
 
@@ -661,7 +1914,12 @@ field. Example (for message [google.protobuf.Duration][]):
 | component | string |  | No |
 | employeeDetails | [ [v1UserMeta](#v1usermeta) ] |  | No |
 | eUIMap | object |  | No |
-| createdAt | string |  | No |
+| createdAt | dateTime |  | No |
+| multiplier | [v1OvertimeMultiplierMappings](#v1overtimemultipliermappings) |  | No |
+| createdBy | string |  | No |
+| updatedAt | dateTime |  | No |
+| updatedBy | string |  | No |
+| employeeCount | long |  | No |
 
 #### v1Shift
 

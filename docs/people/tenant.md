@@ -3,15 +3,8 @@ id: tenant
 title: Tenant
 sidebar_label: Tenant
 ---
-### Security
-**ApiKeyAuth**  
 
-|apiKey|*API Key*|
-|---|---|
-|Name|x-access-token|
-|In|header|
-
-### /v1/people/tenants
+### Manage your Tenant/Organization/Company
 
 #### GET
 ##### Summary
@@ -35,27 +28,181 @@ Get a tenant by it's id.
 | 200 | A successful response. | [v1GetTenantResponse](#v1gettenantresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-#### POST
-##### Summary
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants?getTenantConfig=true
+```
 
-Add a Tenant
+##### Curl
 
-##### Description
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.comv1/people/tenants?getTenantConfig=true' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
 
-Add a new tenant.
+```
+##### Sample Request
+```java
+```
 
-##### Parameters
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "tenant": {
+    "tenantId": "6332e1f84a34b52444ff72b9",
+    "iamUserId": "58372",
+    "erpTenantId": "75531",
+    "organizationName": "SingaporeTEst",
+    "name": ",
+    "companyCode": ",
+    "phone": ",
+    "address": {
+      "addressLine1": ",
+      "addressLine2": ",
+      "zipCode": ",
+      "city": ",
+      "state": ",
+      "country": "SG",
+      "suburb": ",
+      "county": "
+    },
+    "fax": ",
+    "currency": "SGD",
+    "orgSetupCompleted": true,
+    "complianceEnabled": false,
+    "multiCurrencyEnabled": false,
+    "isWorkLocation": false,
+    "profileStages": {
+      "companyDetails": true,
+      "paySchedule": true,
+      "employeeDetails": true,
+      "paymentDetails": false,
+      "cpfDetails": true,
+      "taxDetails": false,
+      "payrollComponents": true,
+      "completeEmployeeProfiles": false,
+      "bankDetails": false,
+      "filingAuthorization": false
+    },
+    "payrunCheckList": null,
+    "website": ",
+    "emailId": "rohan_us_temp@temp.deskera.xyz",
+    "countryCode": "SG",
+    "workWeekDetails": [
+      {
+        "day": "monday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "tuesday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "wednesday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "thursday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "friday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "saturday",
+        "isWorkingDay": false,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "sunday",
+        "isWorkingDay": false,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      }
+    ],
+    "dateOfCreation": "2022-09-27T08:53:56.678Z",
+    "companyId": ",
+    "legalEntityName": ",
+    "contactNumber": ",
+    "companySignatory": ",
+    "businessClassification": {
+      "id": "000000000000000000000000",
+      "dwollaId": ",
+      "name": ",
+      "industryClassification": {
+        "dwollaId": ",
+        "name": "
+      }
+    },
+    "UBI": {
+      "type": ",
+      "value": "
+    },
+    "businessType": ",
+    "lineOfBusiness": ",
+    "businessDescription": ",
+    "UMR": 0,
+    "companyEmail": ",
+    "compliance": {
+      "@type": "type.googleapis.com/v1.DefaultCompliance",
+      "countryCode": "
+    },
+    "signatoryVerificationStatus": ",
+    "tenantConfiguration": {
+      "countryCode": "SG",
+      "tenantId": "6332e1f84a34b52444ff72b9",
+      "financialYear": {
+        "startDate": "1900-01-01T00:00:00Z",
+        "endDate": "1900-12-31T00:00:00Z"
+      },
+      "investmentConfig": {
+        "declarationConfig": [],
+        "proofOfInvestmentConfig": []
+      },
+      "confId": "6332e1f84a34b52444ff72c3",
+      "dateFormat": "dd-MM-yyyy",
+      "decimalFormat": "2",
+      "geofencing": false
+    },
+    "dwollaDocumentRequiredFor": ",
+    "oldFlow": false,
+    "isCashfreeEnabled": false,
+    "isAddBankAcc": false,
+    "checkNumber": "0",
+    "isLocationActive": false,
+    "locationType": ",
+    "checkHQIntegration": false,
+    "checkHQCompanyCreated": false,
+    "checkHqError": null,
+    "isCheckhqOffCyclePaymentEnabled": false,
+    "isPaypalPaymentEnabled": false,
+    "payrunCalcCriteria": "numberOfWorkingDaysInMonth",
+    "enableShiftManagement": true
+  }
+}
+```
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1Tenant](#v1tenant) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetTenantResponse](#v1gettenantresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
 #### PUT
 ##### Summary
@@ -79,7 +226,302 @@ Update a tenant.
 | 200 | A successful response. | [v1GetTenantResponse](#v1gettenantresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/business-classifications
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants
+```
+
+##### Curl
+
+```java
+curl-X'PUT'\'https://bifrost-us.deskera.com/v1/people/tenants'\-H'accept: application/json'\-H'x-access-token: sampleaccesstoken'\-H'Content-Type: application/json'\-d'{   "tenantId": "6332e1f84a34b52444ff72b9",   "iamUserId": "58372",   "erpTenantId": "75531",   "organizationName": "SingaporeTEst",   "name": ",   "companyCode": ",   "phone": ",   "address": {     "addressLine1": ",     "addressLine2": ",     "zipCode": ",     "city": ",     "state": ",     "country": "SG",     "suburb": ",     "county": "   },   "fax": ",   "currency": "SGD",   "orgSetupCompleted": true,   "complianceEnabled": false,   "multiCurrencyEnabled": false,   "isWorkLocation": false,   "profileStages": {     "companyDetails": true,     "paySchedule": true,     "employeeDetails": true,     "paymentDetails": false,     "cpfDetails": true,     "taxDetails": false,     "payrollComponents": true,     "completeEmployeeProfiles": false,     "bankDetails": false,     "filingAuthorization": false   },   "payrunCheckList": null,   "website": ",   "emailId": "rohan_us_temp@temp.deskera.xyz",   "countryCode": "SG",   "workWeekDetails": [     {       "day": "monday",       "isWorkingDay": true,       "startTime": "09:00 AM",       "endTime": "06:00 PM",       "duration": 9     },     {       "day": "tuesday",       "isWorkingDay": true,       "startTime": "09:00 AM",       "endTime": "06:00 PM",       "duration": 9     },     {       "day": "wednesday",       "isWorkingDay": true,       "startTime": "09:00 AM",       "endTime": "06:00 PM",       "duration": 9     },     {       "day": "thursday",       "isWorkingDay": true,       "startTime": "09:00 AM",       "endTime": "06:00 PM",       "duration": 9     },     {       "day": "friday",       "isWorkingDay": true,       "startTime": "09:00 AM",       "endTime": "06:00 PM",       "duration": 9     },     {       "day": "saturday",       "isWorkingDay": false,       "startTime": "09:00 AM",       "endTime": "06:00 PM",       "duration": 9     },     {       "day": "sunday",       "isWorkingDay": false,       "startTime": "09:00 AM",       "endTime": "06:00 PM",       "duration": 9     }   ],   "dateOfCreation": "2022-09-27T08:53:56.678Z",   "companyId": ",   "legalEntityName": ",   "contactNumber": ",   "companySignatory": ",   "businessClassification": {     "id": "000000000000000000000000",     "dwollaId": ",     "name": ",     "industryClassification": {       "dwollaId": ",       "name": "     }   },   "UBI": {     "type": ",     "value": "   },   "businessType": ",   "lineOfBusiness": ",   "businessDescription": ",   "UMR": 0,   "companyEmail": ",   "compliance": {     "@type": "type.googleapis.com/v1.DefaultCompliance",     "countryCode": "   },   "signatoryVerificationStatus": ",   "tenantConfiguration": null,   "dwollaDocumentRequiredFor": ",   "oldFlow": false,   "isCashfreeEnabled": false,   "isAddBankAcc": false,   "checkNumber": "0",   "isLocationActive": false,   "locationType": ",   "checkHQIntegration": false,   "checkHQCompanyCreated": false,   "checkHqError": null,   "isCheckhqOffCyclePaymentEnabled": false,   "isPaypalPaymentEnabled": false,   "payrunCalcCriteria": "numberOfWorkingDaysInMonth",   "enableShiftManagement": false }'
+
+```
+
+
+
+##### Sample Request
+```java
+{
+  "tenantId": "6332e1f84a34b52444ff72b9",
+  "iamUserId": "58372",
+  "erpTenantId": "75531",
+  "organizationName": "SingaporeTEst",
+  "name": ",
+  "companyCode": ",
+  "phone": ",
+  "address": {
+    "addressLine1": ",
+    "addressLine2": ",
+    "zipCode": ",
+    "city": ",
+    "state": ",
+    "country": "SG",
+    "suburb": ",
+    "county": "
+  },
+  "fax": ",
+  "currency": "SGD",
+  "orgSetupCompleted": true,
+  "complianceEnabled": false,
+  "multiCurrencyEnabled": false,
+  "isWorkLocation": false,
+  "profileStages": {
+    "companyDetails": true,
+    "paySchedule": true,
+    "employeeDetails": true,
+    "paymentDetails": false,
+    "cpfDetails": true,
+    "taxDetails": false,
+    "payrollComponents": true,
+    "completeEmployeeProfiles": false,
+    "bankDetails": false,
+    "filingAuthorization": false
+  },
+  "payrunCheckList": null,
+  "website": ",
+  "emailId": "rohan_us_temp@temp.deskera.xyz",
+  "countryCode": "SG",
+  "workWeekDetails": [
+    {
+      "day": "monday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "tuesday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "wednesday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "thursday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "friday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "saturday",
+      "isWorkingDay": false,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "sunday",
+      "isWorkingDay": false,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    }
+  ],
+  "dateOfCreation": "2022-09-27T08:53:56.678Z",
+  "companyId": ",
+  "legalEntityName": ",
+  "contactNumber": ",
+  "companySignatory": ",
+  "businessClassification": {
+    "id": "000000000000000000000000",
+    "dwollaId": ",
+    "name": ",
+    "industryClassification": {
+      "dwollaId": ",
+      "name": "
+    }
+  },
+  "UBI": {
+    "type": ",
+    "value": "
+  },
+  "businessType": ",
+  "lineOfBusiness": ",
+  "businessDescription": ",
+  "UMR": 0,
+  "companyEmail": ",
+  "compliance": {
+    "@type": "type.googleapis.com/v1.DefaultCompliance",
+    "countryCode": "
+  },
+  "signatoryVerificationStatus": ",
+  "tenantConfiguration": null,
+  "dwollaDocumentRequiredFor": ",
+  "oldFlow": false,
+  "isCashfreeEnabled": false,
+  "isAddBankAcc": false,
+  "checkNumber": "0",
+  "isLocationActive": false,
+  "locationType": ",
+  "checkHQIntegration": false,
+  "checkHQCompanyCreated": false,
+  "checkHqError": null,
+  "isCheckhqOffCyclePaymentEnabled": false,
+  "isPaypalPaymentEnabled": false,
+  "payrunCalcCriteria": "numberOfWorkingDaysInMonth",
+  "enableShiftManagement": true
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "tenant": {
+    "tenantId": "6332e1f84a34b52444ff72b9",
+    "iamUserId": "58372",
+    "erpTenantId": "75531",
+    "organizationName": "SingaporeTEst",
+    "name": ",
+    "companyCode": ",
+    "phone": ",
+    "address": {
+      "addressLine1": ",
+      "addressLine2": ",
+      "zipCode": ",
+      "city": ",
+      "state": ",
+      "country": "SG",
+      "suburb": ",
+      "county": "
+    },
+    "fax": ",
+    "currency": "SGD",
+    "orgSetupCompleted": true,
+    "complianceEnabled": false,
+    "multiCurrencyEnabled": false,
+    "isWorkLocation": false,
+    "profileStages": {
+      "companyDetails": true,
+      "paySchedule": true,
+      "employeeDetails": true,
+      "paymentDetails": false,
+      "cpfDetails": true,
+      "taxDetails": false,
+      "payrollComponents": true,
+      "completeEmployeeProfiles": false,
+      "bankDetails": false,
+      "filingAuthorization": false
+    },
+    "payrunCheckList": null,
+    "website": ",
+    "emailId": "rohan_us_temp@temp.deskera.xyz",
+    "countryCode": "SG",
+    "workWeekDetails": [
+      {
+        "day": "monday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "tuesday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "wednesday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "thursday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "friday",
+        "isWorkingDay": true,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "saturday",
+        "isWorkingDay": false,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      },
+      {
+        "day": "sunday",
+        "isWorkingDay": false,
+        "startTime": "09:00 AM",
+        "endTime": "06:00 PM",
+        "duration": 9
+      }
+    ],
+    "dateOfCreation": "2022-09-27T08:53:56.678Z",
+    "companyId": ",
+    "legalEntityName": ",
+    "contactNumber": ",
+    "companySignatory": ",
+    "businessClassification": {
+      "id": "000000000000000000000000",
+      "dwollaId": ",
+      "name": ",
+      "industryClassification": {
+        "dwollaId": ",
+        "name": "
+      }
+    },
+    "UBI": {
+      "type": ",
+      "value": "
+    },
+    "businessType": ",
+    "lineOfBusiness": ",
+    "businessDescription": ",
+    "UMR": 0,
+    "companyEmail": ",
+    "compliance": {
+      "@type": "type.googleapis.com/v1.DefaultCompliance",
+      "countryCode": "
+    },
+    "signatoryVerificationStatus": ",
+    "tenantConfiguration": null,
+    "dwollaDocumentRequiredFor": ",
+    "oldFlow": false,
+    "isCashfreeEnabled": false,
+    "isAddBankAcc": false,
+    "checkNumber": "0",
+    "isLocationActive": false,
+    "locationType": ",
+    "checkHQIntegration": false,
+    "checkHQCompanyCreated": false,
+    "checkHqError": null,
+    "isCheckhqOffCyclePaymentEnabled": false,
+    "isPaypalPaymentEnabled": false,
+    "payrunCalcCriteria": "numberOfWorkingDaysInMonth",
+    "enableShiftManagement": true
+  }
+}
+```
+### Business classifications
 
 #### GET
 ##### Summary
@@ -119,55 +561,7 @@ Insert dwolla business classifications
 | 200 | A successful response. | [v1BusinessClassificationsResponse](#v1businessclassificationsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/check-hq/sync
-
-#### POST
-##### Summary
-
-Sync Data From CheckHQ To People
-
-##### Description
-
-Sync Data From CheckHQ To People
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1CheckHQSyncRequest](#v1checkhqsyncrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1CheckHQSyncResponse](#v1checkhqsyncresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/check/component
-
-#### POST
-##### Summary
-
-Get Check Component Urls
-
-##### Description
-
-Get Check Component Urls
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1CheckComponentRequest](#v1checkcomponentrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1CheckComponentUrlResponse](#v1checkcomponenturlresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/configuration
+### Tenant Configurations
 
 #### GET
 ##### Summary
@@ -184,6 +578,64 @@ Get tenant configuration for company
 | ---- | ----------- | ------ |
 | 200 | A successful response. | [v1TenantConfigurationResponse](#v1tenantconfigurationresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/configuration
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  https://bifrost-us.deskera.com/v1/people/tenants/configuration' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "countryCode": "string",
+  "tenantId": "string",
+  "financialYear": {
+    "startDate": "2022-10-28T07:26:09.482Z",
+    "endDate": "2022-10-28T07:26:09.482Z"
+  },
+  "investmentConfig": {
+    "declarationConfig": [
+      {
+        "declarationStartDate": "2022-10-28T07:26:09.482Z",
+        "declarationEndDate": "2022-10-28T07:26:09.482Z",
+        "declarationLockStatus": true,
+        "considerForITDeclaration": true,
+        "declarationEffectiveMonth": "string",
+        "active": true,
+        "id": "string"
+      }
+    ],
+    "proofOfInvestmentConfig": [
+      {
+        "proofOfInvestmentStartDate": "2022-10-28T07:26:09.482Z",
+        "proofOfInvestmentEndDate": "2022-10-28T07:26:09.482Z",
+        "proofOfInvestmentLockStatus": true,
+        "active": true,
+        "id": "string"
+      }
+    ]
+  },
+  "confId": "string",
+  "dateFormat": "string",
+  "decimalFormat": "string",
+  "geofencing": true
+}
+```
 
 #### PATCH
 ##### Summary
@@ -207,7 +659,163 @@ Update tenant configuration for company
 | 200 | A successful response. | [v1TenantConfigurationResponse](#v1tenantconfigurationresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/country-feature/{countryCode}
+
+### Configuration stage of an Organization/Company
+
+#### PUT
+##### Summary
+
+Update a tenant
+
+##### Description
+
+Update a tenant.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| stage | path |  | Yes | string |
+| body | body |  | Yes | [v1ProfileStage](#v1profilestage) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1TenantProfileStagesResponse](#v1tenantprofilestagesresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/profile/cpfDetails
+```
+
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/profile/cpfDetails' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "stage": "cpfDetails"
+}'
+```
+
+##### Sample Request
+```java
+{
+  "stage": "cpfDetails"
+}
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "tenantId": "6332e1f84a34b52444ff72b9",
+  "profileStages": {
+    "companyDetails": true,
+    "paySchedule": true,
+    "employeeDetails": true,
+    "paymentDetails": false,
+    "cpfDetails": true,
+    "taxDetails": false,
+    "payrollComponents": true,
+    "completeEmployeeProfiles": false,
+    "bankDetails": false,
+    "filingAuthorization": false
+  }
+}
+```
+
+### Fetch minimal Organization/Company Info
+
+#### GET
+##### Summary
+
+Get tenant info
+
+##### Description
+
+Get tenant info based on its tenant ID contained in auth token
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1GetTenantShortInfoResponse](#v1gettenantshortinforesponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/tenant-short-info
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/tenant-short-info' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "tenantShortInfo": {
+    "tenantId": "6332e1f84a34b52444ff72b9",
+    "organizationName": "SingaporeTEst",
+    "name": "Rohan Test",
+    "companyCode": ",
+    "phone": ",
+    "address": {
+      "addressLine1": ",
+      "addressLine2": ",
+      "zipCode": ",
+      "city": ",
+      "state": ",
+      "country": "SG",
+      "suburb": ",
+      "county": "
+    },
+    "fax": ",
+    "currency": "SGD",
+    "countryCode": "SG",
+    "companyId": ",
+    "legalEntityName": ",
+    "contactNumber": ",
+    "businessClassification": {
+      "id": "000000000000000000000000",
+      "dwollaId": ",
+      "name": ",
+      "industryClassification": {
+        "dwollaId": ",
+        "name": "
+      }
+    },
+    "companySignatory": ",
+    "companyEmail": ",
+    "oldFlow": false,
+    "isAddBankAcc": false,
+    "checkNumber": "0",
+    "isLocationActive": false,
+    "locationType": "
+  }
+}
+```
+
+
+### Get list features for your Organization/Company
 
 #### GET
 ##### Summary
@@ -231,7 +839,35 @@ Get Features for Country
 | 200 | A successful response. | [v1CountryFeaturesResponse](#v1countryfeaturesresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/email/validate
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/country-feature/US
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/country-feature/US' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "isRevertPayrunAllowed": false,
+  "isDeletePayrunAllowed": false,
+  "isEmployeeExportEnabled": false
+}
+```
+
+### Validate emails for company/users/employees
 
 #### GET
 ##### Summary
@@ -257,31 +893,36 @@ Check email exist for any user or for company
 | 200 | A successful response. | [v1DuplicateEmailResponse](#v1duplicateemailresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/filter/validate
 
-#### GET
-##### Summary
 
-Filter email
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/email/validate?emailId=shubham%40gmail.com&contact=9392939442
+```
 
-##### Description
+##### Curl
 
-Filter email
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/email/validate?emailId=shubham%40gmail.com&contact=9392939442' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
 
-##### Parameters
+##### Sample Request
+```java
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| countryCode | query |  | No | string |
+```
 
-##### Responses
+##### Sample Response
+```java
+{
+  "isdupliacateEmail": false,
+  "isdupliacateContact": false
+}
 
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1UpdatedCount](#v1updatedcount) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/geofencing/plans
+```
+### Geo-locations 
 
 #### GET
 ##### Summary
@@ -299,7 +940,34 @@ Get geolocations values of the tenant by iamUserId
 | 200 | A successful response. | [v1GeoFencingPlansResponse](#v1geofencingplansresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/integration-mapping
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/geofencing/plans
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/geofencing/plans' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "plans": [
+    "ProfessionalPlus"
+  ]
+}
+```
+### Fetch Books Integration for JE
 
 #### GET
 ##### Summary
@@ -317,39 +985,528 @@ Get Integration Mapping.
 | 200 | A successful response. | [v1IntegrationMappingResponse](#v1integrationmappingresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/internal/tenantInfo
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/integration-mapping
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/integration-mapping' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "id": "629636e7d3e4fba66b81d717",
+  "tenantId": "629636e6d3e4fba66b81d705",
+  "erpTenantId": "74192",
+  "countryCode": "IN",
+  "active": true,
+  "whenJEPosted": "payDate",
+  "mapping": [
+    {
+      "payType": "Earnings",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "Basic",
+          "id": "629636e7772d5f6a6954c2a9",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Bonus",
+          "id": "629636e7772d5f6a6954c2aa",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Conveyance Allowance",
+          "id": "629636e7772d5f6a6954c2a7",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Fixed Allowance",
+          "id": "629636e7772d5f6a6954c2a6",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Commission",
+          "id": "629636e7772d5f6a6954c2ab",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "HRA",
+          "id": "629636e7772d5f6a6954c2a8",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Transport Allowance",
+          "id": "629636e7772d5f6a6954c2ac",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        }
+      ]
+    },
+    {
+      "payType": "Employee Deductions",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "EPF Contribution",
+          "id": "EPF",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "ESI",
+          "id": "ESI",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "Income Tax",
+          "id": "Income Tax",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "Professional Tax",
+          "id": "Professional Tax",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        }
+      ]
+    },
+    {
+      "payType": "Employer Contributions",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "EPF Contribution",
+          "id": "EPF",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "ESI",
+          "id": "ESI",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "EPS",
+          "id": "EPS",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Toggle Books Integration for JE
+
+#### PATCH
+##### Summary
+
+Toggle Integration Mapping
+
+##### Description
+
+Toggle Integration Mapping.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body |  | Yes | [v1ToggleIntegrationMappingRequest](#v1toggleintegrationmappingrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | A successful response. | [v1IntegrationMappingResponse](#v1integrationmappingresponse) |
+| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/integration-mapping
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/integration-mapping' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "id": "629636e7d3e4fba66b81d717",
+  "tenantId": "629636e6d3e4fba66b81d705",
+  "erpTenantId": "74192",
+  "countryCode": "IN",
+  "active": true,
+  "whenJEPosted": "payDate",
+  "mapping": [
+    {
+      "payType": "Earnings",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "Basic",
+          "id": "629636e7772d5f6a6954c2a9",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Bonus",
+          "id": "629636e7772d5f6a6954c2aa",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Conveyance Allowance",
+          "id": "629636e7772d5f6a6954c2a7",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Fixed Allowance",
+          "id": "629636e7772d5f6a6954c2a6",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Commission",
+          "id": "629636e7772d5f6a6954c2ab",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "HRA",
+          "id": "629636e7772d5f6a6954c2a8",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Transport Allowance",
+          "id": "629636e7772d5f6a6954c2ac",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        }
+      ]
+    },
+    {
+      "payType": "Employee Deductions",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "EPF Contribution",
+          "id": "EPF",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "ESI",
+          "id": "ESI",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "Income Tax",
+          "id": "Income Tax",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "Professional Tax",
+          "id": "Professional Tax",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        }
+      ]
+    },
+    {
+      "payType": "Employer Contributions",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "EPF Contribution",
+          "id": "EPF",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "ESI",
+          "id": "ESI",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "EPS",
+          "id": "EPS",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+### Update Books Integration Mappings for JE
 
 #### PUT
+##### Summary
+
+Update Integration Mapping
+
+##### Description
+
+Update Integration Mapping.
+
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1Tenant](#v1tenant) |
+| body | body |  | Yes | [v1IntegrationMappingRequest](#v1integrationmappingrequest) |
 
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetTenantResponse](#v1gettenantresponse) |
+| 200 | A successful response. | [v1IntegrationMappingResponse](#v1integrationmappingresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/internal/tenantInfo/{erpTenantId}
 
-#### GET
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/update/integration-mapping```
+```
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/update/integration-mapping' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{"active":true,"countryCode":"SG","erpTenantId":"75531","id":"6332e1f94a25f774ed3a4fa2","tenantId":"6332e1f84a34b52444ff72b9","whenJEPosted":"payDate","mapping":[{"expenseAccount":"ACC70003","liabilityAccount":"ACC40004","payType":"Earnings","components":[{"name":"Reimbursement","id":"6332e1fa99b248f47220d2d3","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"AWS","id":"6332e1fa99b248f47220d2d4","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"Bonus","id":"6332e1fa99b248f47220d2d6","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"Allowance","id":"6332e1fa99b248f47220d2d7","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"Commission","id":"6332e1fa99b248f47220d2d5","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false}]},{"expenseAccount":"ACC70003","liabilityAccount":"ACC40004","payType":"Employee Deductions","components":[{"name":"SINDA","id":"sinda","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"CDAC","id":"cdac","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"MBMF","id":"mbmf","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"ECF","id":"ecf","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"CPF","id":"cpfContribution","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true}]},{"expenseAccount":"ACC70003","liabilityAccount":"ACC40004","payType":"Employer Contributions","components":[{"name":"CPF","id":"cpfContribution","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"SDL","id":"employerSDL","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"FWL","id":"employerFWL","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true}]}]}'```
+```
+##### Sample Request
+```java
+{"active":true,"countryCode":"SG","erpTenantId":"75531","id":"6332e1f94a25f774ed3a4fa2","tenantId":"6332e1f84a34b52444ff72b9","whenJEPosted":"payDate","mapping":[{"expenseAccount":"ACC70003","liabilityAccount":"ACC40004","payType":"Earnings","components":[{"name":"Reimbursement","id":"6332e1fa99b248f47220d2d3","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"AWS","id":"6332e1fa99b248f47220d2d4","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"Bonus","id":"6332e1fa99b248f47220d2d6","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"Allowance","id":"6332e1fa99b248f47220d2d7","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false},{"name":"Commission","id":"6332e1fa99b248f47220d2d5","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":false}]},{"expenseAccount":"ACC70003","liabilityAccount":"ACC40004","payType":"Employee Deductions","components":[{"name":"SINDA","id":"sinda","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"CDAC","id":"cdac","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"MBMF","id":"mbmf","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"ECF","id":"ecf","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"CPF","id":"cpfContribution","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true}]},{"expenseAccount":"ACC70003","liabilityAccount":"ACC40004","payType":"Employer Contributions","components":[{"name":"CPF","id":"cpfContribution","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"SDL","id":"employerSDL","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true},{"name":"FWL","id":"employerFWL","expenseAccount":"ACC70003","liabilityAccount":"ACC40004","isTax":true}]}]}```
+```
+##### Sample Response
+```java
+{
+  "id": "6332e1f94a25f774ed3a4fa2",
+  "tenantId": "6332e1f84a34b52444ff72b9",
+  "erpTenantId": "75531",
+  "countryCode": "SG",
+  "active": true,
+  "whenJEPosted": "payDate",
+  "mapping": [
+    {
+      "payType": "Earnings",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "Reimbursement",
+          "id": "6332e1fa99b248f47220d2d3",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "AWS",
+          "id": "6332e1fa99b248f47220d2d4",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Bonus",
+          "id": "6332e1fa99b248f47220d2d6",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Allowance",
+          "id": "6332e1fa99b248f47220d2d7",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        },
+        {
+          "name": "Commission",
+          "id": "6332e1fa99b248f47220d2d5",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": false
+        }
+      ]
+    },
+    {
+      "payType": "Employee Deductions",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "SINDA",
+          "id": "sinda",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "CDAC",
+          "id": "cdac",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "MBMF",
+          "id": "mbmf",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "ECF",
+          "id": "ecf",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "CPF",
+          "id": "cpfContribution",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        }
+      ]
+    },
+    {
+      "payType": "Employer Contributions",
+      "expenseAccount": "ACC70003",
+      "liabilityAccount": "ACC40004",
+      "components": [
+        {
+          "name": "CPF",
+          "id": "cpfContribution",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "SDL",
+          "id": "employerSDL",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        },
+        {
+          "name": "FWL",
+          "id": "employerFWL",
+          "expenseAccount": "ACC70003",
+          "liabilityAccount": "ACC40004",
+          "isTax": true
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### PUT
+##### Summary
+
+Update Payment Integration Status
+
+##### Description
+
+Update Payment Integration Status.
+
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| erpTenantId | path |  | Yes | string (int64) |
+| status | path |  | Yes | string |
+| body | body |  | Yes | [v1PaymentIntegrationStatus](#v1paymentintegrationstatus) |
 
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetTenantResponse](#v1gettenantresponse) |
+| 200 | A successful response. | [v1PaymentIntegrationStatus](#v1paymentintegrationstatus) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/leave-entitlement/leaveBalance
+### Fetch Leave balances for employees
 
 #### GET
 ##### Summary
@@ -394,7 +1551,82 @@ Get Entitlement.
 | 200 | A successful response. | [v1EntitlementResponse](#v1entitlementresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/notification-settings
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/leave-entitlement/leaveBalance?limit=10&currentPage=1&orderBy.field=updatedAt&orderBy.order=desc&field=2022-01-01,2022-12-31
+```
+
+##### Curl
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/leave-entitlement/leaveBalance?limit=10&currentPage=1&orderBy.field=updatedAt&orderBy.order=desc&field=2022-01-01,2022-12-31'\
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "leaveTypes": [
+    {
+      "_id": "635277725c3a1f94f308213f",
+      "leaveDescription": "",
+      "leaveType": "A",
+      "colorCode": "green",
+      "isPaid": false,
+      "leaveStatus": "Active",
+      "daysPerYear": 10,
+      "isApplicableToAll": true,
+      "isAllowForUnpaidLeave": false
+    }
+  ],
+  "leaveDetails": [
+    {
+      "users": {
+        "firstName": "Rohan",
+        "lastName": "Test",
+        "designation": "qa",
+        "iamUserId": "58372",
+        "roles": [
+          
+        ]
+      },
+      "leaveBalanace": [
+        {
+          "_id": "635277725c3a1f94f308213f",
+          "leaveType": "A",
+          "entitledLeaves": 10,
+          "carryForwardLeaves": 0,
+          "earnedLeaves": 10,
+          "takenLeaves": 2,
+          "balanceLeaves": 8,
+          "colorCode": "",
+          "isPaid": false,
+          "appliedLeaves": 0,
+          "isFromLeaveDetails": false,
+          "isAllowForUnpaidLeave": false,
+          "adjustedLeaves": 0,
+          "carryForwardExpiredBal": 0
+        }
+      ]
+    },
+    
+  ],
+  "filterConfig": {
+    "page": "1",
+    "numberOfElements": "6",
+    "sizePerPage": "10",
+    "totalPage": "1",
+    "numberOfRecords": "6"
+  }
+}
+```
+### Organization/Company notification settings
 
 #### GET
 ##### Summary
@@ -412,6 +1644,60 @@ Get notification settings values of the user
 | 200 | A successful response. | [v1TenantNotificationSetting](#v1tenantnotificationsetting) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/notification-settings
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/notification-settings' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "id": "",
+  "tenantId": "75531",
+  "settings": [
+    {
+      "id": "6256cfa07585d431b22398a6",
+      "name": "Payrun Emails",
+      "value": true,
+      "key": "PAYRUN_EMAILS",
+      "type": "EMAIL",
+      "description": "Setting to enable/disable payrun processing email notifications"
+    },
+    {
+      "id": "6258050af909e7b6a773e072",
+      "name": "Test Emails",
+      "value": true,
+      "key": "TEST_EMAILS",
+      "type": "EMAIL",
+      "description": "Setting to enable/disable  test processing email notifications"
+    },
+    {
+      "id": "62580532f909e7b6a773e073",
+      "name": "Payrun Bell",
+      "value": true,
+      "key": "PAYRUN_BELL",
+      "type": "BELL",
+      "description": "Setting to enable/disable payrun processing bell notifications"
+    }
+  ],
+  "updatedAt": null,
+  "updatedBy": "0"
+}
+```
 #### POST
 ##### Summary
 
@@ -434,7 +1720,7 @@ Set notification settings values of the user
 | 200 | A successful response. | [v1TenantNotificationSetting](#v1tenantnotificationsetting) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/payrun/checklist
+### Organization/Comapny Checlist for running payruns
 
 #### GET
 ##### Summary
@@ -452,6 +1738,48 @@ Get tenant payrun checklist.
 | 200 | A successful response. | [v1PayrunCheckListResponse](#v1payrunchecklistresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+##### Request URL
+```java
+ https://bifrost-us.deskera.com/v1/people/tenants/payrun/checklist
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/payrun/checklist' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "checklist": [
+    {
+      "index": "0",
+      "isChecked": false,
+      "question": "Have you filled your Company Details?"
+    },
+    {
+      "index": "1",
+      "isChecked": false,
+      "question": "Have you created a CPF Account?"
+    },
+    {
+      "index": "2",
+      "isChecked": false,
+      "question": "Have you created a Pay Schedule for your employees?"
+    }
+  ]
+}
+```
 #### PUT
 ##### Summary
 
@@ -474,32 +1802,8 @@ Update tenant payrun checklist
 | 200 | A successful response. | [v1PayrunCheckListResponse](#v1payrunchecklistresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/profile/{stage}
 
-#### PUT
-##### Summary
-
-Update a tenant
-
-##### Description
-
-Update a tenant.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| stage | path |  | Yes | string |
-| body | body |  | Yes | [v1ProfileStage](#v1profilestage) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1TenantProfileStagesResponse](#v1tenantprofilestagesresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/roles/details
+### Get all the roles available for users
 
 #### GET
 ##### Summary
@@ -523,122 +1827,81 @@ Get tenant roles.
 | 200 | A successful response. | [v1TenantRoleMappingResponse](#v1tenantrolemappingresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/tax/{id}
 
-#### DELETE
-##### Summary
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/roles/details
+```
 
-Delete tax detail
+##### Curl
 
-##### Description
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/roles/details' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
 
-Delete new tax details.
+##### Sample Request
+```java
+```
 
-##### Parameters
+##### Sample Response
+```java
+{
+  "status": "OK",
+  "tenantRoles": {
+    "id": "6332e1f84a34b52444ff72ba",
+    "erpTenantId": "75531",
+    "roles": [
+      {
+        "roleId": "5f4fd64782e6aa8ee90378ec",
+        "name": "HR",
+        "appName": "PEOPLE",
+        "policies": []
+      },
+      {
+        "roleId": "5f4fd64782e6aa8ee90378eb",
+        "name": "ADMIN",
+        "appName": "PEOPLE",
+        "policies": []
+      },
+      {
+        "roleId": "5f4fd64782e6aa8ee90378ef",
+        "name": "OWNER",
+        "appName": "PEOPLE",
+        "policies": []
+      },
+      {
+        "roleId": "5f4fd64782e6aa8ee90378ed",
+        "name": "MANAGER",
+        "appName": "PEOPLE",
+        "policies": []
+      },
+      {
+        "roleId": "5f4fd64782e6aa8ee90378ee",
+        "name": "USER",
+        "appName": "PEOPLE",
+        "policies": []
+      },
+      {
+        "roleId": "61d28833b26d810f034b96a2",
+        "name": "PAID_USER",
+        "appName": "PEOPLE",
+        "policies": []
+      },
+      {
+        "roleId": "62a32b0a13c229e91fb26036",
+        "name": "HIRINGADMIN",
+        "appName": "PEOPLE",
+        "policies": []
+      }
+    ]
+  }
+}
+```
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| id | path |  | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1TaxDetailResponse](#v1taxdetailresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/tenant-short-info
-
-#### GET
-##### Summary
-
-Get tenant info
-
-##### Description
-
-Get tenant info based on its tenant ID contained in auth token
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1GetTenantShortInfoResponse](#v1gettenantshortinforesponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/toggle-integration-mapping
-
-#### PATCH
-##### Summary
-
-Toggle Integration Mapping
-
-##### Description
-
-Toggle Integration Mapping.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1ToggleIntegrationMappingRequest](#v1toggleintegrationmappingrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1IntegrationMappingResponse](#v1integrationmappingresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/update/integration-mapping
-
-#### PUT
-##### Summary
-
-Update Integration Mapping
-
-##### Description
-
-Update Integration Mapping.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| body | body |  | Yes | [v1IntegrationMappingRequest](#v1integrationmappingrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1IntegrationMappingResponse](#v1integrationmappingresponse) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/update/payment-integration-status/{status}
-
-#### PUT
-##### Summary
-
-Update Payment Integration Status
-
-##### Description
-
-Update Payment Integration Status.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| status | path |  | Yes | string |
-| body | body |  | Yes | [v1PaymentIntegrationStatus](#v1paymentintegrationstatus) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | A successful response. | [v1PaymentIntegrationStatus](#v1paymentintegrationstatus) |
-| default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
-
-### /v1/people/tenants/workweek
+### Manage Organization/Company Workweek 
 
 #### GET
 ##### Summary
@@ -656,6 +1919,80 @@ Get tenant workweek info based on its tenant ID contained in auth token
 | 200 | A successful response. | [v1TenantWorkweekResponse](#v1tenantworkweekresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/workweek
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/workweek' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "workweek": [
+    {
+      "day": "monday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "tuesday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "wednesday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "thursday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "friday",
+      "isWorkingDay": true,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "saturday",
+      "isWorkingDay": false,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    },
+    {
+      "day": "sunday",
+      "isWorkingDay": false,
+      "startTime": "09:00 AM",
+      "endTime": "06:00 PM",
+      "duration": 9
+    }
+  ]
+}
+```
 #### POST
 ##### Parameters
 
@@ -670,7 +2007,299 @@ Get tenant workweek info based on its tenant ID contained in auth token
 | 200 | A successful response. | [v1TenantWorkweekResponse](#v1tenantworkweekresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/tenants/{countryCode}/tax
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants
+```
+
+##### Curl
+
+```java
+curl-X'PUT'\'https://bifrost-us.deskera.com/v1/people/tenants'\-H'accept: application/json'\-H'x-access-token: sampleaccesstoken'\-H'Content-Type: application/json'\-d'{   ""tenantId"": ""6332e1f84a34b52444ff72b9"",   ""iamUserId"": ""58372"",   ""erpTenantId"": ""75531"",   ""organizationName"": ""SingaporeTEst"",   ""name"": """",   ""companyCode"": """",   ""phone"": """",   ""address"": {     ""addressLine1"": """",     ""addressLine2"": """",     ""zipCode"": """",     ""city"": """",     ""state"": """",     ""country"": ""SG"",     ""suburb"": """",     ""county"": """"   },   ""fax"": """",   ""currency"": ""SGD"",   ""orgSetupCompleted"": true,   ""complianceEnabled"": false,   ""multiCurrencyEnabled"": false,   ""isWorkLocation"": false,   ""profileStages"": {     ""companyDetails"": true,     ""paySchedule"": true,     ""employeeDetails"": true,     ""paymentDetails"": false,     ""cpfDetails"": true,     ""taxDetails"": false,     ""payrollComponents"": true,     ""completeEmployeeProfiles"": false,     ""bankDetails"": false,     ""filingAuthorization"": false   },   ""payrunCheckList"": null,   ""website"": """",   ""emailId"": ""rohan_us_temp@temp.deskera.xyz"",   ""countryCode"": ""SG"",   ""workWeekDetails"": [     {       ""day"": ""monday"",       ""isWorkingDay"": true,       ""startTime"": ""09:00 AM"",       ""endTime"": ""06:00 PM"",       ""duration"": 9     },     {       ""day"": ""tuesday"",       ""isWorkingDay"": true,       ""startTime"": ""09:00 AM"",       ""endTime"": ""06:00 PM"",       ""duration"": 9     },     {       ""day"": ""wednesday"",       ""isWorkingDay"": true,       ""startTime"": ""09:00 AM"",       ""endTime"": ""06:00 PM"",       ""duration"": 9     },     {       ""day"": ""thursday"",       ""isWorkingDay"": true,       ""startTime"": ""09:00 AM"",       ""endTime"": ""06:00 PM"",       ""duration"": 9     },     {       ""day"": ""friday"",       ""isWorkingDay"": true,       ""startTime"": ""09:00 AM"",       ""endTime"": ""06:00 PM"",       ""duration"": 9     },     {       ""day"": ""saturday"",       ""isWorkingDay"": false,       ""startTime"": ""09:00 AM"",       ""endTime"": ""06:00 PM"",       ""duration"": 9     },     {       ""day"": ""sunday"",       ""isWorkingDay"": false,       ""startTime"": ""09:00 AM"",       ""endTime"": ""06:00 PM"",       ""duration"": 9     }   ],   ""dateOfCreation"": ""2022-09-27T08:53:56.678Z"",   ""companyId"": """",   ""legalEntityName"": """",   ""contactNumber"": """",   ""companySignatory"": """",   ""businessClassification"": {     ""id"": ""000000000000000000000000"",     ""dwollaId"": """",     ""name"": """",     ""industryClassification"": {       ""dwollaId"": """",       ""name"": """"     }   },   ""UBI"": {     ""type"": """",     ""value"": """"   },   ""businessType"": """",   ""lineOfBusiness"": """",   ""businessDescription"": """",   ""UMR"": 0,   ""companyEmail"": """",   ""compliance"": {     ""@type"": ""type.googleapis.com/v1.DefaultCompliance"",     ""countryCode"": """"   },   ""signatoryVerificationStatus"": """",   ""tenantConfiguration"": null,   ""dwollaDocumentRequiredFor"": """",   ""oldFlow"": false,   ""isCashfreeEnabled"": false,   ""isAddBankAcc"": false,   ""checkNumber"": ""0"",   ""isLocationActive"": false,   ""locationType"": """",   ""checkHQIntegration"": false,   ""checkHQCompanyCreated"": false,   ""checkHqError"": null,   ""isCheckhqOffCyclePaymentEnabled"": false,   ""isPaypalPaymentEnabled"": false,   ""payrunCalcCriteria"": ""numberOfWorkingDaysInMonth"",   ""enableShiftManagement"": false }'
+
+```
+
+##### Sample Request
+```java
+{
+  ""tenantId"": ""6332e1f84a34b52444ff72b9"",
+  ""iamUserId"": ""58372"",
+  ""erpTenantId"": ""75531"",
+  ""organizationName"": ""SingaporeTEst"",
+  ""name"": """",
+  ""companyCode"": """",
+  ""phone"": """",
+  ""address"": {
+    ""addressLine1"": """",
+    ""addressLine2"": """",
+    ""zipCode"": """",
+    ""city"": """",
+    ""state"": """",
+    ""country"": ""SG"",
+    ""suburb"": """",
+    ""county"": """"
+  },
+  ""fax"": """",
+  ""currency"": ""SGD"",
+  ""orgSetupCompleted"": true,
+  ""complianceEnabled"": false,
+  ""multiCurrencyEnabled"": false,
+  ""isWorkLocation"": false,
+  ""profileStages"": {
+    ""companyDetails"": true,
+    ""paySchedule"": true,
+    ""employeeDetails"": true,
+    ""paymentDetails"": false,
+    ""cpfDetails"": true,
+    ""taxDetails"": false,
+    ""payrollComponents"": true,
+    ""completeEmployeeProfiles"": false,
+    ""bankDetails"": false,
+    ""filingAuthorization"": false
+  },
+  ""payrunCheckList"": null,
+  ""website"": """",
+  ""emailId"": ""rohan_us_temp@temp.deskera.xyz"",
+  ""countryCode"": ""SG"",
+  ""workWeekDetails"": [
+    {
+      ""day"": ""monday"",
+      ""isWorkingDay"": true,
+      ""startTime"": ""09:00 AM"",
+      ""endTime"": ""06:00 PM"",
+      ""duration"": 9
+    },
+    {
+      ""day"": ""tuesday"",
+      ""isWorkingDay"": true,
+      ""startTime"": ""09:00 AM"",
+      ""endTime"": ""06:00 PM"",
+      ""duration"": 9
+    },
+    {
+      ""day"": ""wednesday"",
+      ""isWorkingDay"": true,
+      ""startTime"": ""09:00 AM"",
+      ""endTime"": ""06:00 PM"",
+      ""duration"": 9
+    },
+    {
+      ""day"": ""thursday"",
+      ""isWorkingDay"": true,
+      ""startTime"": ""09:00 AM"",
+      ""endTime"": ""06:00 PM"",
+      ""duration"": 9
+    },
+    {
+      ""day"": ""friday"",
+      ""isWorkingDay"": true,
+      ""startTime"": ""09:00 AM"",
+      ""endTime"": ""06:00 PM"",
+      ""duration"": 9
+    },
+    {
+      ""day"": ""saturday"",
+      ""isWorkingDay"": false,
+      ""startTime"": ""09:00 AM"",
+      ""endTime"": ""06:00 PM"",
+      ""duration"": 9
+    },
+    {
+      ""day"": ""sunday"",
+      ""isWorkingDay"": false,
+      ""startTime"": ""09:00 AM"",
+      ""endTime"": ""06:00 PM"",
+      ""duration"": 9
+    }
+  ],
+  ""dateOfCreation"": ""2022-09-27T08:53:56.678Z"",
+  ""companyId"": """",
+  ""legalEntityName"": """",
+  ""contactNumber"": """",
+  ""companySignatory"": """",
+  ""businessClassification"": {
+    ""id"": ""000000000000000000000000"",
+    ""dwollaId"": """",
+    ""name"": """",
+    ""industryClassification"": {
+      ""dwollaId"": """",
+      ""name"": """"
+    }
+  },
+  ""UBI"": {
+    ""type"": """",
+    ""value"": """"
+  },
+  ""businessType"": """",
+  ""lineOfBusiness"": """",
+  ""businessDescription"": """",
+  ""UMR"": 0,
+  ""companyEmail"": """",
+  ""compliance"": {
+    ""@type"": ""type.googleapis.com/v1.DefaultCompliance"",
+    ""countryCode"": """"
+  },
+  ""signatoryVerificationStatus"": """",
+  ""tenantConfiguration"": null,
+  ""dwollaDocumentRequiredFor"": """",
+  ""oldFlow"": false,
+  ""isCashfreeEnabled"": false,
+  ""isAddBankAcc"": false,
+  ""checkNumber"": ""0"",
+  ""isLocationActive"": false,
+  ""locationType"": """",
+  ""checkHQIntegration"": false,
+  ""checkHQCompanyCreated"": false,
+  ""checkHqError"": null,
+  ""isCheckhqOffCyclePaymentEnabled"": false,
+  ""isPaypalPaymentEnabled"": false,
+  ""payrunCalcCriteria"": ""numberOfWorkingDaysInMonth"",
+  ""enableShiftManagement"": true
+}
+```
+
+##### Sample Response
+```java
+{
+  ""status"": ""OK"",
+  ""tenant"": {
+    ""tenantId"": ""6332e1f84a34b52444ff72b9"",
+    ""iamUserId"": ""58372"",
+    ""erpTenantId"": ""75531"",
+    ""organizationName"": ""SingaporeTEst"",
+    ""name"": """",
+    ""companyCode"": """",
+    ""phone"": """",
+    ""address"": {
+      ""addressLine1"": """",
+      ""addressLine2"": """",
+      ""zipCode"": """",
+      ""city"": """",
+      ""state"": """",
+      ""country"": ""SG"",
+      ""suburb"": """",
+      ""county"": """"
+    },
+    ""fax"": """",
+    ""currency"": ""SGD"",
+    ""orgSetupCompleted"": true,
+    ""complianceEnabled"": false,
+    ""multiCurrencyEnabled"": false,
+    ""isWorkLocation"": false,
+    ""profileStages"": {
+      ""companyDetails"": true,
+      ""paySchedule"": true,
+      ""employeeDetails"": true,
+      ""paymentDetails"": false,
+      ""cpfDetails"": true,
+      ""taxDetails"": false,
+      ""payrollComponents"": true,
+      ""completeEmployeeProfiles"": false,
+      ""bankDetails"": false,
+      ""filingAuthorization"": false
+    },
+    ""payrunCheckList"": null,
+    ""website"": """",
+    ""emailId"": ""rohan_us_temp@temp.deskera.xyz"",
+    ""countryCode"": ""SG"",
+    ""workWeekDetails"": [
+      {
+        ""day"": ""monday"",
+        ""isWorkingDay"": true,
+        ""startTime"": ""09:00 AM"",
+        ""endTime"": ""06:00 PM"",
+        ""duration"": 9
+      },
+      {
+        ""day"": ""tuesday"",
+        ""isWorkingDay"": true,
+        ""startTime"": ""09:00 AM"",
+        ""endTime"": ""06:00 PM"",
+        ""duration"": 9
+      },
+      {
+        ""day"": ""wednesday"",
+        ""isWorkingDay"": true,
+        ""startTime"": ""09:00 AM"",
+        ""endTime"": ""06:00 PM"",
+        ""duration"": 9
+      },
+      {
+        ""day"": ""thursday"",
+        ""isWorkingDay"": true,
+        ""startTime"": ""09:00 AM"",
+        ""endTime"": ""06:00 PM"",
+        ""duration"": 9
+      },
+      {
+        ""day"": ""friday"",
+        ""isWorkingDay"": true,
+        ""startTime"": ""09:00 AM"",
+        ""endTime"": ""06:00 PM"",
+        ""duration"": 9
+      },
+      {
+        ""day"": ""saturday"",
+        ""isWorkingDay"": false,
+        ""startTime"": ""09:00 AM"",
+        ""endTime"": ""06:00 PM"",
+        ""duration"": 9
+      },
+      {
+        ""day"": ""sunday"",
+        ""isWorkingDay"": false,
+        ""startTime"": ""09:00 AM"",
+        ""endTime"": ""06:00 PM"",
+        ""duration"": 9
+      }
+    ],
+    ""dateOfCreation"": ""2022-09-27T08:53:56.678Z"",
+    ""companyId"": """",
+    ""legalEntityName"": """",
+    ""contactNumber"": """",
+    ""companySignatory"": """",
+    ""businessClassification"": {
+      ""id"": ""000000000000000000000000"",
+      ""dwollaId"": """",
+      ""name"": """",
+      ""industryClassification"": {
+        ""dwollaId"": """",
+        ""name"": """"
+      }
+    },
+    ""UBI"": {
+      ""type"": """",
+      ""value"": """"
+    },
+    ""businessType"": """",
+    ""lineOfBusiness"": """",
+    ""businessDescription"": """",
+    ""UMR"": 0,
+    ""companyEmail"": """",
+    ""compliance"": {
+      ""@type"": ""type.googleapis.com/v1.DefaultCompliance"",
+      ""countryCode"": """"
+    },
+    ""signatoryVerificationStatus"": """",
+    ""tenantConfiguration"": null,
+    ""dwollaDocumentRequiredFor"": """",
+    ""oldFlow"": false,
+    ""isCashfreeEnabled"": false,
+    ""isAddBankAcc"": false,
+    ""checkNumber"": ""0"",
+    ""isLocationActive"": false,
+    ""locationType"": """",
+    ""checkHQIntegration"": false,
+    ""checkHQCompanyCreated"": false,
+    ""checkHqError"": null,
+    ""isCheckhqOffCyclePaymentEnabled"": false,
+    ""isPaypalPaymentEnabled"": false,
+    ""payrunCalcCriteria"": ""numberOfWorkingDaysInMonth"",
+    ""enableShiftManagement"": true
+  }
+}
+```
+### Manage Tax Details of your organization/Company
 
 #### GET
 ##### Summary
@@ -694,6 +2323,56 @@ Get new tax details.
 | 200 | A successful response. | [v1TaxDetailResponse](#v1taxdetailresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/{countryCode}/tax
+```
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/IN/tax' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+```
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "id": "635ba97f5ced530c2f3be9e0",
+  "erpTenantId": "74192",
+  "federalEmployeeIdNo": ",
+  "businessType": ",
+  "federalFilterType": ",
+  "federalDepositSchedule": ",
+  "receivedFUTATaxCredit": false,
+  "compliance": {
+    "@type": "type.googleapis.com/v1.INTaxDetails",
+    "epefNumber": "AAAAA3245345333",
+    "epfEmployerContribution": "Restrict to 15000",
+    "esiNumber": "45645646456456444",
+    "esiEmployerContribution": 0,
+    "esiEmployeeContribution": 0,
+    "ptNumber": "345343",
+    "epfApplicable": true,
+    "esiApplicable": true,
+    "laborWelfareFund": false,
+    "edliApplicable": false,
+    "epfAdminChargesApplicable": false,
+    "epfContributionInCtc": false,
+    "edliContributionInCtc": false,
+    "epfAdminContributionInCtc": false,
+    "esiContributionInCtc": false,
+    "epfEmployeeContribution": "12% of PF Wage"
+  },
+  "tenantId": "629636e6d3e4fba66b81d705",
+  "hasBeneficialOwners": false,
+  "stateCode": "
+}
+```
 #### POST
 ##### Summary
 
@@ -717,6 +2396,84 @@ Add new tax details.
 | 200 | A successful response. | [v1TaxDetailResponse](#v1taxdetailresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/{countryCode}/tax
+```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people/tenants/IN/tax' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{"compliance":{"@type":"type.googleapis.com/v1.INTaxDetails","epefNumber":"AAAAA3245345333","epfEmployerContribution":"Restrict to 15000","epfEmployeeContribution":"12% of PF Wage","esiNumber":"45645646456456444","esiEmployerContribution":0,"esiEmployeeContribution":0,"ptNumber":"345343","epfApplicable":true,"esiApplicable":true,"edliApplicable":false,"epfAdminChargesApplicable":false,"epfContributionInCtc":false,"edliContributionInCtc":false,"epfAdminContributionInCtc":false,"laborWelfareFund":false,"esiContributionInCtc":false},"countryCode":"IN"}'
+```
+
+##### Sample Request
+```java
+{
+  "compliance": {
+    "@type": "type.googleapis.com/v1.INTaxDetails",
+    "epefNumber": "AAAAA3245345333",
+    "epfEmployerContribution": "Restrict to 15000",
+    "epfEmployeeContribution": "12% of PF Wage",
+    "esiNumber": "45645646456456444",
+    "esiEmployerContribution": 0,
+    "esiEmployeeContribution": 0,
+    "ptNumber": "345343",
+    "epfApplicable": true,
+    "esiApplicable": true,
+    "edliApplicable": false,
+    "epfAdminChargesApplicable": false,
+    "epfContributionInCtc": false,
+    "edliContributionInCtc": false,
+    "epfAdminContributionInCtc": false,
+    "laborWelfareFund": false,
+    "esiContributionInCtc": false
+  },
+  "countryCode": "IN"
+}
+```
+
+##### Sample Response
+```java
+{
+  "id": "635babe3e0c4dfe41091136e",
+  "erpTenantId": "74192",
+  "federalEmployeeIdNo": ",
+  "businessType": ",
+  "federalFilterType": ",
+  "federalDepositSchedule": ",
+  "receivedFUTATaxCredit": false,
+  "compliance": {
+    "@type": "type.googleapis.com/v1.INTaxDetails",
+    "epefNumber": "AAAAA3245345333",
+    "epfEmployerContribution": "Restrict to 15000",
+    "esiNumber": "45645646456456444",
+    "esiEmployerContribution": 0,
+    "esiEmployeeContribution": 0,
+    "ptNumber": "345343",
+    "epfApplicable": true,
+    "esiApplicable": true,
+    "laborWelfareFund": false,
+    "edliApplicable": false,
+    "epfAdminChargesApplicable": false,
+    "epfContributionInCtc": false,
+    "edliContributionInCtc": false,
+    "epfAdminContributionInCtc": false,
+    "esiContributionInCtc": false,
+    "epfEmployeeContribution": "12% of PF Wage"
+  },
+  "tenantId": "629636e6d3e4fba66b81d705",
+  "hasBeneficialOwners": false,
+  "stateCode": "
+}
+```
 #### PUT
 ##### Summary
 
@@ -740,7 +2497,88 @@ Update new tax details.
 | 200 | A successful response. | [v1TaxDetailResponse](#v1taxdetailresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/MY/taxDetails
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/tenants/{countryCode}/tax
+```
+
+##### Curl
+
+```java
+curl -X 'PUT' \
+  'http://localhost:8082/v1/people/tenants/IN/tax' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{"compliance":{"@type":"type.googleapis.com/v1.INTaxDetails","epefNumber":"AAAAA3245345336","epfEmployerContribution":"Restrict to 15000","esiNumber":"45645646456456444","esiEmployerContribution":0,"esiEmployeeContribution":0,"ptNumber":"345343","epfApplicable":true,"esiApplicable":true,"laborWelfareFund":false,"edliApplicable":false,"epfAdminChargesApplicable":false,"epfContributionInCtc":false,"edliContributionInCtc":false,"epfAdminContributionInCtc":false,"esiContributionInCtc":false,"epfEmployeeContribution":"12% of PF Wage"},"id":"635ba97f5ced530c2f3be9e0","countryCode":"IN"}'
+```
+
+##### Sample Request
+```java
+{
+  "compliance": {
+    "@type": "type.googleapis.com/v1.INTaxDetails",
+    "epefNumber": "AAAAA3245345336",
+    "epfEmployerContribution": "Restrict to 15000",
+    "esiNumber": "45645646456456444",
+    "esiEmployerContribution": 0,
+    "esiEmployeeContribution": 0,
+    "ptNumber": "345343",
+    "epfApplicable": true,
+    "esiApplicable": true,
+    "laborWelfareFund": false,
+    "edliApplicable": false,
+    "epfAdminChargesApplicable": false,
+    "epfContributionInCtc": false,
+    "edliContributionInCtc": false,
+    "epfAdminContributionInCtc": false,
+    "esiContributionInCtc": false,
+    "epfEmployeeContribution": "12% of PF Wage"
+  },
+  "id": "635ba97f5ced530c2f3be9e0",
+  "countryCode": "IN"
+}
+```
+
+
+##### Sample Response
+```java
+{
+  "id": "635ba97f5ced530c2f3be9e0",
+  "erpTenantId": "74192",
+  "federalEmployeeIdNo": ",
+  "businessType": ",
+  "federalFilterType": ",
+  "federalDepositSchedule": ",
+  "receivedFUTATaxCredit": false,
+  "compliance": {
+    "@type": "type.googleapis.com/v1.INTaxDetails",
+    "epefNumber": "AAAAA3245345336",
+    "epfEmployerContribution": "Restrict to 15000",
+    "esiNumber": "45645646456456444",
+    "esiEmployerContribution": 0,
+    "esiEmployeeContribution": 0,
+    "ptNumber": "345343",
+    "epfApplicable": true,
+    "esiApplicable": true,
+    "laborWelfareFund": false,
+    "edliApplicable": false,
+    "epfAdminChargesApplicable": false,
+    "epfContributionInCtc": false,
+    "edliContributionInCtc": false,
+    "epfAdminContributionInCtc": false,
+    "esiContributionInCtc": false,
+    "epfEmployeeContribution": "12% of PF Wage"
+  },
+  "tenantId": "629636e6d3e4fba66b81d705",
+  "hasBeneficialOwners": false,
+  "stateCode": "
+}
+```
+
+### Manage Malaysia Country Tax Details
 
 #### POST
 ##### Summary
@@ -786,7 +2624,7 @@ Update MY user tax details.
 | 200 | A successful response. | [v1AddUpdateMYUserTaxDetailsResponse](#v1addupdatemyusertaxdetailsresponse) |
 | default | An unexpected error response. | [gatewayruntimeError](#gatewayruntimeerror) |
 
-### /v1/people/users/MY/taxDetails/list
+### Fetch Manage Malaysia Country Tax Details
 
 #### POST
 ##### Summary

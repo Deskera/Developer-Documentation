@@ -152,13 +152,13 @@ curl -X GET "https://bifrost-us.deskera.com/v1/people-pay-run/payruns?limit=20&c
             "unpaidLeaves": null,
             "createdAt": "2022-10-27T03:12:18.221Z",
             "updatedAt": "2022-10-27T03:12:24.731Z",
-            "stage": "",
+            "stage": ",
             "processed": true,
             "processedAt": "2022-10-27T03:12:32.67Z",
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "payDate": "10/31/2022",
             "totalDirectDepositNetPay": 19040,
             "totalCashNetPay": 0,
@@ -205,6 +205,323 @@ curl -X GET "https://bifrost-us.deskera.com/v1/people-pay-run/payruns?limit=20&c
         "totalPages": 1,
         "totalCount": 8
     }
+}
+```
+
+
+#### GET
+##### Summary
+
+Get all Payruns of a tenant based on searchField and searchString
+
+##### Description
+
+Get all Payruns of a tenant based on searchField and searchString
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| sortOrder | query | Sort Order | No | string |
+| sortField | query | Sort Field | No | string |
+| limit | query | Limit per Page | No | integer |
+| currentPage | query | Current Page number | No | integer |
+| searchString | query | Search String | No | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.PayrunsResponse](#dtopayrunsresponse) |
+
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns?searchField=non-synced-by-pay-period&searchString=05/01/2022-10/31/2022
+```
+
+##### Curl
+
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns?searchField=non-synced-by-pay-period&searchString=05/01/2022-10/31/2022' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+
+  --compressed
+```
+
+##### Sample Request
+```java
+?searchField=non-synced-by-pay-period&searchString=05/01/2022-10/31/2022
+```
+
+##### Sample Response
+```java
+{
+  "payruns": [
+    {
+      "_id": "635a5ea36aed621f3eb9eaab",
+      "payrunType": 1,
+      "paySchedule": {
+        "id": "635a5d90a8522b716fa87248",
+        "name": "Month"
+      },
+      "payPeriod": "monthly",
+      "workWeek": [
+        1,
+        5,
+        4,
+        2,
+        3
+      ],
+      "payDay": "lastWorkingDayMonth",
+      "firstPayDate": "09/30/2022",
+      "workPeriod": {
+        "from": "09/01/2022",
+        "to": "09/30/2022"
+      },
+      "isForAllUsers": true,
+      "isForContractors": false,
+      "totalCost": 51800,
+      "totalTaxes": 0,
+      "totalEarnings": 50000,
+      "totalDeductions": 2600,
+      "netPay": 47400,
+      "totalEmployerTaxes": 1800,
+      "totalEmployerCost": 1800,
+      "totalEmployeeCost": 50000,
+      "year": 2022,
+      "month": 9,
+      "hasDirectPayment": false,
+      "directDepositConsent": false,
+      "tenantWorkWeek": [
+        {
+          "day": "thursday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "wednesday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "saturday",
+          "isWorkingDay": false,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "friday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "sunday",
+          "isWorkingDay": false,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "monday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "tuesday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        }
+      ],
+      "holidays": null,
+      "unpaidLeaves": null,
+      "createdAt": "2022-10-27T10:34:11.299Z",
+      "updatedAt": "2022-10-27T10:37:24.607Z",
+      "stage": ",
+      "processed": true,
+      "processedAt": "2022-10-27T10:37:28.509Z",
+      "isPaymentDone": false,
+      "paymentDoneAt": "0001-01-01T00:00:00Z",
+      "paymentVendor": ",
+      "paymentFailureReason": ",
+      "payDate": "09/30/2022",
+      "totalDirectDepositNetPay": 0,
+      "totalCashNetPay": 47400,
+      "totalCheckNetPay": 0,
+      "companyDaysBetweenPeriod": 22,
+      "isNetPayNegative": false,
+      "isValid": true,
+      "jeStatus": ",
+      "jeId": ",
+      "jePostedOn": "0001-01-01T00:00:00Z",
+      "jeEntryNumber": ",
+      "jeDetails": null,
+      "employeeCount": 1,
+      "revertedAt": "0001-01-01T00:00:00Z",
+      "isPayrunReverted": false,
+      "paymentCount": 0,
+      "paymentFailureCount": 0,
+      "location": 0,
+      "shiftsInvolved": null,
+      "otInvolved": null,
+      "customFields": null
+    },
+    {
+      "_id": "635a5e8488e99679a2493df0",
+      "payrunType": 1,
+      "paySchedule": {
+        "id": "635a5d90a8522b716fa87248",
+        "name": "Month"
+      },
+      "payPeriod": "monthly",
+      "workWeek": [
+        1,
+        5,
+        4,
+        2,
+        3
+      ],
+      "payDay": "lastWorkingDayMonth",
+      "firstPayDate": "10/31/2022",
+      "workPeriod": {
+        "from": "10/01/2022",
+        "to": "10/31/2022"
+      },
+      "isForAllUsers": true,
+      "isForContractors": false,
+      "totalCost": 51800,
+      "totalTaxes": 0,
+      "totalEarnings": 50000,
+      "totalDeductions": 2600,
+      "netPay": 47400,
+      "totalEmployerTaxes": 1800,
+      "totalEmployerCost": 1800,
+      "totalEmployeeCost": 50000,
+      "year": 2022,
+      "month": 10,
+      "hasDirectPayment": false,
+      "directDepositConsent": false,
+      "tenantWorkWeek": [
+        {
+          "day": "thursday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "wednesday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "saturday",
+          "isWorkingDay": false,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "friday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "sunday",
+          "isWorkingDay": false,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "monday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        },
+        {
+          "day": "tuesday",
+          "isWorkingDay": true,
+          "startTime": "09:00 AM",
+          "endTime": "06:00 PM",
+          "duration": 9
+        }
+      ],
+      "holidays": null,
+      "unpaidLeaves": null,
+      "createdAt": "2022-10-27T10:33:40.352Z",
+      "updatedAt": "2022-10-27T10:33:48.07Z",
+      "stage": ",
+      "processed": true,
+      "processedAt": "2022-10-27T10:33:55.42Z",
+      "isPaymentDone": false,
+      "paymentDoneAt": "0001-01-01T00:00:00Z",
+      "paymentVendor": ",
+      "paymentFailureReason": ",
+      "payDate": "10/31/2022",
+      "totalDirectDepositNetPay": 0,
+      "totalCashNetPay": 47400,
+      "totalCheckNetPay": 0,
+      "companyDaysBetweenPeriod": 21,
+      "isNetPayNegative": false,
+      "isValid": true,
+      "jeStatus": "REVERTED",
+      "jeId": "20227079",
+      "jePostedOn": "2022-10-27T10:41:24.57Z",
+      "jeEntryNumber": "JE-0000004",
+      "jeDetails": [
+        {
+          "jeStatus": "POSTED",
+          "jeId": "20227050",
+          "jePostedOn": "2022-10-27T10:39:28.544Z",
+          "jeEntryNumber": "JE-0000002",
+          "isRevertJE": false
+        },
+        {
+          "jeStatus": "REVERTED",
+          "jeId": "20227079",
+          "jePostedOn": "2022-10-27T10:41:24.57Z",
+          "jeEntryNumber": "JE-0000004",
+          "isRevertJE": true
+        }
+      ],
+      "employeeCount": 1,
+      "revertedAt": "0001-01-01T00:00:00Z",
+      "isPayrunReverted": false,
+      "paymentCount": 0,
+      "paymentFailureCount": 0,
+      "location": 0,
+      "shiftsInvolved": null,
+      "otInvolved": null,
+      "customFields": null
+    }
+  ],
+  "filterResponse": {
+    "currentPage": 1,
+    "count": 2,
+    "limit": 2,
+    "totalPages": 1,
+    "totalCount": 2
+  }
 }
 ```
 
@@ -371,7 +688,7 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
             "hoursWorked": 189,
             "overtime": null,
             "otPayRate": 0,
-            "compensationCurrency": "",
+            "compensationCurrency": ",
             "compensationPeriod": "30",
             "compensation": 0.4,
             "netPay": 1,
@@ -387,25 +704,25 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
             "components": [
                 {
                     "componentId": "623adf1618c85cfab9f9f387",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "HRA",
                     "amount": 0.16,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0.32,
-                    "status": "",
+                    "status": ",
                     "isVariable": true,
                     "componentConfig": {
                         "configureAmountBasis": "percentageOfBasicSalary",
-                        "basisComponentId": "",
+                        "basisComponentId": ",
                         "componentPercent": 40,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "hra",
@@ -414,29 +731,29 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
                     "isUnpaidIncluded": true,
                     "defaultAmount": 0.16,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f386",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Conveyance Allowance",
                     "amount": 0,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "conveyance_allowance",
@@ -445,29 +762,29 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
                     "isUnpaidIncluded": false,
                     "defaultAmount": 0,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f385",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Fixed Allowance",
                     "amount": 0.44,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0.88,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "fixed_allowance",
@@ -476,7 +793,7 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
                     "isUnpaidIncluded": true,
                     "defaultAmount": 0.44,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 }
             ],
             "benefits": null,
@@ -495,12 +812,12 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
                 "postTaxDeduction": 0
             },
             "directDepositConsent": false,
-            "bank": "",
-            "accountType": "",
-            "ifsc": "",
+            "bank": ",
+            "accountType": ",
+            "ifsc": ",
             "upi": "5800123456@abc",
-            "accountNumber": "",
-            "routingNumber": "",
+            "accountNumber": ",
+            "routingNumber": ",
             "paymentMethod": "upi",
             "createdAt": "2022-10-27T03:59:44.259Z",
             "processed": false,
@@ -519,8 +836,8 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
             "ctc": 1,
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "terminationInitiated": false,
             "terminationDate": "0001-01-01T00:00:00Z"
         },
@@ -537,7 +854,7 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
             "hoursWorked": 189,
             "overtime": null,
             "otPayRate": 0,
-            "compensationCurrency": "",
+            "compensationCurrency": ",
             "compensationPeriod": "30",
             "compensation": 8000,
             "netPay": 20000,
@@ -553,25 +870,25 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
             "components": [
                 {
                     "componentId": "623adf1618c85cfab9f9f387",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "HRA",
                     "amount": 3200,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 12800,
-                    "status": "",
+                    "status": ",
                     "isVariable": true,
                     "componentConfig": {
                         "configureAmountBasis": "percentageOfBasicSalary",
-                        "basisComponentId": "",
+                        "basisComponentId": ",
                         "componentPercent": 40,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "hra",
@@ -580,29 +897,29 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
                     "isUnpaidIncluded": true,
                     "defaultAmount": 3200,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f386",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Conveyance Allowance",
                     "amount": 0,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "conveyance_allowance",
@@ -611,29 +928,29 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
                     "isUnpaidIncluded": false,
                     "defaultAmount": 0,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f385",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Fixed Allowance",
                     "amount": 8800,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 35200,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "fixed_allowance",
@@ -642,17 +959,17 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
                     "isUnpaidIncluded": true,
                     "defaultAmount": 8800,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 }
             ],
             "benefits": null,
             "benefitsMeta": [],
             "compliance": null,
             "directDepositConsent": false,
-            "bank": "",
+            "bank": ",
             "accountType": "currentAccount",
             "ifsc": "ABCD0123456",
-            "upi": "",
+            "upi": ",
             "accountNumber": "12345678910",
             "routingNumber": "26009140",
             "paymentMethod": "directDeposit",
@@ -673,8 +990,8 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
             "ctc": 20000,
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "terminationInitiated": false,
             "terminationDate": "0001-01-01T00:00:00Z"
         }
@@ -750,13 +1067,13 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
     "unpaidLeaves": null,
     "createdAt": "2022-10-27T03:59:44.243Z",
     "updatedAt": "2022-10-27T03:59:45.179Z",
-    "stage": "",
+    "stage": ",
     "processed": false,
     "processedAt": "0001-01-01T00:00:00Z",
     "isPaymentDone": false,
     "paymentDoneAt": "0001-01-01T00:00:00Z",
-    "paymentVendor": "",
-    "paymentFailureReason": "",
+    "paymentVendor": ",
+    "paymentFailureReason": ",
     "payDate": "10/31/2022",
     "totalDirectDepositNetPay": 20000,
     "totalCashNetPay": 0,
@@ -764,10 +1081,10 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-run
     "companyDaysBetweenPeriod": 21,
     "isNetPayNegative": false,
     "isValid": true,
-    "jeStatus": "",
-    "jeId": "",
+    "jeStatus": ",
+    "jeId": ",
     "jePostedOn": "0001-01-01T00:00:00Z",
-    "jeEntryNumber": "",
+    "jeEntryNumber": ",
     "jeDetails": null,
     "employeeCount": 0,
     "revertedAt": "0001-01-01T00:00:00Z",
@@ -842,18 +1159,18 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
 ##### Sample Response
 ```java
 {
-    "_id": "",
+    "_id": ",
     "paySchedule": {
-        "id": "",
-        "name": ""
+        "id": ",
+        "name": "
     },
-    "payPeriod": "",
+    "payPeriod": ",
     "workWeek": null,
-    "payDay": "",
-    "firstPayDate": "",
+    "payDay": ",
+    "firstPayDate": ",
     "workPeriod": {
-        "from": "",
-        "to": ""
+        "from": ",
+        "to": "
     },
     "isForAllUsers": false,
     "isForContractors": false,
@@ -874,24 +1191,24 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
     "unpaidLeaves": null,
     "createdAt": "0001-01-01T00:00:00Z",
     "updatedAt": "0001-01-01T00:00:00Z",
-    "stage": "",
+    "stage": ",
     "processed": false,
     "processedAt": "0001-01-01T00:00:00Z",
     "isPaymentDone": false,
     "paymentDoneAt": "0001-01-01T00:00:00Z",
-    "paymentVendor": "",
-    "paymentFailureReason": "",
-    "payDate": "",
+    "paymentVendor": ",
+    "paymentFailureReason": ",
+    "payDate": ",
     "totalDirectDepositNetPay": 0,
     "totalCashNetPay": 0,
     "totalCheckNetPay": 0,
     "companyDaysBetweenPeriod": 0,
     "isNetPayNegative": false,
     "isValid": false,
-    "jeStatus": "",
-    "jeId": "",
+    "jeStatus": ",
+    "jeId": ",
     "jePostedOn": "0001-01-01T00:00:00Z",
-    "jeEntryNumber": "",
+    "jeEntryNumber": ",
     "jeDetails": null,
     "employeeCount": 0,
     "revertedAt": "0001-01-01T00:00:00Z",
@@ -910,7 +1227,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/payrun/{payrunId}/payroll/{mappingId}
+### Update Payroll of an employee for a  Payrun
 
 #### PUT
 ##### Summary
@@ -950,7 +1267,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
 --header 'Accept: application/json, text/plain, */*' \
 --header 'Content-Type: application/json' \
 --header 'x-access-token: sampletoken' \
-  --data-raw '{"_id":"6359f7126aed621f3eb9e98e","payrunId":"6359f7126aed621f3eb9e98c","employeeId":"63525be29f4afb9427b6f509","empId":"00043","userId":"63525be29f4afb9427b6f509","firstName":"Simon","lastName":"Chua","daysOff":1,"daysWorked":21,"hoursWorked":189,"overtime":null,"otPayRate":0,"compensationCurrency":"","compensationPeriod":"30","compensation":0.4,"netPay":1,"basicPayrun":0.4,"netPayrun":0.4,"basicPayrunYTD":0.4,"netPayrunYTD":0.4,"hourlyPay":0,"netPayYTD":1,"deductions":0,"earnings":0.6,"netTaxes":0,"components":[{"componentId":"623adf1618c85cfab9f9f386","employeeId":"","name":"Conveyance Allowance","amount":0,"type":"EARNING","modified":false,"YTD":0,"status":"","isVariable":false,"componentConfig":{"configureAmountBasis":"","basisComponentId":"","componentPercent":0,"amountPerDay":0,"deductionType":""},"frequency":{"period":"everyPayrun","occurrence":null,"when":""},"isHidden":false,"subType":"conveyance_allowance","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":false,"defaultAmount":0,"formulaConfig":null,"formula":""},{"componentId":"623adf1618c85cfab9f9f387","employeeId":"","name":"HRA","amount":0.16,"type":"EARNING","modified":false,"YTD":0.16,"status":"","isVariable":true,"componentConfig":{"configureAmountBasis":"percentageOfBasicSalary","basisComponentId":"","componentPercent":40,"amountPerDay":0,"deductionType":""},"frequency":{"period":"everyPayrun","occurrence":null,"when":""},"isHidden":false,"subType":"hra","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":true,"defaultAmount":0.0128,"formulaConfig":null,"formula":""},{"componentId":"623adf1618c85cfab9f9f385","employeeId":"","name":"Fixed Allowance","amount":0.43999999999999995,"type":"EARNING","modified":false,"YTD":0.44,"status":"","isVariable":false,"componentConfig":{"configureAmountBasis":"","basisComponentId":"","componentPercent":0,"amountPerDay":0,"deductionType":""},"frequency":{"period":"everyPayrun","occurrence":null,"when":""},"isHidden":false,"subType":"fixed_allowance","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":true,"defaultAmount":0.04,"formulaConfig":null,"formula":""}],"benefits":null,"benefitsMeta":[],"compliance":{"userId":"63525be29f4afb9427b6f509","countryCode":"IN","employerContribution":{},"employeeContribution":{},"grossWageYTD":0,"taxableWageYTD":0,"taxDetails":[],"preTaxDeductionYTD":0,"postTaxDeductionYTD":0,"preTaxDeduction":0,"postTaxDeduction":0},"directDepositConsent":false,"bank":"","accountType":"","ifsc":"","upi":"5800123456@abc","accountNumber":"","routingNumber":"","paymentMethod":"upi","createdAt":"2022-10-27T03:12:18.251Z","processed":false,"processedAt":"0001-01-01T00:00:00Z","updatedAt":"2022-10-27T09:40:14.206Z","hasSalaryAdvance":false,"effectiveCompensations":null,"daysOffBefore":0,"daysOffAfter":0,"basicBefore":0.01904761904761905,"basicAfter":0.01904761904761905,"lossOfPay":0.047619047619047616,"overtimePay":0,"basicPayForDay":0.02,"unfilledFields":null,"ctc":1,"isPaymentDone":false,"paymentDoneAt":"0001-01-01T00:00:00Z","paymentVendor":"","paymentFailureReason":"","terminationInitiated":false,"terminationDate":"0001-01-01T00:00:00Z"}' \
+  --data-raw '{"_id":"6359f7126aed621f3eb9e98e","payrunId":"6359f7126aed621f3eb9e98c","employeeId":"63525be29f4afb9427b6f509","empId":"00043","userId":"63525be29f4afb9427b6f509","firstName":"Simon","lastName":"Chua","daysOff":1,"daysWorked":21,"hoursWorked":189,"overtime":null,"otPayRate":0,"compensationCurrency":","compensationPeriod":"30","compensation":0.4,"netPay":1,"basicPayrun":0.4,"netPayrun":0.4,"basicPayrunYTD":0.4,"netPayrunYTD":0.4,"hourlyPay":0,"netPayYTD":1,"deductions":0,"earnings":0.6,"netTaxes":0,"components":[{"componentId":"623adf1618c85cfab9f9f386","employeeId":","name":"Conveyance Allowance","amount":0,"type":"EARNING","modified":false,"YTD":0,"status":","isVariable":false,"componentConfig":{"configureAmountBasis":","basisComponentId":","componentPercent":0,"amountPerDay":0,"deductionType":"},"frequency":{"period":"everyPayrun","occurrence":null,"when":"},"isHidden":false,"subType":"conveyance_allowance","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":false,"defaultAmount":0,"formulaConfig":null,"formula":"},{"componentId":"623adf1618c85cfab9f9f387","employeeId":","name":"HRA","amount":0.16,"type":"EARNING","modified":false,"YTD":0.16,"status":","isVariable":true,"componentConfig":{"configureAmountBasis":"percentageOfBasicSalary","basisComponentId":","componentPercent":40,"amountPerDay":0,"deductionType":"},"frequency":{"period":"everyPayrun","occurrence":null,"when":"},"isHidden":false,"subType":"hra","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":true,"defaultAmount":0.0128,"formulaConfig":null,"formula":"},{"componentId":"623adf1618c85cfab9f9f385","employeeId":","name":"Fixed Allowance","amount":0.43999999999999995,"type":"EARNING","modified":false,"YTD":0.44,"status":","isVariable":false,"componentConfig":{"configureAmountBasis":","basisComponentId":","componentPercent":0,"amountPerDay":0,"deductionType":"},"frequency":{"period":"everyPayrun","occurrence":null,"when":"},"isHidden":false,"subType":"fixed_allowance","includeInCTC":true,"includeInOTCalc":false,"isUnpaidIncluded":true,"defaultAmount":0.04,"formulaConfig":null,"formula":"}],"benefits":null,"benefitsMeta":[],"compliance":{"userId":"63525be29f4afb9427b6f509","countryCode":"IN","employerContribution":{},"employeeContribution":{},"grossWageYTD":0,"taxableWageYTD":0,"taxDetails":[],"preTaxDeductionYTD":0,"postTaxDeductionYTD":0,"preTaxDeduction":0,"postTaxDeduction":0},"directDepositConsent":false,"bank":","accountType":","ifsc":","upi":"5800123456@abc","accountNumber":","routingNumber":","paymentMethod":"upi","createdAt":"2022-10-27T03:12:18.251Z","processed":false,"processedAt":"0001-01-01T00:00:00Z","updatedAt":"2022-10-27T09:40:14.206Z","hasSalaryAdvance":false,"effectiveCompensations":null,"daysOffBefore":0,"daysOffAfter":0,"basicBefore":0.01904761904761905,"basicAfter":0.01904761904761905,"lossOfPay":0.047619047619047616,"overtimePay":0,"basicPayForDay":0.02,"unfilledFields":null,"ctc":1,"isPaymentDone":false,"paymentDoneAt":"0001-01-01T00:00:00Z","paymentVendor":","paymentFailureReason":","terminationInitiated":false,"terminationDate":"0001-01-01T00:00:00Z"}' \
   --compressed
 ```
 
@@ -969,7 +1286,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
     "hoursWorked": 189,
     "overtime": null,
     "otPayRate": 0,
-    "compensationCurrency": "",
+    "compensationCurrency": ",
     "compensationPeriod": "30",
     "compensation": 0.4,
     "netPay": 1,
@@ -985,25 +1302,25 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
     "components": [
         {
             "componentId": "623adf1618c85cfab9f9f386",
-            "employeeId": "",
+            "employeeId": ",
             "name": "Conveyance Allowance",
             "amount": 0,
             "type": "EARNING",
             "modified": false,
             "YTD": 0,
-            "status": "",
+            "status": ",
             "isVariable": false,
             "componentConfig": {
-                "configureAmountBasis": "",
-                "basisComponentId": "",
+                "configureAmountBasis": ",
+                "basisComponentId": ",
                 "componentPercent": 0,
                 "amountPerDay": 0,
-                "deductionType": ""
+                "deductionType": "
             },
             "frequency": {
                 "period": "everyPayrun",
                 "occurrence": null,
-                "when": ""
+                "when": "
             },
             "isHidden": false,
             "subType": "conveyance_allowance",
@@ -1012,29 +1329,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "isUnpaidIncluded": false,
             "defaultAmount": 0,
             "formulaConfig": null,
-            "formula": ""
+            "formula": "
         },
         {
             "componentId": "623adf1618c85cfab9f9f387",
-            "employeeId": "",
+            "employeeId": ",
             "name": "HRA",
             "amount": 0.16,
             "type": "EARNING",
             "modified": false,
             "YTD": 0.16,
-            "status": "",
+            "status": ",
             "isVariable": true,
             "componentConfig": {
                 "configureAmountBasis": "percentageOfBasicSalary",
-                "basisComponentId": "",
+                "basisComponentId": ",
                 "componentPercent": 40,
                 "amountPerDay": 0,
-                "deductionType": ""
+                "deductionType": "
             },
             "frequency": {
                 "period": "everyPayrun",
                 "occurrence": null,
-                "when": ""
+                "when": "
             },
             "isHidden": false,
             "subType": "hra",
@@ -1043,29 +1360,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "isUnpaidIncluded": true,
             "defaultAmount": 0.0128,
             "formulaConfig": null,
-            "formula": ""
+            "formula": "
         },
         {
             "componentId": "623adf1618c85cfab9f9f385",
-            "employeeId": "",
+            "employeeId": ",
             "name": "Fixed Allowance",
             "amount": 0.43999999999999995,
             "type": "EARNING",
             "modified": false,
             "YTD": 0.44,
-            "status": "",
+            "status": ",
             "isVariable": false,
             "componentConfig": {
-                "configureAmountBasis": "",
-                "basisComponentId": "",
+                "configureAmountBasis": ",
+                "basisComponentId": ",
                 "componentPercent": 0,
                 "amountPerDay": 0,
-                "deductionType": ""
+                "deductionType": "
             },
             "frequency": {
                 "period": "everyPayrun",
                 "occurrence": null,
-                "when": ""
+                "when": "
             },
             "isHidden": false,
             "subType": "fixed_allowance",
@@ -1074,7 +1391,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "isUnpaidIncluded": true,
             "defaultAmount": 0.04,
             "formulaConfig": null,
-            "formula": ""
+            "formula": "
         }
     ],
     "benefits": null,
@@ -1093,12 +1410,12 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
         "postTaxDeduction": 0
     },
     "directDepositConsent": false,
-    "bank": "",
-    "accountType": "",
-    "ifsc": "",
+    "bank": ",
+    "accountType": ",
+    "ifsc": ",
     "upi": "5800123456@abc",
-    "accountNumber": "",
-    "routingNumber": "",
+    "accountNumber": ",
+    "routingNumber": ",
     "paymentMethod": "upi",
     "createdAt": "2022-10-27T03:12:18.251Z",
     "processed": false,
@@ -1117,8 +1434,8 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
     "ctc": 1,
     "isPaymentDone": false,
     "paymentDoneAt": "0001-01-01T00:00:00Z",
-    "paymentVendor": "",
-    "paymentFailureReason": "",
+    "paymentVendor": ",
+    "paymentFailureReason": ",
     "terminationInitiated": false,
     "terminationDate": "0001-01-01T00:00:00Z"
 }
@@ -1163,7 +1480,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "hoursWorked": 189,
             "overtime": null,
             "otPayRate": 0,
-            "compensationCurrency": "",
+            "compensationCurrency": ",
             "compensationPeriod": "30",
             "compensation": 8000,
             "netPay": 19040,
@@ -1179,25 +1496,25 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "components": [
                 {
                     "componentId": "623adf1618c85cfab9f9f386",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Conveyance Allowance",
                     "amount": 0,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "conveyance_allowance",
@@ -1206,29 +1523,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                     "isUnpaidIncluded": false,
                     "defaultAmount": 0,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f387",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "HRA",
                     "amount": 3200,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 3200,
-                    "status": "",
+                    "status": ",
                     "isVariable": true,
                     "componentConfig": {
                         "configureAmountBasis": "percentageOfBasicSalary",
-                        "basisComponentId": "",
+                        "basisComponentId": ",
                         "componentPercent": 40,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "hra",
@@ -1237,29 +1554,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                     "isUnpaidIncluded": true,
                     "defaultAmount": 3200,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f385",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Fixed Allowance",
                     "amount": 8800,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 8800,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "fixed_allowance",
@@ -1268,7 +1585,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                     "isUnpaidIncluded": true,
                     "defaultAmount": 8800,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 }
             ],
             "benefits": null,
@@ -1294,7 +1611,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                         "monthToDate": 960,
                         "quaterToDate": 960,
                         "yearToDate": 960,
-                        "authorityCode": ""
+                        "authorityCode": "
                     },
                     {
                         "taxName": "EPF",
@@ -1303,7 +1620,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                         "monthToDate": 293.6,
                         "quaterToDate": 293.6,
                         "yearToDate": 293.6,
-                        "authorityCode": ""
+                        "authorityCode": "
                     },
                     {
                         "taxName": "EPS",
@@ -1312,7 +1629,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                         "monthToDate": 666.4,
                         "quaterToDate": 666.4,
                         "yearToDate": 666.4,
-                        "authorityCode": ""
+                        "authorityCode": "
                     },
                     {
                         "taxName": "Income Tax",
@@ -1321,7 +1638,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                         "monthToDate": 0,
                         "quaterToDate": 0,
                         "yearToDate": 0,
-                        "authorityCode": ""
+                        "authorityCode": "
                     }
                 ],
                 "preTaxDeductionYTD": 0,
@@ -1330,10 +1647,10 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                 "postTaxDeduction": 0
             },
             "directDepositConsent": false,
-            "bank": "",
+            "bank": ",
             "accountType": "currentAccount",
             "ifsc": "ABCD0123456",
-            "upi": "",
+            "upi": ",
             "accountNumber": "12345678910",
             "routingNumber": "26009140",
             "paymentMethod": "directDeposit",
@@ -1354,8 +1671,8 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "ctc": 20000,
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "terminationInitiated": false,
             "terminationDate": "0001-01-01T00:00:00Z"
         },
@@ -1372,7 +1689,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "hoursWorked": 189,
             "overtime": null,
             "otPayRate": 0,
-            "compensationCurrency": "",
+            "compensationCurrency": ",
             "compensationPeriod": "30",
             "compensation": 0.4,
             "netPay": 0.95,
@@ -1388,25 +1705,25 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "components": [
                 {
                     "componentId": "623adf1618c85cfab9f9f385",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Fixed Allowance",
                     "amount": 0.42,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0.42,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "fixed_allowance",
@@ -1415,29 +1732,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                     "isUnpaidIncluded": true,
                     "defaultAmount": 0.04,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f386",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Conveyance Allowance",
                     "amount": 0,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "conveyance_allowance",
@@ -1446,29 +1763,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                     "isUnpaidIncluded": false,
                     "defaultAmount": 0,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f387",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "HRA",
                     "amount": 0.15,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0.15,
-                    "status": "",
+                    "status": ",
                     "isVariable": true,
                     "componentConfig": {
                         "configureAmountBasis": "percentageOfBasicSalary",
-                        "basisComponentId": "",
+                        "basisComponentId": ",
                         "componentPercent": 40,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "hra",
@@ -1477,7 +1794,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                     "isUnpaidIncluded": true,
                     "defaultAmount": 0.0128,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 }
             ],
             "benefits": null,
@@ -1496,12 +1813,12 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
                 "postTaxDeduction": 0
             },
             "directDepositConsent": false,
-            "bank": "",
-            "accountType": "",
-            "ifsc": "",
+            "bank": ",
+            "accountType": ",
+            "ifsc": ",
             "upi": "5800123456@abc",
-            "accountNumber": "",
-            "routingNumber": "",
+            "accountNumber": ",
+            "routingNumber": ",
             "paymentMethod": "upi",
             "createdAt": "2022-10-27T03:12:18.251Z",
             "processed": false,
@@ -1520,8 +1837,8 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
             "ctc": 1,
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "terminationInitiated": false,
             "terminationDate": "0001-01-01T00:00:00Z"
         }
@@ -1597,13 +1914,13 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
     "unpaidLeaves": null,
     "createdAt": "2022-10-27T03:12:18.221Z",
     "updatedAt": "2022-10-27T09:49:56.079Z",
-    "stage": "",
+    "stage": ",
     "processed": false,
     "processedAt": "0001-01-01T00:00:00Z",
     "isPaymentDone": false,
     "paymentDoneAt": "0001-01-01T00:00:00Z",
-    "paymentVendor": "",
-    "paymentFailureReason": "",
+    "paymentVendor": ",
+    "paymentFailureReason": ",
     "payDate": "10/31/2022",
     "totalDirectDepositNetPay": 19040,
     "totalCashNetPay": 0,
@@ -1671,7 +1988,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/payrun/6359f7126a
 | ApiKeyAuth | |
 
 
-### /payruns/revert/{payrunId}
+### Revert Payrun 
 
 #### PATCH
 ##### Summary
@@ -1722,18 +2039,18 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/revert/6359f7126a
 ##### Sample Response
 ```java
 {
-    "_id": "",
+    "_id": ",
     "paySchedule": {
-        "id": "",
-        "name": ""
+        "id": ",
+        "name": "
     },
-    "payPeriod": "",
+    "payPeriod": ",
     "workWeek": null,
-    "payDay": "",
-    "firstPayDate": "",
+    "payDay": ",
+    "firstPayDate": ",
     "workPeriod": {
-        "from": "",
-        "to": ""
+        "from": ",
+        "to": "
     },
     "isForAllUsers": false,
     "isForContractors": false,
@@ -1754,24 +2071,24 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/revert/6359f7126a
     "unpaidLeaves": null,
     "createdAt": "0001-01-01T00:00:00Z",
     "updatedAt": "0001-01-01T00:00:00Z",
-    "stage": "",
+    "stage": ",
     "processed": false,
     "processedAt": "0001-01-01T00:00:00Z",
     "isPaymentDone": false,
     "paymentDoneAt": "0001-01-01T00:00:00Z",
-    "paymentVendor": "",
-    "paymentFailureReason": "",
-    "payDate": "",
+    "paymentVendor": ",
+    "paymentFailureReason": ",
+    "payDate": ",
     "totalDirectDepositNetPay": 0,
     "totalCashNetPay": 0,
     "totalCheckNetPay": 0,
     "companyDaysBetweenPeriod": 0,
     "isNetPayNegative": false,
     "isValid": false,
-    "jeStatus": "",
-    "jeId": "",
+    "jeStatus": ",
+    "jeId": ",
     "jePostedOn": "0001-01-01T00:00:00Z",
-    "jeEntryNumber": "",
+    "jeEntryNumber": ",
     "jeDetails": null,
     "employeeCount": 0,
     "revertedAt": "0001-01-01T00:00:00Z",
@@ -1790,7 +2107,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/revert/6359f7126a
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/status/{payrunId}
+### Processes payrun
 
 #### PATCH
 ##### Summary
@@ -1836,7 +2153,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/status/635a4a596a
 | ApiKeyAuth | |
 
 
-### /payruns/{id}
+### Delete payrun
 
 #### DELETE
 ##### Summary
@@ -1880,18 +2197,18 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
 ##### Sample Response
 ```java
 {
-    "_id": "",
+    "_id": ",
     "paySchedule": {
-        "id": "",
-        "name": ""
+        "id": ",
+        "name": "
     },
-    "payPeriod": "",
+    "payPeriod": ",
     "workWeek": null,
-    "payDay": "",
-    "firstPayDate": "",
+    "payDay": ",
+    "firstPayDate": ",
     "workPeriod": {
-        "from": "",
-        "to": ""
+        "from": ",
+        "to": "
     },
     "isForAllUsers": false,
     "isForContractors": false,
@@ -1912,24 +2229,24 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
     "unpaidLeaves": null,
     "createdAt": "0001-01-01T00:00:00Z",
     "updatedAt": "0001-01-01T00:00:00Z",
-    "stage": "",
+    "stage": ",
     "processed": false,
     "processedAt": "0001-01-01T00:00:00Z",
     "isPaymentDone": false,
     "paymentDoneAt": "0001-01-01T00:00:00Z",
-    "paymentVendor": "",
-    "paymentFailureReason": "",
-    "payDate": "",
+    "paymentVendor": ",
+    "paymentFailureReason": ",
+    "payDate": ",
     "totalDirectDepositNetPay": 0,
     "totalCashNetPay": 0,
     "totalCheckNetPay": 0,
     "companyDaysBetweenPeriod": 0,
     "isNetPayNegative": false,
     "isValid": false,
-    "jeStatus": "",
-    "jeId": "",
+    "jeStatus": ",
+    "jeId": ",
     "jePostedOn": "0001-01-01T00:00:00Z",
-    "jeEntryNumber": "",
+    "jeEntryNumber": ",
     "jeDetails": null,
     "employeeCount": 0,
     "revertedAt": "0001-01-01T00:00:00Z",
@@ -1955,7 +2272,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns' \
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/{payrunId}
+### Fetch a payrun
 
 #### GET
 ##### Summary
@@ -2044,7 +2361,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
             "hoursWorked": 189,
             "overtime": null,
             "otPayRate": 0,
-            "compensationCurrency": "",
+            "compensationCurrency": ",
             "compensationPeriod": "30",
             "compensation": 0.4,
             "netPay": 1,
@@ -2060,25 +2377,25 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
             "components": [
                 {
                     "componentId": "623adf1618c85cfab9f9f386",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Conveyance Allowance",
                     "amount": 0,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "conveyance_allowance",
@@ -2087,29 +2404,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                     "isUnpaidIncluded": false,
                     "defaultAmount": 0,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f387",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "HRA",
                     "amount": 0.16,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0.16,
-                    "status": "",
+                    "status": ",
                     "isVariable": true,
                     "componentConfig": {
                         "configureAmountBasis": "percentageOfBasicSalary",
-                        "basisComponentId": "",
+                        "basisComponentId": ",
                         "componentPercent": 40,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "hra",
@@ -2118,29 +2435,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                     "isUnpaidIncluded": true,
                     "defaultAmount": 0.0128,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f385",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Fixed Allowance",
                     "amount": 0.44,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0.44,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "fixed_allowance",
@@ -2149,7 +2466,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                     "isUnpaidIncluded": true,
                     "defaultAmount": 0.04,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 }
             ],
             "benefits": null,
@@ -2168,12 +2485,12 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                 "postTaxDeduction": 0
             },
             "directDepositConsent": false,
-            "bank": "",
-            "accountType": "",
-            "ifsc": "",
+            "bank": ",
+            "accountType": ",
+            "ifsc": ",
             "upi": "5800123456@abc",
-            "accountNumber": "",
-            "routingNumber": "",
+            "accountNumber": ",
+            "routingNumber": ",
             "paymentMethod": "upi",
             "createdAt": "2022-10-27T03:12:18.251Z",
             "processed": false,
@@ -2192,8 +2509,8 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
             "ctc": 1,
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "terminationInitiated": false,
             "terminationDate": "0001-01-01T00:00:00Z"
         },
@@ -2210,7 +2527,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
             "hoursWorked": 189,
             "overtime": null,
             "otPayRate": 0,
-            "compensationCurrency": "",
+            "compensationCurrency": ",
             "compensationPeriod": "30",
             "compensation": 8000,
             "netPay": 19040,
@@ -2226,25 +2543,25 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
             "components": [
                 {
                     "componentId": "623adf1618c85cfab9f9f386",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Conveyance Allowance",
                     "amount": 0,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 0,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "conveyance_allowance",
@@ -2253,29 +2570,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                     "isUnpaidIncluded": false,
                     "defaultAmount": 0,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f387",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "HRA",
                     "amount": 3200,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 3200,
-                    "status": "",
+                    "status": ",
                     "isVariable": true,
                     "componentConfig": {
                         "configureAmountBasis": "percentageOfBasicSalary",
-                        "basisComponentId": "",
+                        "basisComponentId": ",
                         "componentPercent": 40,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "hra",
@@ -2284,29 +2601,29 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                     "isUnpaidIncluded": true,
                     "defaultAmount": 3200,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 },
                 {
                     "componentId": "623adf1618c85cfab9f9f385",
-                    "employeeId": "",
+                    "employeeId": ",
                     "name": "Fixed Allowance",
                     "amount": 8800,
                     "type": "EARNING",
                     "modified": false,
                     "YTD": 8800,
-                    "status": "",
+                    "status": ",
                     "isVariable": false,
                     "componentConfig": {
-                        "configureAmountBasis": "",
-                        "basisComponentId": "",
+                        "configureAmountBasis": ",
+                        "basisComponentId": ",
                         "componentPercent": 0,
                         "amountPerDay": 0,
-                        "deductionType": ""
+                        "deductionType": "
                     },
                     "frequency": {
                         "period": "everyPayrun",
                         "occurrence": null,
-                        "when": ""
+                        "when": "
                     },
                     "isHidden": false,
                     "subType": "fixed_allowance",
@@ -2315,7 +2632,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                     "isUnpaidIncluded": true,
                     "defaultAmount": 8800,
                     "formulaConfig": null,
-                    "formula": ""
+                    "formula": "
                 }
             ],
             "benefits": null,
@@ -2341,7 +2658,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                         "monthToDate": 960,
                         "quaterToDate": 960,
                         "yearToDate": 960,
-                        "authorityCode": ""
+                        "authorityCode": "
                     },
                     {
                         "taxName": "EPF",
@@ -2350,7 +2667,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                         "monthToDate": 293.6,
                         "quaterToDate": 293.6,
                         "yearToDate": 293.6,
-                        "authorityCode": ""
+                        "authorityCode": "
                     },
                     {
                         "taxName": "EPS",
@@ -2359,7 +2676,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                         "monthToDate": 666.4,
                         "quaterToDate": 666.4,
                         "yearToDate": 666.4,
-                        "authorityCode": ""
+                        "authorityCode": "
                     },
                     {
                         "taxName": "Income Tax",
@@ -2368,7 +2685,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                         "monthToDate": 0,
                         "quaterToDate": 0,
                         "yearToDate": 0,
-                        "authorityCode": ""
+                        "authorityCode": "
                     }
                 ],
                 "preTaxDeductionYTD": 0,
@@ -2377,10 +2694,10 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
                 "postTaxDeduction": 0
             },
             "directDepositConsent": false,
-            "bank": "",
+            "bank": ",
             "accountType": "currentAccount",
             "ifsc": "ABCD0123456",
-            "upi": "",
+            "upi": ",
             "accountNumber": "12345678910",
             "routingNumber": "26009140",
             "paymentMethod": "directDeposit",
@@ -2401,8 +2718,8 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
             "ctc": 20000,
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "terminationInitiated": false,
             "terminationDate": "0001-01-01T00:00:00Z"
         }
@@ -2485,13 +2802,13 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/6359f7126aed621f3
     "unpaidLeaves": null,
     "createdAt": "2022-10-27T03:12:18.221Z",
     "updatedAt": "2022-10-27T09:40:14.214Z",
-    "stage": "",
+    "stage": ",
     "processed": false,
     "processedAt": "0001-01-01T00:00:00Z",
     "isPaymentDone": false,
     "paymentDoneAt": "0001-01-01T00:00:00Z",
-    "paymentVendor": "",
-    "paymentFailureReason": "",
+    "paymentVendor": ",
+    "paymentFailureReason": ",
     "payDate": "10/31/2022",
     "totalDirectDepositNetPay": 19040,
     "totalCashNetPay": 0,
@@ -2614,7 +2931,7 @@ Delete Payrolls of a Payrun by Id for a Tenant
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/year/{year}
+### Fetch payruns for a year
 
 #### GET
 ##### Summary
@@ -2663,7 +2980,7 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
 {
     "payruns": [
         {
-            "_id": "",
+            "_id": ",
             "payrunType": 1,
             "paySchedule": {
                 "id": "62611056bac41ace51e7dcb8",
@@ -2755,13 +3072,13 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "unpaidLeaves": null,
             "createdAt": "2022-04-21T08:06:02.6Z",
             "updatedAt": "2022-04-21T08:07:50.962Z",
-            "stage": "",
+            "stage": ",
             "processed": true,
             "processedAt": "2022-04-20T19:07:55.252Z",
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "payDate": "04/30/2022",
             "totalDirectDepositNetPay": 0,
             "totalCashNetPay": 11988.42,
@@ -2793,7 +3110,7 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "customFields": null
         },
         {
-            "_id": "",
+            "_id": ",
             "payrunType": 1,
             "paySchedule": {
                 "id": "62611056bac41ace51e7dcb8",
@@ -2882,13 +3199,13 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "unpaidLeaves": null,
             "createdAt": "2022-07-29T10:55:58.908Z",
             "updatedAt": "2022-09-02T15:39:18.717Z",
-            "stage": "",
+            "stage": ",
             "processed": true,
             "processedAt": "2022-09-02T15:39:24.067Z",
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "payDate": "07/31/2022",
             "totalDirectDepositNetPay": 19040,
             "totalCashNetPay": 19345,
@@ -2920,7 +3237,7 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "customFields": null
         },
         {
-            "_id": "",
+            "_id": ",
             "payrunType": 1,
             "paySchedule": {
                 "id": "62611056bac41ace51e7dcb8",
@@ -3012,13 +3329,13 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "unpaidLeaves": null,
             "createdAt": "2022-07-29T11:33:43.706Z",
             "updatedAt": "2022-09-02T15:39:08.881Z",
-            "stage": "",
+            "stage": ",
             "processed": true,
             "processedAt": "2022-09-02T15:39:12.086Z",
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "payDate": "07/31/2022",
             "totalDirectDepositNetPay": 0,
             "totalCashNetPay": 202899.68,
@@ -3050,7 +3367,7 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "customFields": null
         },
         {
-            "_id": "",
+            "_id": ",
             "payrunType": 1,
             "paySchedule": {
                 "id": "62611056bac41ace51e7dcb8",
@@ -3143,13 +3460,13 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "unpaidLeaves": null,
             "createdAt": "2022-08-10T10:52:49.718Z",
             "updatedAt": "2022-08-10T10:52:57.236Z",
-            "stage": "",
+            "stage": ",
             "processed": true,
             "processedAt": "2022-08-10T10:53:04.703Z",
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "payDate": "04/30/2022",
             "totalDirectDepositNetPay": 0,
             "totalCashNetPay": 9345,
@@ -3181,7 +3498,7 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "customFields": null
         },
         {
-            "_id": "",
+            "_id": ",
             "payrunType": 1,
             "paySchedule": {
                 "id": "62611056bac41ace51e7dcb8",
@@ -3273,13 +3590,13 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "unpaidLeaves": null,
             "createdAt": "2022-09-16T01:32:21.208Z",
             "updatedAt": "2022-10-27T10:23:50.711Z",
-            "stage": "",
+            "stage": ",
             "processed": true,
             "processedAt": "2022-10-27T10:23:54.368Z",
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "payDate": "04/30/2022",
             "totalDirectDepositNetPay": 0,
             "totalCashNetPay": 0,
@@ -3333,7 +3650,7 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             ]
         },
         {
-            "_id": "",
+            "_id": ",
             "payrunType": 1,
             "paySchedule": {
                 "id": "62611056bac41ace51e7dcb8",
@@ -3427,13 +3744,13 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
             "unpaidLeaves": null,
             "createdAt": "2022-09-30T08:07:16.047Z",
             "updatedAt": "2022-10-27T10:23:38.508Z",
-            "stage": "",
+            "stage": ",
             "processed": true,
             "processedAt": "2022-10-27T10:23:41.419Z",
             "isPaymentDone": false,
             "paymentDoneAt": "0001-01-01T00:00:00Z",
-            "paymentVendor": "",
-            "paymentFailureReason": "",
+            "paymentVendor": ",
+            "paymentFailureReason": ",
             "payDate": "04/30/2022",
             "totalDirectDepositNetPay": 19040,
             "totalCashNetPay": 5000,
@@ -3495,7 +3812,7 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-run/
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/sync-je
+### Books-Integration sync Journal entries
 
 #### POST
 ##### Summary
@@ -3512,38 +3829,41 @@ Sync Payrun JE To Books
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.SyncPayrunJEsRequest](#dtosyncpayrunjesrequest) |
 
+
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/sync-je
+```
+
+##### Curl
+
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/sync-je' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+  --data-raw '{"payrun":[{"jeDate":"10/28/2022","payrunId":"635a5ea36aed621f3eb9eaab"}]}' \
+  --compressed
+```
+
+##### Sample Request
+```java
+{"payrun":[{"jeDate":"10/28/2022","payrunId":"635a5ea36aed621f3eb9eaab"}]}
+```
+
+##### Sample Response
+```java
+"For given payrun's, JE Posting Successful!"
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payruns/update/je-status
 
-#### PATCH
-##### Summary
-
-Update payrun JE status
-
-##### Description
-
-Update payrun JE status
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrunJEPostedRequest](#dtopayrunjepostedrequest) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-
-
-### /payruns/revert-je
+### Books-Integration revert Journal entries
 
 #### POST
 ##### Summary
@@ -3560,63 +3880,33 @@ Revert Payrun JE From Books
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.RevertPayrunJEsRequest](#dtorevertpayrunjesrequest) |
 
-##### Security
 
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
 
-### /payslips/fields
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/revert-je
+```
 
-#### GET
-##### Summary
+##### Curl
 
-Get fields for Payslips
+```java
+curl 'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/revert-je' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Content-Type: application/json' \
+--header 'x-access-token: sampletoken' \
+  --data-raw '{"revertPayrun":[{"jeId":20237575,"jeRevertDate":"10/28/2022","payrunId":"635a5ea36aed621f3eb9eaab"}]}' \
+  --compressed
+```
 
-##### Description
+##### Sample Request
+```java
+{"revertPayrun":[{"jeId":20237575,"jeRevertDate":"10/28/2022","payrunId":"635a5ea36aed621f3eb9eaab"}]}
+```
 
-Get fields for Payslips
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| from | query | countryCode | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.FieldsResponse](#dtofieldsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payslips/paystub/{paystubId}
-
-#### GET
-##### Summary
-
-Get Payslip by Paystub Id
-
-##### Description
-
-Get all Payslip by Paystub Id of a tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| paystubId | path | Paystub Id | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PaySlipResponse](#dtopayslipresponse) |
+##### Sample Response
+```java
+"For given payrun's, JE Revert Successful!"
+```
 
 ##### Security
 
@@ -3624,125 +3914,7 @@ Get all Payslip by Paystub Id of a tenant
 | --- | --- |
 | ApiKeyAuth | |
 
-### /payslips/paystub/{paystubId}/details
-
-#### POST
-##### Summary
-
-Get Payslip details
-
-##### Description
-
-Get Payslip details
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| year | path | paystubId | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayslipDetailResponse](#dtopayslipdetailresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /payslips/paystub/{paystubId}/render
-
-#### GET
-##### Summary
-
-Get Rendered Payslips
-
-##### Description
-
-Get Rendered Payslips
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| from | query | paystubId | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | string |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /paystubs
-
-#### GET
-##### Summary
-
-Get Paystubs between dates
-
-##### Description
-
-Get all Payruns of a tenant between dates
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| from | query | From (Year) | Yes | string |
-| to | query | To (Year) | Yes | string |
-| employeeId | query | EmployeeId | No | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PaystubsResponse](#dtopaystubsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /paystubs/bulk
-
-#### POST
-##### Summary
-
-Get Paystubs by payrun id
-
-##### Description
-
-Get Paystubs by payrun id
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payroll | body | Payroll id dto | Yes | [dto.BulkIdRequest](#dtobulkidrequest) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.BulkPaystubsResponse](#dtobulkpaystubsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /paystubs/employee/{employeeId}
+### Fetch Paystub of an employee
 
 #### GET
 ##### Summary
@@ -3770,43 +3942,274 @@ Get all Paystubs of Employee of a tenant
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.PaystubsResponse](#dtopaystubsresponse) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/paystubs/employee/60b734520a2aaa7131f2c588?limit=5&currentPage=1&sortField=createdAt&sortOrder=desc
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people-pay-run/paystubs/employee/60b734520a2aaa7131f2c588?limit=5&currentPage=1&sortField=createdAt&sortOrder=desc" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "paystubs": [
+    {
+      "_id": "633299df318100e72aaa826a",
+      "payrollId": "60b7558e7657d83a69feed40",
+      "employeeId": "60b734520a2aaa7131f2c588",
+      "iamUserId": 55189,
+      "firstName": "Ganesh",
+      "lastName": "Karale",
+      "daysOff": 20,
+      "days": 22,
+      "compensationCurrency": ",
+      "compensationPeriod": "30",
+      "basicPay": 0,
+      "netPay": 951.482,
+      "basicPayrun": 12500,
+      "netPayrun": 1146.364,
+      "deductions": 494.882,
+      "earnings": 300,
+      "netTaxes": 0,
+      "payPeriod": "monthly",
+      "workPeriod": {
+        "from": "09/01/2022",
+        "to": "09/30/2022"
+      },
+      "components": [
+        {
+          "componentId": "60b7558e7f4bfc87cd086ab0",
+          "employeeId": ",
+          "name": "DENTAL INSURANCE",
+          "amount": 100,
+          "type": "DEDUCTION",
+          "modified": false,
+          "YTD": 900,
+          "status": ",
+          "isVariable": false,
+          "componentConfig": {
+            "configureAmountBasis": ",
+            "basisComponentId": ",
+            "componentPercent": 0,
+            "amountPerDay": 0,
+            "deductionType": "
+          },
+          "frequency": {
+            "period": "everyPayrun",
+            "occurrence": null,
+            "when": "
+          },
+          "isHidden": false,
+          "subType": ",
+          "includeInCTC": false,
+          "includeInOTCalc": false,
+          "isUnpaidIncluded": false,
+          "defaultAmount": 100,
+          "formulaConfig": null,
+          "formula": "
+        },
+        {
+          "componentId": "60c9f0fdff91a82207a7bd6e",
+          "employeeId": ",
+          "name": "Variable 1",
+          "amount": 114.636,
+          "type": "DEDUCTION",
+          "modified": false,
+          "YTD": 3027.855,
+          "status": ",
+          "isVariable": true,
+          "componentConfig": {
+            "configureAmountBasis": "percentageOfBasicSalary",
+            "basisComponentId": ",
+            "componentPercent": 10,
+            "amountPerDay": 0,
+            "deductionType": "
+          },
+          "frequency": {
+            "period": "everyPayrun",
+            "occurrence": null,
+            "when": "
+          },
+          "isHidden": false,
+          "subType": ",
+          "includeInCTC": false,
+          "includeInOTCalc": false,
+          "isUnpaidIncluded": false,
+          "defaultAmount": 100,
+          "formulaConfig": null,
+          "formula": "
+        },
+        {
+          "componentId": "60b7558e7f4bfc87cd086aa7",
+          "employeeId": ",
+          "name": "Bonus",
+          "amount": 200,
+          "type": "EARNING",
+          "modified": false,
+          "YTD": 1800,
+          "status": ",
+          "isVariable": false,
+          "componentConfig": {
+            "configureAmountBasis": ",
+            "basisComponentId": ",
+            "componentPercent": 0,
+            "amountPerDay": 0,
+            "deductionType": "
+          },
+          "frequency": {
+            "period": "everyPayrun",
+            "occurrence": null,
+            "when": "
+          },
+          "isHidden": false,
+          "subType": ",
+          "includeInCTC": false,
+          "includeInOTCalc": false,
+          "isUnpaidIncluded": false,
+          "defaultAmount": 200,
+          "formulaConfig": null,
+          "formula": "
+        },
+        {
+          "componentId": "60b7558e7f4bfc87cd086aa9",
+          "employeeId": ",
+          "name": "Tips",
+          "amount": 100,
+          "type": "EARNING",
+          "modified": false,
+          "YTD": 900,
+          "status": ",
+          "isVariable": false,
+          "componentConfig": {
+            "configureAmountBasis": ",
+            "basisComponentId": ",
+            "componentPercent": 0,
+            "amountPerDay": 0,
+            "deductionType": "
+          },
+          "frequency": {
+            "period": "everyPayrun",
+            "occurrence": null,
+            "when": "
+          },
+          "isHidden": false,
+          "subType": ",
+          "includeInCTC": false,
+          "includeInOTCalc": false,
+          "isUnpaidIncluded": false,
+          "defaultAmount": 100,
+          "formulaConfig": null,
+          "formula": "
+        },
+        {
+          "componentId": "60b7558e7f4bfc87cd086ab3",
+          "employeeId": ",
+          "name": "HSA Family",
+          "amount": 100,
+          "type": "DEDUCTION",
+          "modified": false,
+          "YTD": 900,
+          "status": ",
+          "isVariable": false,
+          "componentConfig": {
+            "configureAmountBasis": ",
+            "basisComponentId": ",
+            "componentPercent": 0,
+            "amountPerDay": 0,
+            "deductionType": "
+          },
+          "frequency": {
+            "period": "everyPayrun",
+            "occurrence": null,
+            "when": "
+          },
+          "isHidden": false,
+          "subType": ",
+          "includeInCTC": false,
+          "includeInOTCalc": false,
+          "isUnpaidIncluded": false,
+          "defaultAmount": 100,
+          "formulaConfig": null,
+          "formula": "
+        }
+      ],
+      "benefits": [
+        {
+          "id": "613215d012b39afd98aa519b",
+          "name": "Mediclaim",
+          "employerContribution": 50,
+          "employeeContribution": 100,
+          "employerYTD": 200,
+          "employeeYTD": 400,
+          "compliance": {
+            "deductionType": "pretaxdeduction",
+            "countryCode": "US",
+            "CPF": "
+          }
+        },
+        {
+          "id": "62a32cff772d5f6a6954c48f",
+          "name": "Travel Allowance",
+          "employerContribution": 80.245,
+          "employeeContribution": 80.245,
+          "employerYTD": 2049.498,
+          "employeeYTD": 2049.498,
+          "compliance": {
+            "deductionType": "pretaxdeduction",
+            "countryCode": "US",
+            "CPF": "
+          }
+        }
+      ],
+      "compliance": null,
+      "createdAt": "2022-09-27T06:36:15.467Z",
+      "filepath": "payslips/70419/58592/1664260577436_Ganesh-Karale.pdf",
+      "overtime": [
+        {
+          "value": 2,
+          "rate": 1,
+          "amount": 10
+        }
+      ],
+      "countryCode": "US",
+      "compensation": 12500,
+      "basicPayrunYTD": 55000,
+      "netPayrunYTD": 34278.545,
+      "netPayYTD": 20388.463,
+      "payDate": "2021-09-30T00:00:00Z",
+      "isPaymentDone": false,
+      "paymentDoneAt": "0001-01-01T00:00:00Z",
+      "paymentVendor": ",
+      "paymentFailureReason": ",
+      "lossOfPay": 11363.636,
+      "overtimePay": 10
+    }
+  ],
+  "filterResponse": {
+    "currentPage": 1,
+    "count": 5,
+    "limit": 5,
+    "totalPages": 3,
+    "totalCount": 11
+  }
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
 
-### /paystubs/employee/{employeeId}/month/{month}
-
-#### GET
-##### Summary
-
-Get Paystubs for Employee in a Given Month
-
-##### Description
-
-Get all Payruns of a tenant between dates
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| from | query | From (Year) | Yes | string |
-| to | query | To (Year) | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PaystubsResponse](#dtopaystubsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /paystubs/report/liability
+### Fetch liability reports
 
 #### GET
 ##### Summary
@@ -3830,13 +4233,86 @@ Get all liabilities of a tenant between dates
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.LiabilityResponse](#dtoliabilityresponse) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/paystubs/report/liability?from=2022-10-01&to=2022-10-31
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people-pay-run/paystubs/report/liability?from=2022-10-01&to=2022-10-31' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+  "liabilities": [
+    {
+      "name": "CDAC",
+      "displayName": "CDAC",
+      "employeesContribution": 0.5,
+      "employerContribution": 0,
+      "total": 0.5
+    },
+    {
+      "name": "CPF",
+      "displayName": "CPF",
+      "employeesContribution": 800,
+      "employerContribution": 2210,
+      "total": 3010
+    },
+    {
+      "name": "ECF",
+      "displayName": "ECF",
+      "employeesContribution": 29,
+      "employerContribution": 0,
+      "total": 29
+    },
+    {
+      "name": "FWL",
+      "displayName": "FWL",
+      "employeesContribution": 0,
+      "employerContribution": 0,
+      "total": 0
+    },
+    {
+      "name": "MBMF",
+      "displayName": "MBMF",
+      "employeesContribution": 0,
+      "employerContribution": 0,
+      "total": 0
+    },
+    {
+      "name": "SDL",
+      "displayName": "SDL",
+      "employeesContribution": 0,
+      "employerContribution": 36.25,
+      "total": 36.25
+    },
+    {
+      "name": "SINDA",
+      "displayName": "SINDA",
+      "employeesContribution": 18,
+      "employerContribution": 0,
+      "total": 18
+    }
+  ]
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
 
-### /paystubs/statutory-report
+### Fetch statutory-report
 
 #### POST
 ##### Summary
@@ -3859,81 +4335,74 @@ Get statutory report data
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.ReportData](#dtoreportdata) |
 
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/paystubs/statutory-report```
+
+##### Curl
+
+```java
+curl -X 'POST' \
+  'https://bifrost-us.deskera.com/v1/people-pay-run/paystubs/statutory-report' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken' \
+  -H 'Content-Type: application/json' \
+  -d '{""from"":""2022-09-01"",""to"":""2022-09-30"",""form"":""EPF"",""employeeId"":[],""filterOptions"":{""currentPage"":1,""limit"":20}}'```
+
+##### Sample Request
+```java
+{
+  ""from"": ""2022-09-01"",
+  ""to"": ""2022-09-30"",
+  ""form"": ""EPF"",
+  ""employeeId"": [
+    
+  ],
+  ""filterOptions"": {
+    ""currentPage"": 1,
+    ""limit"": 20
+  }
+}```
+
+##### Sample Response
+```java
+{
+  ""ptReport"": null,
+  ""esiReport"": null,
+  ""epfReport"": [
+    {
+      ""employeID"": ""00001"",
+      ""uanNumber"": """",
+      ""grossWages"": 0,
+      ""epfWages"": 0,
+      ""epsWages"": 0,
+      ""edliWages"": 0,
+      ""employeeName"": ""rohan_us_temp@temp.deskera.xyz "",
+      ""epfContributionRemitted"": 0,
+      ""epsContributionRemitted"": 0,
+      ""epfEpsDiffRemitted"": 0,
+      ""ncpDays"": 0,
+      ""refundOfAdvance"": 0,
+      ""iamUserId"": ""58372"",
+      ""pf"": false
+    }
+  ],
+  ""filterResponse"": {
+    ""currentPage"": 1,
+    ""count"": 1,
+    ""limit"": 20,
+    ""totalPages"": 1,
+    ""totalCount"": 1
+  }
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
 
-### /paystubs/year/{year}
-
-#### GET
-##### Summary
-
-Get Paystubs in a year
-
-##### Description
-
-Get paystubs in a year for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| year | path | Year | Yes | integer |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrunsResponse](#dtopayrunsresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-
-### Security
-**ApiKeyAuth**  
-
-|apiKey|*API Key*|
-|---|---|
-|Name|x-access-token|
-|In|header|
-
-### /check-print/bulk
-
-#### POST
-##### Summary
-
-Get Check Print Details By Employee Id and Payrun Id
-
-##### Description
-
-Get Check Print Details By Employee Id and Payrun Id
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payroll | body | CheckPrint request dto | Yes | [dto.CheckPrintRequestDto](#dtocheckprintrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrollCheckPrintResponseDto](#dtopayrollcheckprintresponsedto) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-
-### /payruns/giro/file
+### Fetch GIRO files for SG/MY compliances
 
 #### GET
 ##### Summary
@@ -3959,6 +4428,55 @@ Get GIRO file
 | ---- | ----------- | ------ |
 | 200 | OK | [dto.GIROFileResponse](#dtogirofileresponse) |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/giro/file?limit=20&currentPage=1&from=10%2F01%2F2022&to=10%2F31%2F2022
+```
+
+##### Curl
+
+```java
+curl -X 'GET' \
+  'https://bifrost-us.deskera.com/v1/people-pay-run/payruns/giro/file?limit=20&currentPage=1&from=10%2F01%2F2022&to=10%2F31%2F2022
+' \
+  -H 'accept: application/json' \
+  -H 'x-access-token: sampletoken'```
+```
+
+##### Sample Request
+```java
+```
+
+##### Sample Response
+```java
+{
+    "payrunForGIROFile": [
+        {
+            "payrunId": "635267349b69107e7574c217",
+            "workPeriod": {
+                "from": "10/01/2022",
+                "to": "10/31/2022"
+            },
+            "paySchedule": {
+                "id": "635133a46dba490b5b2c770d",
+                "name": "octyes"
+            },
+            "firstPayDate": "10/31/2022",
+            "netPay": 6729.0952380952385,
+            "totalEmployee": 1,
+            "generatedGIROCount": 0
+        }
+    ],
+    "filterResponse": {
+        "currentPage": 1,
+        "count": 1,
+        "limit": 20,
+        "totalPages": 1,
+        "totalCount": 1
+    }
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -3966,7 +4484,7 @@ Get GIRO file
 | ApiKeyAuth | |
 
 
-### /payruns/process-payment/{id}
+### Cashfree process-payment by payrun id
 
 #### PATCH
 ##### Summary
@@ -3989,123 +4507,32 @@ Payment by Payrun Id
 | ---- | ----------- | ------ |
 | 200 | OK | string |
 
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people-pay-run/payruns/year/2022?limit=20&currentPage=1&order=desc&field=_id
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people-pay-run/payruns?limit=20&currentPage=1&order=desc&field=_id" -H "accept: application/json" -H "x-access-token: sampleaccesstoken"
+```
+
+##### Sample Request
+```java
+{key:value}
+```
+
+##### Sample Response
+```java
+{key:value}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
-
-### /payruns/payment-status/{vendor}/{payrunId}
-
-#### PATCH
-##### Summary
-
-Payment done of a given payrun
-
-##### Description
-
-Payment done of a given payrun by Id for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| payrunId | path | Payrun Id | Yes | string |
-| vendor | path | vendor | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.PayrunResponse](#dtopayrunresponse) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-
-### /commission/add
-
-#### POST
-##### Summary
-
-Add Commission Endpoint
-
-##### Description
-
-Add Commission Endpoint for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| commission | body | Commission Dto | Yes | [dto.CommissionRequestDto](#dtocommissionrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /commission/details
-
-#### GET
-##### Summary
-
-Get Commission Endpoint
-
-##### Description
-
-Get Commission Endpoint for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| commission | body | Commission paging Dto | Yes | [dto.GetCommissionRequestDto](#dtogetcommissionrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### /commission/update
-
-#### PATCH
-##### Summary
-
-Update Commission Endpoint
-
-##### Description
-
-Update Commission Endpoint for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| commission | body | Commission Dto | Yes | [dto.CommissionRequestDto](#dtocommissionrequestdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.CommissionResponseDto](#dtocommissionresponsedto) |
 
 ### Models
 

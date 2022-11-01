@@ -94,7 +94,7 @@ curl --location --request POST 'https://bifrost-us.deskera.com/v1/people-pay-sch
 
 
 
-### /pay-schedule/{id}
+### Fetch payschedule
 
 #### GET
 ##### Summary
@@ -123,7 +123,7 @@ Get payschedule by ID
 | --- | --- |
 | ApiKeyAuth | |
 
-#### Update Payschedule
+#### Update payschedule
 ##### Summary
 
 Update Payschedule By Id
@@ -275,7 +275,7 @@ curl --location --request PUT 'https://bifrost-us.deskera.com/v1/people-pay-sche
 | --- | --- |
 | ApiKeyAuth | |
 
-#### DELETE Payschedule
+#### DELETE payschedule
 ##### Summary
 
 Delete Payschedule By Id
@@ -347,37 +347,7 @@ curl 'https://bifrost-us.deskera.com/v1/people-pay-schedule/pay-schedules/bulk' 
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
-
-### Bulk delete Payschedule
-
-#### DELETE 
-##### Summary
-
-Bulk Delete Payschedules By Ids
-
-##### Description
-
-Bulk Delete Payschedules By Ids for a Tenant
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| ids | body | Payschedule Ids | Yes | [ [dto.BulkScheduleRequest](#dtobulkschedulerequest) ] |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [dto.Schedule](#dtoschedule) |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| ApiKeyAuth | |
-
-### Get all Payschedules
+### Fetch all payschedules
 
 #### GET
 ##### Summary
@@ -499,6 +469,36 @@ curl --location --request GET 'https://bifrost-us.deskera.com/v1/people-pay-sche
 | Security Schema | Scopes |
 | --- | --- |
 | ApiKeyAuth | |
+
+### Bulk delete payschedules
+
+#### DELETE 
+##### Summary
+
+Bulk Delete Payschedules By Ids
+
+##### Description
+
+Bulk Delete Payschedules By Ids for a Tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| ids | body | Payschedule Ids | Yes | [ [dto.BulkScheduleRequest](#dtobulkschedulerequest) ] |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [dto.Schedule](#dtoschedule) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| ApiKeyAuth | |
+
 
 ### Models
 

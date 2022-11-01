@@ -4,20 +4,13 @@ title: Employee
 sidebar_label: Employee
 ---
 
-### Security
-**Authorization**  
 
-|apiKey|*API Key*|
-|---|---|
-|Name|x-access-token|
-|In|header|
-
-### /v1/people/employees/check-list
+### Fetch Termination checklist for the employees
 
 #### GET
 ##### Summary
 
-Get termination checklist.
+Get termination checklist when terminating an employee
 
 ##### Description
 
@@ -32,6 +25,44 @@ API to Get termination checklist.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/check-list
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/employees/check-list" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+[
+  {
+    "seq": 1,
+    "item": "Submit Company Assets",
+    "id": null
+  },
+  {
+    "seq": 2,
+    "item": "Complete Exit Interview Process",
+    "id": null
+  },
+  {
+    "seq": 3,
+    "item": "Complete Knowledge Transfer",
+    "id": null
+  }
+]
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -63,13 +94,46 @@ API to Save termination checklist
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/check-list
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/employees/check-list" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "[ { \"item\": \"This is task\", \"seq\": 1 }]"
+```
+
+##### Sample Request
+```java
+[
+  {
+    "item": "This is task",
+    "seq": 1
+  }
+]
+```
+
+##### Sample Response
+```java
+[
+  {
+    "seq": 1,
+    "item": "This is task",
+    "id": 3944
+  }
+]
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | Authorization | global |
 
-### /v1/people/employees/in/tax-declaration-info
+### Tax declarations
 
 #### GET
 ##### Summary
@@ -97,6 +161,139 @@ API to get employee tax declaration details.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info?financialYearStartDate=2022-04-01&stage=DECLARATION&userId=61fa1545b01be61555b31b6b
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info?financialYearStartDate=2022-04-01&stage=DECLARATION&userId=61fa1545b01be61555b31b6b" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "employeeName": "John Doe",
+  "homeLoanRepayment": [
+    {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z"
+    }
+  ],
+  "houseRents": [
+    {
+      "address": {
+        "addressLine1": "218, Robinson Road",
+        "addressLine2": "Downtown",
+        "addressLine3": "Downtown",
+        "city": "Pune",
+        "country": "IN",
+        "county": "Montgomery County",
+        "state": "MH",
+        "zipCode": 123456
+      },
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "isMetroCity": true,
+      "landlordName": "Deskera",
+      "landlordPAN": "AB123456Z",
+      "rentalFromDate": "2021-04-01",
+      "rentalToDate": "2022-03-31"
+    }
+  ],
+  "investment80C": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "investment80D": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "newRegime": true,
+  "otherExemptions": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -130,6 +327,330 @@ API to save employee information details.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info?stage=DECLARATION&status=DRAFT
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info?stage=DECLARATION&status=DRAFT" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{ \"homeLoanRepayment\": [ { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ], \"lenderName\": \"Deskera\", \"lenderPAN\": \"AB123456Z\" } ], \"houseRents\": [ { \"address\": { \"addressLine1\": \"218, Robinson Road\", \"addressLine2\": \"Downtown\", \"addressLine3\": \"Downtown\", \"city\": \"Pune\", \"country\": \"IN\", \"county\": \"Montgomery County\", \"state\": \"MH\", \"zipCode\": 123456 }, \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ], \"isMetroCity\": true, \"landlordName\": \"Deskera\", \"landlordPAN\": \"AB123456Z\", \"rentalFromDate\": \"2021-04-01\", \"rentalToDate\": \"2022-03-31\" } ], \"investment80C\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"investment80D\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"newRegime\": true, \"otherExemptions\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"otherIncomeSources\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"rentalIncome\": [ { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ], \"lenderName\": \"Deskera\", \"lenderPAN\": \"AB123456Z\", \"repayingHomeLoanForThisProperty\": true } ], \"userId\": 1234}"
+```
+
+##### Sample Request
+```java
+{
+  "homeLoanRepayment": [
+    {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z"
+    }
+  ],
+  "houseRents": [
+    {
+      "address": {
+        "addressLine1": "218, Robinson Road",
+        "addressLine2": "Downtown",
+        "addressLine3": "Downtown",
+        "city": "Pune",
+        "country": "IN",
+        "county": "Montgomery County",
+        "state": "MH",
+        "zipCode": 123456
+      },
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "isMetroCity": true,
+      "landlordName": "Deskera",
+      "landlordPAN": "AB123456Z",
+      "rentalFromDate": "2021-04-01",
+      "rentalToDate": "2022-03-31"
+    }
+  ],
+  "investment80C": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "investment80D": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "newRegime": true,
+  "otherExemptions": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "otherIncomeSources": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "rentalIncome": [
+    {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z",
+      "repayingHomeLoanForThisProperty": true
+    }
+  ],
+  "userId": 1234
+}
+```
+
+##### Sample Response
+```java
+{
+  "userId": "1234",
+  "newRegime": true,
+  "investment80C": {
+    "amountDetails": [
+      {
+        "attachments": null,
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "investment80D": {
+    "amountDetails": [
+      {
+        "attachments": [
+          "string"
+        ],
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "otherExemptions": {
+    "amountDetails": [
+      {
+        "attachments": null,
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "otherIncomeSources": {
+    "amountDetails": [
+      {
+        "attachments": null,
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "submitOn": "2022-10-28",
+  "submitBy": 229024,
+  "status": "DRAFT",
+  "employeeName": null,
+  "homeLoanRepayment": [
+    {
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z",
+      "amountDetails": [
+        {
+          "attachments": null,
+          "submitterComments": [
+            "string"
+          ],
+          "approverComments": [
+            "string"
+          ],
+          "status": "PENDING",
+          "name": "Interest Paid",
+          "declaredAmount": 2000
+        }
+      ]
+    }
+  ],
+  "rentalIncome": [
+    {
+      "amountDetails": [
+        {
+          "attachments": null,
+          "submitterComments": [
+            "string"
+          ],
+          "approverComments": [
+            "string"
+          ],
+          "status": "PENDING",
+          "name": "Interest Paid",
+          "declaredAmount": 2000
+        }
+      ],
+      "repayingHomeLoanForThisProperty": true,
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z"
+    }
+  ],
+  "houseRents": [
+    {
+      "amountDetails": [
+        {
+          "attachments": null,
+          "submitterComments": [
+            "string"
+          ],
+          "approverComments": [
+            "string"
+          ],
+          "status": "PENDING",
+          "name": "Interest Paid",
+          "declaredAmount": 2000
+        }
+      ],
+      "rentalFromDate": "2021-04-01",
+      "rentalToDate": "2022-03-31",
+      "address": {
+        "country": "IN",
+        "state": "MH",
+        "city": "Pune",
+        "zipCode": "123456",
+        "county": null,
+        "addressLine1": "218, Robinson Road",
+        "addressLine2": "Downtown",
+        "addressLine3": "Downtown"
+      },
+      "landlordName": "Deskera",
+      "landlordPAN": "AB123456Z",
+      "isMetroCity": true
+    }
+  ]
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -164,13 +685,341 @@ API to update employee tax declaration details.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info?financialYearStartDate=2022-04-01&stage=DECLARATION&status=DRAFT
+```
+
+##### Curl
+
+```java
+curl -X PUT "https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info?financialYearStartDate=2022-04-01&stage=DECLARATION&status=DRAFT" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{ \"homeLoanRepayment\": [ { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ], \"lenderName\": \"Deskera\", \"lenderPAN\": \"AB123456Z\" } ], \"houseRents\": [ { \"address\": { \"addressLine1\": \"218, Robinson Road\", \"addressLine2\": \"Downtown\", \"addressLine3\": \"Downtown\", \"city\": \"Pune\", \"country\": \"IN\", \"county\": \"Montgomery County\", \"state\": \"MH\", \"zipCode\": 123456 }, \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ], \"isMetroCity\": true, \"landlordName\": \"Deskera\", \"landlordPAN\": \"AB123456Z\", \"rentalFromDate\": \"2021-04-01\", \"rentalToDate\": \"2022-03-31\" } ], \"investment80C\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"investment80D\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"newRegime\": true, \"otherExemptions\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"otherIncomeSources\": { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ] }, \"rentalIncome\": [ { \"amountDetails\": [ { \"approverComments\": [ \"string\" ], \"attachments\": [ \"string\" ], \"declaredAmount\": 2000, \"name\": \"Interest Paid\", \"status\": \"PENDING\", \"submitterComments\": [ \"string\" ] } ], \"lenderName\": \"Deskera\", \"lenderPAN\": \"AB123456Z\", \"repayingHomeLoanForThisProperty\": true } ], \"userId\": 1234}"
+```
+
+##### Sample Request
+```java
+{
+  "userId": "1234",
+  "newRegime": true,
+  "investment80C": {
+    "amountDetails": [
+      {
+        "attachments": null,
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "investment80D": {
+    "amountDetails": [
+      {
+        "attachments": [
+          "string"
+        ],
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "otherExemptions": {
+    "amountDetails": [
+      {
+        "attachments": null,
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "otherIncomeSources": {
+    "amountDetails": [
+      {
+        "attachments": null,
+        "submitterComments": [
+          "string"
+        ],
+        "approverComments": [
+          "string"
+        ],
+        "status": "PENDING",
+        "name": "Interest Paid",
+        "declaredAmount": 2000
+      }
+    ]
+  },
+  "submitOn": "2022-10-28",
+  "submitBy": 229024,
+  "status": "DRAFT",
+  "employeeName": null,
+  "homeLoanRepayment": [
+    {
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z",
+      "amountDetails": [
+        {
+          "attachments": null,
+          "submitterComments": [
+            "string"
+          ],
+          "approverComments": [
+            "string"
+          ],
+          "status": "PENDING",
+          "name": "Interest Paid",
+          "declaredAmount": 2000
+        }
+      ]
+    }
+  ],
+  "rentalIncome": [
+    {
+      "amountDetails": [
+        {
+          "attachments": null,
+          "submitterComments": [
+            "string"
+          ],
+          "approverComments": [
+            "string"
+          ],
+          "status": "PENDING",
+          "name": "Interest Paid",
+          "declaredAmount": 2000
+        }
+      ],
+      "repayingHomeLoanForThisProperty": true,
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z"
+    }
+  ],
+  "houseRents": [
+    {
+      "amountDetails": [
+        {
+          "attachments": null,
+          "submitterComments": [
+            "string"
+          ],
+          "approverComments": [
+            "string"
+          ],
+          "status": "PENDING",
+          "name": "Interest Paid",
+          "declaredAmount": 2000
+        }
+      ],
+      "rentalFromDate": "2021-04-01",
+      "rentalToDate": "2022-03-31",
+      "address": {
+        "country": "IN",
+        "state": "MH",
+        "city": "Pune",
+        "zipCode": "123456",
+        "county": null,
+        "addressLine1": "218, Robinson Road",
+        "addressLine2": "Downtown",
+        "addressLine3": "Downtown"
+      },
+      "landlordName": "Deskera",
+      "landlordPAN": "AB123456Z",
+      "isMetroCity": true
+    }
+  ]
+}
+```
+
+##### Sample Response
+```java
+{
+  "employeeName": "John Doe",
+  "homeLoanRepayment": [
+    {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z"
+    }
+  ],
+  "houseRents": [
+    {
+      "address": {
+        "addressLine1": "218, Robinson Road",
+        "addressLine2": "Downtown",
+        "addressLine3": "Downtown",
+        "city": "Pune",
+        "country": "IN",
+        "county": "Montgomery County",
+        "state": "MH",
+        "zipCode": 123456
+      },
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "isMetroCity": true,
+      "landlordName": "Deskera",
+      "landlordPAN": "AB123456Z",
+      "rentalFromDate": "2021-04-01",
+      "rentalToDate": "2022-03-31"
+    }
+  ],
+  "investment80C": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "investment80D": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "newRegime": true,
+  "otherExemptions": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "otherIncomeSources": {
+    "amountDetails": [
+      {
+        "approverComments": [
+          "string"
+        ],
+        "attachments": [
+          "string"
+        ],
+        "declaredAmount": 2000,
+        "name": "Interest Paid",
+        "status": "PENDING",
+        "submitterComments": [
+          "string"
+        ]
+      }
+    ]
+  },
+  "rentalIncome": [
+    {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ],
+      "lenderName": "Deskera",
+      "lenderPAN": "AB123456Z",
+      "repayingHomeLoanForThisProperty": true
+    }
+  ],
+  "status": "DRAFT",
+  "submitBy": 1234,
+  "submitOn": "2021-04-30",
+  "userId": 1234
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | Authorization | global |
 
-### /v1/people/employees/in/tax-declaration-info/details
+### Tax declaration details
 
 #### GET
 ##### Summary
@@ -197,13 +1046,516 @@ API to get employee tax declaration details for all stages
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info/details?financialYearStartDate=2022-04-01&userId=61fa1545b01be61555b31b6b
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info/details?financialYearStartDate=2022-04-01&userId=61fa1545b01be61555b31b6b" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "actual": {
+    "employeeName": "John Doe",
+    "homeLoanRepayment": [
+      {
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "lenderName": "Deskera",
+        "lenderPAN": "AB123456Z"
+      }
+    ],
+    "houseRents": [
+      {
+        "address": {
+          "addressLine1": "218, Robinson Road",
+          "addressLine2": "Downtown",
+          "addressLine3": "Downtown",
+          "city": "Pune",
+          "country": "IN",
+          "county": "Montgomery County",
+          "state": "MH",
+          "zipCode": 123456
+        },
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "isMetroCity": true,
+        "landlordName": "Deskera",
+        "landlordPAN": "AB123456Z",
+        "rentalFromDate": "2021-04-01",
+        "rentalToDate": "2022-03-31"
+      }
+    ],
+    "investment80C": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "investment80D": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "newRegime": true,
+    "otherExemptions": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "otherIncomeSources": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "rentalIncome": [
+      {
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "lenderName": "Deskera",
+        "lenderPAN": "AB123456Z",
+        "repayingHomeLoanForThisProperty": true
+      }
+    ],
+    "status": "DRAFT",
+    "submitBy": 1234,
+    "submitOn": "2021-04-30",
+    "userId": 1234
+  },
+  "approved": {
+    "employeeName": "John Doe",
+    "homeLoanRepayment": [
+      {
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "lenderName": "Deskera",
+        "lenderPAN": "AB123456Z"
+      }
+    ],
+    "houseRents": [
+      {
+        "address": {
+          "addressLine1": "218, Robinson Road",
+          "addressLine2": "Downtown",
+          "addressLine3": "Downtown",
+          "city": "Pune",
+          "country": "IN",
+          "county": "Montgomery County",
+          "state": "MH",
+          "zipCode": 123456
+        },
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "isMetroCity": true,
+        "landlordName": "Deskera",
+        "landlordPAN": "AB123456Z",
+        "rentalFromDate": "2021-04-01",
+        "rentalToDate": "2022-03-31"
+      }
+    ],
+    "investment80C": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "investment80D": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "newRegime": true,
+    "otherExemptions": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "otherIncomeSources": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "rentalIncome": [
+      {
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "lenderName": "Deskera",
+        "lenderPAN": "AB123456Z",
+        "repayingHomeLoanForThisProperty": true
+      }
+    ],
+    "status": "DRAFT",
+    "submitBy": 1234,
+    "submitOn": "2021-04-30",
+    "userId": 1234
+  },
+  "declaration": {
+    "employeeName": "John Doe",
+    "homeLoanRepayment": [
+      {
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "lenderName": "Deskera",
+        "lenderPAN": "AB123456Z"
+      }
+    ],
+    "houseRents": [
+      {
+        "address": {
+          "addressLine1": "218, Robinson Road",
+          "addressLine2": "Downtown",
+          "addressLine3": "Downtown",
+          "city": "Pune",
+          "country": "IN",
+          "county": "Montgomery County",
+          "state": "MH",
+          "zipCode": 123456
+        },
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "isMetroCity": true,
+        "landlordName": "Deskera",
+        "landlordPAN": "AB123456Z",
+        "rentalFromDate": "2021-04-01",
+        "rentalToDate": "2022-03-31"
+      }
+    ],
+    "investment80C": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "investment80D": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "newRegime": true,
+    "otherExemptions": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "otherIncomeSources": {
+      "amountDetails": [
+        {
+          "approverComments": [
+            "string"
+          ],
+          "attachments": [
+            "string"
+          ],
+          "declaredAmount": 2000,
+          "name": "Interest Paid",
+          "status": "PENDING",
+          "submitterComments": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "rentalIncome": [
+      {
+        "amountDetails": [
+          {
+            "approverComments": [
+              "string"
+            ],
+            "attachments": [
+              "string"
+            ],
+            "declaredAmount": 2000,
+            "name": "Interest Paid",
+            "status": "PENDING",
+            "submitterComments": [
+              "string"
+            ]
+          }
+        ],
+        "lenderName": "Deskera",
+        "lenderPAN": "AB123456Z",
+        "repayingHomeLoanForThisProperty": true
+      }
+    ],
+    "status": "DRAFT",
+    "submitBy": 1234,
+    "submitOn": "2021-04-30",
+    "userId": 1234
+  }
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | Authorization | global |
 
-### /v1/people/employees/in/tax-declaration-info/info
+### Tax declaration infomration 
 
 #### POST
 ##### Summary
@@ -231,13 +1583,43 @@ Api to get employee's investment submission details by user ids
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info/info?stage=DECLARATION
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/employees/in/tax-declaration-info/info?stage=DECLARATION" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "[ \"61fa1545b01be61555b31b6b\"]"
+```
+
+##### Sample Request
+```java
+[
+  "61fa1545b01be61555b31b6b"
+]
+```
+
+##### Sample Response
+```java
+{
+  "rejectedItems": "Income from other sources",
+  "stage": "DECLARATION",
+  "status": "DRAFT",
+  "submitOn": "2021-04-01",
+  "userId": 1234
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | Authorization | global |
 
-### /v1/people/employees/termination
+### Employee Termination
 
 #### GET
 ##### Summary
@@ -263,6 +1645,39 @@ API to get employee termination details.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/termination?empId=50125
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/employees/termination?empId=50125" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+{
+  "compliance": [
+    {
+      "fieldValue": "TRUE"
+    }
+  ],
+  "employeeId": 1234,
+  "employeePersonalEmail": "employee@xyz.com",
+  "terminationDate": "20-09-2020",
+  "terminationReason": "Relocation",
+  "terminationType": "VOLUNTARY"
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -294,6 +1709,50 @@ API to save employee termination details.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/termination
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/employees/termination" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{ \"compliance\": [ { \"fieldValue\": \"TRUE\" } ], \"employeeId\": 1234, \"employeePersonalEmail\": \"employee@xyz.com\", \"terminationDate\": \"20-09-2020\", \"terminationReason\": \"Relocation\", \"terminationType\": \"VOLUNTARY\"}"
+```
+
+##### Sample Request
+```java
+{
+  "compliance": [
+    {
+      "fieldValue": "TRUE"
+    }
+  ],
+  "employeeId": 1234,
+  "employeePersonalEmail": "employee@xyz.com",
+  "terminationDate": "20-09-2020",
+  "terminationReason": "Relocation",
+  "terminationType": "VOLUNTARY"
+}
+```
+
+##### Sample Response
+```java
+{
+  "compliance": [
+    {
+      "fieldValue": "TRUE"
+    }
+  ],
+  "employeeId": 1234,
+  "employeePersonalEmail": "employee@xyz.com",
+  "terminationDate": "20-09-2020",
+  "terminationReason": "Relocation",
+  "terminationType": "VOLUNTARY"
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -325,42 +1784,58 @@ API to update employee termination details.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/termination
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/employees/termination" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "{ \"compliance\": [ { \"fieldValue\": \"TRUE\" } ], \"employeeId\": 1234, \"employeePersonalEmail\": \"employee@xyz.com\", \"terminationDate\": \"20-09-2020\", \"terminationReason\": \"Relocation\", \"terminationType\": \"VOLUNTARY\"}"
+```
+
+##### Sample Request
+```java
+{
+  "compliance": [
+    {
+      "fieldValue": "TRUE"
+    }
+  ],
+  "employeeId": 1234,
+  "employeePersonalEmail": "employee@xyz.com",
+  "terminationDate": "20-09-2020",
+  "terminationReason": "Relocation",
+  "terminationType": "VOLUNTARY"
+}
+```
+
+##### Sample Response
+```java
+{
+  "compliance": [
+    {
+      "fieldValue": "TRUE"
+    }
+  ],
+  "employeeId": 1234,
+  "employeePersonalEmail": "employee@xyz.com",
+  "terminationDate": "20-09-2020",
+  "terminationReason": "Relocation",
+  "terminationType": "VOLUNTARY"
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | Authorization | global |
 
-### /v1/people/employees/termination-job
 
-#### GET
-##### Summary
-
-initiateTerminationJob
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| tenantId | query | tenantId | Yes | long |
-| terminationDate | query | terminationDate | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | string |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
-### /v1/people/employees/termination/rehire/{userId}
+### Rehire Terminated Employees
 
 #### GET
 ##### Summary
@@ -386,13 +1861,35 @@ API to update employee termination details.
 | 403 | Forbidden |
 | 404 | Not Found |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/termination/rehire/10123
+```
+
+##### Curl
+curl -X GET "https://bifrost-us.deskera.com/v1/people/employees/termination/rehire/10123" -H "accept: application/json" -H "x-access-token: sampletoken"
+```java
+
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+Employee termination details has been updated successfully.
+```
 ##### Security
 
 | Security Schema | Scopes |
 | --- | --- |
 | Authorization | global |
 
-### /v1/people/employees/{empid}/check-list
+### Manage Termination Checklist
 
 #### GET
 ##### Summary
@@ -418,6 +1915,36 @@ API to Get employee termination checklist.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/10241/check-list
+```
+
+##### Curl
+
+```java
+curl -X GET "https://bifrost-us.deskera.com/v1/people/employees/10241/check-list" -H "accept: application/json" -H "x-access-token: sampletoken"
+```
+
+##### Sample Request
+```java
+
+```
+
+##### Sample Response
+```java
+[
+  {
+    "seq": 1,
+    "item": "This is task",
+    "id": 3944,
+    "employeeItemStatus": false,
+    "managerItemStatus": false
+  }
+]
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -450,6 +1977,44 @@ API to Save employee termination checklist
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/01215/check-list
+```
+
+##### Curl
+
+```java
+curl -X POST "https://bifrost-us.deskera.com/v1/people/employees/01215/check-list" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "[ { \"employeeItemStatus\": false, \"id\": 0, \"item\": \"This is task\", \"managerItemStatus\": false, \"seq\": 1 }]"
+```
+
+##### Sample Request
+```java
+[
+  {
+    "employeeItemStatus": false,
+    "id": 0,
+    "item": "This is task",
+    "managerItemStatus": false,
+    "seq": 1
+  }
+]
+```
+
+##### Sample Response
+```java
+[
+  {
+    "seq": 1,
+    "item": "This is task",
+    "id": 2159,
+    "employeeItemStatus": false,
+    "managerItemStatus": false
+  }
+]
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -483,6 +2048,39 @@ API to Update termination checklist status.
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/10251/check-list?self=true
+```
+
+##### Curl
+
+```java
+curl -X PUT "http://localhost:8080/v1/people/employees/10251/check-list?self=true" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "[ { \"employeeItemStatus\": false, \"id\": 0, \"item\": \"This is task\", \"managerItemStatus\": false, \"seq\": 1 }]"
+```
+
+##### Sample Request
+```java
+[
+  {
+    "employeeItemStatus": false,
+    "id": 0,
+    "item": "This is task",
+    "managerItemStatus": false,
+    "seq": 1
+  }
+]
+```
+
+##### Sample Response
+```java
+{
+  "item": "This is task",
+  "seq": 1
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
@@ -514,6 +2112,39 @@ API to Update employee termination checklist
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 
+"
+
+##### Request URL
+```java
+https://bifrost-us.deskera.com/v1/people/employees/10245/check-list
+```
+
+##### Curl
+
+```java
+curl -X PATCH "https://bifrost-us.deskera.com/v1/people/employees/10245/check-list" -H "accept: application/json" -H "x-access-token: sampletoken" -H "Content-Type: application/json" -d "[ { \"employeeItemStatus\": false, \"id\": 0, \"item\": \"This is task\", \"managerItemStatus\": false, \"seq\": 1 }]"
+```
+
+##### Sample Request
+```java
+[
+  {
+    "employeeItemStatus": false,
+    "id": 0,
+    "item": "This is task",
+    "managerItemStatus": false,
+    "seq": 1
+  }
+]
+```
+
+##### Sample Response
+```java
+{
+  "item": "This is task",
+  "seq": 1
+}
+```
 ##### Security
 
 | Security Schema | Scopes |
