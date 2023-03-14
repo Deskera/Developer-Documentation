@@ -51,6 +51,17 @@ const features = [
     ),
     link: 'docs/people/started',
   },
+  {
+    title: <>Environment Details</>,
+    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    description: (
+      <>
+        Details of Staging and Production environments.<br/>
+        
+      </>
+    ),
+    link: 'docs/environment/started',
+  },
 ];
 
 function Feature({imageUrl, title, description,link}) {

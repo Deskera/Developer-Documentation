@@ -36,6 +36,11 @@ module.exports = {
           label: 'People Docs',
           position: 'left',
         },
+        {
+          to: 'docs/environment/started',
+          label: 'Environment Details',
+          position: 'left',
+        },
       ],
     },
     footer: {
