@@ -24,5 +24,11 @@ module.exports = {
     Resources: ['people/users','people/employee','people/compliance','people/attendance','people/expense', 'people/component','people/componentgroups',
                   'people/account', 'people/payschedule','people/payruns','people/bankaccount','people/customfields','people/performanceappraisal', 
                   'people/shift', 'people/team', 'people/template', 'people/tenant']
+  },
+  
+  environmentSidebar: {
+    Introduction:['environment/started'],
+    Staging: ['environment/staging'],
+    Production: ['environment/prod']
   }
 };
