@@ -17,8 +17,7 @@ Your `access-token` contains many privileges, keep it secure!
 
 Web Signin API to authenticate with username and password
 
-More about [Authentication API documentation](https://deskera.docs.apiary.io/#reference/authentication-api/v1iamauthsign-inwebsign-in/web-signin-api-to-authenticate-with-username-and-password
-)
+More about [Authentication API documentation](https://www.postman.com/grey-meadow-1395/workspace/deskera/folder/8538637-4153fca1-e6f6-42f2-bda8-89f497f83cdc?ctx=documentation)
 
 
 ## API
@@ -34,15 +33,7 @@ Login to receive token with username and password.
 #### /v1/iam/auth/sign-in/web/sign-in
 ##### Request URL
 
-```java
-https://bifrost.deskera.com/v1/iam/auth/sign-in/web/sign-in
-```
-
-##### Curl
-
-```java
-curl -X POST "https://bifrost.deskera.com/v1/iam/auth/sign-in/web/sign-in" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"isMobile\": true, \"password\": \"abcd@123\", \"userName\": \"+65-1234-5678\"}"```
-```
+[Authentication API documentation](https://www.postman.com/grey-meadow-1395/workspace/deskera/folder/8538637-4153fca1-e6f6-42f2-bda8-89f497f83cdc?ctx=documentation)
 ## Models
 ---
 ### WebSignInRequest Object
