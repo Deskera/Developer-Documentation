@@ -18,7 +18,7 @@ Create stock adjustment.
 - Allows you to create a new stock adjustment entry.
 
 #### POST
-#### /v1/inventories/stockAdjustment
+#### /v1/products/inventories/stockAdjustment
 
 ##### Request URL
 
@@ -57,7 +57,7 @@ Update stock adjustment by code.
 - Allows you to update stock adjustment by code for a tenant.
 
 #### PUT
-#### /v1/inventories/stockAdjustment
+#### /v1/products/inventories/stockAdjustment
 
 ##### Request URL
 
@@ -98,7 +98,7 @@ Search stock adjustments.
 - Allows you to retrieve a list of stock adjustments based on it's filter criteria.
 
 #### GET
-#### /v1/inventories/stockAdjustment/search
+#### /v1/products/inventories/stockAdjustment/search
 
 ##### Request URL
 
@@ -142,7 +142,7 @@ Get stock adjustment by code.
 - Allows you to retrieve stock adjustment by it's code for a tenant.
 
 #### GET
-#### /v1/inventories/stockAdjustment/{code}
+#### /v1/products/inventories/stockAdjustment/{code}
 
 ##### Request URL
 
@@ -180,7 +180,7 @@ Get stock adjustment list.
 - Allows you to retrieve a list of all stock adjustments for a tenant.
 
 #### GET
-#### /v1/inventories/stockAdjustmentList
+#### /v1/products/inventories/stockAdjustmentList
 
 ##### Request URL
 
@@ -212,7 +212,7 @@ Create stock transfer.
 - Allows you to create a new stock transfer entry.
 
 #### POST
-#### /v1/inventories/stockTransfer
+#### /v1/products/inventories/stockTransfer
 
 ##### Request URL 
 
@@ -251,7 +251,7 @@ Edit stock transfer by code.
 - Allows you to edit stock transfer by it's code for a tenant.
 
 #### PUT
-#### /v1/inventories/stockTransfer
+#### /v1/products/inventories/stockTransfer
 
 ##### Request URL
 
@@ -292,7 +292,7 @@ Search stock transfers.
 - Allows you to retrieve a list of stock transfers based on it's filter criteria.
 
 #### GET
-#### /v1/inventories/stockTransfer/search
+#### /v1/products/inventories/stockTransfer/search
 
 ##### Request URL
 
@@ -338,7 +338,7 @@ Get stock transfer by code.
 - Allows you to get stock transfer details by it's code for a tenant.
 
 #### GET
-#### /v1/inventories/stockTransfer/{code}
+#### /v1/products/inventories/stockTransfer/{code}
 
 ##### Request URL
 
@@ -376,7 +376,7 @@ Get stock transfer list.
 - Allows you to retrieve a list of stock transfers for a tenant.
 
 #### GET
-#### /v1/inventories/stockTransferList
+#### /v1/products/inventories/stockTransferList
 
 ##### Request URL
 
@@ -407,7 +407,7 @@ Get Inventory Valuation.
 - Allows you to retrieve Inventory Valuation individual products and organization inventory valuation details.
 
 #### GET
-#### /v1/inventories/valuation
+#### /v1/products/inventories/valuation
 
 ##### Request URL
 
@@ -439,7 +439,7 @@ Get warehouse list for tenant.
 - Allows you to retrieve warehouse list for tenant.
 
 #### GET
-#### /v1/inventories/warehouses
+#### /v1/products/inventories/warehouses
 
 ##### Request URL
 
@@ -470,7 +470,7 @@ Create Warehouse.
 - Allows you to create a new warehouse.
 
 #### POST
-#### /v1/inventories/warehouses
+#### /v1/products/inventories/warehouses
 
 ##### Request URL
 
@@ -511,7 +511,7 @@ Search Warehouse.
 - Allows you to retrieve a list of all Warehouse based on it's filter criteria.
 
 #### GET
-#### /v1/inventories/warehouses/search
+#### /v1/products/inventories/warehouses/search
 
 ##### Request URL
 
@@ -553,7 +553,7 @@ Get warehouse details by warehouse code.
 - Allows you to retrieve warehouse details by it's warehouse code.
 
 #### GET
-#### /v1/inventories/warehouses/{code}
+#### /v1/products/inventories/warehouses/{code}
 
 ##### Request URL
 
@@ -591,7 +591,7 @@ Update Warehouse.
 - Allows you to update an existing Warehouse information.
 
 #### PUT
-#### /v1/inventories/warehouses/{id}
+#### /v1/products/inventories/warehouses/{id}
 
 ##### Request URL
 
@@ -934,7 +934,7 @@ API to Get Inventory Valuation individual products and organization inventory va
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | Inventory Valuation calculated successfully. | [ [InventoryValuation](#inventoryvaluation) ] |
+| 200 | Inventory Valuation calculated successfully. | [ object ] |
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
@@ -2406,6 +2406,24 @@ inventoryWarehouseXrefDuplicateCorrection
 | warehouseCode | string |  | No |
 | wipProductionCostDetails | [ [WIPConsumptionProductionCostDetails](#wipconsumptionproductioncostdetails) ] |  | No |
 
+### StockAdjustmentReasonDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| code | string | Unique code assigned to the stock adjustment reason | No |
+| reason | string | Stock adjustment reason text | No |
+| type | string | Type of the stock adjustment reason | No |
+| system | boolean | True if the reason is a system-defined reason | No |
+
+### StockAdjustmentRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| code | string | Stock adjustment code | No |
+| reason | string | Reason for the stock adjustment | No |
+| notes | string | Notes for the stock adjustment | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+
 ### StockTransferDto
 
 | Name | Type | Description | Required |
@@ -2428,6 +2446,15 @@ inventoryWarehouseXrefDuplicateCorrection
 | ---- | ---- | ----------- | -------- |
 | productVariantCode | string |  | No |
 | quantity | number |  | No |
+
+### StockTransferRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| code | string | Stock transfer code | No |
+| notes | string | Notes for the stock transfer | No |
+| transferCost | number | Transfer cost | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 
 ### URI
 
@@ -4206,6 +4233,18 @@ inventoryWarehouseXrefDuplicateCorrection
 | rackName | string | Row Name<br/>*Example:* `"Row1"` | Yes |
 | rowId | long | Row Id<br/>*Example:* `1` | Yes |
 | rowName | string | Row Name<br/>*Example:* `"Row1"` | Yes |
+
+### RowRackBinLastUsedResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| rowCode | string | Last used row code | No |
+| rowName | string | Last used row name | No |
+| rackCode | string | Last used rack code | No |
+| rackName | string | Last used rack name | No |
+| binCode | string | Last used bin code | No |
+| binName | string | Last used bin name | No |
+
 ### SaveInventoryTxnEventItem
 
 | Name | Type | Description | Required |

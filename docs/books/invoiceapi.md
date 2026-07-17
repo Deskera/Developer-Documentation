@@ -22246,11 +22246,17 @@ API to Export Sales Tax Payment Report .
 | city | string | City<br/>*Example:* `"C001"` | No |
 | contactName | string | contact name for address<br/>*Example:* `"John Smith"` | No |
 | country | string | Country<br/>*Example:* `"C001"` | No |
+| countryCode | string | Country code<br/>*Example:* `"SG"` | No |
+| customFields | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | destinationOfSupply | string | state in India<br/>*Example:* `"Maharashtra"` | No |
+| emailId | string | Email address<br/>*Example:* `"john.smith@example.com"` | No |
+| mobileCountryCode | string | Country code of the mobile number<br/>*Example:* `"+65"` | No |
+| mobileNumber | string | Mobile number<br/>*Example:* `"98765432"` | No |
 | placeOfSupply | string | state in India<br/>*Example:* `"Punjab"` | No |
 | postalCode | string | Postal Code<br/>*Example:* `123456` | No |
 | preferred | boolean | Is this a default address?<br/>*Example:* `true` | No |
 | state | string | State<br/>*Example:* `"CS001"` | No |
+| stateCode | string | State code<br/>*Example:* `"MH"` | No |
 
 ### AdvancedTrackingFulfilmentDto
 
@@ -22858,6 +22864,7 @@ API to Export Sales Tax Payment Report .
 | address | string | Address<br/>*Example:* `"Raffles Place 1"` | No |
 | name | string | Customer name<br/>*Example:* `"ABC Pte Ltd"` | Yes |
 | peppolId | string | Peppol ID<br/>*Example:* `"u000:1109:uen"` | No |
+| taxExempted | boolean | True if the contact is tax exempted<br/>*Example:* `false` | No |
 
 ### ContactInformation
 
@@ -27276,9 +27283,11 @@ API to Export Sales Tax Payment Report .
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| additionalCharges | [AdditionalCharges](#additionalcharges) | Additional charges applied to the item | No |
 | allocationType | string | Allocation Type<br/>*Example:* `"NORMAL"` | No |
 | availableQuantity | number | Total available quantity<br/>*Example:* `3` | No |
 | basePrice | number | Revenue Base price<br/>*Example:* `120` | No |
+| bomComponentGroupDetails | object | Bill-of-materials component group details | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | discount | number | Discount<br/>*Example:* `2` | No |
 | discountInPercent | boolean | Discount in percentage<br/>*Example:* `true` | No |
@@ -27289,31 +27298,47 @@ API to Export Sales Tax Payment Report .
 | fulfillmentByDoc | [ [ItemQtyFulfilledByDoc](#itemqtyfulfilledbydoc) ] | Item Qty fulfilled by Fulfillment Doc<br/>*Example:* `[]` | No |
 | id | long | ID<br/>*Example:* `2` | No |
 | invoiceLineNumber | string | Invoice Line Number<br/>*Example:* `"ABSCDDSD1212"` | No |
+| isLocalizedUomQty | boolean | True if the UOM quantity is localized<br/>*Example:* `false` | No |
 | isPartialInvoice | boolean | Whether the Sales Invoice is a partial invoice<br/>*Example:* `false` | No |
+| isShortClosed | boolean | True if the item is short closed<br/>*Example:* `false` | No |
+| itemDiscountMethod | string | Discount method applied to the item<br/>*Example:* `"AMOUNT"` | No |
 | itemFulfillmentStatus | string | Item Fulfillment Status<br/>*Enum:* `"UNFULFILLED"`, `"PARTIAL_FULFILLED"`, `"FULLY_FULFILLED"`<br/>*Example:* `"UNFULFILLED"` | No |
+| landedCostWeight | number | Landed cost weight of the item<br/>*Example:* `1.5` | No |
 | lineNumber | integer | Line Number<br/>*Example:* `1` | No |
+| lineRefNo | string | Line reference number<br/>*Example:* `"L-0001"` | No |
 | linkedQuoteItem | long | Quote Item linked to invoice item<br/>*Example:* `"QO-001"` | No |
 | linkedQuoteItemCode | string | Linked quote item code<br/>*Example:* `"QO-002"` | No |
+| localizedBaseQtyDiff | number | Difference in base quantity due to localization<br/>*Example:* `0` | No |
+| preTaxGlobalDiscount | number | Pre-tax global discount applied to the item<br/>*Example:* `2` | No |
 | product | [ProductResponse](#productresponse) | Product Response<br/>*Example:* `"product"` | No |
 | productCode | string | Product code<br/>*Example:* `"P00001"` | Yes |
 | productDescription | string | Product description<br/>*Example:* `"Apple watch"` | No |
 | productOrder | integer | Product view order<br/>*Example:* `1` | No |
 | productQuantity | number | Product quantity<br/>*Example:* `2` | Yes |
+| qtyConvertedToDropShip | number | Quantity converted to drop ship<br/>*Example:* `0` | No |
+| qtyConvertedToPps | number | Quantity converted to pick-pack-ship<br/>*Example:* `0` | No |
+| qtyFulfilledFromPps | number | Quantity fulfilled from pick-pack-ship<br/>*Example:* `0` | No |
+| qtyFulfilledFromToDropShip | number | Quantity fulfilled from a drop ship conversion<br/>*Example:* `0` | No |
 | quantityFulfilled | number | quantity fulfilled<br/>*Example:* `10` | No |
 | quantityFulfilledByFlowover | number | Total Quantity Fulfilled By Flowover | Yes |
 | quantityFulfilledByUser | number | Total Quantity Fulfilled By User | Yes |
 | reservedQuantitiesData | [ [ReservedQuantityData](#reservedquantitydata) ] | Reserved quantity data<br/>*Example:* `[]` | No |
 | revRecDocumentItemDetails | [RevRecDocumentItemDetails](#revrecdocumentitemdetails) | Item Revenue Details<br/>*Example:* `"revRecDocumentItemDetails"` | No |
 | salesInvoiceItemCode | string | Sales Invoice Item Code<br/>*Example:* `"SII-000001"` | No |
+| shortClosedNotes | string | Notes recorded when the item was short closed<br/>*Example:* `"Remaining qty written off"` | No |
+| shortClosedQuantity | number | Quantity that was short closed<br/>*Example:* `0` | No |
 | tax | [TaxDto](#taxdto) | Tax details<br/>*Example:* `"taxDto"` | No |
 | taxAmount | number | Tax amount<br/>*Example:* `0.5` | No |
 | taxCode | string | Tax code<br/>*Example:* `"GST7"` | No |
+| taxDetails | [ [DocumentItemTaxMappingDto](#documentitemtaxmappingdto) ] | Tax mapping details for the item | No |
 | totalAmount | number | Total amount<br/>*Example:* `2.3` | Yes |
 | type | string | Product type<br/>*Enum:* `"TRACKED"`, `"NONTRACKED"`<br/>*Example:* `"TRACKED"` | Yes |
 | unitPrice | number | Product unit price<br/>*Example:* `0.7` | Yes |
+| unlocalizedDocumentUOMSchemaDefinition | [DocumentUOMSchemaDefinition](#documentuomschemadefinition) | Document UOM Schema Definition before localization | No |
 | uomQuantity | number | uom quantity<br/>*Example:* `2` | Yes |
 | uomUnitPrice | number | UOM Unit price<br/>*Example:* `2.3` | Yes |
 | updatedPartialQuantity | number | partial invoice updated quantity<br/>*Example:* `10` | No |
+| userSetTaxes | boolean | True if taxes were manually set by the user<br/>*Example:* `false` | No |
 
 ### SalesInvoiceItemDetailsAustralia
 
@@ -27878,14 +27903,21 @@ API to Export Sales Tax Payment Report .
 | attachments | [ string ] | File attachments | No |
 | backOrder | boolean | Backorder flag to indicate if purchase invoice is backorder<br/>*Example:* `true` | No |
 | billTo | [Address](#address) | Bill to address | No |
+| buyerReference | string | Buyer reference<br/>*Example:* `"BR-0001"` | No |
 | contact | [ContactInfo](#contactinfo) | Contact details | Yes |
 | contactCode | string | Contact Code<br/>*Example:* `"C0001"` | Yes |
+| createdBy | long | Identifier of the user who created the invoice<br/>*Example:* `1` | No |
+| createdDate | string | Date on which the invoice was created<br/>*Example:* `"25-10-2019"` | No |
 | currency | string | Currency<br/>*Example:* `"C001"` | Yes |
+| customerOrderNumber | string | Customer order number<br/>*Example:* `"CO-0001"` | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | documentSequenceCode | string | Sales Invoice Code<br/>*Example:* `"0000001"` | No |
 | draft | boolean | True if want to save as draft.<br/>*Example:* `false` | No |
+| draftReferenceId | string | Draft reference id<br/>*Example:* `"DR-0001"` | No |
+| draftSeqCode | string | Draft sequence code<br/>*Example:* `"DS-0001"` | No |
 | dropShip | boolean | Drop Ship flag to indicate if purchase invoice is created for drop ship<br/>*Example:* `true` | No |
 | dueAmount | number | Amount Due<br/>*Example:* `12.322` | No |
+| eInvoiceStatus | [ object ] | List of e-invoice status details | No |
 | errors | [ string ] | List of validation error messages | No |
 | exchangeRate | number | Exchange rate<br/>*Example:* `0.456345` | No |
 | fulfillmentComplete | boolean | True if auto fulfilled is required.<br/>*Example:* `false` | No |
@@ -27896,14 +27928,18 @@ API to Export Sales Tax Payment Report .
 | journalEntryCode | string | Journal Entry Code<br/>*Example:* `"JE0001"` | No |
 | linkedDocuments | [ [DocumentInfo](#documentinfo) ] | Linked Documents | No |
 | memo | string | Memo<br/>*Example:* `"Memo details"` | No |
+| multiApprovalDetails | object | Multi-level approval details | No |
 | openingDocumentNumber | string | Customer opening document number<br/>*Example:* `"DC-0001"` | No |
 | openingInvoice | boolean | True if opening invoice<br/>*Example:* `false` | No |
 | paymentInformation | [PaymentInformation](#paymentinformation) | Payment information | No |
 | paymentMilestoneFlag | boolean | Payment milestone flag to indicate if payment milestones are set<br/>*Example:* `true` | No |
 | paymentStatus | string | Payment status<br/>*Enum:* `"PENDING"`, `"PARTIAL"`, `"RECEIVED"`<br/>*Example:* `"PENDING"` | No |
+| poNumber | string | Purchase order number<br/>*Example:* `"PO-0001"` | No |
+| primaryExchangeRate | number | Primary exchange rate<br/>*Example:* `1` | No |
 | purchaseOrderRefNo | string | Contact PO reference number<br/>*Example:* `"CPO001"` | No |
 | recurring | boolean | True if Invoice is recurring.<br/>*Example:* `true` | No |
 | recurringActivated | boolean | True if Invoice recurrence is active.<br/>*Example:* `false` | No |
+| requestedBy | long | Identifier of the user who requested the invoice<br/>*Example:* `1` | No |
 | reservedStock | boolean | Reserved stock enabled<br/>*Example:* `true` | No |
 | roundOffAmountInBaseCurrency | number | Round Off Amount In Base Currency<br/>*Example:* `12.322` | No |
 | roundOffAmountInDocumentCurrency | number | Round Off Amount In Document Currency<br/>*Example:* `12.322` | No |
@@ -27913,6 +27949,8 @@ API to Export Sales Tax Payment Report .
 | salesInvoiceRecurring | [SalesInvoiceRecurringDetails](#salesinvoicerecurringdetails) | Sales invoice item details | No |
 | seqCodeAlreadyDumped | boolean | True if Sequence Code is already dumped.<br/>*Example:* `false` | No |
 | sequenceFormat | string | Sequence Format Id<br/>*Example:* `1` | No |
+| sgEInvoiceIRASStatus | string | Singapore IRAS e-invoice status<br/>*Example:* `"SENT"` | No |
+| sgEInvoiceStatus | string | Singapore e-invoice status<br/>*Example:* `"SENT"` | No |
 | shipByDate | string | Ship by date<br/>*Example:* `"25-10-2019"` | No |
 | shipFrom | [Address](#address) | Ship from address | No |
 | shipTo | [Address](#address) | Ship to address | No |
@@ -28580,37 +28618,62 @@ API to Export Sales Tax Payment Report .
 | attachments | [ string ] | File attachments | No |
 | attachmentsWithLink | [ [AttachmentsResponse](#attachmentsresponse) ] | Attachments Details | No |
 | backOrder | boolean | Backorder flag to indicate if backorder created<br/>*Example:* `true` | No |
+| bankTransactionFileCode | string | Bank transaction file code associated with the invoice<br/>*Example:* `"BTF-0001"` | No |
 | billTo | [Address](#address) | Bill to address | No |
+| buyerReference | string | Buyer reference<br/>*Example:* `"BR-0001"` | No |
+| cogsAmount | number | Cost of goods sold amount<br/>*Example:* `12.322` | No |
 | contact | [ContactInfo](#contactinfo) | Contact details | Yes |
 | contactCode | string | Contact Code<br/>*Example:* `"C0001"` | Yes |
 | contactDto | [ContactDto](#contactdto) | Contact Details | Yes |
+| createdBy | long | Identifier of the user who created the invoice<br/>*Example:* `1` | No |
+| createdDate | string | Date on which the invoice was created<br/>*Example:* `"25-10-2019"` | No |
 | currency | string | Currency<br/>*Example:* `"C001"` | Yes |
+| customerOrderNumber | string | Customer order number<br/>*Example:* `"CO-0001"` | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | documentSequenceCode | string | Sales invoice Sequence Code<br/>*Example:* `"0000001"` | No |
 | draft | boolean | Sales invoice drafted<br/>*Example:* `false` | No |
+| draftReferenceId | string | Draft reference id<br/>*Example:* `"DR-0001"` | No |
+| draftSeqCode | string | Draft sequence code<br/>*Example:* `"DS-0001"` | No |
 | dropShip | boolean | Drop Ship flag to indicate if purchase invoice is created for drop ship<br/>*Example:* `true` | No |
 | dueAmount | number | Amount Due<br/>*Example:* `12.322` | No |
+| eInvoiceResponseReason | string | Reason returned from the e-invoice response<br/>*Example:* `"Accepted"` | No |
+| eInvoiceResponseStatus | string | Status returned from the e-invoice response<br/>*Example:* `"ACCEPTED"` | No |
+| eInvoiceStatus | [ object ] | List of e-invoice status details | No |
+| emailStatus | string | Status of the last email sent for the invoice<br/>*Example:* `"SENT"` | No |
 | errors | [ string ] | List of validation error messages | No |
 | exchangeRate | number | Exchange rate<br/>*Example:* `0.456345` | No |
 | fulfillmentStatus | string | Sales invoice fulfillment status<br/>*Enum:* `"UNFULFILLED"`, `"PARTIAL_FULFILLED"`, `"FULLY_FULFILLED"`<br/>*Example:* `"UNFULFILLED"` | No |
 | fulfillmentType | string | Fulfillment type: NONE, DEFAULT, PICK_PACK_SHIP, DROP_SHIP<br/>*Enum:* `"NONE"`, `"DEFAULT"`, `"PICK_PACK_SHIP"`, `"DROP_SHIP"`<br/>*Example:* `"PICK_PACK_SHIP"` | No |
+| gstExchangeRate | number | GST Exchange rate if tax residency currency is different than base currency<br/>*Example:* `1` | No |
 | id | long | Sales invoice id<br/>*Example:* `1` | No |
 | isPartialInvoice | boolean | Is Partial Invoice | Yes |
 | journalEntryCode | string | Journal Entry Code<br/>*Example:* `"JE0001"` | No |
 | knockoffInfo | [ [KnockOffInfo](#knockoffinfo) ] | KnockOff Info | No |
 | linkedCreditNote | [ [KnockOffInfo](#knockoffinfo) ] |  | No |
 | linkedDebitNote | [ [KnockOffInfo](#knockoffinfo) ] |  | No |
+| linkedDocHasPps | boolean | True if a linked document has a pick-pack-ship record<br/>*Example:* `false` | No |
 | linkedDocuments | [ [DocumentInfo](#documentinfo) ] | Linked Documents | No |
+| linkedRefundDocs | [ [DocumentInfo](#documentinfo) ] | Refund documents linked to the invoice | No |
+| manuallyClosed | boolean | True if the invoice was manually closed<br/>*Example:* `false` | No |
 | memo | string | Memo<br/>*Example:* `"Memo details"` | No |
+| multiApprovalDetails | object | Multi-level approval details | No |
 | openingDocumentNumber | string | Customer opening document number<br/>*Example:* `"DC-0001"` | No |
 | openingInvoice | boolean | True if opening invoice<br/>*Example:* `false` | No |
 | paymentInformation | [PaymentInformation](#paymentinformation) | Payment information | No |
 | paymentMilestoneFlag | boolean | Payment milestone flag to indicate if payment milestones are set<br/>*Example:* `true` | No |
 | paymentStatus | string | Sales invoice payment status<br/>*Enum:* `"PENDING"`, `"PARTIAL"`, `"RECEIVED"`<br/>*Example:* `"PENDING"` | No |
+| poNumber | string | Purchase order number<br/>*Example:* `"PO-0001"` | No |
+| primaryExchangeRate | number | Primary exchange rate<br/>*Example:* `1` | No |
+| printStatus | string | Print status of the invoice<br/>*Example:* `"PRINTED"` | No |
 | purchaseOrderRefNo | string | Contact PO reference number<br/>*Example:* `"CPO001"` | No |
 | recurring | boolean | True if Invoice is recurring.<br/>*Example:* `true` | No |
 | recurringActivated | boolean | True if Invoice recurrence is active.<br/>*Example:* `false` | No |
+| refundAmount | number | Refunded amount<br/>*Example:* `12.322` | No |
+| refundStatus | string | Refund status<br/>*Enum:* `"NOT_REFUNDED"`, `"PARTIALLY_REFUNDED"`, `"FULLY_REFUNDED"`<br/>*Example:* `"NOT_REFUNDED"` | No |
+| requestedBy | long | Identifier of the user who requested the invoice<br/>*Example:* `1` | No |
 | reservedStock | boolean | Reserved stock enabled<br/>*Example:* `true` | No |
+| revertPrintStatusBy | long | Identifier of the user who reverted the print status<br/>*Example:* `1` | No |
+| revertPrintStatusOn | string | Date on which the print status was reverted<br/>*Example:* `"25-10-2019"` | No |
 | roundOffAmountInBaseCurrency | number | Round Off Amount In Base Currency<br/>*Example:* `12.322` | No |
 | roundOffAmountInDocumentCurrency | number | Round Off Amount In Document Currency<br/>*Example:* `12.322` | No |
 | salesInvoiceCode | string | Sales invoice code<br/>*Example:* `"SI001"` | No |
@@ -28618,10 +28681,14 @@ API to Export Sales Tax Payment Report .
 | salesInvoiceDueDate | string | Sales Invoice due date<br/>*Example:* `"25-10-2019"` | Yes |
 | salesInvoiceItems | [ [SalesInvoiceItemDetails](#salesinvoiceitemdetails) ] | Sales invoice item details | No |
 | salesInvoiceRecurring | [SalesInvoiceRecurringDetails](#salesinvoicerecurringdetails) | Sales invoice item details | No |
+| seqCodeAlreadyDumped | boolean | True if Sequence Code is already dumped.<br/>*Example:* `false` | No |
 | sequenceFormat | string | Sequence Format Id<br/>*Example:* `1` | No |
+| sgEInvoiceIRASStatus | string | Singapore IRAS e-invoice status<br/>*Example:* `"SENT"` | No |
+| sgEInvoiceStatus | string | Singapore e-invoice status<br/>*Example:* `"SENT"` | No |
 | shipByDate | string | Ship by date<br/>*Example:* `"25-10-2019"` | No |
 | shipFrom | [Address](#address) | Ship from address | No |
 | shipTo | [Address](#address) | Ship to address | No |
+| shortClosedStatus | string | Short-closed status<br/>*Enum:* `"NONE"`, `"PARTIALLY_SHORT_CLOSED"`, `"FULLY_SHORT_CLOSED"`<br/>*Example:* `"NONE"` | No |
 | status | string | Invoice status<br/>*Enum:* `"OPEN"`, `"DRAFT"`, `"CLOSED"`<br/>*Example:* `"OPEN"` | No |
 | taxAmount | number | Tax amount<br/>*Example:* `2.322` | No |
 | tcsAmount | number | TCS amount<br/>*Example:* `2.322` | No |
@@ -28631,6 +28698,7 @@ API to Export Sales Tax Payment Report .
 | totalAmount | number | Total amount<br/>*Example:* `12.322` | No |
 | totalAmountInBaseCurrency | number | Total amount in base currency<br/>*Example:* `12.322` | No |
 | unitPriceGstInclusive | boolean | Unit price is GST inclusive<br/>*Example:* `false` | No |
+| updatedBy | long | Identifier of the user who last updated the invoice<br/>*Example:* `1` | No |
 | warehouseCode | string | Warehouse Code<br/>*Example:* `"WH-000001"` | No |
 | withheldAmount | number | Withheld Amount<br/>*Example:* `12.322` | No |
 

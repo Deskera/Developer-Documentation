@@ -1841,6 +1841,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-uae-controller
 Purchase Order UAE APIs
@@ -2226,6 +2256,36 @@ API to delete purchase order details by id.
 | 401 | Unauthorized |
 | 403 | Forbidden |
 | 404 | Purchase order not found. |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### Orders purchase/ae/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
 
 ##### Security
 
@@ -2884,6 +2944,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/au/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-belgium-controller
 Purchase Order APIs for Belgium
@@ -3528,6 +3618,36 @@ API to delete purchase order details by id.
 | 401 | Unauthorized |
 | 403 | Forbidden |
 | 404 | Purchase order not found. |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### Orders purchase/be/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
 
 ##### Security
 
@@ -4186,6 +4306,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/ca/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-germany-controller
 Purchase Order Germany APIs
@@ -4837,6 +4987,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/de/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-indonesia-controller
 Purchase Order Indonesia APIs
@@ -5229,6 +5409,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/id/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-israel-controller
 Purchase Order Israel APIs
@@ -5614,6 +5824,36 @@ API to delete purchase order details by id.
 | 401 | Unauthorized |
 | 403 | Forbidden |
 | 404 | Purchase order not found. |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### Orders purchase/il/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
 
 ##### Security
 
@@ -6048,6 +6288,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/in/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-malaysia-controller
 Purchase Order Malaysia APIs
@@ -6433,6 +6703,36 @@ API to delete purchase order details by id.
 | 401 | Unauthorized |
 | 403 | Forbidden |
 | 404 | Purchase order not found. |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### Orders purchase/my/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
 
 ##### Security
 
@@ -7091,6 +7391,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/nl/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-nz-controller
 Purchase Order APIs for NewZealand
@@ -7742,6 +8072,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/nz/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-philippines-controller
 Purchase Order Philippines APIs
@@ -8134,6 +8494,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/ph/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-order-saudi-arabia-controller
 Purchase Order Saudi Arabia APIs
@@ -8519,6 +8909,36 @@ API to delete purchase order details by id.
 | 401 | Unauthorized |
 | 403 | Forbidden |
 | 404 | Purchase order not found. |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### Orders purchase/sa/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
 
 ##### Security
 
@@ -9177,6 +9597,36 @@ API to delete purchase order details by id.
 | --------------- | ------ |
 | Authorization | global |
 
+### Orders purchase/uk/get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get Deleted purchase order by code.
+
+##### Description
+
+API to fetch deleted purchase order details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase order information has been fetched successfully. | [PurchaseOrderInformation](#purchaseorderinformation) |
+| 404 | Purchase order not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## purchase-request-controller
 Purchase Request APIs
@@ -9776,6 +10226,690 @@ API to delete sales order details by id.
 | Authorization | global |
 
 ---
+## gate-entry-controller
+Gate Entry APIs
+
+### Create gate entry transaction
+
+#### POST
+#### Orders gateentry
+
+##### Description
+
+API to create gate entry transaction
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [GateEntryRequest](#gateentryrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 201 | Gate Entry transaction has been created | [GateEntryResponse](#gateentryresponse) |
+| 400 | Unable to create stock request |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
+### Get gate entry transaction by code
+
+#### GET
+#### Orders gateentry/{code}
+
+##### Description
+
+API to fetch gate entry details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Gate Entry information has been fetched successfully. | [GateEntryResponse](#gateentryresponse) |
+| 404 | Gate Entry not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
+### Search gate entry documents
+
+#### GET
+#### Orders gateentry
+
+##### Description
+
+API to search gate entry documents
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| search | query | search | No | string |
+| query | query | query | No | string |
+| sort | query | sort | No | string |
+| sortDir | query | sortDir | No | string |
+| page | query | page | No | integer |
+| limit | query | limit | No | integer |
+| customfield | query | customfield | No | string |
+| fetchAttachmentDetails | query | fetchAttachmentDetails | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Gate entry documents have been fetched successfully. | [Page«GateEntryResponse»](#pagegateentryresponse) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
+### Update gate entry
+
+#### PUT
+#### Orders gateentry/{id}
+
+##### Description
+
+API to update gate entry
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| id | path | id | Yes | long |
+| gateEntryRequest | body | gateEntryRequest | Yes | [GateEntryRequest](#gateentryrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Gate entry updated succesfully | [GateEntryResponse](#gateentryresponse) |
+| 400 | Error saving gate entry |  |
+| 404 | Gate entry with given id not found. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
+### Delete gate entry by ID
+
+#### DELETE
+#### Orders gateentry/{id}
+
+##### Description
+
+API to delete gate entry
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| id | path | id | Yes | long |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 | Gate entry has been deleted |
+| 404 | gate entry to delete not found |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
+### Delete Gate Entry by code
+
+#### DELETE
+#### Orders gateentry/code/{code}
+
+##### Description
+
+API to delete gate entry
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 | Gate entry has been deleted |
+| 404 | Gate entry to delete not found |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
+### Get custom field is used or not
+
+#### GET
+#### Orders gateentry/status/custom-fields
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| customCode | query | customCode | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | boolean |
+
+### Add linked document to gate entry
+
+#### PUT
+#### Orders gateentry/add-linked-document
+
+##### Description
+
+API to add linked document to gate entry
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [AddLinkedDocumentLinkingRequest](#addlinkeddocumentlinkingrequest) |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successfully added linked document to gate entry. |
+| 404 | Failed to add linked document to gate entry. |
+
+### Delete linked document from gate entry
+
+#### PUT
+#### Orders gateentry/delete-linked-document
+
+##### Description
+
+API to delete linked document from gate entry
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [DeleteLinkedDocumentLinkingRequest](#deletelinkeddocumentlinkingrequest) |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successfully added linked document to gate entry. |
+| 404 | Failed to add linked document to gate entry. |
+
+---
+## purchase-inward-quotation-controller
+Purchase Inward Quotation APIs
+
+### Create PIQ
+
+#### POST
+#### Orders purchaseinwardquotation
+
+##### Description
+
+API to create PIQ.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| piqRequest | body | piqRequest | Yes | [PIQRequest](#piqrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 201 | PIQ has been created | [PIQResponse](#piqresponse) |
+| 400 | Unable to create PIQ |  |
+
+### Get PIQ by rfq code
+
+#### GET
+#### Orders purchaseinwardquotation/rfq/{rfqCode}
+
+##### Description
+
+API to fetch PIQ by rfq code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| rfqCode | path | rfqCode | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | PIQ has been fetched | [ [PIQResponse](#piqresponse) ] |
+| 400 | Unable to fetch PIQ |  |
+
+### Get PIQ by code
+
+#### GET
+#### Orders purchaseinwardquotation/{piqCode}
+
+##### Description
+
+API to fetch PIQ by code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| piqCode | path | piqCode | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | PIQ has been fetched | [PIQResponse](#piqresponse) |
+| 400 | Unable to fetch PIQ |  |
+
+### Delete PIQ
+
+#### DELETE
+#### Orders purchaseinwardquotation/{id}
+
+##### Description
+
+API to delete PIQ.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| id | path | id | Yes | long |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | PIQ has been deleted |
+| 400 | Unable to delete PIQ |
+
+### Search purchase inward quotation
+
+#### GET
+#### Orders purchaseinwardquotation
+
+##### Description
+
+API to search purchase inward quotation.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| search | query | search | No | string |
+| query | query | query | No | string |
+| sort | query | sort | No | string |
+| sortDir | query | sortDir | No | string |
+| page | query | page | No | integer |
+| limit | query | limit | No | integer |
+| customfield | query | customfield | No | string |
+| fetchAttachmentDetails | query | fetchAttachmentDetails | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Purchase inward quotation have been fetched successfully. | [Page«PIQResponse»](#pagepiqresponse) |
+
+##### Security
+
+| Security Schema | Scopes |
+| --- | --- |
+| Authorization | global |
+
+### Get products by code
+
+#### POST
+#### Orders purchaseinwardquotation/linked-docs/product-codes
+
+##### Description
+
+API to check the usage of the given products in documents.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| productCodes | body | productCodes | Yes | [ string ] |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [ [LinkedDocumentsDto](#linkeddocumentsdto) ] |
+| 404 | Not Found |  |
+
+---
+## request-for-quotation-controller
+Request for Quotation APIs
+
+### Create RFQ
+
+#### POST
+#### Orders requestforquotation
+
+##### Description
+
+API to create RFQ.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| rfqRequest | body | rfqRequest | Yes | [RFQRequest](#rfqrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 201 | RFQ has been created | [RFQResponse](#rfqresponse) |
+| 400 | Unable to create RFQ |  |
+
+### Update RFQ
+
+#### PUT
+#### Orders requestforquotation/{id}
+
+##### Description
+
+API to update RFQ
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| id | path | id | Yes | long |
+| rfqRequest | body | rfqRequest | Yes | [RFQRequest](#rfqrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | RFQ updated succesfully | [RFQResponse](#rfqresponse) |
+| 400 | RFQ cannot be updated. |  |
+| 404 | RFQ with given id not found. |  |
+
+### Delete Request For Quotation by ID
+
+#### DELETE
+#### Orders requestforquotation/{id}
+
+##### Description
+
+API to delete request for quotation
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| id | path | id | Yes | long |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 | Request for Quotation has been deleted |
+| 404 | Request for Quotation to delete not found |
+
+### Delete Request For Quotation by Code
+
+#### DELETE
+#### Orders requestforquotation
+
+##### Description
+
+API to delete request for quotation by code
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| rfqCode | query | rfqCode | Yes | string |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 | Request For Quotation has been deleted |
+| 404 | Request For Quotation to delete not found |
+
+### Close Request For Quotation by Code
+
+#### PATCH
+#### Orders requestforquotation/closeRFQ
+
+##### Description
+
+API to manually close request for quotation by code
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| rfqCode | query | rfqCode | Yes | string |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 | Request For Quotation has been closed |
+| 404 | Request For Quotation not found |
+
+### Search request for quotations
+
+#### GET
+#### Orders requestforquotation
+
+##### Description
+
+API to search request for quotations.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| search | query | search | No | string |
+| query | query | query | No | string |
+| customfield | query | customfield | No | string |
+| sort | query | sort | No | string |
+| sortDir | query | sortDir | No | string |
+| page | query | page | No | integer |
+| limit | query | limit | No | integer |
+| fetchAttachmentDetails | query | fetchAttachmentDetails | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Request for quotations have been fetched successfully. | [Page«RFQResponse»](#pagerfqresponse) |
+
+### Get request for quotation by code
+
+#### GET
+#### Orders requestforquotation/{code}
+
+##### Description
+
+API to fetch request for quotation details by it's code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Request for quotation information has been fetched successfully. | [RFQResponse](#rfqresponse) |
+| 404 | Request for quotation not found. |  |
+
+### Get Inward Quote Comparison Report by RFQ document sequence code
+
+#### GET
+#### Orders requestforquotation/quotescomparisonreport/{rfqDocumentSeqCode}
+
+##### Description
+
+API to fetch Inward Quote Comparison Report by RFQ document sequence code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| rfqDocumentSeqCode | path | rfqDocumentSeqCode | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Request for Inward Quote Comparison Report by RFQ document sequence code has been fetched successfully. | [RFQQuotesComparisonReportDto](#rfqquotescomparisonreportdto) |
+| 404 | RFQ document sequence code not found. |  |
+
+### Get products by code
+
+#### POST
+#### Orders requestforquotation/linked-docs/product-codes
+
+##### Description
+
+API to check the usage of the given products in documents.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| productCodes | body | productCodes | Yes | [ string ] |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [ [LinkedDocumentsDto](#linkeddocumentsdto) ] |
+| 404 | Not Found |  |
+
+### Get custom field is used or not
+
+#### GET
+#### Orders requestforquotation/status/custom-fields
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| customCode | query | customCode | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | boolean |
+
+### Send RFQ email
+
+#### POST
+#### Orders requestforquotation/email
+
+##### Description
+
+API to send RFQ email.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| sendRequestForQuotationEmail | body | sendRequestForQuotationEmail | Yes | [SendRequestForQuotationEmail](#sendrequestforquotationemail) |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | RFQ emails has been sent |
+| 400 | Unable to send RFQ email |
+
+### Send PIQ email
+
+#### POST
+#### Orders requestforquotation/external/piqsubmittedemail
+
+##### Description
+
+API to send RFQ email.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| piqRequest | body | piqRequest | Yes | [PIQRequest](#piqrequest) |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | PIQ emails has been sent |
+| 400 | Unable to send PIQ email |
+
+### Get RFQ details
+
+#### GET
+#### Orders requestforquotation/external/{rfqCode}
+
+##### Description
+
+API to fetch RFQ details.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| rfqCode | path | rfqCode | Yes | string |
+| tenantId | query | tenantId | Yes | long |
+| contactCode | query | contactCode | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | RFQ details fetch successfully | [OpenRFQResponse«AbstractRFQItemDetails»](#openrfqresponseabstractrfqitemdetails) |
+| 400 | Unable to get RFQ details |  |
+
+---
 ## Models
 
 ### AbstractJobWorkOutOrderItemDetails
@@ -9811,6 +10945,59 @@ API to delete sales order details by id.
 | uomQuantity | number | uom quantity<br/>*Example:* `2` | Yes |
 | uomUnitPrice | number | UOM Unit price<br/>*Example:* `2.3` | Yes |
 
+### AbstractPIQItemDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountCode | string |  | No |
+| additionalChargeAmount | number |  | No |
+| additionalChargeTaxamount | number |  | No |
+| additionalCharges | [AdditionalCharges](#additionalcharges) |  | No |
+| cessAmount | number |  | No |
+| cessPercentage | number |  | No |
+| cessRule | string |  | No |
+| cgstAmount | number |  | No |
+| cgstRate | number |  | No |
+| customAmountSA | number |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| discount | number |  | No |
+| discountInPercent | boolean |  | No |
+| documentSequenceCode | string |  | No |
+| documentUOMSchemaDefinition | [DocumentUOMSchemaDefinition](#documentuomschemadefinition) |  | No |
+| documentUom | long |  | No |
+| gst | number |  | No |
+| hsnOrSacCode | string |  | No |
+| id | long |  | No |
+| igstAmount | number |  | No |
+| igstRate | number |  | No |
+| itcIneligibleType | string | *Enum:* `"ITC_INELIGIBLE_SECTION_17"`, `"ITC_INELIGIBLE_OTHERS"` | No |
+| itemDiscountMethod | string | *Enum:* `"ITEM_DISCOUNT_SUBTOTAL"`, `"ITEM_DISCOUNT_CASCADE"` | No |
+| lineNumber | integer |  | No |
+| otherRate | number |  | No |
+| otherTaxAmount | number |  | No |
+| piqItemCode | string |  | No |
+| product | [ProductResponse](#productresponse) |  | No |
+| productCode | string |  | No |
+| productDescription | string |  | No |
+| productQuantity | number |  | No |
+| productSeqCode | string |  | No |
+| rcmAmountSA | number |  | No |
+| rfqItemCode | string |  | No |
+| sgstAmount | number |  | No |
+| sgstRate | number |  | No |
+| tax | [TaxDto](#taxdto) |  | No |
+| taxAmount | number |  | No |
+| taxCode | string |  | No |
+| taxDetails | [ [TaxMappingDto](#taxmappingdto) ] |  | No |
+| taxExemptionReason | string | *Enum:* `"EXEMPTED"`, `"NON_GST"` | No |
+| taxPreference | boolean |  | No |
+| tenantId | long |  | No |
+| totalAmount | number |  | No |
+| unitPrice | number |  | No |
+| uomDto | [UOMDto](#uomdto) |  | No |
+| uomQuantity | number |  | No |
+| uomUnitPrice | number |  | No |
+
 ### AbstractPurchaseRequestItemDetails
 
 | Name | Type | Description | Required |
@@ -9835,6 +11022,27 @@ API to delete sales order details by id.
 | unitPrice | number | Product unit price<br/>*Example:* `0.7` | Yes |
 | uomQuantity | number | uom quantity<br/>*Example:* `2` | Yes |
 | uomUnitPrice | number | UOM Unit price<br/>*Example:* `2.3` | Yes |
+
+### AbstractRFQItemDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| defaultProductTax | [TaxDto](#taxdto) |  | No |
+| documentSequenceCode | string |  | No |
+| documentUOMSchemaDefinition | [DocumentUOMSchemaDefinition](#documentuomschemadefinition) |  | No |
+| documentUom | long |  | No |
+| id | long |  | No |
+| lineNumber | integer |  | No |
+| linkedPRItemCode | string |  | No |
+| product | [ProductInformation](#productinformation) |  | No |
+| productCode | string |  | No |
+| productDescription | string |  | No |
+| productOrder | integer |  | No |
+| productQuantity | number |  | No |
+| rfqItemCode | string |  | No |
+| uomDto | [UOMDto](#uomdto) |  | No |
+| uomQuantity | number |  | No |
 
 ### AccountDto
 
@@ -9902,6 +11110,13 @@ API to delete sales order details by id.
 | percent | number |  | No |
 | sgst | number |  | No |
 | taxAmount | number |  | No |
+
+### AddLinkedDocumentLinkingRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| documentCode | string |  | No |
+| documentInfoList | [ [DocumentInfo](#documentinfo) ] |  | No |
 
 ### Address
 
@@ -10363,6 +11578,13 @@ API to delete sales order details by id.
 | module | string | Supported Modules | No |
 | value | object | Dimension Value<br/>*Example:* `"XYZ"` | No |
 
+### DeleteLinkedDocumentLinkingRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| documentCode | string |  | No |
+| documentInfoList | [ [DocumentInfo](#documentinfo) ] |  | No |
+
 ### DocumentInfo
 
 | Name | Type | Description | Required |
@@ -10427,6 +11649,73 @@ API to delete sales order details by id.
 | filterConditions | [ [FilterCondition](#filtercondition) ] |  | No |
 | logicalOperator | string |  | No |
 | uniqueId | long |  | No |
+
+### GateEntryItemDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| documentUOMSchemaDefinition | [DocumentUOMSchemaDefinition](#documentuomschemadefinition) |  | No |
+| documentUom | long |  | No |
+| productCode | string |  | No |
+| productDescription | string |  | No |
+| quantity | number |  | No |
+| uomQuantity | number |  | No |
+| warehouseCode | string |  | No |
+
+### GateEntryRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| approverUserId | long |  | No |
+| arrivalTime | string |  | No |
+| attachmentIds | [ long ] |  | No |
+| attachments | [ string ] |  | No |
+| challanDate | string |  | No |
+| challanNumber | string |  | No |
+| contactNumber | string |  | No |
+| currencyCode | string |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| departureTime | string |  | No |
+| distanceKm | number |  | No |
+| documentSequenceCode | string |  | No |
+| driverName | string |  | No |
+| ewayBillNumber | string |  | No |
+| ewayDate | string |  | No |
+| freightType | string |  | No |
+| fromAddress | string |  | No |
+| gateEntryItems | [ [GateEntryItemDetails](#gateentryitemdetails) ] |  | No |
+| licenseNumber | string |  | No |
+| linkedDocuments | [ [DocumentInfo](#documentinfo) ] |  | No |
+| lrDate | string |  | No |
+| lrNumber | string |  | No |
+| referenceDate | string |  | No |
+| referenceNumber | string |  | No |
+| remarks | string |  | No |
+| sequenceFormat | string |  | No |
+| toAddress | string |  | No |
+| transporter | string |  | No |
+| vehicleCapacity | number |  | No |
+| vehicleNumber | string |  | No |
+| vehicleType | string |  | No |
+| vendorCode | string |  | No |
+| vendorInfo | [ContactInfo](#contactinfo) |  | No |
+| warehouseCode | string |  | No |
+| warehouseName | string |  | No |
+| weighbridgeDate | string |  | No |
+| weighbridgeName | string |  | No |
+| weighbridgeSlipNumber | string |  | No |
+
+### GateEntryResponse
+
+`GateEntryResponse` includes all attributes of [GateEntryRequest](#gateentryrequest), plus the following response-only attributes.
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| attachmentsWithLink | [ [AttachmentsResponse](#attachmentsresponse) ] |  | No |
+| contactDto | [ContactDto](#contactdto) |  | No |
+| createdBy | long |  | No |
+| gateEntryCode | string |  | No |
+| id | long |  | No |
 
 ### GlobalDiscountDetails
 
@@ -11022,6 +12311,35 @@ API to delete sales order details by id.
 | month | string | *Enum:* `"JANUARY"`, `"FEBRUARY"`, `"MARCH"`, `"APRIL"`, `"MAY"`, `"JUNE"`, `"JULY"`, `"AUGUST"`, `"SEPTEMBER"`, `"OCTOBER"`, `"NOVEMBER"`, `"DECEMBER"` | No |
 | year | [Year](#year) |  | No |
 
+### OpenRFQResponse«AbstractRFQItemDetails»
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| attachmentIds | [ long ] |  | No |
+| attachments | [ string ] |  | No |
+| contact | [ContactInfo](#contactinfo) |  | No |
+| contactDto | [ContactDto](#contactdto) |  | No |
+| currency | string |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| decimalScale | integer |  | No |
+| documentSequenceCode | string |  | No |
+| email | string |  | No |
+| id | long |  | No |
+| linkedPRDocuments | [ [DocumentInfo](#documentinfo) ] |  | No |
+| linkedQuoteDocuments | [ [DocumentInfo](#documentinfo) ] |  | No |
+| memo | string |  | No |
+| multicurrencyResponses | [ object ] |  | No |
+| openTenantInfo | object |  | No |
+| requestForQuotationItems | [ [AbstractRFQItemDetails](#abstractrfqitemdetails) ] |  | No |
+| rfqCode | string |  | No |
+| rfqDate | dateTime |  | No |
+| rfqOpenFormConfig | object |  | No |
+| sequenceFormat | string |  | No |
+| status | string |  | No |
+| tenantId | long |  | No |
+| validByDate | dateTime |  | No |
+| vendorCode | string |  | No |
+
 ### OrderOverview
 
 | Name | Type | Description | Required |
@@ -11085,6 +12403,22 @@ API to delete sales order details by id.
 | sort | [Sort](#sort) |  | No |
 | unpaged | boolean |  | No |
 
+### Page«GateEntryResponse»
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| content | [ [GateEntryResponse](#gateentryresponse) ] |  | No |
+| empty | boolean |  | No |
+| first | boolean |  | No |
+| last | boolean |  | No |
+| number | integer |  | No |
+| numberOfElements | integer |  | No |
+| pageable | [Pageable](#pageable) |  | No |
+| size | integer |  | No |
+| sort | [Sort](#sort) |  | No |
+| totalElements | long |  | No |
+| totalPages | integer |  | No |
+
 ### Page«JobWorkOutOrderIndiaResponse»
 
 | Name | Type | Description | Required |
@@ -11106,6 +12440,22 @@ API to delete sales order details by id.
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | content | [ [JobWorkOutOrderResponse](#jobworkoutorderresponse) ] |  | No |
+| empty | boolean |  | No |
+| first | boolean |  | No |
+| last | boolean |  | No |
+| number | integer |  | No |
+| numberOfElements | integer |  | No |
+| pageable | [Pageable](#pageable) |  | No |
+| size | integer |  | No |
+| sort | [Sort](#sort) |  | No |
+| totalElements | long |  | No |
+| totalPages | integer |  | No |
+
+### Page«PIQResponse»
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| content | [ [PIQResponse](#piqresponse) ] |  | No |
 | empty | boolean |  | No |
 | first | boolean |  | No |
 | last | boolean |  | No |
@@ -11325,6 +12675,22 @@ API to delete sales order details by id.
 | totalElements | long |  | No |
 | totalPages | integer |  | No |
 
+### Page«RFQResponse»
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| content | [ [RFQResponse](#rfqresponse) ] |  | No |
+| empty | boolean |  | No |
+| first | boolean |  | No |
+| last | boolean |  | No |
+| number | integer |  | No |
+| numberOfElements | integer |  | No |
+| pageable | [Pageable](#pageable) |  | No |
+| size | integer |  | No |
+| sort | [Sort](#sort) |  | No |
+| totalElements | long |  | No |
+| totalPages | integer |  | No |
+
 ### Page«SalesOrderResponse»
 
 | Name | Type | Description | Required |
@@ -11358,6 +12724,60 @@ API to delete sales order details by id.
 | milestoneNo | integer | Milestone Number<br/>*Example:* `1` | Yes |
 | receivedAmount | number | Payment Received Amount<br/>*Example:* `100` | Yes |
 | status | string | Status<br/>*Enum:* `"PAYMENT_DUE"`, `"PAYMENT_ON_TIME"`, `"DELAYED"`<br/>*Example:* `"DELAYED"` | Yes |
+
+### PIQRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| additionalCharges | [AdditionalCharges](#additionalcharges) |  | No |
+| attachments | [ string ] |  | No |
+| billTo | [Address](#address) |  | No |
+| contact | [ContactInfo](#contactinfo) |  | No |
+| currencyCode | string |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| documentSequenceCode | string |  | No |
+| exchangeRate | number |  | No |
+| gstExchangeRate | number |  | No |
+| gstTreatment | string |  | No |
+| gstin | string |  | No |
+| linkedDocuments | [ [DocumentInfo](#documentinfo) ] |  | No |
+| memo | string |  | No |
+| piqCode | string |  | No |
+| piqReceiveDate | dateTime |  | No |
+| primaryExchangeRate | number |  | No |
+| purchaseInwardQuotationItems | [ [AbstractPIQItemDetails](#abstractpiqitemdetails) ] |  | No |
+| rfqCode | string |  | No |
+| rfqSeqCode | string |  | No |
+| roundOffAmountInBaseCurrency | number |  | No |
+| roundOffAmountInDocumentCurrency | number |  | No |
+| sequenceFormat | string |  | No |
+| shipFrom | [Address](#address) |  | No |
+| shipTo | [Address](#address) |  | No |
+| status | string |  | No |
+| subTotal | number |  | No |
+| tcsAmount | number |  | No |
+| tcsAmountInBaseCurrency | number |  | No |
+| tcsPercentage | number |  | No |
+| tcsRateId | long |  | No |
+| tenantId | long |  | No |
+| totalAmount | number |  | No |
+| totalAmountInBaseCurrency | number |  | No |
+| totalDiscount | number |  | No |
+| unitPriceGstInclusive | boolean |  | No |
+| validByDate | dateTime |  | No |
+| vendorCode | string |  | No |
+| vendorEmail | string |  | No |
+| vendorSeqCode | string |  | No |
+| vendorType | string | *Enum:* `"IMPORT"`, `"NA"`, `"SEZ_W_PAY"`, `"SEZ_WO_PAY"` | No |
+
+### PIQResponse
+
+`PIQResponse` includes all attributes of [PIQRequest](#piqrequest), plus the following response-only attributes.
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| contactDto | [ContactInformation](#contactinformation) |  | No |
+| id | long |  | No |
 
 ### PlatformDetailsDto
 
@@ -13629,6 +15049,92 @@ API to delete sales order details by id.
 | tenantId | long |  | No |
 | userId | long |  | No |
 
+### RFQQuotesComparisonBestQuoteDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| bestQuoteCurrencyCode | string |  | No |
+| bestQuoteDocumentSequenceCode | string |  | No |
+| bestQuoteExchangeRate | number |  | No |
+| bestQuotePrice | number |  | No |
+| bestQuotePriceInBaseCurrency | number |  | No |
+| bestQuoteVendorCode | string |  | No |
+| bestQuoteVendorName | string |  | No |
+
+### RFQQuotesComparisonProductDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| documentUOMSchemaDefinition | [DocumentUOMSchemaDefinition](#documentuomschemadefinition) |  | No |
+| lastPODetails | object |  | No |
+| productCode | string |  | No |
+| productDescription | string |  | No |
+| productDocumentSeqCode | string |  | No |
+| productName | string |  | No |
+| quoteDetails | [ object ] |  | No |
+| rfqQuantity | number |  | No |
+| stockUom | long |  | No |
+
+### RFQQuotesComparisonReportDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| baseCurrencyCode | string |  | No |
+| bestQuoteDetails | [RFQQuotesComparisonBestQuoteDetails](#rfqquotescomparisonbestquotedetails) |  | No |
+| contactDtos | [ [ContactDto](#contactdto) ] |  | No |
+| noOfQuotesReceived | number |  | No |
+| rfqCode | string |  | No |
+| rfqDate | string | RFQ date<br/>*Example:* `"25-10-2019"` | No |
+| rfqDocumentSequenceCode | string |  | No |
+| rfqProductDetails | [ [RFQQuotesComparisonProductDetails](#rfqquotescomparisonproductdetails) ] |  | No |
+| status | string |  | No |
+| validByDate | string | Valid by date<br/>*Example:* `"25-10-2019"` | No |
+
+### RFQRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| attachmentIds | [ long ] |  | No |
+| attachments | [ string ] |  | No |
+| contact | [ [ContactInfo](#contactinfo) ] |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| documentSequenceCode | string |  | No |
+| email | [ string ] |  | No |
+| linkedPRDocuments | [ [DocumentInfo](#documentinfo) ] |  | No |
+| linkedQuoteDocuments | [ [DocumentInfo](#documentinfo) ] |  | No |
+| memo | string |  | No |
+| requestForQuotationItems | [ [AbstractRFQItemDetails](#abstractrfqitemdetails) ] |  | No |
+| rfqCode | string |  | No |
+| rfqDate | string |  | No |
+| sequenceFormat | string |  | No |
+| status | string |  | No |
+| validByDate | string |  | No |
+| vendorCode | [ string ] |  | No |
+
+### RFQResponse
+
+`RFQResponse` includes all attributes of [RFQRequest](#rfqrequest), plus the following response-only attributes.
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| contactDto | [ [ContactDto](#contactdto) ] |  | No |
+| gstExchangeRate | number |  | No |
+| gstTreatment | string |  | No |
+| gstin | string |  | No |
+| id | long |  | No |
+| linkedPurchaseInwardQuotes | [ object ] |  | No |
+| primaryExchangeRate | number |  | No |
+| roundOffAmountInBaseCurrency | number |  | No |
+| roundOffAmountInDocumentCurrency | number |  | No |
+| tcsAmount | number |  | No |
+| tcsAmountInBaseCurrency | number |  | No |
+| tcsPercentage | number |  | No |
+| tcsRateId | long |  | No |
+| tenantId | long |  | No |
+| totalAmountInBaseCurrency | number |  | No |
+| unitPriceGstInclusive | boolean |  | No |
+| vendorType | string | *Enum:* `"IMPORT"`, `"NA"`, `"SEZ_W_PAY"`, `"SEZ_WO_PAY"` | No |
+
 ### RowRackBinData
 
 | Name | Type | Description | Required |
@@ -13739,6 +15245,14 @@ API to delete sales order details by id.
 | saveContact | boolean |  | No |
 | sendEmailRequest | [SendEmailRequest](#sendemailrequest) | Send email config<br/>*Example:* `"Send email config"` | No |
 
+### SendRequestForQuotationEmail
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| rfqCode | string |  | No |
+| rfqFormUrl | string |  | No |
+| sendEmailRequest | [SendEmailRequest](#sendemailrequest) |  | No |
+
 ### SetRecurringDto
 
 | Name | Type | Description | Required |
@@ -13822,6 +15336,22 @@ API to delete sales order details by id.
 | name | string |  | No |
 | percentage | number |  | No |
 | type | string |  | No |
+
+### TaxMappingDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| additionalTaxIn | boolean |  | No |
+| id | long |  | No |
+| taxAmount | number |  | No |
+| taxApplyTo | string |  | No |
+| taxCode | string |  | No |
+| taxId | number |  | No |
+| taxName | string |  | No |
+| taxRate | number |  | No |
+| taxSeqCode | string |  | No |
+| taxType | string |  | No |
+| taxableAmount | number |  | No |
 
 ### TdsInfoIndia
 

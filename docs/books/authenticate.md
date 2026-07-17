@@ -102,7 +102,9 @@ In case the token is invalid, the deskera token can be refreshed by using the be
 curl --location --request POST 'https://bifrost.deskera.com/v1/iam/auth/app/getrefreshtoken' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "refreshToken" : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2V"
+    "refreshToken" : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2V",
+    "userName" : "+65-1234-5678",
+    "tenantId" : 123456
 }'
 ```
 
@@ -115,7 +117,10 @@ curl --location --request POST 'https://bifrost.deskera.com/v1/iam/auth/app/getr
     "idToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYW1Vc2VySWQiOjEyNzQ3LCJ3ZWJzaXRlIjoiU2luZ2Fwb3JlIE9yZyIsImlzT3JnU2V0Ijp0cnVlLCJ1c2VyX",
     "expiresIn": 0,
     "tokenType": "bearer",
-    "emailVerified": false
+    "emailVerified": false,
+    "isTrialUser": false,
+    "isMFAEnabled": false,
+    "guid": "95fd1877-368b-4ceb-8793-26e8d1a8a15d"
 }
 ```
 

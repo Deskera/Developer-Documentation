@@ -1582,7 +1582,9 @@ migrateDocSeqCodeDebitNote
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | address | string | Address<br/>*Example:* `"Raffles Place 1"` | Yes |
+| customer | boolean | True if the contact is a customer. | No |
 | name | string | Customer name<br/>*Example:* `"ABC Pte Ltd"` | Yes |
+| vendor | boolean | True if the contact is a vendor. | No |
 
 ### CreditNoteInformation
 
@@ -1618,6 +1620,7 @@ migrateDocSeqCodeDebitNote
 | linkedDocuments | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] | Linked Documents | No |
 | memo | string | Credit Note Memo<br/>*Example:* `"memo"` | No |
 | opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| partyJeCreditNote | boolean | Created for Party JE<br/>*Example:* `true` | No |
 | placeOfSupply | string | Place of supply<br/>*Example:* `"Solapur"` | No |
 | reason | string | Reason of CN<br/>*Example:* `"Deficiency in Services"` | No |
 | salesInvoiceCode | string | Linked sales invoice code<br/>*Example:* `"000010"` | No |
@@ -1732,6 +1735,7 @@ migrateDocSeqCodeDebitNote
 | linkedDocuments | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] | Linked Documents | No |
 | memo | string | Credit Note Memo<br/>*Example:* `"memo"` | No |
 | opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| partyJeCreditNote | boolean | Created for Party JE<br/>*Example:* `true` | No |
 | placeOfSupply | string | Place of supply<br/>*Example:* `"Solapur"` | No |
 | reason | string | Reason of CN<br/>*Example:* `"Deficiency in Services"` | No |
 | salesInvoiceCode | string | Linked sales invoice code<br/>*Example:* `"000010"` | No |
@@ -1775,6 +1779,7 @@ migrateDocSeqCodeDebitNote
 | linkedDocuments | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] | Linked Documents | No |
 | memo | string | Credit Note Memo<br/>*Example:* `"memo"` | No |
 | opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| partyJeCreditNote | boolean | Created for Party JE<br/>*Example:* `true` | No |
 | placeOfSupply | string | Place of supply<br/>*Example:* `"Solapur"` | No |
 | reason | string | Reason of CN<br/>*Example:* `"Deficiency in Services"` | No |
 | salesInvoiceCode | string | Linked sales invoice code<br/>*Example:* `"000010"` | No |
@@ -1793,6 +1798,7 @@ migrateDocSeqCodeDebitNote
 | attachmentIds | [ integer ] |  | No |
 | billTo | [Address](#address) | Bill to address | No |
 | cnDate | dateTime | date pattern dd-MM-yyyy<br/>*Example:* `"06-11-2019"` | Yes |
+| code | string | Credit Note Code<br/>*Example:* `"CN-0000001"` | No |
 | companyAddress | [Address](#address) | Company address | No |
 | contact | [ContactInfo](#contactinfo) |  | No |
 | contactCode | string | Unique system generated contact code<br/>*Example:* `"C-0000001"` | No |
@@ -1805,10 +1811,13 @@ migrateDocSeqCodeDebitNote
 | gstExchangeRate | number |  | No |
 | gstIn | string |  | No |
 | gstTreatmentIndia | string | India Compliance filed<br/>*Enum:* `"REGISTERED_BUSINESS_REGULAR=Registered Business - Regular"`, `"REGISTERED_BUSINESS_COMPOSITION=Registered Business - Composition"`, `"UNREGISTERED_BUSINESS=Unregistered Business"`, `"CUSTOMER=Consumer"`, `"OVERSEAS=Overseas"`, `"SPECIAL_ECONOMIC_ZONE=Special Economic Zone"`, `"DEEMED_EXPORT=Deemed Export"`<br/>*Example:* `"REGISTERED_BUSINESS_REGULAR"` | No |
+| id | long | Credit Note ID<br/>*Example:* `1` | No |
+| jeCode | string | Journal Entry Code<br/>*Example:* `"JE-0000001"` | No |
 | lineItems | [ [CreditNoteItemsDto](#creditnoteitemsdto) ] | Credit Note Line Items | No |
 | linkedDocuments | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] | Linked Documents | No |
 | memo | string | Credit Note Memo<br/>*Example:* `"memo"` | No |
 | opening | boolean |  | No |
+| partyJeCreditNote | boolean | Created for Party JE<br/>*Example:* `true` | No |
 | placeOfSupply | string | Place of supply<br/>*Example:* `"Solapur"` | No |
 | reason | string | Reason of CN<br/>*Example:* `"Deficiency in Services"` | No |
 | salesInvoiceCode | string | Linked sales invoice code<br/>*Example:* `"000010"` | No |
@@ -1974,6 +1983,7 @@ migrateDocSeqCodeDebitNote
 | linkedDocuments | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] | Linked Documents | No |
 | memo | string | Debit Note Memo<br/>*Example:* `"memo"` | No |
 | opening | boolean |  | No |
+| partyJeDebitNote | boolean | Created for Party JE<br/>*Example:* `true` | No |
 | placeOfSupply | string | Place of supply<br/>*Example:* `"Solapur"` | No |
 | purchaseInvoiceCode | string | Linked purchase invoice code<br/>*Example:* `"000010"` | No |
 | purchaseReturnCode | string | Linked sales return code<br/>*Example:* `"000001"` | No |
@@ -2018,6 +2028,7 @@ migrateDocSeqCodeDebitNote
 | linkedDocuments | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] | Linked Documents | No |
 | memo | string | Debit Note Memo<br/>*Example:* `"memo"` | No |
 | opening | boolean |  | No |
+| partyJeDebitNote | boolean | Created for Party JE<br/>*Example:* `true` | No |
 | placeOfSupply | string | Place of supply<br/>*Example:* `"Solapur"` | No |
 | purchaseInvoiceCode | string | Linked purchase invoice code<br/>*Example:* `"000010"` | No |
 | purchaseReturnCode | string | Linked sales return code<br/>*Example:* `"000001"` | No |
@@ -2034,15 +2045,40 @@ migrateDocSeqCodeDebitNote
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | amount | number |  | No |
+| amountDue | number |  | No |
 | attachmentIds | [ integer ] |  | No |
+| billTo | [Address](#address) | Bill to address | No |
+| code | string | Debit Note Code<br/>*Example:* `"DN-0000001"` | No |
+| companyAddress | [Address](#address) | Company address | No |
+| contact | [ContactInfo](#contactinfo) |  | No |
 | contactCode | string | Unique system generated contact code<br/>*Example:* `"C-0000001"` | No |
+| currency | string | Currency Code<br/>*Example:* `"SGD"` | Yes |
 | currencyExchangeRate | number | Currency Exchange Rate<br/>*Example:* `1` | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] |  | No |
+| customerTypeIndia | string | India Compliance filed<br/>*Enum:* `"EXPORT_WO_PAY"`, `"EXPORT_W_PAY"`, `"NA"`, `"SEZ_WO_PAY"`, `"SEZ_W_PAY"`<br/>*Example:* `"SEZ (WPAY)"` | No |
 | dnDate | dateTime | date pattern dd-MM-yyyy<br/>*Example:* `"06-11-2019"` | Yes |
+| documentSequenceCode | string | Sequence code<br/>*Example:* `"C-0000001"` | No |
 | gstExchangeRate | number |  | No |
+| gstIn | string |  | No |
+| gstTreatmentIndia | string | India Compliance filed<br/>*Enum:* `"REGISTERED_BUSINESS_REGULAR=Registered Business - Regular"`, `"REGISTERED_BUSINESS_COMPOSITION=Registered Business - Composition"`, `"UNREGISTERED_BUSINESS=Unregistered Business"`, `"CUSTOMER=Consumer"`, `"OVERSEAS=Overseas"`, `"SPECIAL_ECONOMIC_ZONE=Special Economic Zone"`, `"DEEMED_EXPORT=Deemed Export"`<br/>*Example:* `"REGISTERED_BUSINESS_REGULAR"` | No |
+| id | long | Debit Note ID<br/>*Example:* `1` | No |
+| jeCode | string | Journal Entry Code<br/>*Example:* `"JE-0000001"` | No |
 | lineItems | [ [DebitNoteItemsDto](#debitnoteitemsdto) ] | Debit Note Line Items | No |
+| linkedDocuments | [ [NoteLinkedDocumentInfo](#notelinkeddocumentinfo) ] | Linked Documents | No |
 | memo | string | Debit Note Memo<br/>*Example:* `"memo"` | No |
-| unitPriceGstInclusiveFlg | boolean | Unit Price GST Inclusive<br/>*Example:* `true` | No |
+| opening | boolean |  | No |
+| partyJeDebitNote | boolean | Created for Party JE<br/>*Example:* `true` | No |
+| placeOfSupply | string | Place of supply<br/>*Example:* `"Solapur"` | No |
+| purchaseInvoiceCode | string | Linked purchase invoice code<br/>*Example:* `"000010"` | No |
+| purchaseReturnCode | string | Linked sales return code<br/>*Example:* `"000001"` | No |
+| reason | string | Reason of CN<br/>*Example:* `"Deficiency in Services"` | No |
+| salesInvoiceCode | string | Linked sales invoice code<br/>*Example:* `"000010"` | No |
+| sequenceFormat | string | Sequence Format<br/>*Example:* `1` | No |
+| shipTo | [Address](#address) | Ship to address | No |
+| type | string | Debit Note Type<br/>*Example:* `"SALES"` | No |
+| unitPriceGstInclusive | boolean | Unit Price GST Inclusive<br/>*Example:* `true` | No |
+| unitPriceGstInclusiveFlg | boolean | Unit Price GST Inclusive (own field, distinct from inherited `unitPriceGstInclusive`)<br/>*Example:* `true` | No |
+| vendorTypeIndia | string | India Compliance filed<br/>*Enum:* `"IMPORT"`, `"NA"`, `"SEZ_W_PAY"`, `"SEZ_WO_PAY"`<br/>*Example:* `"EXPORT (WOPAY)"` | No |
 
 ### DocumentItemTaxMappingDto
 
@@ -2176,9 +2212,10 @@ migrateDocSeqCodeDebitNote
 | currency | string | Currency Code<br/>*Enum:* `"AFN"`, `"ALL"`, `"DZD"`, `"AOA"`, `"ARS"`, `"AMD"`, `"AWG"`, `"AZN"`, `"BSD"`, `"BHD"`, `"BDT"`, `"BBD"`, `"BYN"`, `"BZD"`, `"BMD"`, `"BTN"`, `"BOB"`, `"BAM"`, `"BRL"`, `"BND"`, `"BGN"`, `"BIF"`, `"KHR"`, `"CAD"`, `"CVE"`, `"KYD"`, `"CLP"`, `"CNY"`, `"COP"`, `"KMF"`, `"CDF"`, `"CRC"`, `"CZK"`, `"HRK"`, `"CUC"`, `"DJF"`, `"DOP"`, `"EGP"`, `"ERN"`, `"ETB"`, `"FKP"`, `"FJD"`, `"XAF"`, `"GMD"`, `"GEL"`, `"GHS"`, `"GIP"`, `"DKK"`, `"GTQ"`, `"GNF"`, `"GYD"`, `"HTG"`, `"HNL"`, `"HKD"`, `"HUF"`, `"ISK"`, `"INR"`, `"IDR"`, `"IRR"`, `"IQD"`, `"JMD"`, `"JPY"`, `"JOD"`, `"KZT"`, `"KES"`, `"KWD"`, `"KGS"`, `"LAK"`, `"LBP"`, `"LSL"`, `"LRD"`, `"LYD"`, `"MOP"`, `"MKD"`, `"MGA"`, `"MWK"`, `"MYR"`, `"MVR"`, `"MRO"`, `"MUR"`, `"MXN"`, `"MDL"`, `"MNT"`, `"MZN"`, `"MMK"`, `"NAD"`, `"NPR"`, `"NIO"`, `"NGN"`, `"KPW"`, `"OMR"`, `"PKR"`, `"ILS"`, `"PAB"`, `"PGK"`, `"PYG"`, `"PEN"`, `"PHP"`, `"PLN"`, `"QAR"`, `"RON"`, `"RUB"`, `"RWF"`, `"SHP"`, `"XCD"`, `"WST"`, `"STD"`, `"SAR"`, `"RSD"`, `"SCR"`, `"SLL"`, `"SGD"`, `"ANG"`, `"SBD"`, `"SOS"`, `"ZAR"`, `"KRW"`, `"SSP"`, `"EUR"`, `"LKR"`, `"SDG"`, `"SRD"`, `"NOK"`, `"SZL"`, `"SEK"`, `"CHF"`, `"SYP"`, `"TWD"`, `"TJS"`, `"TZS"`, `"THB"`, `"XOF"`, `"NZD"`, `"TOP"`, `"TTD"`, `"TND"`, `"TRY"`, `"TMT"`, `"AUD"`, `"UGX"`, `"UAH"`, `"AED"`, `"GBP"`, `"USD"`, `"UYU"`, `"UZS"`, `"VUV"`, `"VEF"`, `"VND"`, `"XPF"`, `"MAD"`, `"YER"`, `"ZMW"`, `"BWP"`, `"CNH"`<br/>*Example:* `"SGD"` | Yes |
 | documentCode | string | Unique system generated document code<br/>*Example:* `"SI-0000001"` | No |
 | documentSeqCode | string | Unique system generated document code<br/>*Example:* `"SI-0000001"` | No |
-| documentType | string | Type of document.<br/>*Enum:* `"SALES_INVOICE"`, `"PURCHASE_INVOICE"`, `"SALES_RETURN"`, `"PURCHASE_RETURN"`<br/>*Example:* `"SALES_INVOICE"` | No |
+| documentType | string | Type of document.<br/>*Enum:* `"SALES_INVOICE"`, `"PURCHASE_INVOICE"`, `"SALES_RETURN"`, `"PURCHASE_RETURN"`, `"JOURNAL_ENTRY"`<br/>*Example:* `"SALES_INVOICE"` | No |
 | exchangeRate | number | Currency Exchange Rate<br/>*Example:* `1` | No |
 | knockOffDate | dateTime | Document Date with pattern dd-mm-yyyy<br/>*Example:* `"06-11-2019"` | Yes |
+| linkedWhileCreatingNote | boolean | True if the document was linked while creating the note.<br/>*Example:* `true` | No |
 | noteCode | string | Unique system generated credit or debit note code<br/>*Example:* `"CN-0000001"` | No |
 | noteSeqCode | string | Unique user generated credit or debit note code<br/>*Example:* `"CN-0000001"` | No |
 | uid | string (uuid) |  | No |

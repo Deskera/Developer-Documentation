@@ -505,6 +505,154 @@ API to update fields of existing dimension
 | --------------- | ------ |
 | Authorization | global |
 
+### /v1/dimension/deniedPartyCf
+
+#### POST
+##### Summary
+
+Create denied party custom field if it does not exist
+
+##### Description
+
+API to create the denied party screening custom field if it does not already exist
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| dimensionDto | body | dimensionDto | Yes | [DimensionDto](#dimensiondto) |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 201 | Denied party custom field has been created successfully. |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+#### GET
+##### Summary
+
+Deactivate the denied party custom field
+
+##### Description
+
+API to deactivate the denied party screening custom field if it exists
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/dimension/name-by-code-tenant
+
+#### POST
+##### Summary
+
+Get dimension name by code and tenant id
+
+##### Description
+
+API to fetch dimension code and label grouped by tenant id
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | object |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Dimension information have been fetched successfully. | object |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/dimension/name-code-by-tenant
+
+#### POST
+##### Summary
+
+Get dimension name and code by tenant id
+
+##### Description
+
+API to fetch dimension code and label grouped by tenant id
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [ long ] |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Dimension information have been fetched successfully. | object |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/dimension/formula/ids
+
+#### POST
+##### Summary
+
+Get formulas by ids
+
+##### Description
+
+API to fetch formula details for the given formula ids
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| ids | body | ids | Yes | [ long ] |
+| includeDeleted | query | includeDeleted | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Formulas have been fetched successfully. | [ object ] |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## attribute-controller
 Dimension attributes APIs
@@ -1193,8 +1341,14 @@ API to delete a dimension modules
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| code | string | Attribute code | No |
 | defaultOption | boolean | Is this the default option<br/>*Example:* `false` | No |
+| dimensionId | long | Identifier of the dimension this attribute belongs to | No |
+| dimensionName | string | Name of the dimension this attribute belongs to | No |
+| id | long | Unique identifier for the attribute | No |
+| orderIndex | integer | Display order of the attribute | No |
 | parentId | string | Parent attribute id<br/>*Example:* `"007"` | No |
+| parentIdList | [ string ] | List of parent attribute ids | No |
 | status | string | Visibility status of attribute<br/>*Enum:* `"ACTIVE"`, `"INACTIVE"`<br/>*Example:* `"ACTIVE"` | No |
 | value | string | Attribute Value<br/>*Example:* `"value"` | No |
 
@@ -1202,29 +1356,34 @@ API to delete a dimension modules
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| id | string | Unique identifier for the class item | No |
 | label | string | Class Item Label<br/>*Example:* `"Label"` | Yes |
 
 #### CustomFieldItem
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| code | string | Custom field code | No |
+| fieldType | string | Custom field type<br/>*Enum:* `"NUMBER"`, `"TEXT"`, `"DATE"`, `"DROPDOWN"`, `"MULTI_SELECT"`, `"BOOLEAN"`, `"CURRENCY"`, `"COUNTRY"`, `"USER"`, `"TEXT_AREA"`, `"FORMULA"` | No |
+| formulaId | long | Identifier of the formula, when fieldType is `FORMULA` | No |
 | id | long | Dimension Id<br/>*Example:* `11567` | No |
 | label | string | Custom Field Name<br/>*Example:* `"Label"` | Yes |
 | module | string | Supported Modules | No |
+| shortName | string | Short name of the custom field | No |
 | value | object | Dimension Value<br/>*Example:* `"XYZ"` | No |
 
 #### CustomFieldsListRequest
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| application | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
+| application | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"MRP"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
 | modules | [ string ] |  | No |
 
 #### Dimension
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| appName | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
+| appName | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"MRP"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
 | code | string |  | No |
 | createdAt | dateTime |  | No |
 | createdBy | long |  | No |
@@ -1233,7 +1392,7 @@ API to delete a dimension modules
 | deleted | boolean |  | No |
 | description | string |  | No |
 | dimensionModules | [ [DimensionModuleMap](#dimensionmodulemap) ] |  | No |
-| fieldType | string | *Enum:* `"NUMBER"`, `"TEXT"`, `"DATE"`, `"DROPDOWN"`, `"MULTI_SELECT"`, `"BOOLEAN"`, `"CURRENCY"`, `"COUNTRY"`, `"USER"` | No |
+| fieldType | string | *Enum:* `"NUMBER"`, `"TEXT"`, `"DATE"`, `"DROPDOWN"`, `"MULTI_SELECT"`, `"BOOLEAN"`, `"CURRENCY"`, `"COUNTRY"`, `"USER"`, `"TEXT_AREA"`, `"FORMULA"` | No |
 | id | long |  | No |
 | label | string |  | No |
 | mandatory | boolean |  | No |
@@ -1257,19 +1416,23 @@ API to delete a dimension modules
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| appName | string | Application name ERP/CRM.<br/>*Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"`<br/>*Example:* `"ERP"` | No |
+| appName | string | Application name ERP/CRM.<br/>*Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"MRP"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"`<br/>*Example:* `"ERP"` | No |
 | attributes | [ [AttributeDto](#attributedto) ] | Set of possible attributes | No |
+| code | string | Unique code assigned to the dimension | No |
 | customFieldIndex | integer |  | No |
 | decimalPrecision | integer | Decimal precision Value for fields of Number type<br/>*Example:* `2` | No |
 | defaultValue | string | Dimension Default Value<br/>*Example:* `"XYZ"` | No |
 | description | string | Dimension description<br/>*Example:* `"Custom field for Brand"` | Yes |
-| fieldType | string | Dimension Type<br/>*Enum:* `"NUMBER"`, `"TEXT"`, `"DATE"`, `"DROPDOWN"`, `"MULTI_SELECT"`, `"BOOLEAN"`, `"CURRENCY"`, `"COUNTRY"`, `"USER"`<br/>*Example:* `"TEXT"` | No |
+| fieldType | string | Dimension Type<br/>*Enum:* `"NUMBER"`, `"TEXT"`, `"DATE"`, `"DROPDOWN"`, `"MULTI_SELECT"`, `"BOOLEAN"`, `"CURRENCY"`, `"COUNTRY"`, `"USER"`, `"TEXT_AREA"`, `"FORMULA"`<br/>*Example:* `"TEXT"` | No |
+| formula | object | Formula details, when fieldType is `FORMULA` | No |
+| id | long | Unique identifier for the dimension<br/>*Example:* `11567` | No |
 | isModuleMapActive | boolean |  | No |
 | label | string | Dimension Label<br/>*Example:* `"Label"` | Yes |
 | mandatory | boolean | Dimension Mandatory<br/>*Example:* `false` | No |
 | maxLength | integer | Maximum length of value<br/>*Example:* `25` | No |
 | modules | [ string ] | Supported Modules | No |
 | parent | [DimensionDto](#dimensiondto) | Object of dimension if Parent selected<br/>*Example:* `"Dimension"` | No |
+| shortName | string | Short name of the dimension | No |
 | staticLookupValues | [ string ] |  | No |
 | status | string | Dimension Status<br/>*Enum:* `"ACTIVE"`, `"INACTIVE"`<br/>*Example:* `"ACTIVE"` | No |
 | system | boolean |  | No |
@@ -1279,14 +1442,14 @@ API to delete a dimension modules
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | active | boolean |  | No |
-| appName | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
+| appName | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"MRP"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
 | createdAt | dateTime |  | No |
 | createdBy | long |  | No |
 | customFieldIndex | integer |  | No |
 | deleted | boolean |  | No |
 | dimension | [Dimension](#dimension) |  | No |
 | id | long |  | No |
-| module | string | *Enum:* `"CONTACT"`, `"PRODUCT"`, `"INVOICE"`, `"QUOTATION"`, `"ACCOUNT"`, `"JOURNAL"`, `"ORDER"`, `"BILL"`, `"DEAL"`, `"TICKET"`, `"EXPENSE"`, `"DEPOSIT"`, `"DEBITNOTE"`, `"CREDITNOTE"`, `"BOMASSEMBLY"`, `"STOCKADJUSTMENT"`, `"STOCKTRANSFER"`, `"SALESORDER"`, `"JOBWORKOUTORDER"`, `"JOBWORKOUTSTOCKTRANSFER"`, `"FIXEDASSET"` | No |
+| module | string | *Enum:* `"CONTACT"`, `"PRODUCT"`, `"INVOICE"`, `"QUOTATION"`, `"ACCOUNT"`, `"JOURNAL"`, `"ORDER"`, `"BILL"`, `"DEAL"`, `"TICKET"`, `"EXPENSE"`, `"DEPOSIT"`, `"DEBITNOTE"`, `"CREDITNOTE"`, `"BOMASSEMBLY"`, `"STOCKADJUSTMENT"`, `"STOCKTRANSFER"`, `"STOCKREQUEST"`, `"PICKPACKSHIP"`, `"STOCKISSUE"`, `"SALESORDER"`, `"JOBWORKOUTORDER"`, `"JOBWORKOUTSTOCKTRANSFER"`, `"FIXEDASSET"`, `"WORKORDER"`, `"OPERATION"`, `"OPERATOR"`, `"MACHINE"`, `"CONTACTADDRESS"`, `"CYCLECOUNT"`, `"REQUISITION"`, `"REQUESTFORQUOTATION"`, `"PURCHASEINWARDQUOTATION"`, `"PREFERREDVENDOR"`, `"GATEENTRY"`, `"BATCHSERIAL"` | No |
 | tenantId | long |  | No |
 | updatedAt | dateTime |  | No |
 | updatedBy | long |  | No |
@@ -1303,20 +1466,22 @@ API to delete a dimension modules
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | active | boolean | Is location active<br/>*Example:* `true` | Yes |
+| id | string | Unique identifier for the location item | No |
 | label | string | Location Item Label<br/>*Example:* `"Label"` | Yes |
+| locationDetails | object | Location details (title, company, address, email, phone, tax) | No |
 
 #### MandatoryDimensionsRequest
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| application | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
+| application | string | *Enum:* `"ERP"`, `"CRM"`, `"CRM3"`, `"MRP"`, `"PEOPLE"`, `"PEOPLE3"`, `"ALL"` | No |
 
 #### ModuleDimensionUpdateRequestDto
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | dimensionList | [ [DimensionDto](#dimensiondto) ] |  | No |
-| moduleName | string | *Enum:* `"CONTACT"`, `"PRODUCT"`, `"INVOICE"`, `"QUOTATION"`, `"ACCOUNT"`, `"JOURNAL"`, `"ORDER"`, `"BILL"`, `"DEAL"`, `"TICKET"`, `"EXPENSE"`, `"DEPOSIT"`, `"DEBITNOTE"`, `"CREDITNOTE"`, `"BOMASSEMBLY"`, `"STOCKADJUSTMENT"`, `"STOCKTRANSFER"`, `"SALESORDER"`, `"JOBWORKOUTORDER"`, `"JOBWORKOUTSTOCKTRANSFER"`, `"FIXEDASSET"` | No |
+| moduleName | string | *Enum:* `"CONTACT"`, `"PRODUCT"`, `"INVOICE"`, `"QUOTATION"`, `"ACCOUNT"`, `"JOURNAL"`, `"ORDER"`, `"BILL"`, `"DEAL"`, `"TICKET"`, `"EXPENSE"`, `"DEPOSIT"`, `"DEBITNOTE"`, `"CREDITNOTE"`, `"BOMASSEMBLY"`, `"STOCKADJUSTMENT"`, `"STOCKTRANSFER"`, `"STOCKREQUEST"`, `"PICKPACKSHIP"`, `"STOCKISSUE"`, `"SALESORDER"`, `"JOBWORKOUTORDER"`, `"JOBWORKOUTSTOCKTRANSFER"`, `"FIXEDASSET"`, `"WORKORDER"`, `"OPERATION"`, `"OPERATOR"`, `"MACHINE"`, `"CONTACTADDRESS"`, `"CYCLECOUNT"`, `"REQUISITION"`, `"REQUESTFORQUOTATION"`, `"PURCHASEINWARDQUOTATION"`, `"PREFERREDVENDOR"`, `"GATEENTRY"`, `"BATCHSERIAL"` | No |
 
 #### Pageable
 

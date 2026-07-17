@@ -1625,37 +1625,83 @@ API to fetch roles
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| accountCodePayFrom | string | Account code. | No |
-| accountName | string | Account name. | No |
-| amount | number | Payment amount. | No |
-| contactCode | string | Contact code. | No |
-| contactName | string | Contact name. | No |
-| currency | string | Currency code. | No |
-| documentDate | dateTime | Document date. | No |
-| exchangeRate | number | Exchange rate. | No |
+| accountCodePayFrom | string | Account code.<br/>*Example:* `"AC-001"` | No |
+| accountName | string | Account name.<br/>*Example:* `"Bank"` | No |
+| amount | number | Payment amount.<br/>*Example:* `10` | No |
+| amountDue | number | Payment amount Due.<br/>*Example:* `10` | No |
+| applyRcmCheck | boolean | True if the RCM (Reverse Charge Mechanism) check should be applied.<br/>*Example:* `false` | No |
+| attachmentIds | [ integer ] | list of attachment id's for this order | No |
+| bankRuleId | long | Rule id if the document has been created by a Bank Rule | No |
+| billTo | [Address](#address) | Bill to address | No |
+| contactCode | string | Contact code.<br/>*Example:* `19425` | No |
+| contactName | string | Contact name.<br/>*Example:* `"ABC PTE LTD"` | No |
+| currency | string | Currency code.<br/>*Example:* `"SGD"` | No |
+| customField | [ object ] | List of custom fields | No |
+| customerTypeIndia | string | India Compliance filed<br/>*Enum:* `"EXPORT_WO_PAY"`, `"EXPORT_W_PAY"`, `"NA"`, `"SEZ_WO_PAY"`, `"SEZ_W_PAY"`<br/>*Example:* `"SEZ (WPAY)"` | No |
+| documentDate | dateTime | Document date.<br/>*Example:* `"2019-09-27"` | No |
+| errors | [ string ] | List of validation error messages | No |
+| exchangeRate | number | Exchange rate.<br/>*Example:* `0.01891562` | No |
+| gstExchangeRate | number | GST Exchange rate if tax residency currency is different than base currency<br/>*Example:* `1` | No |
+| gstIn | string |  | No |
+| gstTreatmentIndia | string | India Compliance filed<br/>*Enum:* `"REGISTERED_BUSINESS_REGULAR=Registered Business - Regular"`, `"REGISTERED_BUSINESS_COMPOSITION=Registered Business - Composition"`, `"UNREGISTERED_BUSINESS=Unregistered Business"`, `"CUSTOMER=Consumer"`, `"OVERSEAS=Overseas"`, `"SPECIAL_ECONOMIC_ZONE=Special Economic Zone"`, `"DEEMED_EXPORT=Deemed Export"`<br/>*Example:* `"REGISTERED_BUSINESS_REGULAR"` | No |
+| interCompany | boolean | True if it is between inter companies<br/>*Example:* `true` | No |
+| isSalesRefund | boolean | True if the payment is a sales refund.<br/>*Example:* `false` | No |
+| isTdsPaymentIndia | boolean |  | No |
+| knockoffInfo | [ object ] |  | No |
+| makePaymentFeeDtoList | [ object ] | Transaction fee pertaining to the made payment | No |
 | makePaymentItemDtoList | [ [MakePaymentItemDto](#makepaymentitemdto) ] | Make payment items information. | No |
-| memo | string | Memo text. | No |
-| nextPaymentDate | dateTime | Next payment date. | No |
-| paymentType | string | Type of payment. | No |
+| makePaymentRecurringDto | object | Recurring payment details. | No |
+| memo | string | Memo text.<br/>*Example:* `"Sales quotation"` | No |
+| nextPaymentDate | dateTime | Next payment date.<br/>*Example:* `"2019-09-27"` | No |
+| opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| parentPaymentId | long | Identifier of the parent payment, when this payment is linked to another payment. | No |
+| paymentType | string | Type of payment.<br/>*Enum:* `"CHEQUE"`, `"CASH"`, `"BANK_TRANSFER"`, `"CARD"`, `"OTHERS"`<br/>*Example:* `"BANK_TRANSFER"` | No |
+| primaryExchangeRate | number | Primary exchange rate.<br/>*Example:* `1` | No |
 | purchaseInvoice | [PurchaseInvoiceResponse](#purchaseinvoiceresponse) |  | No |
-| recurringActivated | boolean | Recurring payment activated for payment. | No |
-| recurringPayment | boolean | Recurring payment enable/disable for payment. | No |
-| referenceDate | dateTime | Date of Bank Transfer/cheque. | No |
-| referenceNumber | string | Reference number of Bank Transfer/cheque. | No |
+| reconciled | boolean | Whether the current payment is reconciled or not. | No |
+| recurringActivated | boolean | Recurring payment activated for payment.<br/>*Example:* `false` | No |
+| recurringPayment | boolean | Recurring payment enable/disable for payment.<br/>*Example:* `false` | No |
+| referenceDate | dateTime | Date of Bank Transfer/cheque.<br/>*Example:* `"2019-09-27"` | No |
+| referenceNumber | string | Reference number of Bank Transfer/cheque.<br/>*Example:* `"CH001"` | No |
+| refundedInvoiceCode | string | Code of the invoice this payment refunds. | No |
+| roundOffAmountInBaseCurrency | number | Round off amount in base currency.<br/>*Example:* `0.01` | No |
+| roundOffAmountInDocumentCurrency | number | Round off amount in document currency.<br/>*Example:* `0.01` | No |
+| status | string | *Enum:* `"PRINT_SUCCESS"`, `"PRINT_FAILURE"`, `"NOT_PRINTED"` | No |
+| supplierInvoiceNo | string | Supplier invoice number. | No |
+| tdsIds | [ long ] | List of TDS (Tax Deducted at Source) identifiers linked to the payment. | No |
+| tdsPaymentInfoIndia | object | TDS Payment details | No |
+| tdsProcessedFlag | boolean | TDS Processed Flag<br/>*Example:* `false` | No |
+| unitPriceGstInclusive | boolean | Price is GST inclusive<br/>*Example:* `false` | No |
+| vendorTypeIndia | string | India Compliance filed<br/>*Enum:* `"IMPORT"`, `"NA"`, `"SEZ_W_PAY"`, `"SEZ_WO_PAY"`<br/>*Example:* `"EXPORT (WOPAY)"` | No |
 
 ### MakePaymentItemDto
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| accountName | string | Account name. | No |
-| description | string | Description of document. | No |
-| documentCode | string | Document code. | No |
-| documentType | string | Document type. | No |
-| exchangeRate | number | Exchange rate. | No |
-| paymentAmount | number | Payment amount. | No |
-| taxAmount | number | Tax amount. | No |
-| taxCode | string | Tax code. | No |
+| accountName | string | Account name.<br/>*Example:* `"Bank"` | No |
+| customerOrderNumber | string | Customer order number. | No |
+| customField | [ object ] | List of custom fields | No |
+| description | string | Description of document.<br/>*Example:* `"General ledger for account."` | No |
+| documentCode | string | Document code.<br/>*Example:* `"AC-001"` | No |
+| documentSequenceCode | string | Document Sequence code.<br/>*Example:* `"AC-001"` | No |
+| documentType | string | Document type.<br/>*Example:* `"General Ledger"` | No |
+| errors | [ string ] | List of validation error messages | No |
+| exchangeRate | number | Exchange rate.<br/>*Example:* `0.01891562` | No |
+| glAccountCode | string | General ledger account code. | No |
+| isTdsApplicableAccount | boolean |  | No |
+| isTdsApplicableContact | boolean |  | No |
+| itcAdjustment | string | ITC (Input Tax Credit) adjustment type. | No |
+| itcIneligibleType | string | ITC (Input Tax Credit) ineligible type. | No |
+| paymentAmount | number | Payment amount.<br/>*Example:* `10.5` | No |
+| supplierInvoiceNo | string | Supplier invoice number. | No |
+| taxAmount | number | Tax amount.<br/>*Example:* `0.7` | No |
+| taxCode | string | Tax code.<br/>*Example:* `"GST@7"` | No |
 | taxList | [ [TaxMappingDto](#taxmappingdto) ] |  | No |
+| tdsAccount | string | Tds Account Code<br/>*Example:* `"AC-0000011"` | No |
+| tdsAmount | number | TDS Amount<br/>*Example:* `100` | No |
+| tdsInfoIndia | object | Pre-Payment TDS details | No |
+| tdsRate | number | TDS Rate<br/>*Example:* `10.1` | No |
+| totalAmount | number | Total amount of the payment item. | No |
 
 ### PurchaseInvoiceResponse
 

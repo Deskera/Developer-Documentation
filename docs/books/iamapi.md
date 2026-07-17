@@ -450,7 +450,7 @@ Sign up using contact number.
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| mobileSignupRequest | body | mobileSignupRequest | Yes | [MobileSignupRequest](#mobilesignuprequest) |
+| mobileSignupRequest | body | mobileSignupRequest | Yes | [MobileSignupRequestWithOrg](#mobilesignuprequestwithorg) |
 
 
 ##### Responses
@@ -473,6 +473,8 @@ Sign up using contact number.
 ### Web Sign-Up
 
 Sign up using contact, email and password.
+
+> **Note:** This endpoint is currently disabled in the service (`POST /v1/iam/auth/sign-up/web` is commented out in source). Use [Add User](#add-user) or [Bulk Invite User](#bulk-invite-user) to add a user to a tenant instead.
 
 ##### Description:
 
@@ -1199,6 +1201,8 @@ Signup using contact no
 
 ### /v1/iam/auth/sign-up/web
 
+> **Note:** This endpoint is currently disabled in the service (the handler is commented out in source).
+
 #### POST
 ##### Summary
 
@@ -1805,6 +1809,174 @@ Web Signin API to authenticate with username and password
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 | 404 | Failed to authenticate user credentials. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/iam/auth/sign-in/web/workday-signin
+
+#### POST
+##### Summary
+
+Workday Signin API
+
+##### Description
+
+Authenticate a user via Workday SSO
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| workdaySigninRequest | body | workdaySigninRequest | Yes | WorkdaySigninRequest |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Signin has been successfully. | [AuthenticationResultTypeDto](#authenticationresulttypedto) |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Failed to authenticate user credentials. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/iam/auth/sign-in/web/oidc-signin
+
+#### POST
+##### Summary
+
+OIDC Signin API
+
+##### Description
+
+Authenticate a user via an OIDC identity provider
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| oidcSigninRequest | body | oidcSigninRequest | Yes | OIDCSigninRequest |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Signin has been successfully. | [AuthenticationResultTypeDto](#authenticationresulttypedto) |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Failed to authenticate user credentials. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/iam/auth/sign-in/web/clerk-signin
+
+#### POST
+##### Summary
+
+Clerk Signin API
+
+##### Description
+
+Authenticate a user using a Clerk bearer token
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| Authorization | header | Bearer token issued by Clerk | Yes | string |
+| inviteCode | query | inviteCode | No | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Signin has been successfully. | [AuthenticationResultTypeDto](#authenticationresulttypedto) |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Failed to authenticate user credentials. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+---
+## sso-login-controller
+SSO Login Controller
+
+### /v1/iam/auth/sso/token
+
+#### POST
+##### Summary
+
+Exchange an SSO authorization code for tokens
+
+##### Description
+
+API to exchange an SSO authorization code for access/refresh tokens
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | query | code | Yes | string |
+| grant_type | query | grant_type | Yes | string |
+| client_id | query | client_id | Yes | string |
+| client_secret | query | client_secret | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Token exchanged successfully. | object |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/iam/auth/sso/userinfo
+
+#### GET
+##### Summary
+
+Get user info for the current SSO session
+
+##### Description
+
+API to fetch user info associated with the current SSO access token
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| Authorization | header | Bearer access token | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | User info fetched successfully. | UserInfoResponse |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
 
 ##### Security
 

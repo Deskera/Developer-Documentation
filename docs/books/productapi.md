@@ -15785,6 +15785,7 @@ API to delete existing UOM Schema.
 | rowCode | string | Row code<br/>*Example:* `"ROW-00001"` | Yes |
 | rowName | string | Row name<br/>*Example:* `"ROW-NAME"` | No |
 | stockAdjustmentAccountCode | string | Stock adjustment account code<br/>*Example:* `"A-10234"` | Yes |
+| unAssignedQuantity | double | Unassigned quantity<br/>*Example:* `0` | No |
 | warehouseCode | string | Warehouse code<br/>*Example:* `"WH-00001"` | Yes |
 | wipInventoryAccountCode | string | WIP Inventory account code<br/>*Example:* `"A-10233"` | Yes |
 
@@ -16643,6 +16644,7 @@ API to delete existing UOM Schema.
 | advancedTrackingMetaData | [ [AdvancedTrackingMetaDto](#advancedtrackingmetadto) ] | Advanced Tracking Meta data<br/>*Example:* `{"field1":"value1","field2":"value2"}` | No |
 | amortizationPeriod | integer | Amortization template period<br/>*Example:* `36` | No |
 | amortizationTemplateCode | string | Amortization template code<br/>*Example:* `"0000001"` | No |
+| attachments | [ string ] | File attachments | No |
 | attributes | [ [AttributeDetails](#attributedetails) ] | Attribute Details | No |
 | autoFulfillmentEnabled | boolean | Is Auto-Fulfillment enable?<br/>*Example:* `false` | No |
 | barcode | string | Product barcode<br/>*Example:* `2365234` | No |
@@ -16660,6 +16662,7 @@ API to delete existing UOM Schema.
 | deferredRevenueAccountCode | string | Deferred Revenue account code<br/>*Example:* `"A-0015"` | No |
 | description | string | Product description<br/>*Example:* `"Description"` | No |
 | documentSequenceCode | string | Product Sequence code<br/>*Example:* `"P-0000001"` | No |
+| hasConsentForImageUpdate | boolean | True if consent was given to update product images<br/>*Example:* `false` | No |
 | hasVariants | boolean | Product has variants<br/>*Example:* `false` | No |
 | images | [ string ] | Product image url's | No |
 | inventory | [InventoryDto](#inventorydto) | Inventory information required for Tracked Products. | No |
@@ -16669,10 +16672,13 @@ API to delete existing UOM Schema.
 | isUiProductUpdate | boolean | Product is update by UI.<br/>*Example:* `false` | No |
 | isVariant | boolean | Is a variant<br/>*Example:* `false` | No |
 | landedCostCategory | [ [LandedCostCategory](#landedcostcategory) ] | Landed Cost Category<br/>*Example:* `[{"name":"First Cat","allocationType":"QUANTITY"},{"name":"Second Cat","allocationType":"MANUAL"}]` | No |
+| leadTimeDetails | [ object ] | Vendor lead time details | No |
 | manufacturingCostAccountCode | string | Manufacturing Cost Account Code<br/>*Example:* `"AC-0000012"` | No |
 | masterProductCode | string | Master Product Code<br/>*Example:* `"P-0000001"` | No |
 | multipleUomSchema | boolean | Is multiple Uom Schema?<br/>*Example:* `true` | No |
 | name | string | Product Name<br/>*Example:* `"Apple"` | Yes |
+| preferredVendorDetails | [ object ] | Preferred vendor details | No |
+| productGroupIds | [ integer ] | Product group identifiers | No |
 | productSubstitutesDetails | [ [ProductSubstitutesDetails](#productsubstitutesdetails) ] |  | No |
 | productTransactionType | string | Product Transaction Type<br/>*Enum:* `"BOTH"`, `"PURCHASE"`, `"SALES"`<br/>*Example:* `"BOTH"` | Yes |
 | purchaseAccountCode | string | Purchase account code<br/>*Example:* `"A-0012"` | Yes |
@@ -16680,10 +16686,13 @@ API to delete existing UOM Schema.
 | purchasePriceTaxInclusive | boolean | Is purchase price tax inclusive?<br/>*Example:* `true` | No |
 | purchaseReturnAccountCode | string | Purchase return account code<br/>*Example:* `"A-0014"` | No |
 | purchaseTaxCode | string | Purchase tax code<br/>*Example:* `"T-001"` | No |
+| quotePriceEditable | boolean | True if the price is editable on a quotation<br/>*Example:* `true` | No |
 | reorderEnabled | boolean | Flag to enable reorder level<br/>*Example:* `true` | No |
 | reorderLevel | long | Reorder level of the Products.<br/>*Example:* `100` | No |
 | reorderQuantity | long | Quantity to be reordered<br/>*Example:* `50` | No |
 | reorderVendorCode | string | Vendor code for reorder<br/>*Example:* `"C-000001"` | No |
+| restockBuildQuantity | number | Restock build quantity<br/>*Example:* `10` | No |
+| restockLevel | number | Restock level<br/>*Example:* `10` | No |
 | revenueRecognitionInfo | [ProductRevenueRecognitionInfo](#productrevenuerecognitioninfo) | Product Revenue Recognition Information Object | No |
 | rowRackBinData | [RowRackBinData](#rowrackbindata) | Row Rack Bin information required for Tracked Products. | No |
 | salesAccountCode | string | Sales account code<br/>*Example:* `"A-0013"` | Yes |
@@ -16696,6 +16705,7 @@ API to delete existing UOM Schema.
 | stockUom | long | Stock UOM<br/>*Example:* `2` | Yes |
 | taxable | boolean | Is taxable?<br/>*Example:* `true` | No |
 | type | string | Product type<br/>*Enum:* `"TRACKED"`, `"NONTRACKED"`, `"BILL_OF_MATERIALS"`<br/>*Example:* `"TRACKED"` | Yes |
+| unbilledAccountReceivableAccountCode | string | Unbilled accounts receivable account code<br/>*Example:* `"A-0016"` | No |
 | uomSchema | long | Reorder level of the Products.<br/>*Example:* `100` | No |
 | valuationMethod | string | Valuation Method<br/>*Enum:* `"FIFO"`, `"AVERAGE"`<br/>*Example:* `"FIFO"` | Yes |
 | variantAttributes | object | Attribute Details specific to a variant | No |
@@ -17130,6 +17140,8 @@ API to delete existing UOM Schema.
 | advancedTrackingMetaData | [ [AdvancedTrackingMetaDto](#advancedtrackingmetadto) ] | Advanced Tracking Meta data<br/>*Example:* `{"field1":"value1","field2":"value2"}` | No |
 | amortizationPeriod | integer | Amortization template period<br/>*Example:* `36` | No |
 | amortizationTemplateCode | string | Amortization template code<br/>*Example:* `"0000001"` | No |
+| attachments | [ string ] | File attachments | No |
+| attachmentsWithLink | [ object ] | Attachment details including download links | No |
 | attributes | [ [AttributeDetails](#attributedetails) ] | Attribute Details | No |
 | autoFulfillmentEnabled | boolean | Is Auto-Fulfillment enable?<br/>*Example:* `false` | No |
 | barcode | string | Product barcode<br/>*Example:* `2365234` | No |
@@ -17149,6 +17161,7 @@ API to delete existing UOM Schema.
 | description | string | Product description<br/>*Example:* `"Description"` | No |
 | documentSequenceCode | string | Product Sequence code<br/>*Example:* `"P-0000001"` | No |
 | hasBuildAssembly | boolean | Has Build Assembly<br/>*Example:* `true` | No |
+| hasConsentForImageUpdate | boolean | True if consent was given to update product images<br/>*Example:* `false` | No |
 | hasVariants | boolean | Product has variants<br/>*Example:* `false` | No |
 | id | long | Product ID<br/>*Example:* `1234` | No |
 | images | [ string ] | Product image url's | No |
@@ -17156,15 +17169,19 @@ API to delete existing UOM Schema.
 | inventory | [InventoryDto](#inventorydto) | Inventory information required for Tracked Products. | No |
 | inventoryWarehouseDetails | [ [InventoryWarehouseDetails](#inventorywarehousedetails) ] | Inventory warehouse details<br/>*Example:* `{"warehouseCode":"WH-00001","availableQuantity":"100","openingQuantity":"100"}` | No |
 | isAccountNumberFlag | boolean | indicates if user is sending account number or code<br/>*Example:* `true` | No |
+| isArchived | boolean | True if the product is archived<br/>*Example:* `false` | No |
 | isFinishedProduct | boolean | Is finished product?<br/>*Example:* `false` | No |
 | isUiProductUpdate | boolean | Product is update by UI.<br/>*Example:* `false` | No |
 | isVariant | boolean | Is a variant<br/>*Example:* `false` | No |
 | landedCostCategory | [ [LandedCostCategory](#landedcostcategory) ] | Landed cost category details | No |
+| leadTimeDetails | [ object ] | Vendor lead time details | No |
 | manufacturingCostAccountCode | string | Manufacturing Cost Account Code<br/>*Example:* `"AC-0000012"` | No |
 | masterProductCode | string | Master Product Code<br/>*Example:* `"P-0000001"` | No |
 | multipleUomSchema | boolean | Is multiple Uom Schema?<br/>*Example:* `true` | No |
 | name | string | Product Name<br/>*Example:* `"Apple"` | Yes |
 | outgoingQty | number | Product outgoing Qty | No |
+| preferredVendorDetails | [ object ] | Preferred vendor details | No |
+| productGroupIds | [ integer ] | Product group identifiers | No |
 | productId | string | Product ID<br/>*Example:* `"P000011"` | No |
 | productSubstitutesDetails | [ [ProductSubstitutesDetails](#productsubstitutesdetails) ] |  | No |
 | productTransactionType | string | Product Transaction Type<br/>*Enum:* `"BOTH"`, `"PURCHASE"`, `"SALES"`<br/>*Example:* `"BOTH"` | Yes |
@@ -17173,6 +17190,7 @@ API to delete existing UOM Schema.
 | purchasePriceTaxInclusive | boolean | Is purchase price tax inclusive?<br/>*Example:* `true` | No |
 | purchaseReturnAccountCode | string | Purchase return account code<br/>*Example:* `"A-0014"` | No |
 | purchaseTaxCode | string | Purchase tax code<br/>*Example:* `"T-001"` | No |
+| quotePriceEditable | boolean | True if the price is editable on a quotation<br/>*Example:* `true` | No |
 | recommendedUom | long | Recommended product uom | No |
 | reorderEnabled | boolean | Flag to enable reorder level<br/>*Example:* `true` | No |
 | reorderLevel | long | Reorder level of the Products.<br/>*Example:* `100` | No |
@@ -17180,6 +17198,8 @@ API to delete existing UOM Schema.
 | reorderQuantity | long | Quantity to be reordered<br/>*Example:* `50` | No |
 | reorderVendorCode | string | Vendor code for reorder<br/>*Example:* `"C-000001"` | No |
 | reorderVendorName | string | Reorder Vendor Name | No |
+| restockBuildQuantity | number | Restock build quantity<br/>*Example:* `10` | No |
+| restockLevel | number | Restock level<br/>*Example:* `10` | No |
 | revenueRecognitionInfo | [ProductRevenueRecognitionInfo](#productrevenuerecognitioninfo) | Product Revenue Recognition Information Object | No |
 | rowRackBinData | [RowRackBinData](#rowrackbindata) | Row Rack Bin information required for Tracked Products. | No |
 | salesAccountCode | string | Sales account code<br/>*Example:* `"A-0013"` | Yes |
@@ -17192,6 +17212,7 @@ API to delete existing UOM Schema.
 | stockUom | long | Stock UOM<br/>*Example:* `2` | Yes |
 | taxable | boolean | Is taxable?<br/>*Example:* `true` | No |
 | type | string | Product type<br/>*Enum:* `"TRACKED"`, `"NONTRACKED"`, `"BILL_OF_MATERIALS"`<br/>*Example:* `"TRACKED"` | Yes |
+| unbilledAccountReceivableAccountCode | string | Unbilled accounts receivable account code<br/>*Example:* `"A-0016"` | No |
 | uomSchema | long | Reorder level of the Products.<br/>*Example:* `100` | No |
 | uomSchemaDto | [UOMSchemaDto](#uomschemadto) | Product uom schema information | No |
 | valuationMethod | string | Valuation Method<br/>*Enum:* `"FIFO"`, `"AVERAGE"`<br/>*Example:* `"FIFO"` | Yes |
@@ -17718,14 +17739,22 @@ API to delete existing UOM Schema.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| active | boolean |  | No |
 | advancedTracking | string | *Enum:* `"NONE"`, `"BATCH"`, `"SERIAL"` | No |
 | availableQuantity | number |  | No |
 | barcode | string |  | No |
+| binCode | string |  | No |
+| binName | string |  | No |
+| bomAddCostConfiguration | [ [BomAdditionalCostDto](#bomadditionalcostdto) ] |  | No |
+| bomMetaDetailsList | [ [BomMetaDetailsDto](#bommetadetailsdto) ] |  | No |
+| bomOperationsConfiguration | [ [BomOperationDto](#bomoperationdto) ] |  | No |
+| bomProductsConfiguration | [ [BomMetaDto](#bommetadto) ] |  | No |
 | categoryCode | string |  | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] |  | No |
 | description | string |  | No |
 | documentSequenceCode | string |  | No |
 | hasVariants | boolean |  | No |
+| id | long |  | No |
 | incomingQty | number |  | No |
 | isVariant | boolean |  | No |
 | landedCostCategory | [ [LandedCostCategory](#landedcostcategory) ] |  | No |
@@ -17737,10 +17766,16 @@ API to delete existing UOM Schema.
 | pid | string |  | No |
 | product_transaction_type | string |  | No |
 | purchasePrice | number |  | No |
+| rackCode | string |  | No |
+| rackName | string |  | No |
 | recommendedUom | long |  | No |
 | reorderLevel | long |  | No |
 | reorderQuantity | long |  | No |
 | reservedQuantity | number |  | No |
+| restockBuildQuantity | number |  | No |
+| restockLevel | number |  | No |
+| rowCode | string |  | No |
+| rowName | string |  | No |
 | salesPrice | number |  | No |
 | status | boolean |  | No |
 | stockUom | integer |  | No |
@@ -17750,6 +17785,7 @@ API to delete existing UOM Schema.
 | uomSchema | long |  | No |
 | uomSchemaDto | [UOMSchemaDto](#uomschemadto) |  | No |
 | valuationMethod | string | *Enum:* `"FIFO"`, `"AVERAGE"` | No |
+| warehouseCode | string |  | No |
 
 ### ProductShortInfoForWorkOrder
 

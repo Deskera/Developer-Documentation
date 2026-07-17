@@ -9318,11 +9318,17 @@ API to create demo contacts.
 | city | string | City<br/>*Example:* `"C001"` | No |
 | contactName | string | contact name for address<br/>*Example:* `"John Smith"` | No |
 | country | string | Country<br/>*Example:* `"C001"` | No |
+| countryCode | string | Country code<br/>*Example:* `"SG"` | No |
+| customFields | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | destinationOfSupply | string | state in India<br/>*Example:* `"Maharashtra"` | No |
+| emailId | string | Email address<br/>*Example:* `"john.smith@example.com"` | No |
+| mobileCountryCode | string | Country code of the mobile number<br/>*Example:* `"+65"` | No |
+| mobileNumber | string | Mobile number<br/>*Example:* `"98765432"` | No |
 | placeOfSupply | string | state in India<br/>*Example:* `"Punjab"` | No |
 | postalCode | string | Postal Code<br/>*Example:* `123456` | No |
 | preferred | boolean | Is this a default address?<br/>*Example:* `true` | No |
 | state | string | State<br/>*Example:* `"CS001"` | No |
+| stateCode | string | State code<br/>*Example:* `"MH"` | No |
 
 ### BankDetailsDto
 
@@ -9330,7 +9336,9 @@ API to create demo contacts.
 | ---- | ---- | ----------- | -------- |
 | accountNumber | string | Contact bank account number<br/>*Example:* `"Test"` | Yes |
 | bankName | string | Contact bank name<br/>*Example:* `"Test"` | Yes |
+| code | string | Unique code assigned to the bank detail record<br/>*Example:* `"BD-0000001"` | No |
 | contactCode | string | Contact Code.<br/>*Example:* `"C-000001"` | No |
+| id | long | Unique identifier for the bank detail record<br/>*Example:* `1` | No |
 | isDefault | boolean | Contact bank default flag<br/>*Example:* `false` | No |
 | isTenantBank | boolean | Flag to determine whether this Bank details is for Tenant or Contact. <br/>*Example:* `false` | No |
 
@@ -9507,21 +9515,30 @@ API to create demo contacts.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| additionalPaymentInfo | object | Additional payment information for the contact | No |
+| attachmentsWithLink | [ object ] | Attachment details including download links | No |
 | attentionTo | string | the contact name in  govt agency<br/>*Example:* `"Peter Parker"` | No |
+| autoCharge | boolean | Has the value `true` if auto payment charge is enabled or `false` otherwise<br/>*Example:* `false` | No |
+| avalaraCustomerCode | string | Avalara customer code | No |
 | billingAddress | [ [Address](#address) ] | List of Billing Address. | No |
 | businessUnit | string | indicates the contact is govt agency<br/>*Example:* `"CAA01 - Cvl Avtn Authrty of Singapore"` | No |
+| code | string | Unique code assigned to the contact<br/>*Example:* `"C-0000001"` | No |
 | contactMasterId | string (uuid) | contact master id<br/>*Example:* `"2df7a5c1-3305-498d-8d01-aa92c42d19d2"` | No |
 | contactNumber | string | Contact number<br/>*Example:* `"+65999999999"` | No |
 | creditLimit | number | Credit Limit<br/>*Example:* `100` | No |
 | creditLimitInBaseCurrency | number | Credit Limit In Org Currency<br/>*Example:* `100` | No |
 | currencyCode | string | Currency code<br/>*Enum:* `"AFN"`, `"ALL"`, `"DZD"`, `"AOA"`, `"ARS"`, `"AMD"`, `"AWG"`, `"AZN"`, `"BSD"`, `"BHD"`, `"BDT"`, `"BBD"`, `"BYN"`, `"BZD"`, `"BMD"`, `"BTN"`, `"BOB"`, `"BAM"`, `"BRL"`, `"BND"`, `"BGN"`, `"BIF"`, `"KHR"`, `"CAD"`, `"CVE"`, `"KYD"`, `"CLP"`, `"CNY"`, `"COP"`, `"KMF"`, `"CDF"`, `"CRC"`, `"CZK"`, `"HRK"`, `"CUC"`, `"DJF"`, `"DOP"`, `"EGP"`, `"ERN"`, `"ETB"`, `"FKP"`, `"FJD"`, `"XAF"`, `"GMD"`, `"GEL"`, `"GHS"`, `"GIP"`, `"DKK"`, `"GTQ"`, `"GNF"`, `"GYD"`, `"HTG"`, `"HNL"`, `"HKD"`, `"HUF"`, `"ISK"`, `"INR"`, `"IDR"`, `"IRR"`, `"IQD"`, `"JMD"`, `"JPY"`, `"JOD"`, `"KZT"`, `"KES"`, `"KWD"`, `"KGS"`, `"LAK"`, `"LBP"`, `"LSL"`, `"LRD"`, `"LYD"`, `"MOP"`, `"MKD"`, `"MGA"`, `"MWK"`, `"MYR"`, `"MVR"`, `"MRO"`, `"MUR"`, `"MXN"`, `"MDL"`, `"MNT"`, `"MZN"`, `"MMK"`, `"NAD"`, `"NPR"`, `"NIO"`, `"NGN"`, `"KPW"`, `"OMR"`, `"PKR"`, `"ILS"`, `"PAB"`, `"PGK"`, `"PYG"`, `"PEN"`, `"PHP"`, `"PLN"`, `"QAR"`, `"RON"`, `"RUB"`, `"RWF"`, `"SHP"`, `"XCD"`, `"WST"`, `"STD"`, `"SAR"`, `"RSD"`, `"SCR"`, `"SLL"`, `"SGD"`, `"ANG"`, `"SBD"`, `"SOS"`, `"ZAR"`, `"KRW"`, `"SSP"`, `"EUR"`, `"LKR"`, `"SDG"`, `"SRD"`, `"NOK"`, `"SZL"`, `"SEK"`, `"CHF"`, `"SYP"`, `"TWD"`, `"TJS"`, `"TZS"`, `"THB"`, `"XOF"`, `"NZD"`, `"TOP"`, `"TTD"`, `"TND"`, `"TRY"`, `"TMT"`, `"AUD"`, `"UGX"`, `"UAH"`, `"AED"`, `"GBP"`, `"USD"`, `"UYU"`, `"UZS"`, `"VUV"`, `"VEF"`, `"VND"`, `"XPF"`, `"MAD"`, `"YER"`, `"ZMW"`, `"BWP"`, `"CNH"`<br/>*Example:* `"SGD"` | No |
+| customer | boolean | Has the value `true` if the contact is customer or `false` if the contact is not customer. | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] | JSON object for custom fields<br/>*Example:* `{"field1":"value1","field2":"value2"}` | No |
+| deleted | boolean | Has the value `true` if the contact is deleted or `false` if the contact is not deleted. | No |
 | documentSequenceCode | string | Contact Sequence code<br/>*Example:* `"C-0000001"` | No |
 | emailId | string | contact email address<br/>*Example:* `"myinfo@domain.com"` | No |
 | extCompanyName | string | the company name from external app<br/>*Example:* `"QuickBook"` | No |
+| id | long | Unique identifier for the contact<br/>*Example:* `1` | No |
 | intercompanyType | string | Contact Type either parent or subsidiary<br/>*Enum:* `"PARENT"`, `"SUBSIDIARY"`<br/>*Example:* `"PARENT/SUBSIDIARY"` | No |
 | invoiceCreditLimitType | string | Invoice Credit Limit Type<br/>*Enum:* `"IGNORE"`, `"WARN"`, `"BLOCK"`<br/>*Example:* `"IGNORE"` | No |
 | invoices | object |  | No |
+| is1099Eligible | boolean | Has the value `true` if the contact is 1099 eligible or `false` otherwise | No |
 | isAccountNumberFlag | boolean | indicates if user is sending account number or code<br/>*Example:* `true` | No |
 | isCreditLimitApplicable | boolean | Contact credit limit applicable<br/>*Example:* `true` | No |
 | isIncludeCurrentInvoice | boolean | Include Current Invoice<br/>*Example:* `true` | No |
@@ -9530,22 +9547,33 @@ API to create demo contacts.
 | isParentCompany | boolean | Is Parent company<br/>*Example:* `false` | No |
 | isSubsidiaryCompany | boolean | Is Subsidiary company<br/>*Example:* `false` | No |
 | name | string | Contact name<br/>*Example:* `"Sam"` | No |
+| otherEmails | string | Other email addresses for the contact | No |
 | payableAccountCode | string | Payable account code<br/>*Example:* `"AC002"` | No |
+| paymentTerm | string | Payment term of the contact | No |
 | paymentTermCode | string | Payment term code<br/>*Example:* `"Net 0"` | No |
 | peppolId | string | Peppol ID<br/>*Example:* `"u000:11::11293"` | No |
+| products | [ object ] | List of vendor products associated with the contact | No |
 | purchasePriceLists | [ long ] | Set of Purchase price lists<br/>*Example:* `[123,456]` | No |
 | quotationCreditLimitType | string | Quotation Credit Limit Type<br/>*Enum:* `"IGNORE"`, `"WARN"`, `"BLOCK"`<br/>*Example:* `"IGNORE"` | No |
 | receivableAccountCode | string | Receivable account code<br/>*Example:* `"AC001"` | No |
 | salesOrderCreditLimitType | string | Sales Order Credit Limit Type<br/>*Enum:* `"IGNORE"`, `"WARN"`, `"BLOCK"`<br/>*Example:* `"IGNORE"` | No |
+| salesPersonMaster | [ object ] | List of sales persons associated with the contact | No |
 | salesPriceLists | [ long ] | Set of Sales price lists<br/>*Example:* `[123,456]` | No |
 | sequenceFormat | string | Sequence Format<br/>*Example:* `1` | No |
 | shippingAddress | [ [Address](#address) ] | List of Shipping Address. | No |
 | singaporeGovt | boolean | indicates the contact is govt agency<br/>*Example:* `true` | No |
+| status | string | Contact status<br/>*Enum:* `"ACTIVE"`, `"INACTIVE"`<br/>*Example:* `"ACTIVE"` | No |
 | taxExempted | boolean | Denotes if customer is tax exempted<br/>*Example:* `true` | No |
 | taxExemptionNo | string | Generated tax exemption number<br/>*Example:* `"234s-few3-2422"` | No |
 | taxExemptionReason | string | Tax exemption reason<br/>*Example:* `"Resale, Federal Agency"` | No |
 | taxNumber | string | Tax number<br/>*Example:* `123456` | No |
+| tenantId | long | Tenant id to whom contact is associated with | No |
+| theyOweYou | number | Amount owed by others for the contact | No |
+| totalBillAmount | number | Payable account opening amount | No |
+| totalNetAmount | number | Receivable account opening amount | No |
 | uen | string | Contact UEN<br/>*Example:* `"DHJEUK"` | No |
+| vendor | boolean | Has the value `true` if the contact is vendor or `false` if the contact is not vendor. | No |
+| youOweThem | number | Amount that the contact owes to others | No |
 
 ### ContactEmailDto
 
@@ -9845,4 +9873,21 @@ API to create demo contacts.
 | isSubsidiaryCompany | boolean | Is Subsidiary company<br/>*Example:* `false` | No |
 | name | string | Contact name<br/>*Example:* `"Sam"` | No |
 | payableAccountCode | string | Payable account code<br/>*Example:* `"AC002"` | No |
-| paymentTermCode | string | Payment term code<br/>*Example:* `"
+| paymentTermCode | string | Payment term code<br/>*Example:* `"Net 0"` | No |
+
+### ContactSummaryDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| total | integer | Total number of contacts<br/>*Example:* `0` | No |
+| customer | integer | Number of contacts that are customers<br/>*Example:* `0` | No |
+| vendor | integer | Number of contacts that are vendors<br/>*Example:* `0` | No |
+
+### PaymentTermResponseDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Unique identifier for the payment term<br/>*Example:* `1` | No |
+| termDays | long | Number of days for the payment term<br/>*Example:* `30` | No |
+| termName | string | Name of the payment term<br/>*Example:* `"Net 30"` | No |
+| systemGenerated | boolean | Has the value `true` if the payment term is system generated or `false` otherwise<br/>*Example:* `false` | No |

@@ -147,7 +147,7 @@ Delete deposit information.
 - Allows you to delete deposit information.
 
 #### DELETE
-#### /v1/payments/receive/{code}
+#### /v1/payments/receive/bank-deposit
 ##### Request URL
 
 [Deposit API documentation](https://www.postman.com/grey-meadow-1395/workspace/deskera/folder/8538637-4571ab8c-61c2-42c7-97d3-5454be047607)
@@ -157,6 +157,7 @@ Delete deposit information.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ------ |
 | receivePaymentCode | query | receivePaymentCode | Yes | string |
+| includeMakePayments | query | includeMakePayments | No | boolean |
 
 ##### Responses
 
@@ -205,12 +206,16 @@ Delete deposit information.
 | knockoffInfo | [ [KnockOffInfo](#knockoffinfo) ] |  | No |
 | memo | string | Memo text.<br/>*Example:* `"Sales quotation"` | No |
 | opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| paymentTransTime | string | Payment transaction time<br/>*Example:* `"12:30:00"` | No |
 | paymentType | string | Type of payment.<br/>*Enum:* `"CHEQUE"`, `"CASH"`, `"BANK_TRANSFER"`, `"CARD"`, `"OTHERS"`<br/>*Example:* `"BANK_TRANSFER"` | No |
+| primaryExchangeRate | number | Primary exchange rate.<br/>*Example:* `1` | No |
 | receivePaymentFeeDtoList | [ [ReceivePaymentFeeDto](#receivepaymentfeedto) ] | Transaction fee pertaining to the received payment | No |
 | receivePaymentItemDtoList | [ [ReceivePaymentItemDto](#receivepaymentitemdto) ] | Receive payment items information. | No |
 | reconciled | boolean | Whether the current payment is reconciled or not. | No |
 | referenceDate | dateTime | Date of Bank Transfer/cheque.<br/>*Example:* `"2019-09-27"` | No |
 | referenceNumber | string | Reference number of Bank Transfer/cheque.<br/>*Example:* `"CH001"` | No |
+| roundOffAmountInBaseCurrency | number | Round off amount in base currency.<br/>*Example:* `0.01` | No |
+| roundOffAmountInDocumentCurrency | number | Round off amount in document currency.<br/>*Example:* `0.01` | No |
 | salesInvoice | [SalesInvoiceResponse](#salesinvoiceresponse) |  | No |
 | sentEmail | boolean | Send Customer Email<br/>*Example:* `false` | No |
 | shipFrom | [Address](#address) | Ship from address | No |
@@ -238,7 +243,34 @@ Delete deposit information.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| ReceivePaymentFeeDto | object |  |  |
+| id | long | Unique identifier of the fee. | No |
+| paymentId | long | Identifier of the payment this fee is associated with. | No |
+| accountCode | string | Account code the fee is posted to.<br/>*Example:* `"AC-001"` | No |
+| amount | number | Fee amount.<br/>*Example:* `2.5` | No |
+
+### ReceivePaymentItemDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Unique identifier of the payment item. | No |
+| paymentId | long | Identifier of the payment this item is associated with. | No |
+| documentType | string | Type of the document being paid against. | No |
+| documentCode | string | Code of the document being paid against. | No |
+| documentSequenceCode | string | Sequence code of the document being paid against. | No |
+| customerOrderNumber | string | Customer order number. | No |
+| description | string | Description of the payment item. | No |
+| exchangeRate | number | Exchange rate applied to the payment item. | No |
+| taxCode | string | Tax code applied to the payment item. | No |
+| taxAmount | number | Tax amount of the payment item. | No |
+| paymentAmount | number | Amount paid against the document. | No |
+| accountName | string | Account name the payment item is posted to. | No |
+| taxList | [ [TaxMappingDto](#taxmappingdto) ] | List of tax mapping details for the payment item. | No |
+| tdsInfoIndia | object | TDS (Tax Deducted at Source) details for India. | No |
+| isTdsApplicableContact | boolean | True if TDS is applicable for the contact. | No |
+| isTdsApplicableAccount | boolean | True if TDS is applicable for the account. | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| errors | [ string ] | List of validation error messages | No |
+| supplierInvoiceNo | string | Supplier invoice number. | No |
 
 ### ReceivePaymentDto
 
@@ -268,12 +300,16 @@ Delete deposit information.
 | knockoffInfo | [ [KnockOffInfo](#knockoffinfo) ] |  | No |
 | memo | string | Memo text.<br/>*Example:* `"Sales quotation"` | No |
 | opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| paymentTransTime | string | Payment transaction time<br/>*Example:* `"12:30:00"` | No |
 | paymentType | string | Type of payment.<br/>*Enum:* `"CHEQUE"`, `"CASH"`, `"BANK_TRANSFER"`, `"CARD"`, `"OTHERS"`<br/>*Example:* `"BANK_TRANSFER"` | No |
+| primaryExchangeRate | number | Primary exchange rate.<br/>*Example:* `1` | No |
 | receivePaymentFeeDtoList | [ [ReceivePaymentFeeDto](#receivepaymentfeedto) ] | Transaction fee pertaining to the received payment | No |
 | receivePaymentItemDtoList | [ [ReceivePaymentItemDto](#receivepaymentitemdto) ] | Receive payment items information. | No |
 | reconciled | boolean | Whether the current payment is reconciled or not. | No |
 | referenceDate | dateTime | Date of Bank Transfer/cheque.<br/>*Example:* `"2019-09-27"` | No |
 | referenceNumber | string | Reference number of Bank Transfer/cheque.<br/>*Example:* `"CH001"` | No |
+| roundOffAmountInBaseCurrency | number | Round off amount in base currency.<br/>*Example:* `0.01` | No |
+| roundOffAmountInDocumentCurrency | number | Round off amount in document currency.<br/>*Example:* `0.01` | No |
 | salesInvoice | [SalesInvoiceResponse](#salesinvoiceresponse) |  | No |
 | sentEmail | boolean | Send Customer Email<br/>*Example:* `false` | No |
 | shipFrom | [Address](#address) | Ship from address | No |
