@@ -3555,8 +3555,10 @@ API to update existing payment.
 | accountName | string | Account name.<br/>*Example:* `"Bank"` | No |
 | amount | number | Payment amount.<br/>*Example:* `10` | No |
 | amountDue | number | Payment amount Due.<br/>*Example:* `10` | No |
+| applyRcmCheck | boolean | True if the RCM (Reverse Charge Mechanism) check should be applied.<br/>*Example:* `false` | No |
 | attachmentIds | [ integer ] | list of attachment id's for this order | No |
 | bankRuleId | long | Rule id if the document has been created by a Bank Rule | No |
+| billTo | [Address](#address) | Bill to address | No |
 | contactCode | string | Contact code.<br/>*Example:* `19425` | No |
 | contactName | string | Contact name.<br/>*Example:* `"ABC PTE LTD"` | No |
 | currency | string | Currency code.<br/>*Enum:* `"AFN"`, `"ALL"`, `"DZD"`, `"AOA"`, `"ARS"`, `"AMD"`, `"AWG"`, `"AZN"`, `"BSD"`, `"BHD"`, `"BDT"`, `"BBD"`, `"BYN"`, `"BZD"`, `"BMD"`, `"BTN"`, `"BOB"`, `"BAM"`, `"BRL"`, `"BND"`, `"BGN"`, `"BIF"`, `"KHR"`, `"CAD"`, `"CVE"`, `"KYD"`, `"CLP"`, `"CNY"`, `"COP"`, `"KMF"`, `"CDF"`, `"CRC"`, `"CZK"`, `"HRK"`, `"CUC"`, `"DJF"`, `"DOP"`, `"EGP"`, `"ERN"`, `"ETB"`, `"FKP"`, `"FJD"`, `"XAF"`, `"GMD"`, `"GEL"`, `"GHS"`, `"GIP"`, `"DKK"`, `"GTQ"`, `"GNF"`, `"GYD"`, `"HTG"`, `"HNL"`, `"HKD"`, `"HUF"`, `"ISK"`, `"INR"`, `"IDR"`, `"IRR"`, `"IQD"`, `"JMD"`, `"JPY"`, `"JOD"`, `"KZT"`, `"KES"`, `"KWD"`, `"KGS"`, `"LAK"`, `"LBP"`, `"LSL"`, `"LRD"`, `"LYD"`, `"MOP"`, `"MKD"`, `"MGA"`, `"MWK"`, `"MYR"`, `"MVR"`, `"MRO"`, `"MUR"`, `"MXN"`, `"MDL"`, `"MNT"`, `"MZN"`, `"MMK"`, `"NAD"`, `"NPR"`, `"NIO"`, `"NGN"`, `"KPW"`, `"OMR"`, `"PKR"`, `"ILS"`, `"PAB"`, `"PGK"`, `"PYG"`, `"PEN"`, `"PHP"`, `"PLN"`, `"QAR"`, `"RON"`, `"RUB"`, `"RWF"`, `"SHP"`, `"XCD"`, `"WST"`, `"STD"`, `"SAR"`, `"RSD"`, `"SCR"`, `"SLL"`, `"SGD"`, `"ANG"`, `"SBD"`, `"SOS"`, `"ZAR"`, `"KRW"`, `"SSP"`, `"EUR"`, `"LKR"`, `"SDG"`, `"SRD"`, `"NOK"`, `"SZL"`, `"SEK"`, `"CHF"`, `"SYP"`, `"TWD"`, `"TJS"`, `"TZS"`, `"THB"`, `"XOF"`, `"NZD"`, `"TOP"`, `"TTD"`, `"TND"`, `"TRY"`, `"TMT"`, `"AUD"`, `"UGX"`, `"UAH"`, `"AED"`, `"GBP"`, `"USD"`, `"UYU"`, `"UZS"`, `"VUV"`, `"VEF"`, `"VND"`, `"XPF"`, `"MAD"`, `"YER"`, `"ZMW"`, `"BWP"`, `"CNH"`<br/>*Example:* `"SGD"` | No |
@@ -3569,6 +3571,7 @@ API to update existing payment.
 | gstIn | string |  | No |
 | gstTreatmentIndia | string | India Compliance filed<br/>*Enum:* `"REGISTERED_BUSINESS_REGULAR=Registered Business - Regular"`, `"REGISTERED_BUSINESS_COMPOSITION=Registered Business - Composition"`, `"UNREGISTERED_BUSINESS=Unregistered Business"`, `"CUSTOMER=Consumer"`, `"OVERSEAS=Overseas"`, `"SPECIAL_ECONOMIC_ZONE=Special Economic Zone"`, `"DEEMED_EXPORT=Deemed Export"`<br/>*Example:* `"REGISTERED_BUSINESS_REGULAR"` | No |
 | interCompany | boolean | True if it is between inter companies<br/>*Example:* `true` | No |
+| isSalesRefund | boolean | True if the payment is a sales refund.<br/>*Example:* `false` | No |
 | isTdsPaymentIndia | boolean |  | No |
 | knockoffInfo | [ [KnockOffInfo](#knockoffinfo) ] |  | No |
 | makePaymentFeeDtoList | [ [MakePaymentFeeDto](#makepaymentfeedto) ] | Transaction fee pertaining to the made payment | No |
@@ -3577,14 +3580,21 @@ API to update existing payment.
 | memo | string | Memo text.<br/>*Example:* `"Sales quotation"` | No |
 | nextPaymentDate | dateTime | Next payment date.<br/>*Example:* `"2019-09-27"` | No |
 | opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| parentPaymentId | long | Identifier of the parent payment, when this payment is linked to another payment. | No |
 | paymentType | string | Type of payment.<br/>*Enum:* `"CHEQUE"`, `"CASH"`, `"BANK_TRANSFER"`, `"CARD"`, `"OTHERS"`<br/>*Example:* `"BANK_TRANSFER"` | No |
+| primaryExchangeRate | number | Primary exchange rate.<br/>*Example:* `1` | No |
 | purchaseInvoice | [PurchaseInvoiceResponse](#purchaseinvoiceresponse) |  | No |
 | reconciled | boolean | Whether the current payment is reconciled or not. | No |
 | recurringActivated | boolean | Recurring payment activated for payment.<br/>*Example:* `false` | No |
 | recurringPayment | boolean | Recurring payment enable/disable for payment.<br/>*Example:* `false` | No |
 | referenceDate | dateTime | Date of Bank Transfer/cheque.<br/>*Example:* `"2019-09-27"` | No |
 | referenceNumber | string | Reference number of Bank Transfer/cheque.<br/>*Example:* `"CH001"` | No |
+| refundedInvoiceCode | string | Code of the invoice this payment refunds. | No |
+| roundOffAmountInBaseCurrency | number | Round off amount in base currency.<br/>*Example:* `0.01` | No |
+| roundOffAmountInDocumentCurrency | number | Round off amount in document currency.<br/>*Example:* `0.01` | No |
 | status | string | *Enum:* `"PRINT_SUCCESS"`, `"PRINT_FAILURE"`, `"NOT_PRINTED"` | No |
+| supplierInvoiceNo | string | Supplier invoice number. | No |
+| tdsIds | [ long ] | List of TDS (Tax Deducted at Source) identifiers linked to the payment. | No |
 | tdsPaymentInfoIndia | [TDSPaymentInfoIndia](#tdspaymentinfoindia) | TDS Payment details | No |
 | tdsProcessedFlag | boolean | TDS Processed Flag<br/>*Example:* `false` | No |
 | unitPriceGstInclusive | boolean | Price is GST inclusive<br/>*Example:* `false` | No |
@@ -3766,22 +3776,31 @@ API to update existing payment.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| MakePaymentFeeDto | object |  |  |
+| id | long | Unique identifier of the fee. | No |
+| paymentId | long | Identifier of the payment this fee is associated with. | No |
+| accountCode | string | Account code the fee is posted to.<br/>*Example:* `"AC-001"` | No |
+| amount | number | Fee amount.<br/>*Example:* `2.5` | No |
 
 ### MakePaymentItemDto
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | accountName | string | Account name.<br/>*Example:* `"Bank"` | No |
+| customerOrderNumber | string | Customer order number. | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | description | string | Description of document.<br/>*Example:* `"General ledger for account."` | No |
 | documentCode | string | Document code.<br/>*Example:* `"AC-001"` | No |
 | documentSequenceCode | string | Document Sequence code.<br/>*Example:* `"AC-001"` | No |
 | documentType | string | Document type.<br/>*Example:* `"General Ledger"` | No |
+| errors | [ string ] | List of validation error messages | No |
 | exchangeRate | number | Exchange rate.<br/>*Example:* `0.01891562` | No |
+| glAccountCode | string | General ledger account code. | No |
 | isTdsApplicableAccount | boolean |  | No |
 | isTdsApplicableContact | boolean |  | No |
+| itcAdjustment | string | ITC (Input Tax Credit) adjustment type. | No |
+| itcIneligibleType | string | ITC (Input Tax Credit) ineligible type. | No |
 | paymentAmount | number | Payment amount.<br/>*Example:* `10.5` | No |
+| supplierInvoiceNo | string | Supplier invoice number. | No |
 | taxAmount | number | Tax amount.<br/>*Example:* `0.7` | No |
 | taxCode | string | Tax code.<br/>*Example:* `"GST@7"` | No |
 | taxList | [ [TaxMappingDto](#taxmappingdto) ] |  | No |
@@ -3789,6 +3808,7 @@ API to update existing payment.
 | tdsAmount | number | TDS Amount<br/>*Example:* `100` | No |
 | tdsInfoIndia | [TdsInfoIndia](#tdsinfoindia) | Pre-Payment TDS details | No |
 | tdsRate | number | TDS Rate<br/>*Example:* `10.1` | No |
+| totalAmount | number | Total amount of the payment item. | No |
 
 ### MakePaymentItemDtoIndia
 

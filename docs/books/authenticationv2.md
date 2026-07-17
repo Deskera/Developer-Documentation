@@ -83,18 +83,14 @@ API to fetch new access token with refresh token
 | Attribute | Type | Description |
 | ---- | ---- | ----------- |
 | accessToken | string |  |
-| expiresIn | integer |  |
-| idToken | string |  |
-| newDeviceMetadata | [NewDeviceMetadataType](#newdevicemetadatatype) |  |
 | refreshToken | string |  |
+| idToken | string |  |
+| expiresIn | integer |  |
 | tokenType | string |  |
-
-### NewDeviceMetadataType
-
-| Attribute | Type | Description |
-| ---- | ---- | ----------- |
-| deviceGroupKey | string |  |
-| deviceKey | string |  |
+| emailVerified | boolean |  |
+| isTrialUser | boolean |  |
+| isMFAEnabled | boolean |  |
+| guid | string |  |
 
 ### OAuthV2AccessToken
 

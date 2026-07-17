@@ -559,6 +559,112 @@ Update Tax status.
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 
+### Taxes bulk-update-tax-status
+
+#### PUT
+##### Summary
+
+Bulk Update Tax Status
+
+##### Description
+
+API to bulk update tax status for a list of taxes.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| updateTaxRequests | body | updateTaxRequests | Yes | [ [UpdateTaxRequest](#updatetaxrequest) ] |
+| x-access-token | header | Access token | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [BulkApiResponse«TaxDto»](#bulkapiresponsetaxdto) |
+| 404 | Not Found |  |
+
+### Taxes add-tax-rates/tenantIds
+
+#### POST
+##### Summary
+
+Add new tax rates by tenant ids and country.
+
+##### Description
+
+API to add new tax rates for the given tenant ids and country.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| addNewTaxRate | body | addNewTaxRate | Yes | [AddNewTaxRate](#addnewtaxrate) |
+| x-access-token | header | Access token | Yes | string |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 400 | Invalid request to add new tax rates |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+
+### Taxes get-deleted/{code}
+
+#### GET
+##### Summary
+
+Get deleted tax by code
+
+##### Description
+
+API to fetch deleted tax by code
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+| x-access-token | header | Access token | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [TaxDto](#taxdto) |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
+### Taxes taxes-by-account-code
+
+#### GET
+##### Summary
+
+Get taxes by account code
+
+##### Description
+
+API to fetch taxes linked to an account code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| accountCode | query | accountCode | No | string |
+| x-access-token | header | Access token | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [ [TaxDto](#taxdto) ] |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
 ### Taxes {tenantId}
 
 #### POST
@@ -1270,6 +1376,26 @@ API to dete WHT rate
 ---
 ## Models
 
+### AddNewTaxRate
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| country | string |  | No |
+| effectiveEndDate | dateTime |  | No |
+| effectiveStartDate | dateTime |  | No |
+| fromDate | dateTime |  | No |
+| taxAccountCodeByTenantIds | object |  | No |
+| tenantIds | [ long ] |  | No |
+| toDate | dateTime |  | No |
+
+### BulkApiResponse«TaxDto»
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| failure | [ [TaxDto](#taxdto) ] |  | No |
+| statusCode | integer |  | No |
+| success | [ [TaxDto](#taxdto) ] |  | No |
+
 ### BulkTaxDeleteResponse
 
 | Name | Type | Description | Required |
@@ -1457,6 +1583,13 @@ API to dete WHT rate
 | sectionShortDescription | string | Section short Description<br/>*Example:* `"Dividend"` | No |
 | standardTaxId | long | Standard Tax Id<br/>*Example:* `1` | No |
 | tdsId | long | Tds Id<br/>*Example:* `1` | No |
+
+### UpdateTaxRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Tax Id<br/>*Example:* `1` | No |
+| taxStatus | string | Tax Status<br/>*Enum:* `"active"`, `"inactive"`<br/>*Example:* `"active"` | Yes |
 
 ### WhtRequestIndonesia
 

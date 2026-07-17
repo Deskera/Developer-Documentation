@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"^### CreditNoteUpdateRequestDto$\" /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/noteapi.md)",
+      "Bash(grep -n \"^### DebitNoteRequestDto$\\\\|^### DebitNoteResponseDto$\\\\|^### DebitNoteUpdateRequestDto$\" /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/noteapi.md)",
+      "Bash(grep -n \"^### DebitNoteUpdateRequestDto$\\\\|^### \" /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/noteapi.md)",
+      "Bash(grep -n \"^### NoteLinkedDocumentInfo$\" /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/noteapi.md)",
+      "Bash(command -v nvm)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/Developer-Documentation/ --max-time 5)",
+      "Bash(find /Users/rohitdeshmukh/development/iam/src/main/java/com/deskera/erp/iam/dto -maxdepth 3 -iname *.java)",
+      "Bash(mkdir -p /private/tmp/claude-501/-Users-rohitdeshmukh-development-Developer-Documentation/e392d874-fd6a-493b-9210-2e0caa45c891/scratchpad/commondto)",
+      "Bash(unzip -o -q /Users/rohitdeshmukh/.m2/repository/com/deskera/erp/common/common-dto/0.0.1-SNAPSHOT/common-dto-0.0.1-SNAPSHOT.jar)",
+      "Bash(awk 'NR>=4004 && NR<=4296 && /^### /' /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/iamapi.md)",
+      "Bash(awk 'NR>=3318 && NR<=4003 && /^#### /' /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/iamapi.md)",
+      "Bash(grep -n \"^### /v1/iam/auth/sign-up/web$\" /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/iamapi.md)",
+      "Bash(grep -n '^#### SalesPersonSettingInfo$\\\\|^### /v1/tenants/\\\\*\\\\*/organization/settings' /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/tenantapi.md)",
+      "Bash(xargs -I{} sh -c 'unzip -l \"{}\" 2>/dev/null | grep -q \"SalesPersonSettingInfo\" && echo {}')",
+      "Bash(awk -F: '$1>12244')",
+      "Bash(grep -n \"^### SendOrderEmailDto$\\\\|^### SetRecurringDto$\" /Users/rohitdeshmukh/development/Developer-Documentation/docs/books/orderapi.md)"
+    ]
+  }
+}

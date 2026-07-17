@@ -8,6 +8,72 @@ More about [Company API](https://www.postman.com/grey-meadow-1395/workspace/desk
 
 # Deskera - Company Management
 
+### /auth/account/merge
+
+#### POST
+##### Summary
+
+Merge accounts
+
+##### Description
+
+API to merge duplicate accounts.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [MergeAccountDto](#mergeaccountdto) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK |  |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /auth/affiliatesignup
+
+#### POST
+##### Summary
+
+Signup an affiliate user
+
+##### Description
+
+Incoming IAM mobile signup request to create affiliate user
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| affiliateSignupRequest | body | affiliateSignupRequest | Yes | [AffiliateSignupRequest](#affiliatesignuprequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [UserDto](#userdto) |
+| 201 | User has been created successfully. | [UserDto](#userdto) |
+| 400 | User with same username is already exist. |  |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ### /auth/apisid/{apisid}
 
 #### GET
@@ -509,6 +575,40 @@ API to provide active users count
 | --------------- | ------ |
 | Authorization | global |
 
+### /auth/password-policy
+
+#### GET
+##### Summary
+
+Get password policy by username
+
+##### Description
+
+API to fetch password policy for a given username.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| username | query | username | Yes | string |
+| inviteCode | query | inviteCode | No | string |
+| ignoreOwner | query | ignoreOwner | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [PasswordPolicyDto](#passwordpolicydto) |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## email-verification-controller
 User email verification
@@ -829,6 +929,32 @@ API to get Tenant details without tenant token and only for use internally
 | --------------- | ------ |
 | Authorization | global |
 
+### /internal/tenant/details/get-all-peppolid
+
+#### GET
+##### Summary
+
+Get all tenant Peppol ids
+
+##### Description
+
+API to get e-invoicing Peppol id details for all tenants.
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Tenant information by country code has been fetched successfully. | [ [TenantEInvoiceResponse](#tenanteinvoiceresponse) ] |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Tenant with same name is already registered. |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ---
 ## internal-token-controller
 API to create a HPA token for a given tenant
@@ -870,6 +996,30 @@ Generate a HPA token for a given tenant, but is not updated in cognito
 ---
 ## internal-user-controller
 User Management
+
+### /internal/tenants/users/accept-invite
+
+#### POST
+##### Summary
+
+Accept invitation internally
+
+##### Description
+
+Accept invitation by tenantId, inviteCode and email without DB/JPA changes
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [AcceptInvitationRequest](#acceptinvitationrequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Invitation accepted successfully | [UserDto](#userdto) |
+| 400 | Invalid invitation or parameters |  |
 
 ### /internal/tenants/users/assign/crm_plus
 
@@ -1748,6 +1898,30 @@ Update sort column for users
 | --------------- | ------ |
 | Authorization | global |
 
+### /internal/tenants/users/migrate-roles-modules
+
+#### POST
+##### Summary
+
+Migrate the roles and permissions of the user
+
+##### Description
+
+Migrate the roles and permissions of the user
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [RefreshRolesModulesByAppNameRequest](#refreshrolesmodulesbyappnamerequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | User migrated successfully | [RefreshRolesModulesResponse](#refreshrolesmodulesresponse) |
+| 404 | Failed to migrate roles and modules |  |
+
 ### /internal/tenants/users/refresh-roles-modules
 
 #### POST
@@ -1780,6 +1954,53 @@ Refresh the roles and permissions of the user
 | Security Schema | Scopes |
 | --------------- | ------ |
 | Authorization | global |
+
+### /internal/tenants/users/refresh-roles-modules-v2
+
+#### POST
+##### Summary
+
+Refresh the roles and permissions of the user - V2
+
+##### Description
+
+Refresh the roles and permissions of the user - V2
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [RefreshRolesModulesByAppNameRequest](#refreshrolesmodulesbyappnamerequest) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | User updated successfully | [RefreshRolesModulesResponse](#refreshrolesmodulesresponse) |
+| 404 | Failed to update roles and modules |  |
+
+### /internal/tenants/users/roles/unassign
+
+#### POST
+##### Summary
+
+Unassign role from a user
+
+##### Description
+
+Unassign role from a user
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| unassignUserRoleRequestInternal | body | unassignUserRoleRequestInternal | Yes | [UnassignUserRoleRequestInternal](#unassignuserrolerequestinternal) |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | User role unassigned successfully |
 
 ### /internal/tenants/users/set-contact-email
 
@@ -1904,6 +2125,56 @@ Get iamUserId for app and roleGroup
 | Security Schema | Scopes |
 | --------------- | ------ |
 | Authorization | global |
+
+### /internal/tenants/users/user-exists-by-tenant
+
+#### GET
+##### Summary
+
+Check if email exists for a tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | query | Tenant ID | Yes | long |
+| iamUserId | query | Iam User ID | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | boolean |
+
+### /internal/tenants/users/userinfo/{tenantId}
+
+#### GET
+##### Summary
+
+Search users short info for a tenant
+
+##### Description
+
+API to search users short info for a tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | path | tenantId | Yes | long |
+| search | query | search | No | string |
+| query | query | query | No | string |
+| sort | query | sort | No | string |
+| sortDir | query | sortDir | No | string |
+| page | query | page | No | int |
+| limit | query | limit | No | int |
+| excludeMfa | query | excludeMfa | No | boolean |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | User information has been fetched successfully. | [Page«UserShortRoleInfo»](#pageusershortroleinfo) |
 
 ### /internal/tenants/users/utmbi
 
@@ -3000,6 +3271,32 @@ Get Organization settings
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | Organization settings have been fetched successfully. | [OrganizationSettings](#organizationsettings) |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Organization not found |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/tenants/**/organization/settings/get-user-salesperson-setting
+
+#### GET
+##### Summary
+
+Get Organization settings
+
+##### Description
+
+Get Organization settings
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Organization settings have been fetched successfully. | [SalesPersonSettingInfo](#salespersonsettinginfo) |
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 | 404 | Organization not found |  |
@@ -11232,6 +11529,38 @@ Save Tenant TCS Settings
 | --------------- | ------ |
 | Authorization | global |
 
+### /v1/tenants/{id}/settings/tcs/accountCode/{accountCode}
+
+#### GET
+##### Summary
+
+Get Tenant TCS Settings List
+
+##### Description
+
+Get Tenant TCS Settings List by account code
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| accountCode | path | accountCode | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [ [TCSSettingsResponse](#tcssettingsresponse) ] |
+| 401 | Unauthorized |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ### /v1/tenants/{id}/settings/tcs/nature
 
 #### GET
@@ -11477,6 +11806,38 @@ Update account in Settings By Id
 | 401 | Unauthorized |
 | 403 | Forbidden |
 | 404 | Not Found |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/tenants/{id}/settings/work_order
+
+#### POST
+##### Summary
+
+Update tenant work order details
+
+##### Description
+
+Save/update tenant work order details API
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantWorkOrderDetails | body | tenantWorkOrderDetails | Yes | [TenantWorkOrderDetails](#tenantworkorderdetails) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Tenant work order details updated successfully. | [TenantWorkOrderDetails](#tenantworkorderdetails) |
+| 400 | Tenant work order details could not be updated because of insufficient data. |  |
+| 401 | Cannot access information of different tenant. |  |
+| 404 | Tenant with the id not found. |  |
 
 ##### Security
 
@@ -12440,6 +12801,39 @@ Assign List of Role for Users
 | --------------- | ------ |
 | Authorization | global |
 
+### /v1/users/update/people/info
+
+#### POST
+##### Summary
+
+Assign Roles For Users
+
+##### Description
+
+Assign List of Role for Users
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| userInfoWithRoles | body | userInfoWithRoles | Yes | [UpdateUserInfoWithRoles](#updateuserinfowithroles) |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Assign Roles for Users success. |
+| 201 | Created |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | User not found |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ### /v1/users/user
 
 #### GET
@@ -12490,6 +12884,64 @@ Api to get Ip Address of User
 | ---- | ----------- | ------ |
 | 200 | Successfully fetched Ip Address | string |
 | 401 | Not able to fetch Ip Address |  |
+| 403 | Forbidden |  |
+| 404 | Not Found |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/users/user-with-role-across-orgs/{userId}
+
+#### GET
+##### Summary
+
+Get Admin User with Access to Multiple Orgs
+
+##### Description
+
+Fetches a user with the ADMIN role across multiple organizations.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| userId | path | userId | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Fetched successfully | [UserTenantRoleResponse](#usertenantroleresponse) |
+| 400 | Bad request, invalid userId or role |  |
+| 404 | User not found or no access to multiple orgs |  |
+| 500 | Internal server error |  |
+
+### /v1/users/userByTenantId/{tenantId}
+
+#### GET
+##### Summary
+
+Get user record by tenant id
+
+##### Description
+
+API to get user record by tenant id.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | path | tenantId | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | long |
+| 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 | 404 | Not Found |  |
 
@@ -12597,42 +13049,6 @@ API to Get Users count by application
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 | 404 | Not able to fetch count by application |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --------------- | ------ |
-| Authorization | global |
-
-### /v1/users/usershortinfo
-
-#### GET
-##### Summary
-
-Get users
-
-##### Description
-
-API to get users
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ------ |
-| limit | query | limit | No | integer |
-| page | query | page | No | integer |
-| search | query | search | No | string |
-| sort | query | sort | No | string |
-| sortDir | query | sortDir | No | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | User information has been fetched successfully. | [AppUserShortInfo](#appusershortinfo) |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
 
 ##### Security
 
@@ -12934,6 +13350,30 @@ API to invite a new user
 | --------------- | ------ |
 | Authorization | global |
 
+### /v1/users/books/invite/all
+
+#### GET
+##### Summary
+
+Get all invites for the current user
+
+##### Description
+
+API to get all invites for the current user
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Invites have been fetched successfully. | [ [InviteResponse](#inviteresponse) ] |
+| 500 | Unable to fetch invites |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
 ### /v1/users/books/invite/cancel/{id}
 
 #### DELETE
@@ -12995,6 +13435,37 @@ API to update invite status
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 | 500 | Unable to update invitation |  |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| Authorization | global |
+
+### /v1/users/books/invite/reject/{id}
+
+#### DELETE
+##### Summary
+
+Reject invite
+
+##### Description
+
+API to reject invite
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| id | path | id | Yes | long |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Invitation updated successfully. |
+| 400 | Unable to update invitation |
+| 500 | Unable to update invitation |
 
 ##### Security
 
@@ -13167,7 +13638,299 @@ API email verfication for mobile user.
 | Authorization | global |
 
 ---
+## admin-controller
+Admin Controller
+
+### /admin/users/users/count
+
+#### GET
+##### Summary
+
+Get user count by application
+
+##### Description
+
+API to find out users count in each application for a tenant.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | query | tenantId | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [ [AppUserCountTuple](#appusercounttuple) ] |
+| 404 | Not Found |  |
+
+### /admin/users/all/count
+
+#### GET
+##### Summary
+
+Get all user counts by application
+
+##### Description
+
+API to find out users count (guest and non-guest) in each application for a tenant.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | query | tenantId | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [ [AppUserCountResponse](#appusercountresponse) ] |
+| 404 | Not Found |  |
+
+### /admin/users/non-guest/count
+
+#### GET
+##### Summary
+
+Get non-guest user count by application
+
+##### Description
+
+API to find out non-guest users count in each application for a tenant.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | query | tenantId | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [ [NonGuestUserResponseDto](#nonguestuserresponsedto) ] |
+| 404 | Not Found |  |
+
+### /admin/users/tenant-info
+
+#### GET
+##### Summary
+
+Get tenant info
+
+##### Description
+
+API to find out tenant info for a tenant id.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | query | tenantId | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [TenantShortInfo](#tenantshortinfo) |
+
+### /admin/users/tenant-active-details
+
+#### GET
+##### Summary
+
+Get tenant active details
+
+##### Description
+
+API to find out tenant active details for a tenant id.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| tenantId | query | tenantId | Yes | long |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [TenantActiveDetails](#tenantactivedetails) |
+
+### /admin/users/add-permission
+
+#### POST
+##### Summary
+
+Add user permission for apps
+
+##### Description
+
+Add user Permission for apps
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| userPermissionReq | body | userPermissionReq | Yes | [ [UserPermissionRequest](#userpermissionrequest) ] |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Permission added to user successfully | [ [UserPermissionResponse](#userpermissionresponse) ] |
+| 404 | Adding permission to user failed |  |
+
+### /admin/users/add-user
+
+#### POST
+##### Summary
+
+Add user with module permission
+
+##### Description
+
+Add user with module permission
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| userPermissionReq | body | userPermissionReq | Yes | [ [IamUserWithModuleRolesCreateRequest](#iamuserwithmodulerolescreaterequest) ] |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | User added successfully | boolean |
+| 404 | Failed to add users |  |
+
+### /admin/users/update-user
+
+#### POST
+##### Summary
+
+Update user with info role permission
+
+##### Description
+
+Update user with info role permission
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| iamUserInfoRoleUpdateRequests | body | iamUserInfoRoleUpdateRequests | Yes | [ [IamUserInfoRoleUpdateRequest](#iamuserinforoleupdaterequest) ] |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | User updated successfully | boolean |
+| 404 | Failed to add users |  |
+
+---
+## admin-invitation-controller
+Admin Invitation Controller
+
+### /admin/books/invite/code/{code}
+
+#### GET
+##### Summary
+
+Get invitation by code
+
+##### Description
+
+API to get invitation info for an invite code.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| code | path | code | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | [AppInviteResponse](#appinviteresponse) |
+
+---
+## password-policy-controller
+Password Policy API
+
+### /v1/tenants/password-policy
+
+#### GET
+##### Summary
+
+Get password policy for tenant
+
+##### Description
+
+Get password policy for tenant
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Password policy fetched | [PasswordPolicyDto](#passwordpolicydto) |
+| 404 | Fetching password policy failed |  |
+
+#### POST
+##### Summary
+
+Create/update password policy for tenant
+
+##### Description
+
+Create/update password policy for tenant
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| request | body | request | Yes | [PasswordPolicyDto](#passwordpolicydto) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | Password policy created/updated | [PasswordPolicyDto](#passwordpolicydto) |
+| 404 | Creating/updating password policy failed |  |
+
+### /v1/tenants/password-policy/expire-passwords
+
+#### POST
+##### Summary
+
+Expire password for existing users
+
+##### Description
+
+API to expire password for existing users
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Expired password for existing users |
+| 404 | Expiring password for existing users failed |
+
+---
 ### Models
+
+#### AcceptInvitationRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| email | string | Email address used for invite<br/>*Example:* `"user@example.com"` | No |
+| iamUserId | long | IAM User ID of the user accepting invite<br/>*Example:* `987654321` | No |
+| inviteCode | string | Invitation Code<br/>*Example:* `"abc-123"` | No |
+| tenantId | long | Tenant ID<br/>*Example:* `123` | No |
 
 #### Address
 
@@ -13280,6 +14043,14 @@ API email verfication for mobile user.
 | email | string |  | No |
 | firstName | string |  | No |
 | lastName | string |  | No |
+
+#### AppUserCountResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| applicationName | string | *Enum:* `"CONSOLE"`, `"ERP"`, `"ORGANISATION"`, `"ATTENDANCE"`, `"EXPENSE"`, `"CRM"`, `"PEOPLE"`, `"CHAT"`, `"ALL"`, `"REPORT_BUILDER"`, `"SHOP"`, `"WORKFLOW_ENGINE"`, `"CRM_PLUS"`, `"MRP"` | No |
+| guestCount | integer |  | No |
+| nonGuestCount | integer |  | No |
 
 #### AppUserCountTuple
 
@@ -13818,6 +14589,26 @@ API email verfication for mobile user.
 | tenantId | long |  | No |
 | username | string |  | No |
 
+#### IamUserInfoRoleUpdateRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| tenantId | long | Tenant ID<br/>*Example:* `1` | No |
+| userId | long | User ID<br/>*Example:* `1` | No |
+
+#### IamUserWithModuleRolesCreateRequest
+
+`IamUserWithModuleRolesCreateRequest` includes all attributes of [WebSignupRequest](#websignuprequest), plus the following attributes.
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| appUserCreateRequestList | [ [AppUserRolesCreateRequest](#appuserrolescreaterequest) ] | Role in particular app<br/>*Example:* `[{"roleGroup":"admin","appName":"ERP"}]` | No |
+| newOwnerEmail | string | New Owner email<br/>*Example:* `"abc@deskera.com"` | No |
+| prepaidCode | string | Prepaid Code<br/>*Example:* `"PLAN"` | No |
+| tenantId | long | Tenant ID<br/>*Example:* `1` | No |
+| userId | long | User ID<br/>*Example:* `1` | No |
+| isInviteUser | boolean | Is invited user?<br/>*Example:* `false` | No |
+
 #### InviteBookKeeperRequest
 
 | Name | Type | Description | Required |
@@ -13841,6 +14632,18 @@ API email verfication for mobile user.
 | lastName | string | User last name<br/>*Example:* `"Doe"` | Yes |
 | roleGroup | string | Deskera Roles<br/>*Example:* `"org_admin"` | Yes |
 | username | string | Username or Email or Contact Number of User<br/>*Example:* `"example@domain.com"` | Yes |
+
+#### InviteResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| appName | string | Application Name<br/>*Example:* `"ERP"` | No |
+| id | long | Invitation ID<br/>*Example:* `1` | No |
+| inviteCode | string | Unique Invitation Code<br/>*Example:* `"3609848a-394a-41c6-817f-c81e362881ed"` | No |
+| inviterEmail | string | Email of the inviter.<br/>*Example:* `"abc@gmail.com"` | No |
+| inviterName | string | Name of the inviter<br/>*Example:* `"John"` | No |
+| orgInvitedTo | string | Organisation Name<br/>*Example:* `"Deskera"` | No |
+| status | string | Invitation Status<br/>*Example:* `"SENT"` | No |
 
 #### InviteUserRequest
 
@@ -13962,6 +14765,14 @@ API email verfication for mobile user.
 | ---- | ---- | ----------- | -------- |
 | refreshToken | string | Refresh token<br/>*Example:* `"eyJjdHkiOiJKV1QiLCJlbmMiOiJ.."` | Yes |
 | userName | string | Username<br/>*Example:* `"+65-1234-5678"` | Yes |
+
+#### NonGuestUserResponseDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| applications | [ string ] | *Enum:* `"CONSOLE"`, `"ERP"`, `"ORGANISATION"`, `"ATTENDANCE"`, `"EXPENSE"`, `"CRM"`, `"PEOPLE"`, `"CHAT"`, `"ALL"`, `"REPORT_BUILDER"`, `"SHOP"`, `"WORKFLOW_ENGINE"`, `"CRM_PLUS"`, `"MRP"` | No |
+| userCount | long |  | No |
+| userId | long |  | No |
 
 #### OAuthAccountVerifyRequest
 
@@ -14697,6 +15508,20 @@ API email verfication for mobile user.
 | totalElements | long |  | No |
 | totalPages | integer |  | No |
 
+#### PasswordPolicyDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| enabled | boolean |  | No |
+| expireExistingUsersPassword | boolean |  | No |
+| expirePasswordAfterDays | integer |  | No |
+| maxLength | integer |  | No |
+| minLength | integer |  | No |
+| mustIncludeNumbers | boolean |  | No |
+| mustIncludeSpecialChars | boolean |  | No |
+| mustIncludeUpperCaseLetters | boolean |  | No |
+| restrictLastPasswordsCount | integer |  | No |
+
 #### PermissionInfoResponse
 
 | Name | Type | Description | Required |
@@ -14746,6 +15571,19 @@ API email verfication for mobile user.
 | id | long |  | No |
 | multipleUseAllowed | boolean |  | No |
 | used | boolean |  | No |
+
+#### RefreshRolesModulesByAppNameRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| allTenants | boolean | To update for all tenants<br/>*Example:* `true` | No |
+| appNames | [ string ] | App name<br/>*Enum:* `"CONSOLE"`, `"ERP"`, `"ORGANISATION"`, `"ATTENDANCE"`, `"EXPENSE"`, `"CRM"`, `"PEOPLE"`, `"CHAT"`, `"ALL"`, `"REPORT_BUILDER"`, `"SHOP"`, `"WORKFLOW_ENGINE"`, `"CRM_PLUS"`, `"MRP"`<br/>*Example:* `"ERP"` | Yes |
+| batchSize | integer | Batch size<br/>*Example:* `10` | No |
+| moduleCodes | [ string ] | Modules to migrate<br/>*Example:* `["m_erp_quote_view","m_erp_quote_edit"]` | No |
+| roleCodes | [ string ] | Roles to migrate<br/>*Example:* `["erp_quote_view","erp_quote_edit"]` | No |
+| roleGroupIds | [ long ] | Role group ids to migrate<br/>*Example:* `[2,3,4]` | No |
+| startPage | integer | Start batch number<br/>*Example:* `10` | No |
+| tenantIds | [ long ] | List of tenants for which to update<br/>*Example:* `[1,2,4]` | No |
 
 #### RefreshRolesModulesRequest
 
@@ -14889,6 +15727,13 @@ API email verfication for mobile user.
 | roleGroupName | string | Role Group<br/>*Example:* `"Auditor"` | No |
 | shortCode | string | Role Group<br/>*Example:* `"admin"` | No |
 
+#### SalesPersonSettingInfo
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| hasAccessToAllContacts | boolean |  | No |
+| isOwnerUser | boolean |  | No |
+
 #### SetContactEmailDto
 
 | Name | Type | Description | Required |
@@ -15010,6 +15855,19 @@ API email verfication for mobile user.
 | updatedAt | dateTime |  | No |
 | updatedBy | long |  | No |
 | verified | boolean |  | No |
+
+#### TenantActiveDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| countryLookUpCode | string |  | No |
+| deleted | boolean |  | No |
+| email | string |  | No |
+| id | long |  | No |
+| isBookkeeper | boolean |  | No |
+| isDemoOrg | boolean |  | No |
+| name | string |  | No |
+| ownerUserId | long |  | No |
 
 #### TenantAttributeRequest
 
@@ -16029,6 +16887,16 @@ API email verfication for mobile user.
 | source | string | Registration Source<br/>*Enum:* `"DESKERA"`, `"SHOPIFY"`, `"MOBILE"`, `"MOBILE_GOOGLE"`, `"MOBILE_APPLE"`, `"MOBILE_OTHER"`, `"WEB"`, `"WEB_GOOGLE"`, `"WEB_APPLE"`, `"WEB_OTHER"`<br/>*Example:* `"DESKERA"` | No |
 | tenantName | string | Tenant name<br/>*Example:* `"Deskera"` | Yes |
 
+#### TenantRoleDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| isAdmin | boolean |  | No |
+| orgName | string |  | No |
+| roleId | string |  | No |
+| roleName | string |  | No |
+| tenantId | string |  | No |
+
 #### TenantSettings
 
 | Name | Type | Description | Required |
@@ -16074,6 +16942,12 @@ API email verfication for mobile user.
 | logoUrl | string | Logo Url<br/>*Example:* `"http://sjhfksdf.com/logo.png"` | No |
 | shippingAddresses | [ [Address](#address) ] | Shipping Addresses | No |
 
+#### TenantWorkOrderDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| defaultTaggedBinTargetWarehouse | object | Default tagged bin/warehouse target for work orders | No |
+
 #### UnAssignUserRoleRequest
 
 | Name | Type | Description | Required |
@@ -16081,6 +16955,14 @@ API email verfication for mobile user.
 | appName | string | Application name<br/>*Example:* `"ERP"` | Yes |
 | iamUserIds | [ long ] | List of iamUserIds of users<br/>*Example:* `[4,11,12]` | No |
 | userIds | [ long ] | List users assign<br/>*Example:* `[1,2,3]` | Yes |
+
+#### UnassignUserRoleRequestInternal
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| appName | string | Application name<br/>*Example:* `"ERP"` | Yes |
+| iamUserId | long | iamUserId<br/>*Example:* `12345` | Yes |
+| tenantId | long | tenantId<br/>*Example:* `12345` | Yes |
 
 #### UpdateUserInfo
 
@@ -16394,6 +17276,13 @@ API email verfication for mobile user.
 | socialAuth | string | Needed, if user is signing up via social login<br/>*Example:* `"GOOGLE"` | No |
 | source | string | Registration source DESKERA/SHOPIFY<br/>*Enum:* `"DESKERA"`, `"SHOPIFY"`, `"MOBILE"`, `"MOBILE_GOOGLE"`, `"MOBILE_APPLE"`, `"MOBILE_OTHER"`, `"WEB"`, `"WEB_GOOGLE"`, `"WEB_APPLE"`, `"WEB_OTHER"`<br/>*Example:* `"Deskera"` | No |
 | tenantId | long | Tenant ID<br/>*Example:* `1` | No |
+
+#### UserTenantRoleResponse
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| orgs | [ [TenantRoleDto](#tenantroledto) ] |  | No |
+| userId | long |  | No |
 
 #### UserTenantTeamRequest
 

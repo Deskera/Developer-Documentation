@@ -2944,20 +2944,33 @@ API to get WIP Consumption and Production productwise data for given work order 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | addToRequisition | boolean |  | No |
+| bomMetaCode | string | BOM Meta Code of the item | No |
 | costPerUnit | number | Per Unit Price<br/>*Example:* `3` | No |
 | documentSequenceCode | string | Product Document Sequence Code<br/>*Example:* `"WOI-0000001"` | Yes |
+| documentUOMSchemaDefinition | object | Document UOM schema definition | No |
 | id | long | ID<br/>*Example:* `2` | No |
+| innerBomProductDetails | [ object ] | Nested BOM product details | No |
+| isAdHocItem | boolean | Has the value `true` if the item is an ad-hoc item or `false` otherwise | No |
 | plannedQuantity | number | Planned Product quantity<br/>*Example:* `3` | No |
+| plannedUomQuantity | number | Planned quantity in the item's unit of measurement | No |
 | produceProductType | string | Produce Product type<br/>*Enum:* `"NONE"`, `"SCRAP"`, `"COPRODUCT"`<br/>*Example:* `"SCRAP"` | Yes |
 | producedQuantity | number | Produce Product quantity<br/>*Example:* `3` | No |
+| producedUomQuantity | number | Produced quantity in the item's unit of measurement | No |
 | productCode | string | Product code<br/>*Example:* `"P00001"` | Yes |
 | productCustomField | [ [CustomFieldItem](#customfielditem) ] | Product custom fields<br/>*Example:* `[]` | No |
+| productDocSeqCode | string | Product document sequence code | No |
+| productGroupName | [ string ] | Product group names | No |
 | productName | string | Product Name <br/>*Example:* `"Test Product"` | No |
 | productSubstitutesDetails | [ [ProductSubstiteItemDetails](#productsubstiteitemdetails) ] | Substitute item details | No |
+| quantity | number | Quantity | No |
 | requisitionQuantity | number |  | No |
 | reservedQuantitiesData | [ [ReservedQuantityData](#reservedquantitydata) ] | Reserved quantity data<br/>*Example:* `[]` | No |
 | reservedStock | boolean | Reserved stock enabled<br/>*Example:* `true` | No |
+| sequenceNumber | long | Sequence number of the item | No |
 | sourceWarehouseCode | string | source warehouse code<br/>*Example:* `"WH-000001"` | No |
+| stockUom | long | Unit of measurement identifier for stock | No |
+| type | string | Product type<br/>*Enum:* `"TRACKED"`, `"NONTRACKED"`, `"BILL_OF_MATERIALS"` | No |
+| uomQuantity | number | Quantity in the item's unit of measurement | No |
 | warehouseInventoryData | [ [WarehouseInventoryData](#warehouseinventorydata) ] | Work Order Details | Yes |
 | workOrderItemCode | string | Item Sequence Code<br/>*Example:* `"WOI-0000001"` | Yes |
 
@@ -2965,16 +2978,23 @@ API to get WIP Consumption and Production productwise data for given work order 
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| actualEndDate | dateTime | Actual end date of the operation | No |
+| actualStartDate | dateTime | Actual start date of the operation | No |
 | completedQuantity | number | Completed quantity<br/>*Example:* `3` | No |
 | description | string |  description | No |
 | documentSequenceCode | string | Work Order Operation Document Sequence Code<br/>*Example:* `"WOO-0000001"` | Yes |
 | id | long | ID<br/>*Example:* `2` | No |
 | operationCode | string | operation code<br/>*Example:* `"O-000001"` | No |
 | operationCost | number |  | No |
+| operationDependency | object | Dependency details for the operation | No |
 | operationId | long | Operation Id | No |
 | operationTime | number | Operation time<br/>*Example:* `3` | No |
 | operatorCost | number |  | No |
+| plannedEndTime | dateTime | Planned end time | No |
 | plannedStartTime | dateTime | planned start time | No |
+| processType | string | Process type of the operation | No |
+| productCode | string | Product code associated with the operation | No |
+| qcNeeded | boolean | Has the value `true` if QC is needed for the operation or `false` otherwise | No |
 | status | string | operation status<br/>*Enum:* `"COMPLETED"`, `"IN_PROGRESS"`, `"PENDING"`<br/>*Example:* `"COMPLETED"` | No |
 | workerId | string |  | No |
 | workstationCode | string | workstation code<br/>*Example:* `"WS-000001"` | No |
@@ -2989,16 +3009,24 @@ API to get WIP Consumption and Production productwise data for given work order 
 | actualStartDate | dateTime | Actual start date<br/>*Example:* `"25-10-2019"` | No |
 | actualYield | number |  | No |
 | additionalCharges | [AdditionalCharges](#additionalcharges) | Additional charges  | No |
+| adhocBomMetaCode | string | Ad-hoc BOM meta code | No |
+| attachments | [ string ] | File attachments | No |
 | bomAssemblyCode | string |  | No |
 | bomMetaCode | string | BOM Meta Code<br/>*Example:* `"000001"` | No |
 | bomMetaDetails | [BomMetaDetailsDto](#bommetadetailsdto) | BOM Meta details | No |
+| bomMetaName | string | BOM meta name | No |
+| contactCode | string | Contact code associated with the work order | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | deliveryDate | dateTime | Delivery date<br/>*Example:* `"25-10-2019"` | No |
 | documentSequenceCode | string | Work Order Code<br/>*Example:* `"0000001"` | No |
 | inProgressWarehouseCode | string | In Progress Warehouse Code <br/>*Example:* `"WH-0000001"` | No |
 | includeByProductCost | boolean | Include By product cost<br/>*Example:* `true` | No |
+| isAutoClosed | boolean | Has the value `true` if the work order was auto-closed or `false` otherwise | No |
+| isDeleted | boolean | Has the value `true` if the work order is deleted or `false` otherwise | No |
 | isQcEnabled | boolean | Flag will pass as true for QC work flow. Possible value - TRUE \| FALSE<br/>*Example:* `false` | No |
 | isRequisitionPending | boolean |  | No |
 | jobWorkOutOrderCost | number |  | No |
+| linkedDocuments | [ [DocumentInfo](#documentinfo) ] | Linked documents | No |
 | manufactureQuantity | number | Manufacturing quantity <br/>*Example:* `2` | No |
 | operationCostDetails | [OperationCostDetails](#operationcostdetails) | Work Order cost details | No |
 | parentWorkOrderCode | string | Parent Work Order code <br/>*Example:* `"WO-0000001"` | No |
@@ -3008,16 +3036,20 @@ API to get WIP Consumption and Production productwise data for given work order 
 | plannedYield | number |  | No |
 | productCode | string | Product Code <br/>*Example:* `"P-000001"` | No |
 | productCustomField | [ [CustomFieldItem](#customfielditem) ] |  | No |
+| productDescription | string | Product description | No |
 | productDocSeqCode | string | Product document sequence code<br/>*Example:* `"P-000001"` | Yes |
 | productName | string | Product Name <br/>*Example:* `"Test Product"` | No |
 | qcDetails | [QCDetails](#qcdetails) | QC Template details | No |
 | qcRecordId | long |  | No |
 | qcStatus | string | *Enum:* `"PENDING"`, `"COMPLETED"`, `"NONE"` | No |
+| reserveChildQuantity | boolean | Has the value `true` if child quantity should be reserved or `false` otherwise | No |
 | reservedStock | boolean | Reserved stock enabled<br/>*Example:* `true` | No |
 | sequenceFormat | string | Sequence Format Id<br/>*Example:* `1` | No |
 | sourceWarehouseCode | string | Source Warehouse Code <br/>*Example:* `"WH-0000001"` | No |
 | status | string | *Enum:* `"OPEN"`, `"IN_PROGRESS"`, `"ON_HOLD"`, `"COMPLETED"` | No |
+| taggedBinWarehouseInfo | object | Tagged bin/warehouse info | No |
 | targetWarehouseCode | string | Target Warehouse Code <br/>*Example:* `"WH-0000001"` | No |
+| updatedOn | dateTime | Date on which the work order was last updated | No |
 | warehouseInventoryData | [ [WarehouseInventoryData](#warehouseinventorydata) ] | Bom Assembly Details | Yes |
 | workOrderChildDetails | [ [WorkOrderChildDetails](#workorderchilddetails) ] | Work order child details. | No |
 | workOrderItems | [ [AbstractWorkOrderItemDetails](#abstractworkorderitemdetails) ] | Work Order item details | No |
@@ -3034,20 +3066,35 @@ API to get WIP Consumption and Production productwise data for given work order 
 | actualTime | long |  | No |
 | actualYield | number |  | No |
 | additionalCharges | [AdditionalCharges](#additionalcharges) | Additional charges  | No |
+| adhocBomMetaCode | string | Ad-hoc BOM meta code | No |
 | allJobCardsCompleted | boolean |  | No |
+| attachments | [ string ] | File attachments | No |
+| attachmentsResponses | [ object ] | Attachment details including download links | No |
 | bomAssemblyCode | string |  | No |
 | bomMetaCode | string | BOM Meta Code<br/>*Example:* `"000001"` | No |
 | bomMetaDetails | [BomMetaDetailsDto](#bommetadetailsdto) | BOM Meta details | No |
+| bomMetaName | string | BOM meta name | No |
+| contactCode | string | Contact code associated with the work order | No |
+| contactDetails | [ object ] | Contact details associated with the work order | No |
+| contactName | string | Contact name associated with the work order | No |
+| createdBy | long | Identifier of the user who created the work order | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | deliveryDate | dateTime | Delivery date<br/>*Example:* `"25-10-2019"` | No |
 | documentSequenceCode | string | Sales invoice Sequence Code<br/>*Example:* `"0000001"` | No |
 | estimatedTime | long |  | No |
+| hasConsumption | boolean | Has the value `true` if the work order has consumption recorded or `false` otherwise | No |
 | id | long | Sales invoice id<br/>*Example:* `1` | No |
 | inProgressWarehouseCode | string | In Progress Warehouse Code <br/>*Example:* `"WH-0000001"` | No |
 | includeByProductCost | boolean | Include By product cost<br/>*Example:* `true` | No |
+| insufficientComponentsQtyFlag | boolean | Has the value `true` if there is insufficient component quantity or `false` otherwise | No |
+| isArchived | boolean | Has the value `true` if the work order is archived or `false` otherwise | No |
+| isAutoClosed | boolean | Has the value `true` if the work order was auto-closed or `false` otherwise | No |
+| isDeleted | boolean | Has the value `true` if the work order is deleted or `false` otherwise | No |
 | isQcEnabled | boolean | Flag will pass as true for QC work flow. Possible value - TRUE \| FALSE<br/>*Example:* `false` | No |
 | isRequisitionPending | boolean |  | No |
 | isWIPConsumptionProduction | boolean |  | No |
 | jobWorkOutOrderCost | number |  | No |
+| linkedDocuments | [ [DocumentInfo](#documentinfo) ] | Linked documents | No |
 | manufactureQuantity | number | Manufacturing quantity <br/>*Example:* `2` | No |
 | operationCostDetails | [OperationCostDetails](#operationcostdetails) | Work Order cost details | No |
 | parentWorkOrderCode | string | Parent Work Order code <br/>*Example:* `"WO-0000001"` | No |
@@ -3057,17 +3104,23 @@ API to get WIP Consumption and Production productwise data for given work order 
 | plannedYield | number |  | No |
 | productCode | string | Product Code <br/>*Example:* `"P-000001"` | No |
 | productCustomField | [ [CustomFieldItem](#customfielditem) ] |  | No |
+| productDescription | string | Product description | No |
 | productDocSeqCode | string | Product document sequence code<br/>*Example:* `"P-000001"` | Yes |
 | productName | string | Product Name <br/>*Example:* `"Test Product"` | No |
 | qcDetails | [QCDetails](#qcdetails) | QC Template details | No |
 | qcRecordId | long |  | No |
 | qcStatus | string | *Enum:* `"PENDING"`, `"COMPLETED"`, `"NONE"` | No |
+| reserveChildQuantity | boolean | Has the value `true` if child quantity should be reserved or `false` otherwise | No |
 | reservedStock | boolean | Reserved stock enabled<br/>*Example:* `true` | No |
 | sourceWarehouseCode | string | Source Warehouse Code <br/>*Example:* `"WH-0000001"` | No |
 | status | string | *Enum:* `"OPEN"`, `"IN_PROGRESS"`, `"ON_HOLD"`, `"COMPLETED"` | No |
+| taggedBinWarehouseInfo | object | Tagged bin/warehouse info | No |
 | targetWarehouseCode | string | Target Warehouse Code <br/>*Example:* `"WH-0000001"` | No |
 | totalCompletedJobCards | integer |  | No |
+| totalInProgressJobCards | integer | Total number of job cards in progress | No |
 | totalJobCards | integer |  | No |
+| updatedBy | long | Identifier of the user who last updated the work order | No |
+| updatedOn | dateTime | Date on which the work order was last updated | No |
 | warehouseInventoryData | [ [WarehouseInventoryData](#warehouseinventorydata) ] | Bom Assembly Details | Yes |
 | workOrderChildDetails | [ [WorkOrderChildDetails](#workorderchilddetails) ] | Work order child details. | No |
 | workOrderCode | string | Sales invoice code<br/>*Example:* `"SI001"` | No |
@@ -3371,11 +3424,13 @@ API to get WIP Consumption and Production productwise data for given work order 
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| forecastType | string | Forecast type | No |
 | fromDate | dateTime |  | No |
 | fromPeriod | string |  | No |
 | name | string |  | No |
-| periodFrequency | string | *Enum:* `"MONTHLY"`, `"QUARTERLY"`, `"YEARLY"` | No |
+| periodFrequency | string | *Enum:* `"MONTHLY"`, `"QUARTERLY"`, `"YEARLY"`, `"WEEKLY"` | No |
 | productCode | string |  | No |
+| productDetails | [ [ForecastProductDetails](#forecastproductdetails) ] | List of product-level forecast details | No |
 | productId | long |  | No |
 | toDate | dateTime |  | No |
 | toPeriod | string |  | No |
@@ -3384,16 +3439,43 @@ API to get WIP Consumption and Production productwise data for given work order 
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| createdBy | long | Identifier of the user who created the forecast | No |
+| forecastType | string | Forecast type | No |
 | fromDate | dateTime |  | No |
 | fromPeriod | string |  | No |
 | id | long |  | No |
+| isEditEnable | boolean | Has the value `true` if the forecast can still be edited or `false` otherwise | No |
 | name | string |  | No |
-| periodFrequency | string | *Enum:* `"MONTHLY"`, `"QUARTERLY"`, `"YEARLY"` | No |
+| periodFrequency | string | *Enum:* `"MONTHLY"`, `"QUARTERLY"`, `"YEARLY"`, `"WEEKLY"` | No |
 | productCode | string |  | No |
+| productDetails | [ [ForecastProductDetails](#forecastproductdetails) ] | List of product-level forecast details | No |
 | productId | long |  | No |
 | productName | string |  | No |
 | toDate | dateTime |  | No |
 | toPeriod | string |  | No |
+| updatedBy | long | Identifier of the user who last updated the forecast | No |
+
+#### ForecastProductDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| productCode | string | Product code | No |
+| productDocumentSeqCode | string | Product document sequence code | No |
+| productName | string | Product name | No |
+| forecastingDetails | [ [ForecastingDetails](#forecastingdetails) ] | List of forecasting details | No |
+| leadTime | long | Lead time for the product | No |
+
+#### ForecastLinkedDocument
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| forecastId | long | Identifier of the forecast | No |
+| documentType | string | Type of the linked document | No |
+| documentCode | string | Code of the linked document | No |
+| documentSequenceCode | string | Sequence code of the linked document | No |
+| productCode | string | Product code | No |
+| productDocumentSequenceCode | string | Product document sequence code | No |
+| productName | string | Product name | No |
 
 #### ForecastingDetails
 
@@ -3483,55 +3565,83 @@ API to get WIP Consumption and Production productwise data for given work order 
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| actualEndDate | dateTime | Actual end date | No |
+| actualStartDate | dateTime | Actual start date | No |
 | actualTime | long |  | No |
+| attachments | [ string ] | File attachments | No |
 | documentSequenceCode | string |  | No |
-| fgquantityTransferredRawMaterials | long |  | No |
+| FGQuantityTransferredRawMaterials | long |  | No |
 | instructions | string | Instructions<br/>*Example:* `"Instructions details"` | No |
 | jobCardBatchSerialDetails | [ [JobCardBatchSerialDetails](#jobcardbatchserialdetails) ] |  | No |
 | jobCardDate | dateTime |  | No |
+| jobcardDependency | object | Dependency details for the job card | No |
+| jobCardLinkDetails | [ object ] | List of job card link details | No |
 | jobCardTimeLogs | [ [JobCardTimeLogs](#jobcardtimelogs) ] |  | No |
+| machinesInUse | boolean | Has the value `true` if machines are in use for the job card or `false` otherwise | No |
+| machinesUsed | [ string ] | List of machines used for the job card | No |
 | operationCostDetails | [CostDetails](#costdetails) | Operator Cost Details | No |
 | operationId | long |  | No |
 | operatorCostDetails | [CostDetails](#costdetails) | Operator Cost Details | No |
 | operatorDetails | [OperatorDetails](#operatordetails) | Operator Details | No |
+| plannedEndDate | dateTime | Planned end date | No |
+| plannedStartDate | dateTime | Planned start date | No |
 | plannedTime | long |  | No |
 | remarks | string |  | No |
 | requestedQuantity | number |  | No |
 | sequenceFormat | string |  | No |
+| sequenceNumber | long | Sequence number of the job card | No |
 | status | string | *Enum:* `"OPEN"`, `"IN_PROGRESS"`, `"ON_HOLD"`, `"CANCELLED"`, `"COMPLETED"` | No |
+| taggedBinWarehouseInfo | object | Tagged bin/warehouse info | No |
 | totalCompletedQuantity | number |  | No |
 | wipWarehouseCode | string |  | No |
 | workOrderCode | string |  | No |
 | workOrderItemCode | string |  | No |
 | workOrderItemName | string |  | No |
+| workstationDetails | object | Workstation details | No |
 | workstationId | long |  | No |
 
 #### JobCardResponse
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| actualEndDate | dateTime | Actual end date | No |
+| actualStartDate | dateTime | Actual start date | No |
 | actualTime | long |  | No |
 | allJobCardsCompleted | boolean |  | No |
+| attachmentDetails | [ object ] | List of attachment details | No |
+| attachments | [ string ] | File attachments | No |
 | documentSequenceCode | string |  | No |
-| fgquantityTransferredRawMaterials | long |  | No |
+| FGQuantityTransferredRawMaterials | long |  | No |
+| hasConsumption | boolean | Has the value `true` if the job card has consumption or `false` otherwise | No |
+| holdTime | long | Total hold time for the job card | No |
 | id | long |  | No |
 | instructions | string | Instructions<br/>*Example:* `"Instructions details"` | No |
+| ipTime | long | Total in-progress time for the job card | No |
 | isDeleted | boolean |  | No |
 | jobCardBatchSerialDetails | [ [JobCardBatchSerialDetails](#jobcardbatchserialdetails) ] |  | No |
 | jobCardCode | string |  | No |
 | jobCardDate | dateTime |  | No |
+| jobcardDependency | object | Dependency details for the job card | No |
+| jobCardLinkDetails | [ object ] | List of job card link details | No |
+| jobCardLinkDetailsAvailableToAssign | [ object ] | List of job card link details available to assign | No |
 | jobCardTimeLogs | [ [JobCardTimeLogs](#jobcardtimelogs) ] |  | No |
+| machinesInUse | boolean | Has the value `true` if machines are in use for the job card or `false` otherwise | No |
+| machinesUsed | [ string ] | List of machines used for the job card | No |
 | operationCostDetails | [CostDetails](#costdetails) | Operator Cost Details | No |
 | operationId | long |  | No |
 | operationName | string |  | No |
 | operatorCostDetails | [CostDetails](#costdetails) | Operator Cost Details | No |
 | operatorDetails | [OperatorDetails](#operatordetails) | Operator Details | No |
+| plannedEndDate | dateTime | Planned end date | No |
+| plannedStartDate | dateTime | Planned start date | No |
 | plannedTime | long |  | No |
 | remarks | string |  | No |
 | requestedQuantity | number |  | No |
 | salesOrderSequenceCode | string |  | No |
 | sequenceFormat | string |  | No |
+| sequenceNumber | long | Sequence number of the job card | No |
 | status | string | *Enum:* `"OPEN"`, `"IN_PROGRESS"`, `"ON_HOLD"`, `"CANCELLED"`, `"COMPLETED"` | No |
+| taggedBinWarehouseInfo | object | Tagged bin/warehouse info | No |
 | totalCompletedQuantity | number |  | No |
 | wipWarehouseCode | string |  | No |
 | workOrderCode | string |  | No |
@@ -3539,6 +3649,9 @@ API to get WIP Consumption and Production productwise data for given work order 
 | workOrderItemDocSeqCode | string |  | No |
 | workOrderItemName | string |  | No |
 | workOrderSequenceCode | string |  | No |
+| workOrderSourceDetails | object | Source details of the linked work order | No |
+| workOrderStatus | string | Status of the linked work order | No |
+| workstationDetails | object | Workstation details | No |
 | workstationId | long |  | No |
 
 #### JobCardTimeLogs
@@ -3602,6 +3715,7 @@ API to get WIP Consumption and Production productwise data for given work order 
 | attachmentIds | [ integer ] | list of attachment id's for this gr | No |
 | attachments | [ string ] | Attachments url's | No |
 | costPerHour | number |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of key-value pairs for custom field name and its value | No |
 | defaultWorkstation | long |  | No |
 | description | string |  | No |
 | fixedRate | number |  | No |
@@ -3621,6 +3735,7 @@ API to get WIP Consumption and Production productwise data for given work order 
 | attachmentIds | [ integer ] | list of attachment id's for this gr | No |
 | attachments | [ string ] | Attachments url's | No |
 | costPerHour | number |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of key-value pairs for custom field name and its value | No |
 | defaultWorkstation | long |  | No |
 | description | string |  | No |
 | fixedRate | number |  | No |
@@ -3628,6 +3743,7 @@ API to get WIP Consumption and Production productwise data for given work order 
 | instructions | string | Instructions<br/>*Example:* `"Instructions details"` | No |
 | isCorrective | boolean |  | No |
 | isDeleted | boolean |  | No |
+| linkedInMachines | [ string ] | List of machines linked to the operation | No |
 | name | string |  | No |
 | operationCode | string |  | No |
 | operationJobCard | [OperationJobCard](#operationjobcard) | Operation Job Card | No |
@@ -3656,6 +3772,7 @@ API to get WIP Consumption and Production productwise data for given work order 
 | address | [Address](#address) | Operator address | No |
 | contactNumber | string |  | No |
 | costPerHour | number |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of key-value pairs for custom field name and its value | No |
 | dateOfBirth | string |  | No |
 | email | string |  | No |
 | fixedRate | number |  | No |
@@ -3671,6 +3788,7 @@ API to get WIP Consumption and Production productwise data for given work order 
 | address | [Address](#address) | Operator address | No |
 | contactNumber | string |  | No |
 | costPerHour | number |  | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of key-value pairs for custom field name and its value | No |
 | dateOfBirth | string |  | No |
 | email | string |  | No |
 | fixedRate | number |  | No |
@@ -3936,11 +4054,17 @@ API to get WIP Consumption and Production productwise data for given work order 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | availableQuantity | double |  | No |
+| barcode | string | Product barcode | No |
+| bomProductFlag | boolean | Has the value `true` if the product is a bill-of-materials product or `false` otherwise | No |
 | foreCastingDetails | [ [ForecastingDetails](#forecastingdetails) ] |  | No |
 | forecastId | long |  | No |
 | id | long |  | No |
 | incomingDetailsList | [ [IncomingDetails](#incomingdetails) ] |  | No |
+| leadTime | long | Lead time for the product | No |
 | parentCode | string |  | No |
+| periodStartEndQuantities | [ object ] | List of period start/end quantities | No |
+| preferredVendorCode | string | Code of the preferred vendor | No |
+| preferredVendorName | string | Name of the preferred vendor | No |
 | productCode | string |  | No |
 | productId | long |  | No |
 | productName | string |  | No |
@@ -4372,6 +4496,7 @@ API to get WIP Consumption and Production productwise data for given work order 
 | ---- | ---- | ----------- | -------- |
 | costPerUnit | number |  | No |
 | documentDate | string |  | No |
+| documentUOMSchemaDefinition | object | Unit of measurement schema definition used on the document | No |
 | id | long |  | No |
 | includeByProductCost | boolean |  | No |
 | isQcEnabled | boolean | Flag will pass as true for QC work flow. Possible value - TRUE \| FALSE<br/>*Example:* `false` | No |
@@ -4379,8 +4504,11 @@ API to get WIP Consumption and Production productwise data for given work order 
 | qcRecordId | long |  | No |
 | qcStatus | string | *Enum:* `"PENDING"`, `"COMPLETED"`, `"NONE"` | No |
 | quantity | number |  | No |
+| stockUom | string | Stock unit of measurement | No |
 | substituteParentProductCode | string |  | No |
 | type | string | *Enum:* `"PRODUCTION"`, `"CONSUMPTION"`, `"WASTAGE"`, `"SCRAP"`, `"CO_PRODUCT"` | No |
+| uomCostPerUnit | number | Cost per unit in the item's unit of measurement | No |
+| uomQuantity | number | Quantity in the item's unit of measurement | No |
 | warehouseInventoryData | [ [WarehouseInventoryData](#warehouseinventorydata) ] |  | No |
 | workOrderCode | string |  | No |
 | workOrderId | long |  | No |
@@ -4394,16 +4522,22 @@ API to get WIP Consumption and Production productwise data for given work order 
 | costPerUnit | number |  | No |
 | dateStamp | dateTime |  | No |
 | documentDate | string |  | No |
+| documentUOMSchemaDefinition | object | Unit of measurement schema definition used on the document | No |
 | id | long |  | No |
 | includeByProductCost | boolean |  | No |
 | isDeleted | boolean |  | No |
 | isQcEnabled | boolean | Flag will pass as true for QC work flow. Possible value - TRUE \| FALSE<br/>*Example:* `false` | No |
 | productCode | string |  | No |
+| productDocumentSeqCode | string |  | No |
+| productName | string |  | No |
 | qcRecordId | long |  | No |
 | qcStatus | string | *Enum:* `"PENDING"`, `"COMPLETED"`, `"NONE"` | No |
 | quantity | number |  | No |
+| stockUom | string | Stock unit of measurement | No |
 | substituteParentProductCode | string |  | No |
 | type | string | *Enum:* `"PRODUCTION"`, `"CONSUMPTION"`, `"WASTAGE"`, `"SCRAP"`, `"CO_PRODUCT"` | No |
+| uomCostPerUnit | number | Cost per unit in the item's unit of measurement | No |
+| uomQuantity | number | Quantity in the item's unit of measurement | No |
 | warehouseInventoryData | [ [WarehouseInventoryData](#warehouseinventorydata) ] |  | No |
 | workOrderCode | string |  | No |
 | workOrderId | long |  | No |
@@ -4439,7 +4573,7 @@ API to get WIP Consumption and Production productwise data for given work order 
 | ---- | ---- | ----------- | -------- |
 | linkedDocumentCode | string |  | No |
 | salesOrderSequenceCode | string |  | No |
-| workOrderSource | string | *Enum:* `"SALES_ORDER"`, `"NONE"` | No |
+| workOrderSource | string | *Enum:* `"SALES_ORDER"`, `"SALES_INVOICE"`, `"NONE"` | No |
 
 #### WorkingHours
 

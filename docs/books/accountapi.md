@@ -2299,12 +2299,15 @@ Api to update Cash Flow sections mapping
 | customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
 | description | string | Account Description<br/>*Example:* `"Savings Account"` | No |
 | exchangeRate | number | Base to Foreign Exchange Rate<br/>*Example:* `1` | No |
+| glAccountCode | string | General ledger account code<br/>*Example:* `"AC-0001"` | No |
 | id | long | Account ID.<br/>*Example:* `1` | No |
 | isCreditCard | boolean | Is Account is credit card Account or not<br/>*Example:* `false` | No |
 | isDefault | boolean | Default Account Status<br/>*Example:* `true` | No |
+| isRevalued | boolean | True if the account balance includes a currency revaluation<br/>*Example:* `false` | No |
 | isSubAccount | boolean | Flag to confirm SubAccount<br/>*Example:* `false` | No |
 | isTdsApplicable | boolean | Is TDS applicable or not<br/>*Example:* `false` | No |
 | isUndepositedFundAccount | boolean | Account is Undeposited fund Account or not<br/>*Example:* `true` | No |
+| itcAdjustment | string | ITC (Input Tax Credit) adjustment<br/>*Enum:* `"NA"`, `"ITC_IS_BLOCKED"`, `"ITC_IS_REVERSED"`<br/>*Example:* `"NA"` | No |
 | name | string | Account Name<br/>*Example:* `"Savings Account"` | No |
 | natureOfIncomePayment | string | Nature of income payment<br/>*Example:* `"Interest on Securities"` | No |
 | openingBalance | number | Opening Balance Amount in Base currency<br/>*Example:* `999.99` | No |
@@ -2401,14 +2404,19 @@ Api to update Cash Flow sections mapping
 | AccountSubGroup | long | Sub Account group id<br/>*Example:* `1` | No |
 | AccountSubGroupName | string | Account Group Name<br/>*Example:* `"Sample Account Group"` | No |
 | balance | number | Balance Amount<br/>*Example:* `999.99` | No |
+| controlAccount | boolean | Has the value `true` if the control account flag is false or `false` if the control account flag is true<br/>*Example:* `false` | No |
 | currency | string | Singapore Dollars<br/>*Example:* `"SGD"` | No |
 | customField | [ [CustomFieldItem](#customfielditem) ] |  | No |
 | description | string | Account Description<br/>*Example:* `"Savings Account description"` | No |
 | exchangeRate | number | Base to Foreign Exchange Rate<br/>*Example:* `1` | No |
+| glAccountCode | string | General ledger account code<br/>*Example:* `"AC-0001"` | No |
+| id | long | Account ID<br/>*Example:* `1` | No |
 | isCreditCard | boolean | Is Account is credit card Account or not<br/>*Example:* `false` | No |
+| isRevalued | boolean | True if the account balance includes a currency revaluation<br/>*Example:* `false` | No |
 | isSubAccount | boolean | Flag to confirm SubAccount<br/>*Example:* `false` | No |
 | isTdsApplicable | boolean | Is TDS applicable or not<br/>*Example:* `false` | No |
 | isUndepositedFundAccount | boolean | Is Account is undeposited fund Account or not<br/>*Example:* `false` | No |
+| itcAdjustment | string | ITC (Input Tax Credit) adjustment<br/>*Enum:* `"NA"`, `"ITC_IS_BLOCKED"`, `"ITC_IS_REVERSED"`<br/>*Example:* `"NA"` | No |
 | name | string | Account Name<br/>*Example:* `"Savings Account"` | No |
 | natureOfIncomePayment | string | Nature of income payment<br/>*Example:* `"Interest on Securities"` | No |
 | openingBalance | number | Opening Balance Amount<br/>*Example:* `999.99` | No |
@@ -2416,6 +2424,7 @@ Api to update Cash Flow sections mapping
 | parent | long | Parent AccountId<br/>*Example:* `2431252` | No |
 | parentName | string | Parent Name<br/>*Example:* `2431252` | No |
 | sequenceFormat | string | 00000001 | No |
+| status | string | Account Status<br/>*Example:* `"ACTIVE"` | No |
 | taxCode | string | Account Tax<br/>*Example:* `"Tax Code"` | No |
 | totalBalance | number | Summation of Opening Balance and Balance<br/>*Example:* `999.99` | No |
 
@@ -2425,13 +2434,19 @@ Api to update Cash Flow sections mapping
 | ---- | ---- | ----------- | -------- |
 | AccountCodeDbGen | string |  | No |
 | AccountGroup | string |  | No |
+| accountSubGroupName | string | Name of the account sub-group | No |
 | balance | string |  | No |
 | code | string |  | No |
 | currency | string |  | No |
+| customFields | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| description | string | Account description | No |
 | id | long |  | No |
+| isSubAccount | boolean | Has the value `true` if the account is a sub-account or `false` otherwise | No |
 | name | string |  | No |
 | openingBalance | string |  | No |
 | openingBalanceType | string |  | No |
+| parentAccount | string | Name of the parent account, when this account is a sub-account | No |
+| taxCode | string | Account tax code | No |
 
 ### BalanceSheetAssetsInfo
 

@@ -16,8 +16,10 @@ sidebar_label: Stock
 | ---- | ---- | ----------- |
 | code | `string` | Unique code assigned to the stock transfer. |
 | destWarehouseCode | `string` | Destination warehouse code assigned to the stock transfer. |
+| destWarehouseName | `string` | Destination warehouse name assigned to the stock transfer. |
 | notes | `string` |  |
 | srcWarehouseCode | `string` | Source warehouse code assigned to the stock transfer. |
+| srcWarehouseName | `string` | Source warehouse name assigned to the stock transfer. |
 | stockTransferItems | `list` | Attribute for [stockTransferItems](#stocktransferitemdto) |
 | transferDate | `string` | Stock Transfer date. |
 
@@ -33,6 +35,7 @@ sidebar_label: Stock
 | stockAdjustmentItems | `list` | Attribute for [stockAdjustmentItems](#stockadjustmentitemdto) |
 | totalValue | `number` |  |
 | warehouseCode | `string` | Warehouse code for stock adjustment. |
+| warehouseName | `string` | Warehouse name for stock adjustment. |
 
 ## API
 ---
@@ -218,6 +221,24 @@ Search Stock Adjustment.
 
     public RestResponsePage<StockAdjustmentDto> searchStockAdjustmentList(String accessToken, FilterCriteria filterCriteria){
     return this.inventoryClient.searchStockAdjustmentList(accessToken, filterCriteria);
+  }
+```
+---
+### Delete Stock Adjustment
+Deletes an existing Stock Adjustment. You need only supply the unique code that was returned upon Stock Adjustment creation.
+
+#### Parameters
+- [accessToken](#access-token) `string`
+- code `string`
+
+#### Code
+
+```java
+  @Autowired
+  private InventoryClient inventoryClient;
+
+    public void deleteStockAdjustment(String accessToken, String code){
+    this.inventoryClient.deleteStockAdjustment(accessToken, code);
   }
 ```
 ---

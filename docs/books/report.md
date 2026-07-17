@@ -1981,41 +1981,6 @@ API to get settings for Financial Closing
 | --- | --- |
 | Authorization | global |
 
-### /v1/reports/common/additionalcharges/details
-
-#### GET
-##### Summary
-
-additionalCHargesDetailsReport
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| fromDate | query | fromDate | No | dateTime |
-| limit | query | limit | No | integer |
-| page | query | page | No | integer |
-| query | query | query | No | string |
-| search | query | search | No | string |
-| sort | query | sort | No | string |
-| sortDir | query | sortDir | No | string |
-| toDate | query | toDate | No | dateTime |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [Page«AdditionalChargesReport»](#page«additionalchargesreport») |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
 ### /v1/reports/common/batch-status-report
 
 #### POST
@@ -4218,74 +4183,6 @@ API to update Consolidate tenants account mapping
 | --- | --- |
 | Authorization | global |
 
-### /v1/reports/financial/consolidate-mapping/bulk
-
-#### DELETE
-##### Summary
-
-bulk delete Consolidate tenants account mapping
-
-##### Description
-
-API to bulk delete Consolidate tenants account mapping
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| ids | body | ids | Yes | [ long ] |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [ResponseEntity](#responseentity) |
-| 204 | No Content |  |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
-### /v1/reports/financial/consolidate-mapping/search
-
-#### GET
-##### Summary
-
-Get Consolidate tenants account mapping
-
-##### Description
-
-API to get Consolidate tenants account mapping
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| limit | query | limit | No | integer |
-| multicompanyReport | query | multicompanyReport | No | boolean |
-| page | query | page | No | integer |
-| report | query | report | No | string |
-| search | query | search | No | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | OK | [CustomPagingResponse](#custompagingresponse) |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
 ### /v1/reports/financial/consolidate-mapping/{id}
 
 #### DELETE
@@ -4439,40 +4336,6 @@ API to fetch data for Statement Of Account Report for Vendor.
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | Vendor Statement Of Account data has been fetched. | [SOAReportConsolidationResponse](#soareportconsolidationresponse) |
-| 201 | Created |  |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
-### /v1/reports/financial/contact-auto-map
-
-#### POST
-##### Summary
-
-Contact auto map api.
-
-##### Description
-
-API to get auto map contacts.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| report | query | report | Yes | string |
-| tenantIds | body | tenantIds | Yes | [ long ] |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | Auto map contacts fetched successfully. | [ConsolidationAccountAutoMapResponse](#consolidationaccountautomapresponse) |
 | 201 | Created |  |
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
@@ -10234,72 +10097,6 @@ API to generate missing taxes for SG countries.
 | --- | --- |
 | Authorization | global |
 
-### /v1/reports/sg/form-five
-
-#### GET
-##### Summary
-
-GST form five data.
-
-##### Description
-
-API to fetch GST form five data.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| endDate | query |  | Yes | string |
-| startDate | query |  | Yes | string |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | GST form five data has been prepared. | [ object ] |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
-### /v1/reports/sg/form-five/export/excel
-
-#### POST
-##### Summary
-
-GST form five export.
-
-##### Description
-
-API to fetch GST form five export.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| gstFormFiveExportDetailsDto | body | gstFormFiveExportDetailsDto | Yes | [GSTFormFiveExportDetailsDto](#gstformfiveexportdetailsdto) |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | GST form five exported. | [Resource](#resource) |
-| 201 | Created |  |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
 ### /v1/reports/sg/gst-detail
 
 #### GET
@@ -10981,39 +10778,6 @@ API to generate IAF Audit file in xml format.
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | IAF Audit file has been generated successfully. | [ object ] |
-| 401 | Unauthorized |  |
-| 403 | Forbidden |  |
-| 404 | Not Found |  |
-
-##### Security
-
-| Security Schema | Scopes |
-| --- | --- |
-| Authorization | global |
-
-### /v1/reports/sg/tax-report
-
-#### GET
-##### Summary
-
-Get tax report for Singapore
-
-##### Description
-
-API to get tax report for Singapore.
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| fromDate | query | fromDate | Yes | dateTime |
-| toDate | query | toDate | Yes | dateTime |
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | Tax report for Singapore fetched successfully. | [TaxReportDto](#taxreportdto) |
 | 401 | Unauthorized |  |
 | 403 | Forbidden |  |
 | 404 | Not Found |  |

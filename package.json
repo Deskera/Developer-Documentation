@@ -15,6 +15,9 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
+  "overrides": {
+    "webpack": "5.88.2"
+  },
   "browserslist": {
     "production": [
       ">0.2%",

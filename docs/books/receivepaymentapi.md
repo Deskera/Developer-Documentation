@@ -4142,4 +4142,83 @@ API to get payment link for document.
 | reconciled | boolean | Whether the current payment is reconciled or not. | No |
 | recurringActivated | boolean | Recurring payment activated for payment.<br/>*Example:* `false` | No |
 | recurringPayment | boolean | Recurring payment enable/disable for payment.<br/>*Example:* `false` | No |
-| referenceDate | dateTime | Date of 
+| referenceDate | dateTime | Date of Bank Transfer/cheque.<br/>*Example:* `"2019-09-27"` | No |
+
+### ReceivePaymentDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountCodePayTo | string | Account code.<br/>*Example:* `"AC-001"` | No |
+| accountName | string | Account name.<br/>*Example:* `"Bank"` | No |
+| amount | number | Payment amount.<br/>*Example:* `10` | No |
+| amountDue | number | Payment amount Due.<br/>*Example:* `10` | No |
+| attachmentIds | [ integer ] | list of attachment id's for this order | No |
+| bankRuleId | long | Rule id if the document has been created by a Bank Rule | No |
+| billTo | [Address](#address) | Bill to address | No |
+| contactCode | string | Contact code.<br/>*Example:* `19425` | No |
+| contactName | string | Contact name.<br/>*Example:* `"ABC PTE LTD"` | No |
+| currency | string | Currency code.<br/>*Enum:* `"AFN"`, `"ALL"`, `"DZD"`, `"AOA"`, `"ARS"`, `"AMD"`, `"AWG"`, `"AZN"`, `"BSD"`, `"BHD"`, `"BDT"`, `"BBD"`, `"BYN"`, `"BZD"`, `"BMD"`, `"BTN"`, `"BOB"`, `"BAM"`, `"BRL"`, `"BND"`, `"BGN"`, `"BIF"`, `"KHR"`, `"CAD"`, `"CVE"`, `"KYD"`, `"CLP"`, `"CNY"`, `"COP"`, `"KMF"`, `"CDF"`, `"CRC"`, `"CZK"`, `"HRK"`, `"CUC"`, `"DJF"`, `"DOP"`, `"EGP"`, `"ERN"`, `"ETB"`, `"FKP"`, `"FJD"`, `"XAF"`, `"GMD"`, `"GEL"`, `"GHS"`, `"GIP"`, `"DKK"`, `"GTQ"`, `"GNF"`, `"GYD"`, `"HTG"`, `"HNL"`, `"HKD"`, `"HUF"`, `"ISK"`, `"INR"`, `"IDR"`, `"IRR"`, `"IQD"`, `"JMD"`, `"JPY"`, `"JOD"`, `"KZT"`, `"KES"`, `"KWD"`, `"KGS"`, `"LAK"`, `"LBP"`, `"LSL"`, `"LRD"`, `"LYD"`, `"MOP"`, `"MKD"`, `"MGA"`, `"MWK"`, `"MYR"`, `"MVR"`, `"MRO"`, `"MUR"`, `"MXN"`, `"MDL"`, `"MNT"`, `"MZN"`, `"MMK"`, `"NAD"`, `"NPR"`, `"NIO"`, `"NGN"`, `"KPW"`, `"OMR"`, `"PKR"`, `"ILS"`, `"PAB"`, `"PGK"`, `"PYG"`, `"PEN"`, `"PHP"`, `"PLN"`, `"QAR"`, `"RON"`, `"RUB"`, `"RWF"`, `"SHP"`, `"XCD"`, `"WST"`, `"STD"`, `"SAR"`, `"RSD"`, `"SCR"`, `"SLL"`, `"SGD"`, `"ANG"`, `"SBD"`, `"SOS"`, `"ZAR"`, `"KRW"`, `"SSP"`, `"EUR"`, `"LKR"`, `"SDG"`, `"SRD"`, `"NOK"`, `"SZL"`, `"SEK"`, `"CHF"`, `"SYP"`, `"TWD"`, `"TJS"`, `"TZS"`, `"THB"`, `"XOF"`, `"NZD"`, `"TOP"`, `"TTD"`, `"TND"`, `"TRY"`, `"TMT"`, `"AUD"`, `"UGX"`, `"UAH"`, `"AED"`, `"GBP"`, `"USD"`, `"UYU"`, `"UZS"`, `"VUV"`, `"VEF"`, `"VND"`, `"XPF"`, `"MAD"`, `"YER"`, `"ZMW"`, `"BWP"`, `"CNH"`<br/>*Example:* `"SGD"` | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| customerTypeIndia | string | India Compliance filed<br/>*Enum:* `"EXPORT_WO_PAY"`, `"EXPORT_W_PAY"`, `"NA"`, `"SEZ_WO_PAY"`, `"SEZ_W_PAY"`<br/>*Example:* `"SEZ (WPAY)"` | No |
+| documentDate | dateTime | Document date.<br/>*Example:* `"2019-09-27"` | No |
+| errors | [ string ] | List of validation error messages | No |
+| exchangeRate | number | Exchange rate.<br/>*Example:* `0.01891562` | No |
+| gstExchangeRate | number | GST Exchange rate if tax residency currency is different than base currency<br/>*Example:* `1` | No |
+| gstIn | string |  | No |
+| gstTreatmentIndia | string | India Compliance filed<br/>*Enum:* `"REGISTERED_BUSINESS_REGULAR=Registered Business - Regular"`, `"REGISTERED_BUSINESS_COMPOSITION=Registered Business - Composition"`, `"UNREGISTERED_BUSINESS=Unregistered Business"`, `"CUSTOMER=Consumer"`, `"OVERSEAS=Overseas"`, `"SPECIAL_ECONOMIC_ZONE=Special Economic Zone"`, `"DEEMED_EXPORT=Deemed Export"`<br/>*Example:* `"REGISTERED_BUSINESS_REGULAR"` | No |
+| interCompany | boolean | True if it is between inter companies<br/>*Example:* `true` | No |
+| isUnDepositedPayment | boolean | Whether the current payment is un-deposited or not. | No |
+| journalEntryBankTransferRequestDto | [JournalEntryBankTransferRequestDto](#journalentrybanktransferrequestdto) | Bank Transfer Request DTO for Journal Entry | No |
+| knockoffInfo | [ [KnockOffInfo](#knockoffinfo) ] |  | No |
+| memo | string | Memo text.<br/>*Example:* `"Sales quotation"` | No |
+| opening | boolean | Opening Document<br/>*Example:* `false` | No |
+| paymentTransTime | string | Payment transaction time<br/>*Example:* `"12:30:00"` | No |
+| paymentType | string | Type of payment.<br/>*Enum:* `"CHEQUE"`, `"CASH"`, `"BANK_TRANSFER"`, `"CARD"`, `"OTHERS"`<br/>*Example:* `"BANK_TRANSFER"` | No |
+| primaryExchangeRate | number | Primary exchange rate.<br/>*Example:* `1` | No |
+| receivePaymentFeeDtoList | [ [ReceivePaymentFeeDto](#receivepaymentfeedto) ] | Transaction fee pertaining to the received payment | No |
+| receivePaymentItemDtoList | [ [ReceivePaymentItemDto](#receivepaymentitemdto) ] | Receive payment items information. | No |
+| reconciled | boolean | Whether the current payment is reconciled or not. | No |
+| referenceDate | dateTime | Date of Bank Transfer/cheque.<br/>*Example:* `"2019-09-27"` | No |
+| referenceNumber | string | Reference number of Bank Transfer/cheque.<br/>*Example:* `"CH001"` | No |
+| roundOffAmountInBaseCurrency | number | Round off amount in base currency.<br/>*Example:* `0.01` | No |
+| roundOffAmountInDocumentCurrency | number | Round off amount in document currency.<br/>*Example:* `0.01` | No |
+| salesInvoice | object | Linked sales invoice details | No |
+| sentEmail | boolean | Send Customer Email<br/>*Example:* `false` | No |
+| shipFrom | [Address](#address) | Ship from address | No |
+| shipTo | [Address](#address) | Ship to address | No |
+| unDepositedEntriesReconciled | [ object ] | Reconciled un-deposited entries | No |
+| unitPriceGstInclusive | boolean | Price is GST inclusive<br/>*Example:* `false` | No |
+| vendorTypeIndia | string | India Compliance filed<br/>*Enum:* `"IMPORT"`, `"NA"`, `"SEZ_W_PAY"`, `"SEZ_WO_PAY"`<br/>*Example:* `"EXPORT (WOPAY)"` | No |
+
+### ReceivePaymentFeeDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Unique identifier of the fee. | No |
+| paymentId | long | Identifier of the payment this fee is associated with. | No |
+| accountCode | string | Account code the fee is posted to.<br/>*Example:* `"AC-001"` | No |
+| amount | number | Fee amount.<br/>*Example:* `2.5` | No |
+
+### ReceivePaymentItemDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Unique identifier of the payment item. | No |
+| paymentId | long | Identifier of the payment this item is associated with. | No |
+| documentType | string | Type of the document being paid against. | No |
+| documentCode | string | Code of the document being paid against. | No |
+| documentSequenceCode | string | Sequence code of the document being paid against. | No |
+| customerOrderNumber | string | Customer order number. | No |
+| description | string | Description of the payment item. | No |
+| exchangeRate | number | Exchange rate applied to the payment item. | No |
+| taxCode | string | Tax code applied to the payment item. | No |
+| taxAmount | number | Tax amount of the payment item. | No |
+| paymentAmount | number | Amount paid against the document. | No |
+| accountName | string | Account name the payment item is posted to. | No |
+| taxList | [ object ] | List of tax mapping details for the payment item. | No |
+| tdsInfoIndia | object | TDS (Tax Deducted at Source) details for India. | No |
+| isTdsApplicableContact | boolean | True if TDS is applicable for the contact. | No |
+| isTdsApplicableAccount | boolean | True if TDS is applicable for the account. | No |
+| customField | [ [CustomFieldItem](#customfielditem) ] | List of custom fields | No |
+| errors | [ string ] | List of validation error messages | No |
+| supplierInvoiceNo | string | Supplier invoice number. | No |

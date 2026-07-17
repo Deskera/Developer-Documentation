@@ -34,6 +34,8 @@ Get bills by filter criteria. [More about search bill](https://www.postman.com/g
 | search | query | search | No | string |
 | sort | query | sort | No | string |
 | sortDir | query | sortDir | No | string |
+| salesperson | query | salesperson | No | long |
+| fetchAttachmentDetails | query | fetchAttachmentDetails | No | boolean |
 
 ##### Responses
 
@@ -10026,4 +10028,292 @@ updateMissingJESales
 | sequenceFormat | string | Sequence Format<br/>*Example:* `1` | No |
 | shippingAddress | [ [Address](#address) ] | List of Shipping Address. | No |
 | singaporeGovt | boolean | indicates the contact is govt agency<br/>*Example:* `true` | No |
-| taxExempted | boolean | Denotes if customer is tax exempted<br/>*Ex
+| taxExempted | boolean | Denotes if customer is tax exempted<br/>*Example:* `true` | No |
+| taxExemptionNo | string | Generated tax exemption number<br/>*Example:* `"234s-few3-2422"` | No |
+| taxExemptionReason | string | Tax exemption reason<br/>*Example:* `"Resale, Federal Agency"` | No |
+| taxNumber | string | Tax number<br/>*Example:* `123456` | No |
+| uen | string | Contact UEN<br/>*Example:* `"DHJEUK"` | No |
+
+### PurchaseInvoiceRequest
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| additionalCharges | [AdditionalCharges](#additionalcharges) | Purchase invoice additional charges details | No |
+| approvalStatus | string | Approval status<br/>*Enum:* `"APPROVED"`, `"PENDING_FOR_APPROVAL"`, `"EDITING"`, `"REJECTED"`, `"NOT_REQUIRED"`, `"PULLED_BACK"`<br/>*Example:* `"APPROVED"` | No |
+| attachmentIds | [ integer ] |  | No |
+| attachments | [ string ] | File attachments | No |
+| backOrder | boolean | Backorder flag to indicate if purchase invoice is backorder<br/>*Example:* `true` | No |
+| billTo | [Address](#address) | Bill to address | No |
+| buyerReference | string | Buyer reference | No |
+| contact | object | Contact details | No |
+| contactCode | string | Contact Code<br/>*Example:* `"C0001"` | Yes |
+| createdBy | long | Identifier of the user who created the invoice | No |
+| createdDate | string | Date on which the invoice was created | No |
+| currency | string | Currency<br/>*Example:* `"C001"` | Yes |
+| customField | [ object ] | List of custom fields | No |
+| documentSequenceCode | string | Purchase Invoice Code<br/>*Example:* `"0000001"` | No |
+| draft | boolean | True if want to save as draft.<br/>*Example:* `false` | No |
+| draftReferenceId | string | Draft reference id | No |
+| dueAmount | number | Amount Due<br/>*Example:* `12.322` | No |
+| eInvoiceStatus | [ object ] | List of e-invoice status details | No |
+| exchangeRate | number | Exchange rate<br/>*Example:* `0.456345` | No |
+| gstExchangeRate | number | GST Exchange rate if tax residency currency is different than base currency<br/>*Example:* `1` | No |
+| isPartialInvoice | boolean | True if is partial invoice<br/>*Example:* `false` | No |
+| isValidForUpdateValueOfGoods | boolean | True if the value of goods can still be updated | No |
+| journalEntryCode | string | Journal Entry Code<br/>*Example:* `"JE0001"` | No |
+| landedCost | boolean | True if landed cost applies to the invoice | No |
+| lineRefNo | string | Line reference number | No |
+| linkedDocuments | [ [DocumentInfo](#documentinfo) ] | Linked Documents | No |
+| memo | string | Memo<br/>*Example:* `"Memo details"` | No |
+| multiApprovalDetails | object | Multi-level approval details | No |
+| openingDocumentNumber | string | Vendor opening document number<br/>*Example:* `"DC-0001"` | No |
+| openingInvoice | boolean | True if opening invoice<br/>*Example:* `false` | No |
+| paymentMilestoneFlag | boolean | Payment milestone flag to indicate if payment milestones are set<br/>*Example:* `true` | No |
+| paymentStatus | string | Payment status<br/>*Enum:* `"PENDING"`, `"PARTIAL"`, `"RECEIVED"`<br/>*Example:* `"PENDING"` | No |
+| paymentTerm | string | Payment term | No |
+| payableAccountCode | string | Account code of contact's account payable<br/>*Example:* `"AC-001"` | No |
+| poNumber | string | Purchase order number | No |
+| primaryExchangeRate | number | Primary exchange rate | No |
+| purchaseInvoiceAccounts | [ [PurchaseInvoiceAccountDetails](#purchaseinvoiceaccountdetails) ] | Purchase invoice account (expense/asset) line details | No |
+| purchaseInvoiceAssets | [ [PurchaseInvoiceAssetGroupDetails](#purchaseinvoiceassetgroupdetails) ] | Purchase invoice asset group details | No |
+| purchaseInvoiceDate | string | Purchase Invoice date<br/>*Example:* `"25-10-2019"` | Yes |
+| purchaseInvoiceDueDate | string | Purchase Invoice due date<br/>*Example:* `"25-10-2019"` | Yes |
+| purchaseInvoiceProducts | [ [PurchaseInvoiceProductDetails](#purchaseinvoiceproductdetails) ] | Purchase invoice item details | No |
+| purchaseInvoiceRecurring | [PurchaseInvoiceRecurringDetails](#purchaseinvoicerecurringdetails) | Purchase invoice recurring details | No |
+| purchaseInvoiceType | string | Purchase invoice type<br/>*Enum:* `"INVENTORY"`, `"EXPENSE"`, `"ASSET"`<br/>*Example:* `"INVENTORY"` | No |
+| purchaseOrderRefNo | string | Contact PO reference number<br/>*Example:* `"CPO001"` | No |
+| receiptDate | string | Receipt date | No |
+| receiptStatus | string | Receipt status<br/>*Enum:* `"UNRECEIVED"`, `"PARTIAL_RECEIVED"`, `"FULLY_RECEIVED"`, `"NOT_APPLICABLE"`, `"IN_PROGRESS"`, `"PENDING_FOR_APPROVAL"`<br/>*Example:* `"UNRECEIVED"` | No |
+| receiveByDate | string | Receive by date | No |
+| receivedComplete | boolean | True if the purchase invoice has been fully received | No |
+| recurring | boolean | True if Invoice is recurring.<br/>*Example:* `true` | No |
+| recurringActivated | boolean | True if Invoice recurrence is active.<br/>*Example:* `false` | No |
+| requestedBy | long | Identifier of the user who requested the invoice | No |
+| roundOffAmountInBaseCurrency | number | Round Off Amount In Base Currency<br/>*Example:* `12.322` | No |
+| roundOffAmountInDocumentCurrency | number | Round Off Amount In Document Currency<br/>*Example:* `12.322` | No |
+| seqCodeAlreadyDumped | boolean | True if Sequence Code is already dumped.<br/>*Example:* `false` | No |
+| sequenceFormat | string | Sequence Format Id<br/>*Example:* `1` | No |
+| sgEInvoiceIRASStatus | string | Singapore IRAS e-invoice status | No |
+| sgEInvoiceStatus | string | Singapore e-invoice status | No |
+| shipFrom | [Address](#address) | Ship from address | No |
+| shipTo | [Address](#address) | Ship to address | No |
+| status | string | Invoice status<br/>*Enum:* `"OPEN"`, `"DRAFT"`, `"CLOSED"`<br/>*Example:* `"OPEN"` | No |
+| supplierInvoiceNo | string | Supplier invoice number | No |
+| taxAmount | number | Tax amount<br/>*Example:* `2.322` | No |
+| tcsAmount | number | TCS amount<br/>*Example:* `2.322` | No |
+| tcsPercentage | number | TCS percentage<br/>*Example:* `2` | No |
+| tcsRateId | long | TCS Rate Id<br/>*Example:* `1` | No |
+| totalAmount | number | Total amount<br/>*Example:* `12.322` | No |
+| totalAmountInBaseCurrency | number | Total amount in base currency<br/>*Example:* `12.322` | No |
+| totalTdsAmount | number | Total TDS amount | No |
+| unitPriceGstInclusive | boolean | Unit price is GST inclusive<br/>*Example:* `false` | No |
+| warehouseCode | string | Warehouse Code<br/>*Example:* `"WH-000001"` | No |
+
+### PurchaseInvoiceResponse
+
+`PurchaseInvoiceResponse` includes all attributes of [PurchaseInvoiceRequest](#purchaseinvoicerequest), plus the following response-only attributes.
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| attachmentsWithLink | [ [AttachmentsResponse](#attachmentsresponse) ] | Attachment details including download links | No |
+| bankTransactionFileCode | string | Bank transaction file code associated with the invoice | No |
+| contactDto | [ContactDto](#contactdto) | Full contact details of the invoice's contact | No |
+| emailStatus | string | Status of the last email sent for the invoice | No |
+| id | long | Purchase invoice id | No |
+| isManuallyClosed | boolean | True if the invoice was manually closed | No |
+| knockoffInfo | [ object ] | Knock-off information linked to the invoice | No |
+| purchaseInvoiceCode | string | Purchase invoice code<br/>*Example:* `"PI-0000001"` | No |
+| shortClosedStatus | string | Short-closed status<br/>*Enum:* `"NONE"`, `"PARTIALLY_SHORT_CLOSED"`, `"FULLY_SHORT_CLOSED"`<br/>*Example:* `"NONE"` | No |
+| updatedBy | long | Identifier of the user who last updated the invoice | No |
+
+### PurchaseInvoiceInformation
+
+Response returned by [Retrieve Bill details by code](#retrieve-bill-details-by-code).
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| additionalCharges | [AdditionalCharges](#additionalcharges) | Purchase invoice additional charges details | No |
+| applyRcmCheck | boolean | True if the RCM (Reverse Charge Mechanism) check should be applied | No |
+| approvalStatus | string | Approval status<br/>*Enum:* `"APPROVED"`, `"PENDING_FOR_APPROVAL"`, `"EDITING"`, `"REJECTED"`, `"NOT_REQUIRED"`, `"PULLED_BACK"`<br/>*Example:* `"APPROVED"` | No |
+| attachments | [ string ] | File attachments | No |
+| backOrder | boolean | Backorder flag to indicate if purchase invoice is backorder | No |
+| billTo | [Address](#address) | Bill to address | No |
+| buyerReference | string | Buyer reference | No |
+| closedDate | string | Date on which the invoice was closed | No |
+| cogsAmount | number | Cost of goods sold amount | No |
+| contact | object | Contact details | No |
+| contactCode | string | Contact Code | No |
+| contactDto | object | Full contact details of the invoice's contact | No |
+| createdBy | long | Identifier of the user who created the invoice | No |
+| createdDate | string | Date on which the invoice was created | No |
+| currency | string | Currency | No |
+| customerType | string | India Compliance filed<br/>*Enum:* `"EXPORT_WO_PAY"`, `"EXPORT_W_PAY"`, `"NA"`, `"SEZ_WO_PAY"`, `"SEZ_W_PAY"` | No |
+| customField | [ object ] | List of custom fields | No |
+| documentSequenceCode | string | Purchase Invoice Code | No |
+| draft | boolean | True if the invoice is saved as draft | No |
+| dueAmount | number | Amount Due | No |
+| emailStatus | string | Status of the last email sent for the invoice | No |
+| exchangeRate | number | Exchange rate | No |
+| gstExchangeRate | number | GST Exchange rate if tax residency currency is different than base currency | No |
+| gstin | string | GST identification number | No |
+| id | long | Purchase invoice id | No |
+| isCreditable | boolean | True if the invoice is creditable | No |
+| isPartialInvoice | boolean | True if is partial invoice | No |
+| journalEntryCode | string | Journal Entry Code | No |
+| knockoffInfo | [ object ] | Knock-off information linked to the invoice | No |
+| landedCost | boolean | True if landed cost applies to the invoice | No |
+| linkedDocuments | [ [DocumentInfo](#documentinfo) ] | Linked Documents | No |
+| manuallyClosed | boolean | True if the invoice was manually closed | No |
+| memo | string | Memo | No |
+| openingDocumentNumber | string | Vendor opening document number | No |
+| openingInvoice | boolean | True if opening invoice | No |
+| paymentDate | string | Date on which the invoice was paid | No |
+| paymentMilestoneDetails | [ object ] | Payment milestone details for the invoice | No |
+| paymentStatus | string | Payment status<br/>*Enum:* `"PENDING"`, `"PARTIAL"`, `"RECEIVED"` | No |
+| payableAccountCode | string | Account code of contact's account payable | No |
+| placeOfSupply | string | Place of supply | No |
+| poNumber | string | Purchase order number | No |
+| primaryExchangeRate | number | Primary exchange rate | No |
+| purchaseInvoiceAccounts | [ [PurchaseInvoiceAccountDetails](#purchaseinvoiceaccountdetails) ] | Purchase invoice account (expense/asset) line details | No |
+| purchaseInvoiceAssets | [ [PurchaseInvoiceAssetGroupDetails](#purchaseinvoiceassetgroupdetails) ] | Purchase invoice asset group details | No |
+| purchaseInvoiceCode | string | Purchase invoice code | No |
+| purchaseInvoiceDate | string | Purchase Invoice date | No |
+| purchaseInvoiceDueDate | string | Purchase Invoice due date | No |
+| purchaseInvoiceProducts | [ object ] | Purchase invoice item details | No |
+| purchaseInvoiceRecurring | [PurchaseInvoiceRecurringDetails](#purchaseinvoicerecurringdetails) | Purchase invoice recurring details | No |
+| purchaseInvoiceType | string | Purchase invoice type<br/>*Enum:* `"INVENTORY"`, `"EXPENSE"`, `"ASSET"` | No |
+| purchaseOrderRefNo | string | Contact PO reference number | No |
+| printStatus | string | Print status of the invoice | No |
+| rcmApplicable | boolean | True if RCM (Reverse Charge Mechanism) is applicable | No |
+| rcmApplicableSA | boolean | True if RCM is applicable (Saudi Arabia) | No |
+| receiptDate | string | Receipt date | No |
+| receiptOn | string | Date on which the goods/services were received | No |
+| receiptStatus | string | Receipt status<br/>*Enum:* `"UNRECEIVED"`, `"PARTIAL_RECEIVED"`, `"FULLY_RECEIVED"`, `"NOT_APPLICABLE"`, `"IN_PROGRESS"`, `"PENDING_FOR_APPROVAL"` | No |
+| receiveByDate | string | Receive by date | No |
+| recurring | boolean | True if Invoice is recurring | No |
+| recurringActivated | boolean | True if Invoice recurrence is active | No |
+| revertPrintStatusBy | long | Identifier of the user who reverted the print status | No |
+| revertPrintStatusOn | string | Date on which the print status was reverted | No |
+| sequenceFormat | string | Sequence Format Id | No |
+| shipFrom | [Address](#address) | Ship from address | No |
+| shipTo | [Address](#address) | Ship to address | No |
+| shortClosedStatus | string | Short-closed status<br/>*Enum:* `"NONE"`, `"PARTIALLY_SHORT_CLOSED"`, `"FULLY_SHORT_CLOSED"` | No |
+| status | string | Invoice status<br/>*Enum:* `"OPEN"`, `"DRAFT"`, `"CLOSED"` | No |
+| supplierInvoiceNo | string | Supplier invoice number | No |
+| taxAmount | number | Tax amount | No |
+| taxInvoiceNo | string | Tax invoice number | No |
+| totalAmount | number | Total amount | No |
+| totalTdsAmount | number | Total TDS amount | No |
+| tdsProcessedFlag | boolean | True if TDS has been processed | No |
+| unitPriceGstInclusive | boolean | Unit price is GST inclusive | No |
+| vatPaidAtCustomSA | boolean | True if VAT was paid at customs (Saudi Arabia) | No |
+| vendorType | string | India Compliance filed<br/>*Enum:* `"IMPORT"`, `"NA"`, `"SEZ_W_PAY"`, `"SEZ_WO_PAY"` | No |
+| whtRate | number | Withholding tax rate | No |
+
+### ContraBillDto
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Unique identifier of the contra bill. | No |
+| code | string | Contra bill code. | No |
+| jeCode | string | Journal Entry Code associated with the contra bill. | No |
+| contactCode | string | Contact code. | No |
+| billCode | string | Bill (purchase invoice) code being contra-adjusted. | No |
+| documentDate | string | Document date of the contra bill. | No |
+| amount | number | Contra amount. | No |
+| amountInBaseCurrency | number | Contra amount in base currency. | No |
+| exchangeRate | number | Exchange rate. | No |
+| currency | string | Currency code. | No |
+| contraBillItems | [ object ] | List of contra bill line items. | No |
+
+### PurchaseInvoiceAccountDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountCode | string | Account code for the expense/asset line. | No |
+| accountName | string | Account name for the expense/asset line. | No |
+| amount | number | Amount posted to the account. | No |
+| description | string | Description of the account line. | No |
+| taxCode | string | Tax code applied to the line. | No |
+| taxAmount | number | Tax amount for the line. | No |
+| customField | [ object ] | List of custom fields | No |
+
+### PurchaseInvoiceRecurringDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Unique identifier for the recurring schedule. | No |
+| recurrenceType | int | Every x Days/Weeks/Months. | No |
+| recurrenceFrequency | string | Recurrence frequency.<br/>*Enum:* `"DAYS"`, `"WEEK"`, `"MONTH"` | No |
+| invoiceRecurringCount | int | Number of invoices to be created. | No |
+| recurrenceEndDate | string | Recurrence end date. | No |
+
+### PurchaseInvoiceAssetGroupDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| assetGroupCode | string | Asset group code. | No |
+| assetGroupName | string | Asset group name. | No |
+| quantity | number | Quantity of assets in the group. | No |
+| amount | number | Amount allocated to the asset group. | No |
+
+### PurchaseInvoiceProductDetails
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | long | Unique identifier for the item. | No |
+| productCode | string | Product code<br/>*Example:* `"P00001"` | Yes |
+| productDescription | string | Product description | No |
+| productQuantity | number | Product quantity | Yes |
+| uomQuantity | number | UOM quantity | No |
+| uomUnitPrice | number | UOM unit price | No |
+| documentUom | long | Document UOM id | No |
+| documentUOMSchemaDefinition | object | Document UOM schema definition | No |
+| unitPrice | number | Product unit price | Yes |
+| discount | number | Discount | No |
+| discountInPercent | boolean | Discount in percentage | No |
+| preTaxGlobalDiscount | number | Pre-tax global discount applied to the item | No |
+| taxCode | string | Tax code<br/>*Example:* `"GST7"` | No |
+| taxAmount | number | Tax amount | No |
+| tdsAccount | string | TDS account code | No |
+| tdsId | long | TDS identifier | No |
+| tdsRate | number | TDS rate | No |
+| tdsAmount | number | TDS amount | No |
+| totalAmount | number | Total amount | Yes |
+| productOrder | integer | Product view order | No |
+| purchaseInvoiceItemCode | string | Purchase invoice item code | No |
+| purchaseOrderItemCode | string | Linked purchase order item code | No |
+| product | object | Product details | No |
+| tax | object | Tax details | No |
+| customField | [ object ] | List of custom fields | No |
+| advancedTrackingType | string | Advanced tracking type<br/>*Enum:* `"NONE"`, `"BATCH"`, `"SERIAL"` | No |
+| taxDetails | [ object ] | Tax mapping details for the item | No |
+| isPartialInvoice | boolean | Whether the item is a partial invoice item | No |
+| linkedOrderItem | long | Identifier of the linked purchase order item | No |
+| lineNumber | integer | Line number | No |
+| receivedQuantityInOrder | number | Quantity received against the order | No |
+| receivedQuantityInBills | number | Quantity received against bills | No |
+| landedCostDetails | object | Landed cost details | No |
+| additionalCharges | [AdditionalCharges](#additionalcharges) | Additional charges applied to the item | No |
+| additionalChargeAmount | number | Additional charge amount | No |
+| additionalChargeAmountCalculated | number | Calculated additional charge amount | No |
+| additionalChargeTaxamount | number | Additional charge tax amount | No |
+| additionalChargeTaxamountCalculated | number | Calculated additional charge tax amount | No |
+| amortizationDocumentItemDetails | object | Amortization details for the item | No |
+| itemDiscountMethod | string | Discount method applied to the item | No |
+| expectedDeliveryDt | string | Expected delivery date | No |
+| lineRefNo | string | Line reference number | No |
+| userSetTaxes | boolean | True if taxes were manually set by the user | No |
+| supplierPartNumber | string | Supplier part number | No |
+| supplierPartName | string | Supplier part name | No |
+| supplierPartDescription | string | Supplier part description | No |
+| isShortClosed | boolean | True if the item is short closed | No |
+| shortClosedQuantity | number | Quantity that was short closed | No |
+| shortClosedNotes | string | Notes recorded when the item was short closed | No |
+| isLocalizedUomQty | boolean | True if the UOM quantity is localized | No |
+| localizedBaseQtyDiff | number | Difference in base quantity due to localization | No |
+| unlocalizedDocumentUOMSchemaDefinition | object | Document UOM schema definition before localization | No |
+| invoiceLineNumber | string | Invoice line number | No |
+| additionalLineItemCost | number | Additional line item cost | No |
+| discountLineItemCost | number | Discount line item cost | No |
+| landedCostWeight | number | Landed cost weight of the item | No |
